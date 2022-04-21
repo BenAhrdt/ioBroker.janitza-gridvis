@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "janitza-gridvis",
-		"version": "0.1.9",
+		"version": "0.1.10",
 		"news": {
 			"0.0.1": {
 				"en": "initial release",

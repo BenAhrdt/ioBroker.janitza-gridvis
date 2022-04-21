@@ -70,8 +70,8 @@ class JanitzaGridvis extends utils.Adapter {
 		};
 
 		this.axiosConfig = {
-			connectionCheck: {timeout:1000},
-			productive : {timeout:2000}
+			connectionCheck: {timeout:10000},
+			productive : {timeout:20000}
 		};
 	}
 
@@ -373,7 +373,7 @@ class JanitzaGridvis extends utils.Adapter {
 	async checkConnectionToRestApi(adress,port,projectname){
 		try{
 			const result = await axios.default.get(`http://${adress}:${port}/rest/1/projects/${projectname}.json?`,this.axiosConfig.connectionCheck);
-			if(result){
+			if(result){this.log.info(JSON.stringify(result.data));
 				if(result.data.status && result.data.status == this.communicationStrings.ready){
 					const version = await axios.default.get(`http://${adress}:${port}/rest/common/info/version/full.json?`,this.axiosConfig.connectionCheck);
 					if(version){
