@@ -368,6 +368,9 @@ class JanitzaGridvis extends utils.Adapter {
 					if(version){
 						return {numberOfDevices:result.data.numberOfDevices,version:version.data.value};
 					}
+					else{
+						return false;
+					}
 				}
 				else{
 					return false;
