@@ -304,27 +304,30 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 		}
 
-		// send request to gridvis and write a valid data into the internal state
-		this.log.debug(`${myUrl} was send to gridVis`);
-		axios.default.get(myUrl,this.axiosConfig)
-			.then((result)=>{
-				if(result.status == 200){
-					for(const device in this.devices){
-						if(this.devices[device].onlineValues){
-							for(const value in this.devices[device].onlineValues){
-								for(const type in this.devices[device].onlineValues[value].type){
-									if(result.data.value[`${device}.${value}.${type}`] && result.data.value[`${device}.${value}.${type}`] != "NaN"){
-										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
+		//check for Url
+		if(myUrl != ""){
+			// send request to gridvis and write a valid data into the internal state
+			this.log.debug(`${myUrl} was send to gridVis`);
+			axios.default.get(myUrl,this.axiosConfig)
+				.then((result)=>{
+					if(result.status == 200){
+						for(const device in this.devices){
+							if(this.devices[device].onlineValues){
+								for(const value in this.devices[device].onlineValues){
+									for(const type in this.devices[device].onlineValues[value].type){
+										if(result.data.value[`${device}.${value}.${type}`] && result.data.value[`${device}.${value}.${type}`] != "NaN"){
+											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
+										}
 									}
 								}
 							}
 						}
 					}
-				}
-			})
-			.catch((error) =>{
-				this.log.warn(error);
-			});
+				})
+				.catch((error) =>{
+					this.log.warn(error);
+				});
+		}
 	}
 
 	// red out all configed historic values
