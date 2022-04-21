@@ -70,7 +70,8 @@ class JanitzaGridvis extends utils.Adapter {
 		};
 
 		this.axiosConfig = {
-			timeout:1000
+			connectionCheck: {timeout:1000},
+			productive : {timeout:2000}
 		};
 	}
 
@@ -315,7 +316,7 @@ class JanitzaGridvis extends utils.Adapter {
 		if(myUrl != ""){
 			// send request to gridvis and write a valid data into the internal state
 			this.log.debug(`${myUrl} was send to gridVis`);
-			axios.default.get(myUrl,this.axiosConfig)
+			axios.default.get(myUrl,this.axiosConfig.productive)
 				.then((result)=>{
 					if(result.status == 200){
 						for(const device in this.devices){
@@ -350,7 +351,7 @@ class JanitzaGridvis extends utils.Adapter {
 							myUrl += `${value}/`;
 							myUrl += `${type}/.json?start=NAMED_${this.timeStrings[timeBase]}&end=NAMED_${this.timeStrings[timeBase]}`;
 							this.log.debug(`${myUrl} was send to gridVis`);
-							axios.default.get(myUrl,this.axiosConfig)
+							axios.default.get(myUrl,this.axiosConfig.productive)
 								.then((result) =>{					// if there is a valid result of energy
 									if(result.status == 200){		// write data into internal state
 										if(result.data.energy && result.data.energy != "NaN"){
@@ -371,10 +372,10 @@ class JanitzaGridvis extends utils.Adapter {
 	// Check the connection to GridVis
 	async checkConnectionToRestApi(adress,port,projectname){
 		try{
-			const result = await axios.default.get(`http://${adress}:${port}/rest/1/projects/${projectname}.json?`,this.axiosConfig);
+			const result = await axios.default.get(`http://${adress}:${port}/rest/1/projects/${projectname}.json?`,this.axiosConfig.connectionCheck);
 			if(result){
 				if(result.data.status && result.data.status == this.communicationStrings.ready){
-					const version = await axios.default.get(`http://${adress}:${port}/rest/common/info/version/full.json?`,this.axiosConfig);
+					const version = await axios.default.get(`http://${adress}:${port}/rest/common/info/version/full.json?`,this.axiosConfig.connectionCheck);
 					if(version){
 						return {numberOfDevices:result.data.numberOfDevices,version:version.data.value};
 					}
@@ -492,7 +493,7 @@ class JanitzaGridvis extends utils.Adapter {
 			case "getHistoricDevices":
 				if(this.configConnection.port){
 					try{
-						result = await axios.default.get(`http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices.json?`,this.axiosConfig);
+						result = await axios.default.get(`http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices.json?`,this.axiosConfig.productive);
 						if(result){
 							for(const element in result.data.device){
 								const label = result.data.device[element].name + "  - Geräte-ID: " + result.data.device[element].id;
@@ -518,7 +519,7 @@ class JanitzaGridvis extends utils.Adapter {
 				if(obj.message && obj.message.id && this.configConnection.port)
 				{
 					try{
-						result = await axios.default.get(`http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/online/values.json?`,this.axiosConfig);
+						result = await axios.default.get(`http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/online/values.json?`,this.axiosConfig.productive);
 						if(result){
 							const myValues = [];
 							myCount = 0;
@@ -558,7 +559,7 @@ class JanitzaGridvis extends utils.Adapter {
 				if(obj.message && obj.message.id && this.configConnection.port)
 				{
 					try{
-						result = await axios.default.get(`http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/hist/values.json?`,this.axiosConfig);
+						result = await axios.default.get(`http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/hist/values.json?`,this.axiosConfig.productive);
 						if(result){
 							const myValues = [];
 							myCount = 0;
