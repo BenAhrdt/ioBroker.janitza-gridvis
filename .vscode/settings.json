@@ -6,6 +6,13 @@
 				"io-package.json"
 			],
 			"url": "https://json.schemastore.org/io-package"
-		}
+		},
+		{
+            "fileMatch": [
+                "jsonConfig.json",
+                "jsonCustom.json"
+            ],
+            "url": "https://raw.githubusercontent.com/ioBroker/adapter-react/master/schemas/jsonConfig.json"
+        }
 	]
 }

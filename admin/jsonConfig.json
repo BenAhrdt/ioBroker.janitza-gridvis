@@ -1,0 +1,211 @@
+{
+    "type":"tabs",
+    "i18n": true,
+    "items":{
+        "mainTab":{
+            "type": "panel",
+            "label": "Grundeinstellungen",
+            "items": {
+                "connectionHeader": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "Verbindungsinformationen",
+                    "sm": 6
+                },
+                "conectionInformation":{
+                    "newLine":true,
+                    "type": "staticText",
+                    "label": "Die Konfiguration funktioniert nur bei aktiviertem Adapter",
+                    "hidden":"_alive === true"
+                },
+                "connectionState":{
+                    "newLine":true,
+                    "type": "textSendTo",
+                    "jsonData": "{\"adress\":\"${data.adress}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
+                    "command": "getConnectionState",
+                    "alsoDependsOn":[
+                        "adress",
+                        "port",
+                        "projectname"
+                    ]
+                },
+                "communicationHeader": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "Einstellungen zur Kommunikation",
+                    "sm": 6
+                },
+                "adress": {
+                    "newLine":true,
+                    "type": "text",
+                    "label": "IP-Adresse / Servername",
+                    "default":"192.168.2.50",
+                    "sm":3
+                },
+                "port": {
+                    "type": "number",
+                    "label": "Port",
+                    "default": 8080,
+                    "sm":3
+                },
+                "projectHeader": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "Einstellungen zum Projekt",
+                    "sm": 6
+                },
+                "projectname":{
+                    "newLine": true,
+                    "type": "text",
+                    "label": "Projektname",
+                    "defaut":"EnergieMonitoring",
+                    "sm": 6
+                }
+            }
+        },
+        "onlinevalueTab":{
+            "type": "panel",
+            "label": "Onlinewerte",
+            "items": {
+                "connectionHeaderOnlineTab": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "Verbindungsinformationen",
+                    "sm": 6
+                },
+                "conectionInformationOnlineTab":{
+                    "newLine":true,
+                    "type": "staticText",
+                    "label": "Die Konfiguration funktioniert nur bei aktiviertem Adapter",
+                    "hidden":"_alive === true"
+                },
+                "connectionStateOnlineTab":{
+                    "newLine":true,
+                    "type": "textSendTo",
+                    "jsonData": "{\"adress\":\"${data.adress}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
+                    "command": "getConnectionStateOnlineTab",
+                    "alsoDependsOn":[
+                        "adress",
+                        "port",
+                        "projectname"
+                    ]
+                },
+                "onlinevalueConfigurationHeader": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "Konfiguration der zu lesenden Onlinewerte",
+                    "sm": 12
+                },
+                "refreshOnlineCronJob": {
+                    "newLine": true,
+                    "simple": true,
+                    "type": "cron",
+                    "label": "Lesezyklus",
+                    "tooltip": "Tragen Sie hier den entsprechenden cronJob ein, mit welchem die Onlinewerte aktualisiert werden sollen.",
+                    "sm":2,
+                    "default": "*/2 * * * * *"
+                  },
+                "onlineDeviceTable":{
+                    "newLine": true,
+                    "type":"table",
+                    "hidden":"data.connectionState == 'Die Kommunikation zum konfigurierten Projekt wurde erfolgreich aufgebaut.'",
+                    "sm":12,
+                    "items":[
+                        {
+                            "type": "selectSendTo",
+                            "attr": "onlineDevices",
+                            "title": "Gerät",
+                            "filter": true,
+                            "sort": false,
+                            "command": "getOnlineDevices"
+                        },
+                        {
+                            "type": "selectSendTo",
+                            "attr": "onlineValues",
+                            "title": "online value",
+                            "filter": true,
+                            "sort": false,
+                            "jsonData": "${data.onlineDevices}",
+                            "command": "getOnlineValues",
+                            "alsoDependsOn":[
+                                "onlineDevices"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "historicvalueTab":{
+            "type": "panel",
+            "label": "Historische Werte",
+            "items": {
+                "connectionHeaderHistoricTab": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "Verbindungsinformationen",
+                    "sm": 6
+                },
+                "conectionInformationHirstoricTab":{
+                    "newLine":true,
+                    "type": "staticText",
+                    "label": "Die Konfiguration funktioniert nur bei aktiviertem Adapter",
+                    "hidden":"_alive === true"
+                },
+                "connectionStateHistoricTab":{
+                    "newLine":true,
+                    "type": "textSendTo",
+                    "jsonData": "{\"adress\":\"${data.adress}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
+                    "command": "getConnectionStateOnlineTab",
+                    "alsoDependsOn":[
+                        "adress",
+                        "port",
+                        "projectname"
+                    ]
+                },
+                "historicvalueConfigurationHeader": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "Konfiguration der zu lesenden historischen Werte",
+                    "sm": 12
+                },
+                "refreshHistoricCronJob": {
+                    "newLine": true,
+                    "simple": true,
+                    "type": "cron",
+                    "label": "Lesezyklus",
+                    "tooltip": "Tragen Sie hier den entsprechenden cronJob ein, mit welchem die historischen Werte aktualisiert werden sollen.",
+                    "sm":2,
+                    "default": "*/15 * * * *"
+                  },
+                "historicDeviceTable":{
+                    "newLine": true,
+                    "type":"table",
+                    "hidden":"data.connectionState == 'Die Kommunikation zum konfigurierten Projekt wurde erfolgreich aufgebaut.'",
+                    "sm":12,
+                    "items":[
+                        {
+                            "type": "selectSendTo",
+                            "attr": "historicDevices",
+                            "title": "Gerät",
+                            "filter": false,
+                            "sort": false,
+                            "command": "getHistoricDevices"
+                        },
+                        {
+                            "type": "selectSendTo",
+                            "attr": "historicValues",
+                            "title": "historic value",
+                            "filter": false,
+                            "sort": false,
+                            "jsonData": "${data.historicDevices}",
+                            "command": "getHistoricValues",
+                            "alsoDependsOn":[
+                                "historicDevices"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+ }

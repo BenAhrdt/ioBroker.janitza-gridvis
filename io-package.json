@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "janitza-gridvis",
-		"version": "0.0.1",
+		"version": "0.0.5",
 		"news": {
 			"0.0.1": {
 				"en": "initial release",
@@ -66,6 +66,10 @@
 		"connectionType": "local",
 		"dataSource": "poll",
 		"materialize": true,
+		"adminUI":{
+			"config":"json"
+		},
+		"messagebox": true,
 		"dependencies": [
 			{
 				"js-controller": ">=2.0.0"
@@ -73,8 +77,13 @@
 		]
 	},
 	"native": {
-		"option1": true,
-		"option2": "42"
+		"adress": "192.168.2.50",
+		"port": "8080",
+		"projectname": "EnergieMonitoring",
+		"refreshOnlineCronJob": "*/2 * * * * *",
+		"onlineDeviceTable":[],
+		"refreshHistoricCronJob": "*/15 * * * *",
+		"historicDeviceTable":[]
 	},
 	"objects": [],
 	"instanceObjects": [

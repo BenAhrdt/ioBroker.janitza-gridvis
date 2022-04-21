@@ -1,6 +1,6 @@
 {
   "name": "iobroker.janitza-gridvis",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Read out data from Energymanagementsystem Janitza® GridVis®",
   "author": {
     "name": "BenAhrdt",
@@ -21,7 +21,8 @@
     "url": "https://github.com/BenAhrdt/ioBroker.janitza-gridvis"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.6.0"
+    "@iobroker/adapter-core": "^2.6.0",
+    "node-schedule": "^2.1.0"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^2.2.2",
