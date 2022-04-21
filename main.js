@@ -394,6 +394,7 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 		}
 		catch (e){
+			this.log.debug(e);
 			return false;
 		}
 	}
