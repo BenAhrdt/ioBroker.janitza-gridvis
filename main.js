@@ -45,7 +45,7 @@ class JanitzaGridvis extends utils.Adapter {
 		this.communicationStrings = {
 			ready: "Ready",
 			noCommunication : "Das konfigurierte Projekt antwortet nicht. Bitte prüfen Sie die Grundeinstellungen.",
-			communicationOk : "Die Kommunikation zum konfigurierten Projekt wurde erfolgreich aufgebaut.",
+			communicationOk : "Datenaustausch mit REST API erfolgreich.",
 			noCommunicationSelect: "Keine Verbindung",
 			noCommunicationSelectString: "Keine aktive Verbindung zu GridVis"
 		};
@@ -84,7 +84,11 @@ class JanitzaGridvis extends utils.Adapter {
 		// Check the configed connection settings
 		// in case there is no connection to GridVis possible
 		// the adapter will not work
-		if(!await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname)){
+		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
+		if(projectInfo){
+			this.log.info(`GridVis-Version: ${projectInfo.version} - number of Devices: ${projectInfo.numberOfDevices}`);
+		}
+		else{
 			this.log.warn("No active communication to GridVis");
 			return;
 		}
@@ -360,7 +364,10 @@ class JanitzaGridvis extends utils.Adapter {
 			const result = await axios.default.get(`http://${adress}:${port}/rest/1/projects/${projectname}.json?`,this.axiosConfig);
 			if(result){
 				if(result.data.status && result.data.status == this.communicationStrings.ready){
-					return true;
+					const version = await axios.default.get(`http://${adress}:${port}/rest/common/info/version/full.json?`,this.axiosConfig);
+					if(version){
+						return {numberOfDevices:result.data.numberOfDevices,version:version.data.value};
+					}
 				}
 				else{
 					return false;
@@ -437,6 +444,7 @@ class JanitzaGridvis extends utils.Adapter {
 		let result;
 		const devices = [];
 		let myCount = 0;
+
 		switch(obj.command){
 
 			// check the connection state in case of adresse, port and projectname
@@ -444,13 +452,20 @@ class JanitzaGridvis extends utils.Adapter {
 			case "getConnectionState":
 			case "getConnectionStateOnlineTab":
 			case "getConnectionStateHistoricTab":
-				if(await this.checkConnectionToRestApi(obj.message.adress,obj.message.port,obj.message.projectname)){
-					this.configConnection.adress = obj.message.adress;
-					this.configConnection.port = obj.message.port;
-					this.configConnection.projectname = obj.message.projectname;
-					this.sendTo(obj.from, obj.command, this.communicationStrings.communicationOk, obj.callback);
+				try{
+					const projectInfo = await this.checkConnectionToRestApi(obj.message.adress,obj.message.port,obj.message.projectname);
+					if(projectInfo){
+						this.configConnection.adress = obj.message.adress;
+						this.configConnection.port = obj.message.port;
+						this.configConnection.projectname = obj.message.projectname;
+						this.sendTo(obj.from, obj.command, `${this.communicationStrings.communicationOk} ${projectInfo.version} - Anzahl Geräte: ${projectInfo.numberOfDevices}`, obj.callback);
+					}
+					else{
+						this.configConnection = {};
+						this.sendTo(obj.from, obj.command, this.communicationStrings.noCommunication, obj.callback);
+					}
 				}
-				else{
+				catch(e){
 					this.configConnection = {};
 					this.sendTo(obj.from, obj.command, this.communicationStrings.noCommunication, obj.callback);
 				}
