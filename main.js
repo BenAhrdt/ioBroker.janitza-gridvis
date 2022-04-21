@@ -29,6 +29,8 @@ class JanitzaGridvis extends utils.Adapter {
 		this.on("message", this.onMessage.bind(this));
 		this.on("unload", this.onUnload.bind(this));
 
+		this.AdapterObjectsAtStart = {};
+
 		this.configConnection = {};
 		this.devices = {};
 		this.cronJobs = {};
@@ -39,7 +41,7 @@ class JanitzaGridvis extends utils.Adapter {
 			historicDevices: "historicDevices",
 			historicValues: "historicValues",
 			devices: "devices",
-			readValues: "readValues"
+			readValuesTrigger: "readValuesTrigger"
 		};
 
 		this.communicationStrings = {
@@ -80,6 +82,10 @@ class JanitzaGridvis extends utils.Adapter {
 
 		// Reset the connection indicator during startup
 		this.setState("info.connection", false, true);
+
+		// Get all objects in the adapter (later)
+		//this.AdapterObjectsAtStart = await this.getAdapterObjectsAsync();
+		//this.log.info(JSON.stringify(this.AdapterObjectsAtStart));
 
 		// Check the configed connection settings
 		// in case there is no connection to GridVis possible
@@ -206,22 +212,6 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 		}
 
-		// Create read trigger for all devices
-		await this.setObjectAsync(`${this.internalIds.devices}.${this.internalIds.readValues}`,{
-			type: "state",
-			common: {
-				name: "Werte lesen",
-				type: "boolean",
-				role: "state",
-				read: true,
-				write: true,
-				def:false
-			},
-			native: {},
-		});
-		// Subscribe trigger state
-		this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.readValues}`);
-
 		// Create historic value structure
 		for(const device in this.devices){
 			if(this.devices[device].historicValues){
@@ -275,6 +265,23 @@ class JanitzaGridvis extends utils.Adapter {
 				}
 			}
 		}
+
+		// Create read trigger for all devices
+		await this.setObjectAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`,{
+			type: "state",
+			common: {
+				name: "Werte lesen (einmalig)",
+				type: "boolean",
+				role: "state",
+				read: true,
+				write: true,
+				def:false
+			},
+			native: {},
+		});
+		// Subscribe trigger state
+		this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`);
+
 	}
 
 	// create schedule Jobs for online and historic values
@@ -429,11 +436,13 @@ class JanitzaGridvis extends utils.Adapter {
 	 */
 	async onStateChange(id, state) {
 		if (state) {
-			if(id == `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValues}`){
-				if(state.val && !state.ack){
-					this.readOnlineValues();
-					this.readHistoricValues();
-					this.setStateAsync(id,true,true);
+			if(id == `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`){
+				if(!state.ack){
+					if(state.val){
+						this.readOnlineValues();
+						this.readHistoricValues();
+					}
+					this.setStateAsync(id,state.val,true);
 				}
 			}
 		}
