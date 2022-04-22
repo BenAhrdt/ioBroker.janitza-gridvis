@@ -383,10 +383,14 @@ class JanitzaGridvis extends utils.Adapter {
 		//check for Url
 		if(myUrl != ""){
 			// send request to gridvis and write a valid data into the internal state
-			this.log.debug(`${myUrl} was send to gridVis`);
+			if(this.config.debugLogging){
+				this.log.debug(`${myUrl} was send to gridVis`);
+			}
 			axios.default.get(myUrl,{timeout: this.config.timeout})
 				.then((result)=>{
-					this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+					if(this.config.debugLogging){
+						this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+					}
 					if(result.status == 200){
 						for(const device in this.devices){
 							if(this.devices[device].onlineValues){
@@ -419,10 +423,14 @@ class JanitzaGridvis extends utils.Adapter {
 							myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/hist/energy/`;
 							myUrl += `${value}/`;
 							myUrl += `${type}/.json?start=NAMED_${this.timeStrings[timeBase]}&end=NAMED_${this.timeStrings[timeBase]}`;
-							this.log.debug(`${myUrl} was send to gridVis`);
+							if(this.config.debugLogging){
+								this.log.debug(`${myUrl} was send to gridVis`);
+							}
 							axios.default.get(myUrl,{timeout: this.config.timeout})
 								.then((result) =>{					// if there is a valid result of energy
-									this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+									if(this.config.debugLogging){
+										this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+									}
 									if(result.status == 200){		// write data into internal state
 										if(result.data.energy && result.data.energy != "NaN"){
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
@@ -443,16 +451,24 @@ class JanitzaGridvis extends utils.Adapter {
 	async checkConnectionToRestApi(adress,port,projectname){
 		try{
 			let myUrl = `http://${adress}:${port}/rest/1/projects/${projectname}.json?`;
-			this.log.debug(`${myUrl} was send to gridVis to check connection`);
+			if(this.config.debugLogging){
+				this.log.debug(`${myUrl} was send to gridVis to check connection`);
+			}
 			const result = await axios.default.get(myUrl,{timeout: this.config.timeout});
 			if(result){
-				this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+				if(this.config.debugLogging){
+					this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+				}
 				if(result.data.status && result.data.status == this.communicationStrings.ready){
 					myUrl = `http://${adress}:${port}/rest/common/info/version/full.json?`;
-					this.log.debug(`${myUrl} was send to gridVis to check connection`);
+					if(this.config.debugLogging){
+						this.log.debug(`${myUrl} was send to gridVis to check connection`);
+					}
 					const version = await axios.default.get(myUrl,{timeout: this.config.timeout});
 					if(version){
-						this.log.debug(`result.data: ${JSON.stringify(version.data)}`);
+						if(this.config.debugLogging){
+							this.log.debug(`result.data: ${JSON.stringify(version.data)}`);
+						}
 						return {numberOfDevices:result.data.numberOfDevices,version:version.data.value};
 					}
 					else{
@@ -468,7 +484,9 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 		}
 		catch (error){
-			this.log.debug(error);
+			if(this.config.debugLogging){
+				this.log.debug(error);
+			}
 			return false;
 		}
 	}
@@ -571,10 +589,14 @@ class JanitzaGridvis extends utils.Adapter {
 				if(this.configConnection.port){
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices.json?`;
-						this.log.debug(`${myUrl} is send to get Devices`);
+						if(this.config.debugLogging){
+							this.log.debug(`${myUrl} is send to get Devices`);
+						}
 						result = await axios.default.get(myUrl,{timeout: this.config.timeout});
 						if(result){
-							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+							if(this.config.debugLogging){
+								this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+							}
 							for(const element in result.data.device){
 								const label = result.data.device[element].name + "  - Geräte-ID: " + result.data.device[element].id;
 								const value = `{"id":${result.data.device[element].id},"deviceName":"${result.data.device[element].name}"}`;
@@ -600,10 +622,14 @@ class JanitzaGridvis extends utils.Adapter {
 				{
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/online/values.json?`;
-						this.log.debug(`${myUrl} is send to get online values`);
+						if(this.config.debugLogging){
+							this.log.debug(`${myUrl} is send to get online values`);
+						}
 						result = await axios.default.get(myUrl,{timeout: this.config.timeout});
 						if(result){
-							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+							if(this.config.debugLogging){
+								this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+							}
 							const myValues = [];
 							myCount = 0;
 							for(const values in result.data.valuetype){
@@ -643,10 +669,14 @@ class JanitzaGridvis extends utils.Adapter {
 				{
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/hist/values.json?`;
-						this.log.debug(`${myUrl} is send to get historic values`);
+						if(this.config.debugLogging){
+							this.log.debug(`${myUrl} is send to get historic values`);
+						}
 						result = await axios.default.get(myUrl,{timeout: this.config.timeout});
 						if(result){
-							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+							if(this.config.debugLogging){
+								this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+							}
 							const myValues = [];
 							myCount = 0;
 							for(const values in result.data.value){
