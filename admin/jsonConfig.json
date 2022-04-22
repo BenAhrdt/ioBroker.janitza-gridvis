@@ -74,7 +74,7 @@
                     "type": "checkbox",
                     "label": "Debug Logging",
                     "default":false,
-                    "sm":1
+                    "sm":2
                 }
             }
         },
