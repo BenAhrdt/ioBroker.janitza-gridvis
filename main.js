@@ -79,10 +79,6 @@ class JanitzaGridvis extends utils.Adapter {
 		// Reset the connection indicator during startup
 		this.setState("info.connection", false, true);
 
-		// Get all objects in the adapter (later)
-		//this.AdapterObjectsAtStart = await this.getAdapterObjectsAsync();
-		//this.log.info(JSON.stringify(this.AdapterObjectsAtStart));
-
 		// Check the configed connection settings
 		// in case there is no connection to GridVis possible
 		// the adapter will not work
@@ -95,6 +91,8 @@ class JanitzaGridvis extends utils.Adapter {
 			return;
 		}
 		await this.createInternalStates();
+		await this.delNotConfiguredStates();
+
 		this.createScheduleJobs();
 		this.readOnlineValues();
 		this.readHistoricValues();
@@ -103,6 +101,7 @@ class JanitzaGridvis extends utils.Adapter {
 		this.setState("info.connection", true, true);
 	}
 
+	// creates internal states
 	async createInternalStates(){
 		// Parse ans asign online values
 		for(const index in this.config.onlineDeviceTable){
@@ -280,6 +279,69 @@ class JanitzaGridvis extends utils.Adapter {
 
 	}
 
+	// deletes not configured states
+	async delNotConfiguredStates()
+	{
+		// Get all objects in the adapter (later)
+		this.AdapterObjectsAtStart = await this.getAdapterObjectsAsync();
+		let activeString = "";
+		for(const device in this.devices){
+			activeString = `${this.namespace}.${this.internalIds.devices}.${device}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			if(this.devices[device].onlineValues){
+				for(const value in this.devices[device].onlineValues){
+					activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`;
+					delete this.AdapterObjectsAtStart[activeString];
+					for(const type in this.devices[device].onlineValues[value].type){
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`;
+						delete this.AdapterObjectsAtStart[activeString];
+					}
+				}
+				activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}`;
+				delete this.AdapterObjectsAtStart[activeString];
+			}
+			if(this.devices[device].historicValues){
+				for(const value in this.devices[device].historicValues){
+					activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`;
+					delete this.AdapterObjectsAtStart[activeString];
+					for(const type in this.devices[device].historicValues[value].type){
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.today}`;
+						delete this.AdapterObjectsAtStart[activeString];
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.yesterday}`;
+						delete this.AdapterObjectsAtStart[activeString];
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.thisWeek}`;
+						delete this.AdapterObjectsAtStart[activeString];
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.lastWeek}`;
+						delete this.AdapterObjectsAtStart[activeString];
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.thisMonth}`;
+						delete this.AdapterObjectsAtStart[activeString];
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.lastMonth}`;
+						delete this.AdapterObjectsAtStart[activeString];
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.thisQuater}`;
+						delete this.AdapterObjectsAtStart[activeString];
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.lastQuater}`;
+						delete this.AdapterObjectsAtStart[activeString];
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.thisYear}`;
+						delete this.AdapterObjectsAtStart[activeString];
+						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.lastYear}`;
+						delete this.AdapterObjectsAtStart[activeString];
+					}
+				}
+				activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`;
+				delete this.AdapterObjectsAtStart[activeString];
+			}
+			activeString = `${this.namespace}.info`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = `${this.namespace}.info.connection`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`;
+			delete this.AdapterObjectsAtStart[activeString];
+		}
+		for(const state in this.AdapterObjectsAtStart){
+			this.delObjectAsync(state);
+		}
+	}
+
 	// create schedule Jobs for online and historic values
 	createScheduleJobs(){
 		this.cronJobs[this.config.refreshOnlineCronJob] = schedule.scheduleJob(this.config.refreshOnlineCronJob,this.readOnlineValues.bind(this));
@@ -290,18 +352,25 @@ class JanitzaGridvis extends utils.Adapter {
 	readOnlineValues(){
 		// create url to read out onlinevalues
 		let myUrl = "";
+		let firstValueReached = false;
 		for(const device in this.devices){
 			if(this.devices[device].onlineValues){
 				if(myUrl == ""){
-					myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/onlinevalues/.json?value=${device};`;
-				}
-				else{
-					myUrl += `&value=${device};`;
+					myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/onlinevalues/.json?`;
 				}
 				for(const value in this.devices[device].onlineValues){
-					myUrl += `${value};`;
+					if(firstValueReached){
+						myUrl += `&`;
+					}
+					firstValueReached = true;
+					myUrl += `value=${device};${value};`;
+					let firstTypeReached = false;
 					for(const type in this.devices[device].onlineValues[value].type){
-						myUrl += `${type},`;
+						if(firstTypeReached){
+							myUrl += `,`;
+						}
+						firstTypeReached = true;
+						myUrl += `${type}`;
 					}
 				}
 			}
