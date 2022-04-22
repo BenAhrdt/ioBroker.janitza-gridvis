@@ -71,7 +71,7 @@
                 },
                 "debugLogging": {
                     "newLine":true,
-                    "type": "text",
+                    "type": "checkbox",
                     "label": "Debug Logging",
                     "default":false,
                     "sm":1
