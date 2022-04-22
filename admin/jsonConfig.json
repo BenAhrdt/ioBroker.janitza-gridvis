@@ -59,7 +59,15 @@
                     "type": "text",
                     "label": "Projektname",
                     "defaut":"EnergieMonitoring",
-                    "sm": 6
+                    "sm": 3
+                },
+                "timeout": {
+                    "type": "number",
+                    "label": "Timeout",
+                    "min": 500,
+                    "max": 5000,
+                    "default": 2000,
+                    "sm":3
                 }
             }
         },

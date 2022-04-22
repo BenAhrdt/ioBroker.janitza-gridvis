@@ -1,7 +1,7 @@
 {
 	"common": {
 		"name": "janitza-gridvis",
-		"version": "0.1.12",
+		"version": "0.1.13",
 		"news": {
 			"0.0.1": {
 				"en": "initial release",
@@ -78,8 +78,9 @@
 	},
 	"native": {
 		"adress": "192.168.2.50",
-		"port": "8080",
+		"port": 8080,
 		"projectname": "EnergieMonitoring",
+		"timeout":2000,
 		"refreshOnlineCronJob": "*/2 * * * * *",
 		"onlineDeviceTable":[],
 		"refreshHistoricCronJob": "*/15 * * * *",
