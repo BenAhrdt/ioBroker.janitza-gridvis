@@ -108,7 +108,7 @@ class JanitzaGridvis extends utils.Adapter {
 			if(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices] != this.communicationStrings.noCommunicationSelect){
 				const configedOnlineDevices = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices]);
 				const configedOnlineValues = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineValues]);
-				if(configedOnlineDevices.id){
+				if(configedOnlineDevices){
 					const deviceId = configedOnlineDevices.id;
 					if(!this.devices[deviceId]){
 						this.devices[deviceId] = {};
@@ -187,7 +187,7 @@ class JanitzaGridvis extends utils.Adapter {
 			if(this.config.historicDeviceTable[index][this.internalIds.historicDevices] != this.communicationStrings.noCommunicationSelect){
 				const configedHistoricDevices = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicDevices]);
 				const configedHistoricValues = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicValues]);
-				if(configedHistoricDevices.id){
+				if(configedHistoricDevices){
 					const deviceId = configedHistoricDevices.id;
 					if(!this.devices[deviceId]){
 						this.devices[deviceId] = {};
@@ -452,7 +452,7 @@ class JanitzaGridvis extends utils.Adapter {
 					this.log.debug(`${myUrl} was send to gridVis to check connection`);
 					const version = await axios.default.get(myUrl,{timeout: this.config.timeout});
 					if(version){
-						this.log.debug(`result.data: ${version.data}`);
+						this.log.debug(`result.data: ${JSON.stringify(version.data)}`);
 						return {numberOfDevices:result.data.numberOfDevices,version:version.data.value};
 					}
 					else{
