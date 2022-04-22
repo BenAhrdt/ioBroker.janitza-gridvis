@@ -333,7 +333,7 @@ class JanitzaGridvis extends utils.Adapter {
 					}
 				})
 				.catch((error) =>{
-					this.log.warn(error);
+					this.log.warn(`${error} after sending ${myUrl}`);
 				});
 		}
 	}
@@ -360,7 +360,7 @@ class JanitzaGridvis extends utils.Adapter {
 									}
 								})
 								.catch((error) =>{
-									this.log.warn(error);
+									this.log.warn(`${error} after sending ${myUrl}`);
 								});
 						}
 					}
@@ -393,8 +393,8 @@ class JanitzaGridvis extends utils.Adapter {
 				return false;
 			}
 		}
-		catch (e){
-			this.log.debug(e);
+		catch (error){
+			this.log.debug(error);
 			return false;
 		}
 	}
@@ -411,7 +411,7 @@ class JanitzaGridvis extends utils.Adapter {
 				schedule.cancelJob(this.cronJobs[cronJob]);
 			}
 			callback();
-		} catch (e) {
+		} catch (error) {
 			callback();
 		}
 	}
@@ -484,7 +484,7 @@ class JanitzaGridvis extends utils.Adapter {
 						this.sendTo(obj.from, obj.command, this.communicationStrings.noCommunication, obj.callback);
 					}
 				}
-				catch(e){
+				catch(error){
 					this.configConnection = {};
 					this.sendTo(obj.from, obj.command, this.communicationStrings.noCommunication, obj.callback);
 				}
@@ -507,7 +507,7 @@ class JanitzaGridvis extends utils.Adapter {
 							this.sendTo(obj.from, obj.command, devices, obj.callback);
 						}
 					}
-					catch(e){
+					catch(error){
 						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);
 					}
 				}
@@ -546,7 +546,7 @@ class JanitzaGridvis extends utils.Adapter {
 							this.sendTo(obj.from, obj.command, myValues, obj.callback);
 						}
 					}
-					catch(e){
+					catch(error){
 						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);
 					}
 				}
@@ -590,7 +590,7 @@ class JanitzaGridvis extends utils.Adapter {
 							this.sendTo(obj.from, obj.command, myValues, obj.callback);
 						}
 					}
-					catch(e){
+					catch(error){
 						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);
 					}
 				}
