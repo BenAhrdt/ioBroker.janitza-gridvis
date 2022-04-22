@@ -108,21 +108,23 @@ class JanitzaGridvis extends utils.Adapter {
 			if(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices] != this.communicationStrings.noCommunicationSelect){
 				const configedOnlineDevices = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices]);
 				const configedOnlineValues = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineValues]);
-				const deviceId = configedOnlineDevices.id;
-				if(!this.devices[deviceId]){
-					this.devices[deviceId] = {};
-					this.devices[deviceId].deviceName = configedOnlineDevices.deviceName;
-					this.devices[deviceId].onlineValues = {};
+				if(configedOnlineDevices.id){
+					const deviceId = configedOnlineDevices.id;
+					if(!this.devices[deviceId]){
+						this.devices[deviceId] = {};
+						this.devices[deviceId].deviceName = configedOnlineDevices.deviceName;
+						this.devices[deviceId].onlineValues = {};
+					}
+					if(!this.devices[deviceId].onlineValues[configedOnlineValues.value]){
+						this.devices[deviceId].onlineValues[configedOnlineValues.value] = {};
+						this.devices[deviceId].onlineValues[configedOnlineValues.value].valueName = configedOnlineValues.valueName;
+						this.devices[deviceId].onlineValues[configedOnlineValues.value].type = {};
+					}
+					this.devices[deviceId].onlineValues[configedOnlineValues.value].type[configedOnlineValues.type] = {
+						typeName: configedOnlineValues.typeName,
+						unit: configedOnlineValues.unit
+					};
 				}
-				if(!this.devices[deviceId].onlineValues[configedOnlineValues.value]){
-					this.devices[deviceId].onlineValues[configedOnlineValues.value] = {};
-					this.devices[deviceId].onlineValues[configedOnlineValues.value].valueName = configedOnlineValues.valueName;
-					this.devices[deviceId].onlineValues[configedOnlineValues.value].type = {};
-				}
-				this.devices[deviceId].onlineValues[configedOnlineValues.value].type[configedOnlineValues.type] = {
-					typeName: configedOnlineValues.typeName,
-					unit: configedOnlineValues.unit
-				};
 			}
 		}
 
@@ -180,30 +182,32 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 
 
-		// Parse ans asign historic values
+		// Parse and asign historic values
 		for(const index in this.config.historicDeviceTable){
 			if(this.config.historicDeviceTable[index][this.internalIds.historicDevices] != this.communicationStrings.noCommunicationSelect){
 				const configedHistoricDevices = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicDevices]);
 				const configedHistoricValues = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicValues]);
-				const deviceId = configedHistoricDevices.id;
-				if(!this.devices[deviceId]){
-					this.devices[deviceId] = {};
-					this.devices[deviceId].deviceName = configedHistoricDevices.deviceName;
+				if(configedHistoricDevices.id){
+					const deviceId = configedHistoricDevices.id;
+					if(!this.devices[deviceId]){
+						this.devices[deviceId] = {};
+						this.devices[deviceId].deviceName = configedHistoricDevices.deviceName;
+					}
+					// Create historic Values structure (in case if its not created or device is created in onlineValues)
+					if(!this.devices[deviceId].historicValues){
+						this.devices[deviceId].historicValues = {};
+					}
+					if(!this.devices[deviceId].historicValues[configedHistoricValues.value]){
+						this.devices[deviceId].historicValues[configedHistoricValues.value] = {};
+						this.devices[deviceId].historicValues[configedHistoricValues.value].valueName = configedHistoricValues.valueName;
+						this.devices[deviceId].historicValues[configedHistoricValues.value].type = {};
+					}
+					this.devices[deviceId].historicValues[configedHistoricValues.value].type[configedHistoricValues.type] = {
+						typeName: configedHistoricValues.typeName,
+						unit: configedHistoricValues.unit,
+						id: configedHistoricValues.id
+					};
 				}
-				// Create historic Values structure (in case if its not created or device is created in onlineValues)
-				if(!this.devices[deviceId].historicValues){
-					this.devices[deviceId].historicValues = {};
-				}
-				if(!this.devices[deviceId].historicValues[configedHistoricValues.value]){
-					this.devices[deviceId].historicValues[configedHistoricValues.value] = {};
-					this.devices[deviceId].historicValues[configedHistoricValues.value].valueName = configedHistoricValues.valueName;
-					this.devices[deviceId].historicValues[configedHistoricValues.value].type = {};
-				}
-				this.devices[deviceId].historicValues[configedHistoricValues.value].type[configedHistoricValues.type] = {
-					typeName: configedHistoricValues.typeName,
-					unit: configedHistoricValues.unit,
-					id: configedHistoricValues.id
-				};
 			}
 		}
 
