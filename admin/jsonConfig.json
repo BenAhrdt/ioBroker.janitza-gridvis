@@ -113,7 +113,6 @@
                 },
                 "refreshOnlineCronJob": {
                     "newLine": true,
-                    "simple": true,
                     "type": "cron",
                     "label": "Lesezyklus",
                     "tooltip": "Tragen Sie hier den entsprechenden cronJob ein, mit welchem die Onlinewerte aktualisiert werden sollen.",
@@ -185,7 +184,6 @@
                 },
                 "refreshHistoricCronJob": {
                     "newLine": true,
-                    "simple": true,
                     "type": "cron",
                     "label": "Lesezyklus",
                     "tooltip": "Tragen Sie hier den entsprechenden cronJob ein, mit welchem die historischen Werte aktualisiert werden sollen.",
