@@ -57,24 +57,11 @@
                 },
                 "timeout": {
                     "type": "number",
-                    "label": "Timeout",
+                    "label": "Timeout (ms)",
                     "min": 500,
                     "max": 5000,
                     "default": 2000,
                     "sm":3
-                },
-                "loggingHeader": {
-                    "newLine": true,
-                    "type": "header",
-                    "text": "Einstellungen zum Logging",
-                    "sm": 6
-                },
-                "debugLogging": {
-                    "newLine":true,
-                    "type": "checkbox",
-                    "label": "Debug Logging",
-                    "default":false,
-                    "sm":2
                 }
             }
         },
