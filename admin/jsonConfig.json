@@ -4,18 +4,18 @@
     "items":{
         "mainTab":{
             "type": "panel",
-            "label": "Grundeinstellungen",
+            "label": "mainSettings",
             "items": {
                 "connectionHeader": {
                     "newLine": true,
                     "type": "header",
-                    "text": "Verbindungsinformationen",
+                    "text": "connectionInformations",
                     "sm": 6
                 },
                 "conectionInformation":{
                     "newLine":true,
                     "type": "staticText",
-                    "label": "Die Konfiguration funktioniert nur bei aktiviertem Adapter",
+                    "label": "justWithRunningAdapter",
                     "hidden":"_alive === true"
                 },
                 "connectionState":{
@@ -32,32 +32,32 @@
                 "communicationHeader": {
                     "newLine": true,
                     "type": "header",
-                    "text": "Einstellungen zur Kommunikation",
+                    "text": "communicationSettings",
                     "sm": 6
                 },
                 "adress": {
                     "newLine":true,
                     "type": "text",
-                    "label": "IP-Adresse / Servername",
+                    "label": "address",
                     "default":"192.168.2.50",
                     "sm":3
                 },
                 "port": {
                     "type": "number",
-                    "label": "Port",
+                    "label": "port",
                     "default": 8080,
                     "sm":3
                 },
                 "projectname":{
                     "newLine": true,
                     "type": "text",
-                    "label": "Projektname",
+                    "label": "projectname",
                     "defaut":"EnergieMonitoring",
                     "sm": 3
                 },
                 "timeout": {
                     "type": "number",
-                    "label": "Timeout (ms)",
+                    "label": "timeout",
                     "min": 500,
                     "max": 5000,
                     "default": 2000,
@@ -67,18 +67,18 @@
         },
         "onlinevalueTab":{
             "type": "panel",
-            "label": "Onlinewerte",
+            "label": "onlinevalues",
             "items": {
                 "connectionHeaderOnlineTab": {
                     "newLine": true,
                     "type": "header",
-                    "text": "Verbindungsinformationen",
+                    "text": "connectionInformations",
                     "sm": 6
                 },
                 "conectionInformationOnlineTab":{
                     "newLine":true,
                     "type": "staticText",
-                    "label": "Die Konfiguration funktioniert nur bei aktiviertem Adapter",
+                    "label": "justWithRunningAdapter",
                     "hidden":"_alive === true"
                 },
                 "connectionStateOnlineTab":{
@@ -95,14 +95,14 @@
                 "onlinevalueConfigurationHeader": {
                     "newLine": true,
                     "type": "header",
-                    "text": "Konfiguration der zu lesenden Onlinewerte",
+                    "text": "onlinevalueConfiguration",
                     "sm": 12
                 },
                 "refreshOnlineCronJob": {
                     "newLine": true,
                     "type": "cron",
-                    "label": "Lesezyklus",
-                    "tooltip": "Tragen Sie hier den entsprechenden cronJob ein, mit welchem die Onlinewerte aktualisiert werden sollen.",
+                    "label": "refreshCycle",
+                    "tooltip": "refreshCycleTooltipOnline",
                     "sm":2,
                     "default": "*/2 * * * * *"
                   },
@@ -138,18 +138,18 @@
         },
         "historicvalueTab":{
             "type": "panel",
-            "label": "Historische Werte",
+            "label": "historicvalues",
             "items": {
                 "connectionHeaderHistoricTab": {
                     "newLine": true,
                     "type": "header",
-                    "text": "Verbindungsinformationen",
+                    "text": "connectionInformations",
                     "sm": 6
                 },
                 "conectionInformationHirstoricTab":{
                     "newLine":true,
                     "type": "staticText",
-                    "label": "Die Konfiguration funktioniert nur bei aktiviertem Adapter",
+                    "label": "justWithRunningAdapter",
                     "hidden":"_alive === true"
                 },
                 "connectionStateHistoricTab":{
@@ -166,16 +166,16 @@
                 "historicvalueConfigurationHeader": {
                     "newLine": true,
                     "type": "header",
-                    "text": "Konfiguration der zu lesenden historischen Werte",
+                    "text": "historicvalueConfiguration",
                     "sm": 12
                 },
                 "refreshHistoricCronJob": {
                     "newLine": true,
                     "type": "cron",
-                    "label": "Lesezyklus",
-                    "tooltip": "Tragen Sie hier den entsprechenden cronJob ein, mit welchem die historischen Werte aktualisiert werden sollen.",
+                    "label": "refreshCycle",
+                    "tooltip": "refreshCycleTooltipHistoric",
                     "sm":2,
-                    "default": "*/15 * * * *"
+                    "default": "5 */15 * * * *"
                   },
                 "historicDeviceTable":{
                     "newLine": true,

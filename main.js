@@ -41,7 +41,8 @@ class JanitzaGridvis extends utils.Adapter {
 			historicDevices: "historicDevices",
 			historicValues: "historicValues",
 			devices: "devices",
-			readValuesTrigger: "readValuesTrigger"
+			readValuesTrigger: "readValuesTrigger",
+			globalValue: "GlobalValue"
 		};
 
 		this.communicationStrings = {
@@ -153,10 +154,14 @@ class JanitzaGridvis extends utils.Adapter {
 						});
 
 						// create value channel
+						let channelName = this.devices[device].onlineValues[value].valueName;
+						if(channelName === this.internalIds.globalValue){
+							channelName = this.internalIds.globalValue;
+						}
 						await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`,{
 							type:"channel",
 							common:{
-								name: this.devices[device].onlineValues[value].valueName
+								name: channelName
 							},
 							native : {},
 						});
@@ -196,6 +201,7 @@ class JanitzaGridvis extends utils.Adapter {
 					// Create historic Values structure (in case if its not created or device is created in onlineValues)
 					if(!this.devices[deviceId].historicValues){
 						this.devices[deviceId].historicValues = {};
+						this.devices[deviceId].historicValues.id = configedHistoricValues.id;
 					}
 					if(!this.devices[deviceId].historicValues[configedHistoricValues.value]){
 						this.devices[deviceId].historicValues[configedHistoricValues.value] = {};
@@ -204,8 +210,7 @@ class JanitzaGridvis extends utils.Adapter {
 					}
 					this.devices[deviceId].historicValues[configedHistoricValues.value].type[configedHistoricValues.type] = {
 						typeName: configedHistoricValues.typeName,
-						unit: configedHistoricValues.unit,
-						id: configedHistoricValues.id
+						unit: configedHistoricValues.unit
 					};
 				}
 			}
@@ -236,10 +241,14 @@ class JanitzaGridvis extends utils.Adapter {
 						});
 
 						// create historic value channel
+						let channelName = this.devices[device].onlineValues[value].valueName;
+						if(channelName === this.internalIds.globalValue){
+							channelName = this.internalIds.globalValue;
+						}
 						await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`,{
 							type:"channel",
 							common:{
-								name: this.devices[device].historicValues[value].valueName
+								name: channelName
 							},
 							native : {},
 						});

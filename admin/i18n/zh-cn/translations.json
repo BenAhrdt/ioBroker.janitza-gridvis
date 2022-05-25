@@ -1,0 +1,17 @@
+{
+    "mainSettings": "主要设置",
+    "connectionInformations": "连接信息",
+    "justWithRunningAdapter": "该配置仅适用于运行适配器",
+    "communicationSettings": "通讯设置",
+    "address": "IP 地址/服务器名称",
+    "port": "港口",
+    "projectname": "项目名",
+    "timeout": "超时（毫秒）",
+    "onlinevalues": "在线价值观",
+    "onlinevalueConfiguration": "在线值的配置",
+    "refreshCycle": "刷新周期",
+    "refreshCacleTooltipOnline": "输入所需的 cronJob，读取在线值。",
+    "historicvalues": "历史价值",
+    "historicvalueConfiguration": "历史价值的配置",
+    "refreshCacleTooltipHistoric": "输入所需的 cronJob，读取历史值。"
+}

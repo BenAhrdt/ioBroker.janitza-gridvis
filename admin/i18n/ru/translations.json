@@ -1,0 +1,17 @@
+{
+    "mainSettings": "Основные параметры",
+    "connectionInformations": "информация о соединении",
+    "justWithRunningAdapter": "конфигурация работает только с запущенным адаптером",
+    "communicationSettings": "настройки связи",
+    "address": "IP-адрес / имя сервера",
+    "port": "порт",
+    "projectname": "название проекта",
+    "timeout": "Время ожидания (мс)",
+    "onlinevalues": "онлайн-ценности",
+    "onlinevalueConfiguration": "настройка онлайн-значений",
+    "refreshCycle": "цикл обновления",
+    "refreshCacleTooltipOnline": "введите желаемый cronJob, который считывает онлайн-значения.",
+    "historicvalues": "исторические ценности",
+    "historicvalueConfiguration": "конфигурация исторических ценностей",
+    "refreshCacleTooltipHistoric": "введите желаемый cronJob, который считывает исторические значения."
+}

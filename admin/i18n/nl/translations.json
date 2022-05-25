@@ -1,0 +1,17 @@
+{
+    "mainSettings": "belangrijkste instellingen",
+    "connectionInformations": "verbindingsinformatie",
+    "justWithRunningAdapter": "de configuratie werkt gewoon met het draaien van Adapter",
+    "communicationSettings": "communicatie instellingen",
+    "address": "IP-adres / Servernaam",
+    "port": "haven",
+    "projectname": "Naam van het project",
+    "timeout": "Time-out (ms)",
+    "onlinevalues": "onlinewaarden",
+    "onlinevalueConfiguration": "configuratie van de onlinewaarden",
+    "refreshCycle": "verversingscyclus",
+    "refreshCacleTooltipOnline": "voer de gewenste cronJob in, die de onlinewaarden voorleest.",
+    "historicvalues": "historische waarden",
+    "historicvalueConfiguration": "configuratie van de historische waarden",
+    "refreshCacleTooltipHistoric": "voer de gewenste cronJob in, die de historische waarden uitleest."
+}

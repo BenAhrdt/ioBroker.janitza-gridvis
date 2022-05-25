@@ -1,0 +1,17 @@
+{
+    "mainSettings": "Ustawienia główne",
+    "connectionInformations": "informacje o połączeniu",
+    "justWithRunningAdapter": "konfiguracja działa tylko z uruchomionym Adapterem",
+    "communicationSettings": "ustawienia komunikacji",
+    "address": "Adres IP / nazwa serwera",
+    "port": "Port",
+    "projectname": "Nazwa Projektu",
+    "timeout": "Limit czasu (ms)",
+    "onlinevalues": "wartości online",
+    "onlinevalueConfiguration": "konfiguracja wartości online",
+    "refreshCycle": "cykl odświeżania",
+    "refreshCacleTooltipOnline": "wprowadź żądane zadanie cron, które odczytuje wartości online.",
+    "historicvalues": "wartości historyczne",
+    "historicvalueConfiguration": "konfiguracja wartości historycznych",
+    "refreshCacleTooltipHistoric": "wprowadź żądany cronJob, który odczytuje wartości historyczne."
+}
