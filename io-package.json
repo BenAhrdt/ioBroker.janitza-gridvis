@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "1.3.18",
+        "version": "1.4.18",
         "news": {
+            "1.4.18": {
+                "en": "nameing of globalValue channel changed",
+                "de": "Benennung des Kanals globalValue geändert",
+                "ru": "имя канала globalValue изменено",
+                "pt": "nomeação do canal globalValue alterada",
+                "nl": "naamgeving van globalValue-kanaal gewijzigd",
+                "fr": "le nom du canal globalValue a été modifié",
+                "it": "denominazione del canale globalValue modificata",
+                "es": "cambio de nombre del canal globalValue",
+                "pl": "zmieniono nazwę kanału globalValue",
+                "zh-cn": "globalValue 频道的名称已更改"
+            },
             "1.3.18": {
                 "en": "first official version",
                 "de": "erste offizielle Version",

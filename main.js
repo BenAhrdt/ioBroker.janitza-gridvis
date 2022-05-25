@@ -155,7 +155,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 						// create value channel
 						let channelName = this.devices[device].onlineValues[value].valueName;
-						if(channelName === this.internalIds.globalValue){
+						if(value == this.internalIds.globalValue){
 							channelName = this.internalIds.globalValue;
 						}
 						await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`,{
@@ -241,8 +241,8 @@ class JanitzaGridvis extends utils.Adapter {
 						});
 
 						// create historic value channel
-						let channelName = this.devices[device].onlineValues[value].valueName;
-						if(channelName === this.internalIds.globalValue){
+						let channelName = this.devices[device].historicValues[value].valueName;
+						if(value === this.internalIds.globalValue){
 							channelName = this.internalIds.globalValue;
 						}
 						await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`,{
