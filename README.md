@@ -35,20 +35,23 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **1.5.4**
+### 1.5.5
+* (BenAhrdt) readme fixed
+
+### 1.5.4
 * (BenAhrdt) upgrading readme
 
-### **1.5.3**
+### 1.5.3
 * (BenAhrdt) Comment some functions (dev internal)
 
 
-### **1.5.2**
+### 1.5.2
 * (BenAhrdt) setting toppics and update readme
 
-### **1.5.1**
+### 1.5.1
 * (BenAhrdt) reconnection implemented
 
-### **1.5.0**
+### 1.5.0
 * (BenAhrdt) first version of the adapter
 
 ## License
