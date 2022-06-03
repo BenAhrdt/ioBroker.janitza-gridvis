@@ -35,7 +35,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **1.5.0**
+### **1.5.2**
 * (BenAhrdt) setting toppics and update readme
 
 ### **1.5.1**
