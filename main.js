@@ -33,7 +33,22 @@ class JanitzaGridvis extends utils.Adapter {
 
 		this.configConnection = {};
 		this.devices = {};
+
+		// cron Jobs
 		this.cronJobs = {};
+		this.cronJobIds = {
+			refreshOnlineCronJob : "refreshOnlineCronJob",
+			refreshHistoricCronJob : "refreshHistoricCronJob"
+		};
+
+		// Timeouts
+		this.timeouts = {};
+		this.timeoutIds = {
+			connectionTimeout : "connectionTimeout"
+		};
+		this.timeoutValues = {
+			connectionTimeout : 10000
+		};
 
 		this.internalIds = {
 			onlineDevices: "onlineDevices",
@@ -69,6 +84,9 @@ class JanitzaGridvis extends utils.Adapter {
 			thisYear: "ThisYear",
 			lastYear: "LastYear"
 		};
+
+		this.internalValuesInited = false;
+		this.internalConnectionState = false;
 	}
 
 	/**
@@ -76,30 +94,77 @@ class JanitzaGridvis extends utils.Adapter {
 	 */
 	async onReady() {
 		// Initialize your adapter here
+		this.connectToGridVis();
+	}
 
-		// Reset the connection indicator during startup
+	async connectToGridVis(){
+		// Reset the connection indicator
 		this.setState("info.connection", false, true);
+		this.internalConnectionState = false;
+
+		// Reset ConnectionTimeout
+		this.clearConnectionTimeout();
+		this.clearAllSchedules();
 
 		// Check the configed connection settings
 		// in case there is no connection to GridVis possible
 		// the adapter will not work
+
 		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
 		if(projectInfo){
-			this.log.info(`GridVis-Version: ${projectInfo.version} - number of Devices: ${projectInfo.numberOfDevices}`);
+			this.log.info(`Connected to GridVis-Version: ${projectInfo.version} - number of Devices: ${projectInfo.numberOfDevices}`);
+			// Set connection established
+			this.setState("info.connection", true, true);
+			this.internalConnectionState = true;
+			await this.initInternalValues();
+			this.StartCommunicationToGridVis();
 		}
 		else{
 			this.log.warn("No active communication to GridVis");
-			return;
+			this.timeouts[this.timeoutIds.connectionTimeout] = this.setTimeout(this.connectToGridVis.bind(this),this.timeoutValues[this.timeoutIds.connectionTimeout]);
 		}
-		await this.createInternalStates();
-		await this.delNotConfiguredStates();
+	}
 
+	async initInternalValues(){
+		if(!this.internalValuesInited){
+			// After connection is ok initialize the internal states
+			await this.createInternalStates();
+			await this.delNotConfiguredStates();
+			this.internalValuesInited = true;
+		}
+	}
+
+	clearConnectionTimeout(){
+		if(this.timeouts[this.timeoutIds.connectionTimeout]){
+			this.clearTimeout(this.timeouts[this.timeoutIds.connectionTimeout]);
+			delete this.timeouts[this.timeoutIds.connectionTimeout];
+		}
+	}
+
+	// Clear all schedules, if there are some
+	clearAllSchedules(){
+		for(const cronJob in this.cronJobs)
+		{
+			schedule.cancelJob(this.cronJobs[cronJob]);
+			delete this.cronJobs[cronJob];
+		}
+	}
+
+	// Clear all Timeouts, if there are some
+	clearAllTimeouts(){
+		for(const myTimeout in this.timeouts)
+		{
+			this.clearTimeout(this.timeouts[myTimeout]);
+			delete this.timeouts[myTimeout];
+		}
+	}
+
+	StartCommunicationToGridVis()
+	{
+		// create schedulejobs and do initalize reading
 		this.createScheduleJobs();
 		this.readOnlineValues();
 		this.readHistoricValues();
-
-		// Set connection established
-		this.setState("info.connection", true, true);
 	}
 
 	// creates internal states
@@ -357,12 +422,12 @@ class JanitzaGridvis extends utils.Adapter {
 
 	// create schedule Jobs for online and historic values
 	createScheduleJobs(){
-		this.cronJobs[this.config.refreshOnlineCronJob] = schedule.scheduleJob(this.config.refreshOnlineCronJob,this.readOnlineValues.bind(this));
-		this.cronJobs[this.config.refreshHistoricCronJob] = schedule.scheduleJob(this.config.refreshHistoricCronJob,this.readHistoricValues.bind(this));
+		this.cronJobs[this.cronJobIds.refreshOnlineCronJob] = schedule.scheduleJob(this.config.refreshOnlineCronJob,this.readOnlineValues.bind(this));
+		this.cronJobs[this.cronJobIds.refreshHistoricCronJob] = schedule.scheduleJob(this.config.refreshHistoricCronJob,this.readHistoricValues.bind(this));
 	}
 
 	// read out all configed online values
-	readOnlineValues(){
+	async readOnlineValues(){
 		// create url to read out onlinevalues
 		let myUrl = "";
 		let firstValueReached = false;
@@ -395,63 +460,71 @@ class JanitzaGridvis extends utils.Adapter {
 			if(this.common.loglevel == "debug"){
 				this.log.debug(`${myUrl} was send to gridVis`);
 			}
-			axios.get(myUrl,{timeout: this.config.timeout})
-				.then((result)=>{
-					if(this.common.loglevel == "debug"){
-						this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-					}
-					if(result.status == 200){
-						for(const device in this.devices){
-							if(this.devices[device].onlineValues){
-								for(const value in this.devices[device].onlineValues){
-									for(const type in this.devices[device].onlineValues[value].type){
-										if(result.data.value[`${device}.${value}.${type}`] && result.data.value[`${device}.${value}.${type}`] != "NaN"){
-											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
-										}
+			try{
+				const result = await axios.get(myUrl,{timeout: this.config.timeout});
+				if(this.common.loglevel == "debug"){
+					this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+				}
+				if(result.status == 200){
+					for(const device in this.devices){
+						if(this.devices[device].onlineValues){
+							for(const value in this.devices[device].onlineValues){
+								for(const type in this.devices[device].onlineValues[value].type){
+									if(result.data.value[`${device}.${value}.${type}`] && result.data.value[`${device}.${value}.${type}`] != "NaN"){
+										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
 									}
 								}
 							}
 						}
 					}
-				})
-				.catch((error) =>{
+				}
+			}
+			catch(error){
+				if(this.internalConnectionState){
 					this.log.warn(`${error} after sending ${myUrl}`);
-				});
+					this.log.warn("start reconnecting to GridVis®");
+					this.connectToGridVis();
+				}
+			}
 		}
 	}
 
 	// red out all configed historic values
-	readHistoricValues(){
+	async readHistoricValues(){
 	// create url to read out onlinevalues
 		let myUrl = "";
-		for(const device in this.devices){
-			if(this.devices[device].historicValues){
-				for(const value in this.devices[device].historicValues){
-					for(const type in this.devices[device].historicValues[value].type){
-						for(const timeBase in this.timeStrings){
-							myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/hist/energy/`;
-							myUrl += `${value}/`;
-							myUrl += `${type}/.json?start=NAMED_${this.timeStrings[timeBase]}&end=NAMED_${this.timeStrings[timeBase]}`;
-							if(this.common.loglevel == "debug"){
-								this.log.debug(`${myUrl} was send to gridVis`);
+		try{
+			for(const device in this.devices){
+				if(this.devices[device].historicValues){
+					for(const value in this.devices[device].historicValues){
+						for(const type in this.devices[device].historicValues[value].type){
+							for(const timeBase in this.timeStrings){
+								myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/hist/energy/`;
+								myUrl += `${value}/`;
+								myUrl += `${type}/.json?start=NAMED_${this.timeStrings[timeBase]}&end=NAMED_${this.timeStrings[timeBase]}`;
+								if(this.common.loglevel == "debug"){
+									this.log.debug(`${myUrl} was send to gridVis`);
+								}
+								const result = await axios.get(myUrl,{timeout: this.config.timeout});
+								if(this.common.loglevel == "debug"){
+									this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
+								}
+								if(result.status == 200){		// write data into internal state
+									if(result.data.energy && result.data.energy != "NaN"){
+										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
+									}
+								}
 							}
-							axios.get(myUrl,{timeout: this.config.timeout})
-								.then((result) =>{					// if there is a valid result of energy
-									if(this.common.loglevel == "debug"){
-										this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-									}
-									if(result.status == 200){		// write data into internal state
-										if(result.data.energy && result.data.energy != "NaN"){
-											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
-										}
-									}
-								})
-								.catch((error) =>{
-									this.log.warn(`${error} after sending ${myUrl}`);
-								});
 						}
 					}
 				}
+			}
+		}
+		catch(error){
+			if(this.internalConnectionState){
+				this.log.warn(`${error} after sending ${myUrl}`);
+				this.log.warn("start reconnecting to GridVis®");
+				this.connectToGridVis();
 			}
 		}
 	}
@@ -507,10 +580,11 @@ class JanitzaGridvis extends utils.Adapter {
 	onUnload(callback) {
 		try {
 			// clear all schedules
-			for(const cronJob in this.cronJobs)
-			{
-				schedule.cancelJob(this.cronJobs[cronJob]);
-			}
+			this.clearAllSchedules();
+
+			// Clear Timeouts
+			this.clearAllTimeouts();
+
 			callback();
 		} catch (error) {
 			callback();
@@ -572,7 +646,7 @@ class JanitzaGridvis extends utils.Adapter {
 			case "getConnectionState":
 			case "getConnectionStateOnlineTab":
 			case "getConnectionStateHistoricTab":
-				try{
+				try{ // using try catch in case of not undelining projectInfo.version as wrong type
 					const projectInfo = await this.checkConnectionToRestApi(obj.message.adress,obj.message.port,obj.message.projectname);
 					if(projectInfo){
 						this.configConnection.adress = obj.message.adress;
@@ -602,18 +676,16 @@ class JanitzaGridvis extends utils.Adapter {
 							this.log.debug(`${myUrl} is send to get Devices`);
 						}
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
-						if(result){
-							if(this.common.loglevel == "debug"){
-								this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-							}
-							for(const element in result.data.device){
-								const label = result.data.device[element].name + "  - Geräte-ID: " + result.data.device[element].id;
-								const value = `{"id":${result.data.device[element].id},"deviceName":"${result.data.device[element].name}"}`;
-								devices[myCount] = {label: label,value: value};
-								myCount ++;
-							}
-							this.sendTo(obj.from, obj.command, devices, obj.callback);
+						if(this.common.loglevel == "debug"){
+							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 						}
+						for(const element in result.data.device){
+							const label = result.data.device[element].name + "  - Geräte-ID: " + result.data.device[element].id;
+							const value = `{"id":${result.data.device[element].id},"deviceName":"${result.data.device[element].name}"}`;
+							devices[myCount] = {label: label,value: value};
+							myCount ++;
+						}
+						this.sendTo(obj.from, obj.command, devices, obj.callback);
 					}
 					catch(error){
 						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);
@@ -635,31 +707,29 @@ class JanitzaGridvis extends utils.Adapter {
 							this.log.debug(`${myUrl} is send to get online values`);
 						}
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
-						if(result){
-							if(this.common.loglevel == "debug"){
-								this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-							}
-							const myValues = [];
-							myCount = 0;
-							for(const values in result.data.valuetype){
-								let label = result.data.valuetype[values].valueName;
-								if(result.data.valuetype[values].valueName != result.data.valuetype[values].typeName){
-									label += " " + result.data.valuetype[values].typeName;
-								}
-								let value = "{";
-								for(const myKey in result.data.valuetype[values]){
-									if(value != "{")
-									{
-										value += ",";
-									}
-									value += `"${myKey}":"${result.data.valuetype[values][myKey]}"`;
-								}
-								value += "}";
-								myValues[myCount] = {label: label, value: value};
-								myCount ++;
-							}
-							this.sendTo(obj.from, obj.command, myValues, obj.callback);
+						if(this.common.loglevel == "debug"){
+							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 						}
+						const myValues = [];
+						myCount = 0;
+						for(const values in result.data.valuetype){
+							let label = result.data.valuetype[values].valueName;
+							if(result.data.valuetype[values].valueName != result.data.valuetype[values].typeName){
+								label += " " + result.data.valuetype[values].typeName;
+							}
+							let value = "{";
+							for(const myKey in result.data.valuetype[values]){
+								if(value != "{")
+								{
+									value += ",";
+								}
+								value += `"${myKey}":"${result.data.valuetype[values][myKey]}"`;
+							}
+							value += "}";
+							myValues[myCount] = {label: label, value: value};
+							myCount ++;
+						}
+						this.sendTo(obj.from, obj.command, myValues, obj.callback);
 					}
 					catch(error){
 						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);
@@ -682,35 +752,33 @@ class JanitzaGridvis extends utils.Adapter {
 							this.log.debug(`${myUrl} is send to get historic values`);
 						}
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
-						if(result){
-							if(this.common.loglevel == "debug"){
-								this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-							}
-							const myValues = [];
-							myCount = 0;
-							for(const values in result.data.value){
-								// Check for unit Wh
-								if(result.data.value[values].valueType.unit == "Wh"){
-									let label = result.data.value[values].valueType.valueName;
-									if(result.data.value[values].valueType.valueName != result.data.value[values].valueType.typeName){
-										label += " " + result.data.value[values].valueType.typeName;
-									}
-									let value = "{";
-									for(const myKey in result.data.value[values].valueType){
-										if(value != "{")
-										{
-											value += ",";
-										}
-										value += `"${myKey}":"${result.data.value[values].valueType[myKey]}"`;
-									}
-									value += `,"id":"${result.data.value[values].id}"`;
-									value += "}";
-									myValues[myCount] = {label: label, value: value};
-									myCount ++;
-								}
-							}
-							this.sendTo(obj.from, obj.command, myValues, obj.callback);
+						if(this.common.loglevel == "debug"){
+							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 						}
+						const myValues = [];
+						myCount = 0;
+						for(const values in result.data.value){
+							// Check for unit Wh
+							if(result.data.value[values].valueType.unit == "Wh"){
+								let label = result.data.value[values].valueType.valueName;
+								if(result.data.value[values].valueType.valueName != result.data.value[values].valueType.typeName){
+									label += " " + result.data.value[values].valueType.typeName;
+								}
+								let value = "{";
+								for(const myKey in result.data.value[values].valueType){
+									if(value != "{")
+									{
+										value += ",";
+									}
+									value += `"${myKey}":"${result.data.value[values].valueType[myKey]}"`;
+								}
+								value += `,"id":"${result.data.value[values].id}"`;
+								value += "}";
+								myValues[myCount] = {label: label, value: value};
+								myCount ++;
+							}
+						}
+						this.sendTo(obj.from, obj.command, myValues, obj.callback);
 					}
 					catch(error){
 						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);

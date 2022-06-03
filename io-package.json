@@ -1,8 +1,32 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "1.4.18",
+        "version": "1.5.1",
         "news": {
+            "1.5.1": {
+                "en": "connection timout variable implemented",
+                "de": "Verbindungs-Timeout-Variable implementiert",
+                "ru": "реализована переменная тайм-аута соединения",
+                "pt": "variável de tempo limite de conexão implementada",
+                "nl": "verbindingstime-outvariabele geïmplementeerd",
+                "fr": "variable de délai de connexion implémentée",
+                "it": "tempo di connessione variabile implementata",
+                "es": "variable de tiempo de espera de conexión implementada",
+                "pl": "zaimplementowana zmienna limitu czasu połączenia",
+                "zh-cn": "已实现连接超时变量"
+            },
+            "1.5.0": {
+                "en": "reconnecting implemented",
+                "de": "Reconnecting implementiert",
+                "ru": "переподключение реализовано",
+                "pt": "reconexão implementada",
+                "nl": "opnieuw verbinden geïmplementeerd",
+                "fr": "reconnexion mise en œuvre",
+                "it": "riconnessione attuata",
+                "es": "reconexión implementada",
+                "pl": "zaimplementowano ponowne łączenie",
+                "zh-cn": "重新连接已实施"
+            },
             "1.4.18": {
                 "en": "nameing of globalValue channel changed",
                 "de": "Benennung des Kanals globalValue geändert",
