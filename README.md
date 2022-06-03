@@ -35,6 +35,13 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **1.5.4**
+* (BenAhrdt) upgrading readme
+
+### **1.5.3**
+* (BenAhrdt) Comment some functions (dev internal)
+
+
 ### **1.5.2**
 * (BenAhrdt) setting toppics and update readme
 

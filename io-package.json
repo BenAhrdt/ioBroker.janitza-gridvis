@@ -1,8 +1,32 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "1.5.2",
+        "version": "1.5.4",
         "news": {
+            "1.5.4": {
+                "en": "fill complete readme",
+                "de": "komplette readme ausfüllen",
+                "ru": "заполнить полный ридми",
+                "pt": "preencha o leia-me completo",
+                "nl": "vul volledige leesmij in",
+                "fr": "remplissez le fichier readme complet",
+                "it": "compila il readme completo",
+                "es": "llenar el archivo Léame completo",
+                "pl": "wypełnij cały plik readme",
+                "zh-cn": "填写完整的自述文件"
+            },
+            "1.5.3": {
+                "en": "comment some functions",
+                "de": "Kommentieren Sie einige Funktionen",
+                "ru": "прокомментируйте некоторые функции",
+                "pt": "comente algumas funções",
+                "nl": "commentaar geven op sommige functies",
+                "fr": "commenter certaines fonctions",
+                "it": "commenta alcune funzioni",
+                "es": "comenta algunas funciones",
+                "pl": "skomentuj niektóre funkcje",
+                "zh-cn": "评论一些功能"
+            },
             "1.5.2": {
                 "en": "fixed PR issues",
                 "de": "PR-Probleme behoben",
