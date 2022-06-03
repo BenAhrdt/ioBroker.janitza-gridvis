@@ -36,6 +36,12 @@ Implemented are the following times:
 -->
 
 ### **1.5.0**
+* (BenAhrdt) setting toppics and update readme
+
+### **1.5.1**
+* (BenAhrdt) reconnection implemented
+
+### **1.5.0**
 * (BenAhrdt) first version of the adapter
 
 ## License

@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "1.5.1",
+        "version": "1.5.2",
         "news": {
+            "1.5.2": {
+                "en": "fixed PR issues",
+                "de": "PR-Probleme behoben",
+                "ru": "исправлены проблемы с PR",
+                "pt": "problemas de relações públicas corrigidos",
+                "nl": "opgeloste PR-problemen",
+                "fr": "problèmes de relations publiques résolus",
+                "it": "risolti problemi di PR",
+                "es": "problemas de relaciones públicas solucionados",
+                "pl": "naprawiono problemy PR",
+                "zh-cn": "修复公关问题"
+            },
             "1.5.1": {
                 "en": "connection timout variable implemented",
                 "de": "Verbindungs-Timeout-Variable implementiert",
