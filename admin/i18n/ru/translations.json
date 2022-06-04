@@ -13,6 +13,5 @@
     "refreshCacleTooltipOnline": "введите желаемый cronJob, который считывает онлайн-значения.",
     "historicvalues": "исторические ценности",
     "historicvalueConfiguration": "конфигурация исторических ценностей",
-    "refreshCacleTooltipHistoric": "введите желаемый cronJob, который считывает исторические значения.",
-    "number of devices": "количество устройств"
+    "refreshCacleTooltipHistoric": "введите желаемый cronJob, который считывает исторические значения."
 }
