@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "1.5.5",
+        "version": "2.0.0",
         "news": {
+            "2.0.0": {
+                "en": "bugfixes for first release",
+                "de": "Bugfixes für die erste Version",
+                "ru": "исправления для первого релиза",
+                "pt": "correções de bugs para a primeira versão",
+                "nl": "bugfixes voor eerste release",
+                "fr": "corrections de bogues pour la première version",
+                "it": "correzioni di bug per la prima versione",
+                "es": "correcciones de errores para la primera versión",
+                "pl": "poprawki błędów dla pierwszego wydania",
+                "zh-cn": "首次发布的错误修正"
+            },
             "1.5.5": {
                 "en": "readme fixed",
                 "de": "Readme behoben",

@@ -35,7 +35,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 2.0.0 (2022-06-05)
 * (BenAhrdt) bugfixes for first release
 
 ### 1.5.5
