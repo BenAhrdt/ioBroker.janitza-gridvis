@@ -109,7 +109,6 @@
                 "onlineDeviceTable":{
                     "newLine": true,
                     "type":"table",
-                    "hidden":"data.connectionState == 'Die Kommunikation zum konfigurierten Projekt wurde erfolgreich aufgebaut.'",
                     "sm":12,
                     "items":[
                         {
@@ -180,7 +179,6 @@
                 "historicDeviceTable":{
                     "newLine": true,
                     "type":"table",
-                    "hidden":"data.connectionState == 'Die Kommunikation zum konfigurierten Projekt wurde erfolgreich aufgebaut.'",
                     "sm":12,
                     "items":[
                         {

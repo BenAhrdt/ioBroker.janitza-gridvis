@@ -98,10 +98,6 @@ class JanitzaGridvis extends utils.Adapter {
 	}
 
 	async connectToGridVis(){
-		// Reset the connection indicator
-		this.setState("info.connection", false, true);
-		this.internalConnectionState = false;
-
 		// Reset ConnectionTimeout
 		this.clearConnectionTimeout();
 		this.clearAllSchedules();
@@ -644,8 +640,6 @@ class JanitzaGridvis extends utils.Adapter {
 			// check the connection state in case of adresse, port and projectname
 			// send the resut back to the textfield in config
 			case "getConnectionState":
-			case "getConnectionStateOnlineTab":
-			case "getConnectionStateHistoricTab":
 				try{ // using try catch in case of not undelining projectInfo.version as wrong type
 					const projectInfo = await this.checkConnectionToRestApi(obj.message.adress,obj.message.port,obj.message.projectname);
 					if(projectInfo){
