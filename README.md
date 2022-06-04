@@ -35,6 +35,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+* (BenAhrdt) bugfixes for first release
+
 ### 1.5.5
 * (BenAhrdt) readme fixed
 

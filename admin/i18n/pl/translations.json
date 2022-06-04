@@ -13,5 +13,6 @@
     "refreshCacleTooltipOnline": "wprowadź żądane zadanie cron, które odczytuje wartości online.",
     "historicvalues": "wartości historyczne",
     "historicvalueConfiguration": "konfiguracja wartości historycznych",
-    "refreshCacleTooltipHistoric": "wprowadź żądany cronJob, który odczytuje wartości historyczne."
+    "refreshCacleTooltipHistoric": "wprowadź żądany cronJob, który odczytuje wartości historyczne.",
+    "number of devices": "liczba urządzeń"
 }

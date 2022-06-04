@@ -62,10 +62,10 @@ class JanitzaGridvis extends utils.Adapter {
 
 		this.communicationStrings = {
 			ready: "Ready",
-			noCommunication : "Das konfigurierte Projekt antwortet nicht. Bitte prüfen Sie die Grundeinstellungen.",
-			communicationOk : "Datenaustausch mit REST API erfolgreich.",
-			noCommunicationSelect: "Keine Verbindung",
-			noCommunicationSelectString: "Keine aktive Verbindung zu GridVis"
+			noCommunication : "The configured project does not respond. Please check the basic settings.",
+			communicationOk : "Data exchange with REST API successful.",
+			noCommunicationSelect: "No connection",
+			noCommunicationSelectString: "No active connection to GridVis"
 		};
 
 		this.definedObjects = {
@@ -87,6 +87,8 @@ class JanitzaGridvis extends utils.Adapter {
 
 		this.internalValuesInited = false;
 		this.internalConnectionState = false;
+
+		this.concounter = 0;
 	}
 
 	/**
@@ -102,15 +104,19 @@ class JanitzaGridvis extends utils.Adapter {
 		this.clearConnectionTimeout();
 		this.clearAllSchedules();
 
+		// Reset the connection indicator
+		await this.setStateAsync("info.connection", false, true);
+		this.internalConnectionState = false;
+
 		// Check the configed connection settings
 		// in case there is no connection to GridVis possible
 		// the adapter will not work
 
 		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
 		if(projectInfo){
-			this.log.info(`Connected to GridVis-Version: ${projectInfo.version} - number of Devices: ${projectInfo.numberOfDevices}`);
+			this.log.info(`Connected to GridVis-Version: ${projectInfo.version} - number of devices: ${projectInfo.numberOfDevices}`);
 			// Set connection established
-			this.setState("info.connection", true, true);
+			await this.setStateAsync("info.connection", true, true);
 			this.internalConnectionState = true;
 			await this.initInternalValues();
 			this.StartCommunicationToGridVis();
@@ -197,7 +203,7 @@ class JanitzaGridvis extends utils.Adapter {
 					for(const type in this.devices[device].onlineValues[value].type){
 
 						// Create device folder
-						await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
+						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}`,{
 							type:"device",
 							common:{
 								name: this.devices[device].deviceName
@@ -206,7 +212,7 @@ class JanitzaGridvis extends utils.Adapter {
 						});
 
 						// create onlinevalue folder
-						await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}`,{
+						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}`,{
 							type:"folder",
 							common:{
 								name: "Ausgelesene Onlinewerte"
@@ -219,7 +225,7 @@ class JanitzaGridvis extends utils.Adapter {
 						if(value == this.internalIds.globalValue){
 							channelName = this.internalIds.globalValue;
 						}
-						await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`,{
+						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`,{
 							type:"channel",
 							common:{
 								name: channelName
@@ -228,7 +234,7 @@ class JanitzaGridvis extends utils.Adapter {
 						});
 
 						// create value state
-						await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,{
+						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,{
 							type: "state",
 							common: {
 								name: this.devices[device].onlineValues[value].type[type].typeName,
@@ -284,7 +290,7 @@ class JanitzaGridvis extends utils.Adapter {
 					for(const type in this.devices[device].historicValues[value].type){
 
 						// Create device folder
-						await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
+						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}`,{
 							type:"device",
 							common:{
 								name: this.devices[device].deviceName
@@ -293,7 +299,7 @@ class JanitzaGridvis extends utils.Adapter {
 						});
 
 						// create historic value folder
-						await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`,{
+						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`,{
 							type:"folder",
 							common:{
 								name: "Ausgelesene historische Werte"
@@ -306,7 +312,7 @@ class JanitzaGridvis extends utils.Adapter {
 						if(value === this.internalIds.globalValue){
 							channelName = this.internalIds.globalValue;
 						}
-						await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`,{
+						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`,{
 							type:"channel",
 							common:{
 								name: channelName
@@ -316,7 +322,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 						// create value state
 						for(const timeBase in this.timeStrings){
-							await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,{
+							await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,{
 								type: "state",
 								common: {
 									name: this.devices[device].historicValues[value].type[type].typeName,
@@ -336,7 +342,7 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 
 		// Create read trigger for all devices
-		await this.setObjectAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`,{
+		await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`,{
 			type: "state",
 			common: {
 				name: "Werte lesen (einmalig)",
@@ -646,7 +652,7 @@ class JanitzaGridvis extends utils.Adapter {
 						this.configConnection.adress = obj.message.adress;
 						this.configConnection.port = obj.message.port;
 						this.configConnection.projectname = obj.message.projectname;
-						this.sendTo(obj.from, obj.command, `${this.communicationStrings.communicationOk} ${projectInfo.version} - Anzahl Geräte: ${projectInfo.numberOfDevices}`, obj.callback);
+						this.sendTo(obj.from, obj.command, `${this.communicationStrings.communicationOk} ${projectInfo.version} - number of devices: ${projectInfo.numberOfDevices}`, obj.callback);
 					}
 					else{
 						this.configConnection = {};
@@ -661,8 +667,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 			// in case the connection is ok get devices for online and historic configuration (same devices)
 			// send the result array back to the select in config
-			case "getOnlineDevices":
-			case "getHistoricDevices":
+			case "getDevices":
 				if(this.configConnection.port){
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices.json?`;
@@ -674,7 +679,7 @@ class JanitzaGridvis extends utils.Adapter {
 							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 						}
 						for(const element in result.data.device){
-							const label = result.data.device[element].name + "  - Geräte-ID: " + result.data.device[element].id;
+							const label = result.data.device[element].name + "  - Device ID: " + result.data.device[element].id;
 							const value = `{"id":${result.data.device[element].id},"deviceName":"${result.data.device[element].name}"}`;
 							devices[myCount] = {label: label,value: value};
 							myCount ++;

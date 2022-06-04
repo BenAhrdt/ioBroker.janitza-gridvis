@@ -14,5 +14,6 @@
     "refreshCacleTooltipOnline": "enter the desired cronJob, wicht reads out th onlinevalues.",
     "historicvalues": "historic values",
     "historicvalueConfiguration": "configuration of the historic values",
-    "refreshCacleTooltipHistoric": "enter the desired cronJob, wicht reads out th historic values."
+    "refreshCacleTooltipHistoric": "enter the desired cronJob, wicht reads out th historic values.",
+    "number of devices": "number of devices"
 }

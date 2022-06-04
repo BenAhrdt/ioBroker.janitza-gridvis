@@ -6,12 +6,13 @@
     "address": "IP-Adresse / Servername",
     "port": "Port",
     "projectname": "Projektname",
-    "timeout": "Zeitüberschreitung (ms)",
+    "timeout": "Timeout (ms)",
     "onlinevalues": "Onlinewerte",
     "onlinevalueConfiguration": "Konfiguration der Onlinewerte",
     "refreshCycle": "Aktualisierungszyklus",
     "refreshCacleTooltipOnline": "Geben Sie den gewünschten CronJob ein, der die Onlinewerte ausliest.",
-    "historicvalues": "Historische Werte",
+    "historicvalues": "historische Werte",
     "historicvalueConfiguration": "Konfiguration der historischen Werte",
-    "refreshCacleTooltipHistoric": "Geben Sie den gewünschten CronJob ein, der die historischen Werte ausliest."
+    "refreshCacleTooltipHistoric": "Geben Sie den gewünschten CronJob ein, der die historischen Werte ausliest.",
+    "number of devices": "Anzahl der Geräte"
 }

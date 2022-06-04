@@ -166,7 +166,7 @@
         "timeout": 2000,
         "refreshOnlineCronJob": "*/2 * * * * *",
         "onlineDeviceTable": [],
-        "refreshHistoricCronJob": "*/15 * * * *",
+        "refreshHistoricCronJob": "5 */15 * * * *",
         "historicDeviceTable": []
     },
     "objects": [],
