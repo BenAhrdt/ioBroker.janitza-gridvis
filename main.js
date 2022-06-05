@@ -96,14 +96,16 @@ class JanitzaGridvis extends utils.Adapter {
 	 */
 	async onReady() {
 		// read system config
-		const systemConfig = await this.getForeignStateAsync("system.config");
-		const lang = systemConfig.common.language;
-		const translationsPath = "./admin/i18n/" + lang + "/translations.json";
-		const words = require(translationsPath);
-		this.log.info(words.justWithRunningAdapter);
-return;
-		// Initialize your adapter here
-		this.connectToGridVis();
+		const systemConfig = await this.getForeignObjectAsync("system.config");
+		if(systemConfig){
+			const lang = systemConfig.common.language;
+			const translationsPath = "./admin/i18n/" + lang + "/translations.json";
+			const words = require(translationsPath);
+			this.log.info(words.refreshCacleTooltipOnline);
+	return;
+			// Initialize your adapter here
+			this.connectToGridVis();
+		}
 	}
 
 	async connectToGridVis(){
