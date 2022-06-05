@@ -113,7 +113,10 @@ class JanitzaGridvis extends utils.Adapter {
 	async geti18nTranslation(){
 		const systemConfig = await this.getForeignObjectAsync("system.config");
 		if(systemConfig){
-			const lang = systemConfig.common.language;
+			let lang = systemConfig.common.language;
+			if(!lang){
+				lang = "en";
+			}
 			const translationsPath = "./admin/i18n/" + lang + "/translations.json";
 			return require(translationsPath);
 		}
