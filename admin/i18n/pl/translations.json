@@ -13,5 +13,11 @@
     "refreshCacleTooltipOnline": "wprowadź żądane zadanie cron, które odczytuje wartości online.",
     "historicvalues": "wartości historyczne",
     "historicvalueConfiguration": "konfiguracja wartości historycznych",
-    "refreshCacleTooltipHistoric": "wprowadź żądany cronJob, który odczytuje wartości historyczne."
+    "refreshCacleTooltipHistoric": "wprowadź żądany cronJob, który odczytuje wartości historyczne.",
+    "number of devices": "liczba urządzeń",
+    "The configured project does not respond. Please check the basic settings.": "Skonfigurowany projekt nie odpowiada. ",
+    "Data exchange with REST API successful.": "Wymiana danych z REST API powiodła się.",
+    "No connection": "Brak połączenia",
+    "No active connection to GridVis": "Brak aktywnego połączenia z GridVis",
+    "Connected to GridVis-Version": "Połączono z GridVis-Version"
 }

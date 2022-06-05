@@ -35,6 +35,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - message translating
+* (BenAhrdt) message translating in i18n
+
 ### 2.0.0 (2022-06-05)
 * (BenAhrdt) bugfixes for first release
 

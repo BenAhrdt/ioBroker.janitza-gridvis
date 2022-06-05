@@ -61,6 +61,8 @@ class JanitzaGridvis extends utils.Adapter {
 		};
 
 		this.communicationStrings = {
+			connectedToGridVisVersion: "Connected to GridVis-Version",
+			numberOfDevices: "number of devices",
 			ready: "Ready",
 			noCommunication : "The configured project does not respond. Please check the basic settings.",
 			communicationOk : "Data exchange with REST API successful.",
@@ -68,9 +70,8 @@ class JanitzaGridvis extends utils.Adapter {
 			noCommunicationSelectString: "No active connection to GridVis"
 		};
 
-		this.definedObjects = {
-			noCommunication : {label:this.communicationStrings.noCommunicationSelectString,value:this.communicationStrings.noCommunicationSelect}
-		};
+		// later defined (after translation is loaded)
+		this.definedObjects = {};
 
 		this.timeStrings = {
 			today: "Today",
@@ -89,24 +90,38 @@ class JanitzaGridvis extends utils.Adapter {
 		this.internalConnectionState = false;
 
 		this.concounter = 0;
+
+		this.i18nTranslation = {};
 	}
 
 	/**
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	async onReady() {
-		// read system config
+		// read system translation out of i18n translation
+		this.i18nTranslation = await this.geti18nTranslation();
+
+		// definition der internen Objecte (mit Übersetzung)
+		this.definedObjects = {
+			noCommunication : {label: this.i18nTranslation[this.communicationStrings.noCommunicationSelectString], value: this.i18nTranslation[this.communicationStrings.noCommunicationSelect]}
+		};
+		this.log.info(this.i18nTranslation[this.communicationStrings.noCommunicationSelectString]);
+		// start connection to GridVis
+		this.connectToGridVis();
+	}
+
+	async geti18nTranslation(){
 		const systemConfig = await this.getForeignObjectAsync("system.config");
 		if(systemConfig){
 			const lang = systemConfig.common.language;
 			const translationsPath = "./admin/i18n/" + lang + "/translations.json";
-			const words = require(translationsPath);
-			this.log.info(words.refreshCacleTooltipOnline);
-	return;
-			// Initialize your adapter here
-			this.connectToGridVis();
+			return require(translationsPath);
+		}
+		else{
+			return {};
 		}
 	}
+
 	async connectToGridVis(){
 		// Reset ConnectionTimeout
 		this.clearConnectionTimeout();
@@ -122,7 +137,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
 		if(projectInfo){
-			this.log.info(`Connected to GridVis-Version: ${projectInfo.version} - number of devices: ${projectInfo.numberOfDevices}`);
+			this.log.info(`${this.i18nTranslation[this.communicationStrings.connectedToGridVisVersion]}: ${projectInfo.version} - ${this.i18nTranslation[this.communicationStrings.numberOfDevices]}: ${projectInfo.numberOfDevices}`);
 			// Set connection established
 			await this.setStateAsync("info.connection", true, true);
 			this.internalConnectionState = true;
@@ -130,7 +145,7 @@ class JanitzaGridvis extends utils.Adapter {
 			this.StartCommunicationToGridVis();
 		}
 		else{
-			this.log.warn("No active communication to GridVis");
+			this.log.warn(this.i18nTranslation[this.communicationStrings.noCommunicationSelectString]);
 			this.timeouts[this.timeoutIds.connectionTimeout] = this.setTimeout(this.connectToGridVis.bind(this),this.timeoutValues[this.timeoutIds.connectionTimeout]);
 		}
 	}
@@ -181,7 +196,7 @@ class JanitzaGridvis extends utils.Adapter {
 	async createInternalStates(){
 		// Parse ans asign online values
 		for(const index in this.config.onlineDeviceTable){
-			if(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices] != this.communicationStrings.noCommunicationSelect){
+			if(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices] != this.i18nTranslation[this.communicationStrings.noCommunicationSelect]){
 				const configedOnlineDevices = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices]);
 				const configedOnlineValues = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineValues]);
 				if(configedOnlineDevices && configedOnlineValues){
@@ -264,7 +279,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 		// Parse and asign historic values
 		for(const index in this.config.historicDeviceTable){
-			if(this.config.historicDeviceTable[index][this.internalIds.historicDevices] != this.communicationStrings.noCommunicationSelect){
+			if(this.config.historicDeviceTable[index][this.internalIds.historicDevices] != this.i18nTranslation[this.communicationStrings.noCommunicationSelect]){
 				const configedHistoricDevices = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicDevices]);
 				const configedHistoricValues = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicValues]);
 				if(configedHistoricDevices && configedHistoricValues){
@@ -501,7 +516,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 	// red out all configed historic values
 	async readHistoricValues(){
-	// create url to read out onlinevalues
+		// create url to read out onlinevalues
 		let myUrl = "";
 		try{
 			for(const device in this.devices){
@@ -660,16 +675,16 @@ class JanitzaGridvis extends utils.Adapter {
 						this.configConnection.adress = obj.message.adress;
 						this.configConnection.port = obj.message.port;
 						this.configConnection.projectname = obj.message.projectname;
-						this.sendTo(obj.from, obj.command, `${this.communicationStrings.communicationOk} ${projectInfo.version} - number of devices: ${projectInfo.numberOfDevices}`, obj.callback);
+						this.sendTo(obj.from, obj.command, `${this.i18nTranslation[this.communicationStrings.communicationOk]} ${projectInfo.version} - ${this.i18nTranslation[this.communicationStrings.numberOfDevices]}: ${projectInfo.numberOfDevices}`, obj.callback);
 					}
 					else{
 						this.configConnection = {};
-						this.sendTo(obj.from, obj.command, this.communicationStrings.noCommunication, obj.callback);
+						this.sendTo(obj.from, obj.command, this.i18nTranslation[this.communicationStrings.noCommunication], obj.callback);
 					}
 				}
 				catch(error){
 					this.configConnection = {};
-					this.sendTo(obj.from, obj.command, this.communicationStrings.noCommunication, obj.callback);
+					this.sendTo(obj.from, obj.command, this.i18nTranslation[this.communicationStrings.noCommunication], obj.callback);
 				}
 				break;
 
