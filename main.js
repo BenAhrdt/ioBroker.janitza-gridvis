@@ -95,6 +95,13 @@ class JanitzaGridvis extends utils.Adapter {
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	async onReady() {
+		// read system config
+		const systemConfig = await this.getForeignStateAsync("system.config");
+		const lang = systemConfig.common.language;
+		const translationsPath = "./admin/i18n/" + lang + "/translations.json";
+		const words = require(translationsPath);
+		this.log.info(words.justWithRunningAdapter);
+return;
 		// Initialize your adapter here
 		this.connectToGridVis();
 	}
