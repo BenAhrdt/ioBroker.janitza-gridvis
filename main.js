@@ -107,7 +107,6 @@ class JanitzaGridvis extends utils.Adapter {
 			this.connectToGridVis();
 		}
 	}
-
 	async connectToGridVis(){
 		// Reset ConnectionTimeout
 		this.clearConnectionTimeout();
