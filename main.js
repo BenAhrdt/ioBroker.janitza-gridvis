@@ -105,7 +105,7 @@ class JanitzaGridvis extends utils.Adapter {
 		this.definedObjects = {
 			noCommunication : {label: this.i18nTranslation[this.communicationStrings.noCommunicationSelectString], value: this.i18nTranslation[this.communicationStrings.noCommunicationSelect]}
 		};
-		this.log.info(this.i18nTranslation[this.communicationStrings.noCommunicationSelectString]);
+
 		// start connection to GridVis
 		this.connectToGridVis();
 	}
