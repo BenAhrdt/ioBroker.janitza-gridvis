@@ -35,7 +35,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - translation without debug logging
+### 2.0.2 (2022-06-06) - translation without debug logging
 * (BenAhrdt) debug logging for translation removed
 
 ### 2.0.1 (2022-06-06) - message translating

@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.1",
+        "version": "2.0.2",
         "news": {
+            "2.0.2": {
+                "en": "debug logging for translation removed",
+                "de": "Debug-Protokollierung für die Übersetzung entfernt",
+                "ru": "ведение журнала отладки для перевода удалено",
+                "pt": "log de depuração para tradução removido",
+                "nl": "foutopsporingsregistratie voor vertaling verwijderd",
+                "fr": "journalisation de débogage pour la traduction supprimée",
+                "it": "registrazione di debug per la traduzione rimossa",
+                "es": "registro de depuración para traducción eliminado",
+                "pl": "usunięto logowanie debugowania do tłumaczenia",
+                "zh-cn": "删除了翻译的调试日志"
+            },
             "2.0.1": {
                 "en": "message translating in i18n",
                 "de": "Nachrichtenübersetzung in i18n",
