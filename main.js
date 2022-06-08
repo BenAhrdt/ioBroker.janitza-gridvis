@@ -131,8 +131,8 @@ class JanitzaGridvis extends utils.Adapter {
 		this.clearAllSchedules();
 
 		// Reset the connection indicator
-		await this.setStateAsync("info.connection", false, true);
 		this.internalConnectionState = false;
+		await this.setStateAsync("info.connection", false, true);
 
 		// Check the configed connection settings
 		// in case there is no connection to GridVis possible
