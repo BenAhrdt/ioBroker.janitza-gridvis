@@ -35,7 +35,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### **WORK IN PROGRESS** - sequential historical read out
 * (BenAhrdt) sequential readout of historical data 
 
 ### 2.0.2 (2022-06-06) - translation without debug logging

@@ -519,7 +519,9 @@ class JanitzaGridvis extends utils.Adapter {
 
 	// red out all configed historic values
 	async readHistoricValues(){
-		this.log.info("read out hiistoric data started");
+		if(this.common.loglevel == "debug"){
+			this.log.info("read out historic data started");
+		}
 		// create url to read out historic values
 		let myUrl = "";
 		try{
@@ -559,7 +561,9 @@ class JanitzaGridvis extends utils.Adapter {
 				this.connectToGridVis();
 			}
 		}
-		this.log.info("read out hiistoric data finished");
+		if(this.common.loglevel == "debug"){
+			this.log.info("read out historic data finished");
+		}
 	}
 
 	// Check the connection to GridVis
