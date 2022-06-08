@@ -539,10 +539,13 @@ class JanitzaGridvis extends utils.Adapter {
 								if(this.common.loglevel == "debug"){
 									this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 								}
-								if(result.status == 200){		// write data into internal state
+								if(result.status == 200){		// OK => write data into internal state
 									if((result.data.energy || result.data.energy == 0) && !isNaN(result.data.energy)){ // Prüfung auf undgleich NaN, oder 0
 										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
 									}
+								}
+								else if(result.status == 204){		// no content write 0 into internal state
+									this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,0,true);
 								}
 							}
 						}
