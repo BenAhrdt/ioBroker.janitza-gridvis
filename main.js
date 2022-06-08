@@ -7,7 +7,6 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
-const { time } = require("console");
 const axios = require("axios").default;
 const schedule = require("node-schedule");
 
