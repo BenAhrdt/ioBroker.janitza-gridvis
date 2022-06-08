@@ -7,6 +7,7 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
+const { time } = require("console");
 const axios = require("axios").default;
 const schedule = require("node-schedule");
 
@@ -498,7 +499,7 @@ class JanitzaGridvis extends utils.Adapter {
 						if(this.devices[device].onlineValues){
 							for(const value in this.devices[device].onlineValues){
 								for(const type in this.devices[device].onlineValues[value].type){
-									if(result.data.value[`${device}.${value}.${type}`] && result.data.value[`${device}.${value}.${type}`] != "NaN"){
+									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] == 0) && !isNaN(result.data.value[`${device}.${value}.${type}`])){ // Prüfung auf undgleich NaN, oder 0
 										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
 									}
 								}
@@ -539,7 +540,7 @@ class JanitzaGridvis extends utils.Adapter {
 									this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 								}
 								if(result.status == 200){		// write data into internal state
-									if(result.data.energy && result.data.energy != "NaN"){
+									if((result.data.energy || result.data.energy == 0) && !isNaN(result.data.energy)){ // Prüfung auf undgleich NaN, oder 0
 										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
 									}
 								}
