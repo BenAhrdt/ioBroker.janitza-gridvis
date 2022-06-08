@@ -519,7 +519,8 @@ class JanitzaGridvis extends utils.Adapter {
 
 	// red out all configed historic values
 	async readHistoricValues(){
-		// create url to read out onlinevalues
+		this.log.info("read out hiistoric data started");
+		// create url to read out historic values
 		let myUrl = "";
 		try{
 			for(const device in this.devices){
@@ -555,6 +556,7 @@ class JanitzaGridvis extends utils.Adapter {
 				this.connectToGridVis();
 			}
 		}
+		this.log.info("read out hiistoric data finished");
 	}
 
 	// Check the connection to GridVis
