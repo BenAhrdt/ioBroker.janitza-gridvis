@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.2",
+        "version": "2.0.3",
         "news": {
+            "2.0.3": {
+                "en": "sequential readout of historical data",
+                "de": "sequentielle auslesung historischer daten",
+                "ru": "последовательное чтение исторических данных",
+                "pt": "leitura sequencial de dados históricos",
+                "nl": "vertaling:",
+                "fr": "lecture séquentielle des données historiques",
+                "it": "lettura sequenziale dei dati storici",
+                "es": "lectura secuencial de datos históricos",
+                "pl": "odczyty danych historycznych",
+                "zh-cn": "b. 对历史数据进行分类"
+            },
             "2.0.2": {
                 "en": "debug logging for translation removed",
                 "de": "Debug-Protokollierung für die Übersetzung entfernt",
