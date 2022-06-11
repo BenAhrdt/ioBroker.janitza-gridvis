@@ -19,5 +19,6 @@
     "Data exchange with REST API successful.": "L'échange de données avec l'API REST a réussi.",
     "No connection": "Pas de connection",
     "No active connection to GridVis": "Aucune connexion active à GridVis",
-    "Connected to GridVis-Version": "Connecté à GridVis-Version"
+    "Connected to GridVis-Version": "Connecté à GridVis-Version",
+    "number of reconnects before warning": "nombre de reconnexions avant avertissement"
 }

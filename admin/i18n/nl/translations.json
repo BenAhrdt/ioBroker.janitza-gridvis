@@ -19,5 +19,6 @@
     "Data exchange with REST API successful.": "Gegevensuitwisseling met REST API succesvol.",
     "No connection": "Geen verbinding",
     "No active connection to GridVis": "Geen actieve verbinding met GridVis",
-    "Connected to GridVis-Version": "Verbonden met GridVis-versie"
+    "Connected to GridVis-Version": "Verbonden met GridVis-versie",
+    "number of reconnects before warning": "aantal herverbindingen vóór waarschuwing"
 }

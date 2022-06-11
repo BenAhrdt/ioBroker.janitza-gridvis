@@ -40,27 +40,35 @@
                     "type": "text",
                     "label": "address",
                     "default":"192.168.2.50",
-                    "sm":3
+                    "sm":2
                 },
                 "port": {
                     "type": "number",
                     "label": "port",
                     "default": 8080,
-                    "sm":3
+                    "sm":1
                 },
                 "projectname":{
-                    "newLine": true,
                     "type": "text",
                     "label": "projectname",
                     "defaut":"EnergieMonitoring",
                     "sm": 3
                 },
                 "timeout": {
+                    "newLine": true,
                     "type": "number",
                     "label": "timeout",
                     "min": 500,
                     "max": 5000,
                     "default": 2000,
+                    "sm":3
+                },
+                "reconnectCout": {
+                    "type": "number",
+                    "label": "number of reconnects before warning",
+                    "min": 0,
+                    "max": 10,
+                    "default": 6,
                     "sm":3
                 }
             }

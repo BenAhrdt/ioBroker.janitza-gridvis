@@ -19,5 +19,6 @@
     "Data exchange with REST API successful.": "与 REST API 的数据交换成功。",
     "No connection": "没有关联",
     "No active connection to GridVis": "没有与 GridVis 的活动连接",
-    "Connected to GridVis-Version": "连接到 GridVis 版本"
+    "Connected to GridVis-Version": "连接到 GridVis 版本",
+    "number of reconnects before warning": "警告前的重新连接次数"
 }
