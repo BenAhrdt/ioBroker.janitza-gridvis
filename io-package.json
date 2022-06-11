@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.4",
+        "version": "2.0.5",
         "news": {
+            "2.0.5": {
+                "en": "reconnect count was implemeted into the info states\nset the default value of reconnection before warning to 4 (4 x timeout + 3 x 10s)",
+                "de": "reconnect count wurde in die info-staaten implemetiert\nden standardwert der reconnection vor der warnung auf 4 (4 x timeout + 3 x 10s) einstellen",
+                "ru": "переподключение считалось в состояния информации\nустановить значение по умолчанию reconnection перед предупреждением к 4 (4 x timeout + 3 x 10s)",
+                "pt": "contagem de reconectação foi implemeted para os estados de informação\ndefinir o valor padrão de reconexão antes de advertir para 4 (4 x timeout + 3 x 10s)",
+                "nl": "verbindingstel werd geïmpromoveerd in de info staat\nzet de defecte waarde van verbinding voor waarschuwing naar 4 (4 x time-out + 3 x 10s)",
+                "fr": "reconnect count was implemeted into the info states\ndéfinir la valeur par défaut de la reconnection avant l'avertissement 4 (4 x timeout + 3 x 10s)",
+                "it": "riconnettere il conteggio è stato bloccato negli stati di info\nimpostare il valore predefinito della riconnessione prima dell'avviso a 4 (4 x timeout + 3 x 10s)",
+                "es": "reconnect count fue implemeted en los estados info\nestablecer el valor predeterminado de la reconexión antes de advertir a 4 (4 x timeout + 3 x 10s)",
+                "pl": "reconnect hrabia został przedstawiony w stanach informacyjnych\ndomyślna wartość ponownego połączenia przed ostrzeżeniem do 4 (x timeout + 3 x 10s)",
+                "zh-cn": "重新连接的计值被划入主国。\n在发出警告之前(4×时间+3×10)重新连接的过期价值"
+            },
             "2.0.4": {
                 "en": "count the reconnection and warn after configed count is reached",
                 "de": "zählen sie die wiederverbindung und warnen sie nach der begrenzten anzahl erreicht",
