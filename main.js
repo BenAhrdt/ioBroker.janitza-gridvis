@@ -158,10 +158,10 @@ class JanitzaGridvis extends utils.Adapter {
 			this.StartCommunicationToGridVis();
 		}
 		else{
-			if(this.reconnectCounter == (this.config.reconnectCout)){
+			if(this.reconnectCounter == this.config.reconnectCout && this.reconnectCounter != 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut werden muss bevor diese Warnung ausgegeben wird.
 				this.log.warn(`${this.i18nTranslation[this.communicationStrings.lastCommunicationError]}: ${this.reconnectErrorString}`);
 			}
-			if(this.reconnectCounter >= this.config.reconnectCout){
+			if(this.reconnectCounter >= this.config.reconnectCout || this.reconnectCounter == 0){ // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
 				this.log.warn(this.i18nTranslation[this.communicationStrings.noCommunicationSelectString]);
 			}
 			this.timeouts[this.timeoutIds.connectionTimeout] = this.setTimeout(this.connectToGridVis.bind(this),this.timeoutValues[this.timeoutIds.connectionTimeout]);
