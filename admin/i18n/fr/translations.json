@@ -20,5 +20,6 @@
     "No connection": "Pas de connection",
     "No active connection to GridVis": "Aucune connexion active à GridVis",
     "Connected to GridVis-Version": "Connecté à GridVis-Version",
-    "number of reconnects before warning": "nombre de reconnexions avant avertissement"
+    "number of reconnects before warning": "nombre de reconnexions avant avertissement",
+    "last communication error": "dernière erreur de communication"
 }

@@ -35,6 +35,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - nuber of reconnection before warning in config
+* (BenAhrdt) count the reconnection and warn after configed count is reached 
+
 ### 2.0.3 (2022-06-09) - sequential historical read out
 * (BenAhrdt) sequential readout of historical data 
 

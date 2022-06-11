@@ -67,7 +67,8 @@ class JanitzaGridvis extends utils.Adapter {
 			noCommunication : "The configured project does not respond. Please check the basic settings.",
 			communicationOk : "Data exchange with REST API successful.",
 			noCommunicationSelect: "No connection",
-			noCommunicationSelectString: "No active connection to GridVis"
+			noCommunicationSelectString: "No active connection to GridVis",
+			lastCommunicationError: "last communication error"
 		};
 
 		// later defined (after translation is loaded)
@@ -89,7 +90,8 @@ class JanitzaGridvis extends utils.Adapter {
 		this.internalValuesInited = false;
 		this.internalConnectionState = false;
 
-		this.concounter = 0;
+		this.reconnectErrorString = "";
+		this.reconnectCounter = 0;
 
 		this.i18nTranslation = {};
 	}
@@ -130,6 +132,13 @@ class JanitzaGridvis extends utils.Adapter {
 		this.clearConnectionTimeout();
 		this.clearAllSchedules();
 
+		// increment the reconnect counter
+		if(this.reconnectCounter > 0 || this.internalConnectionState){
+			this.reconnectCounter += 1;
+		}
+		if(this.reconnectCounter == 1 &&  this.config.reconnectCout == 0){
+			this.log.warn(`${this.i18nTranslation[this.communicationStrings.lastCommunicationError]}: ${this.reconnectErrorString}`);
+		}
 		// Reset the connection indicator
 		this.internalConnectionState = false;
 		await this.setStateAsync("info.connection", false, true);
@@ -143,12 +152,18 @@ class JanitzaGridvis extends utils.Adapter {
 			this.log.info(`${this.i18nTranslation[this.communicationStrings.connectedToGridVisVersion]}: ${projectInfo.version} - ${this.i18nTranslation[this.communicationStrings.numberOfDevices]}: ${projectInfo.numberOfDevices}`);
 			// Set connection established
 			await this.setStateAsync("info.connection", true, true);
+			this.reconnectCounter = 0;
 			this.internalConnectionState = true;
 			await this.initInternalValues();
 			this.StartCommunicationToGridVis();
 		}
 		else{
-			this.log.warn(this.i18nTranslation[this.communicationStrings.noCommunicationSelectString]);
+			if(this.reconnectCounter == (this.config.reconnectCout)){
+				this.log.warn(`${this.i18nTranslation[this.communicationStrings.lastCommunicationError]}: ${this.reconnectErrorString}`);
+			}
+			if(this.reconnectCounter >= this.config.reconnectCout){
+				this.log.warn(this.i18nTranslation[this.communicationStrings.noCommunicationSelectString]);
+			}
 			this.timeouts[this.timeoutIds.connectionTimeout] = this.setTimeout(this.connectToGridVis.bind(this),this.timeoutValues[this.timeoutIds.connectionTimeout]);
 		}
 	}
@@ -509,8 +524,10 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 			catch(error){
 				if(this.internalConnectionState){
-					this.log.warn(`${error} after sending ${myUrl}`);
-					this.log.warn("start reconnecting to GridVis®");
+					if(this.common.loglevel == "debug"){
+						this.log.debug(`${error} after sending ${myUrl}`);
+					}
+					this.reconnectErrorString = `${error} after sending ${myUrl}`;
 					this.connectToGridVis();
 				}
 			}
@@ -556,8 +573,10 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 		catch(error){
 			if(this.internalConnectionState){
-				this.log.warn(`${error} after sending ${myUrl}`);
-				this.log.warn("start reconnecting to GridVis®");
+				if(this.common.loglevel == "debug"){
+					this.log.debug(`${error} after sending ${myUrl}`);
+				}
+				this.reconnectErrorString = `${error} after sending ${myUrl}`;
 				this.connectToGridVis();
 			}
 		}
