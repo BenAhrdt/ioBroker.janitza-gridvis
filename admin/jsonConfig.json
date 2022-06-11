@@ -68,7 +68,7 @@
                     "label": "number of reconnects before warning",
                     "min": 0,
                     "max": 10,
-                    "default": 6,
+                    "default": 4,
                     "sm":3
                 }
             }

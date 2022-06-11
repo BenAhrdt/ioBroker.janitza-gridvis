@@ -35,6 +35,10 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - reconnect count in info states
+* (BenAhrdt) reconnect count was implemeted into the info states
+* (BenAhrdt) set the default value of reconnection before warning to 4 (4 x timeout + 3 x 10s)
+
 ### 2.0.4 (2022-06-12) - nuber of reconnection before warning in config
 * (BenAhrdt) count the reconnection and warn after configed count is reached 
 

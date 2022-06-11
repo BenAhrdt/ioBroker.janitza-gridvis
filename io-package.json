@@ -224,7 +224,7 @@
         "port": 8080,
         "projectname": "EnergieMonitoring",
         "timeout": 2000,
-        "reconnectCout": 6,
+        "reconnectCout": 4,
         "refreshOnlineCronJob": "*/2 * * * * *",
         "onlineDeviceTable": [],
         "refreshHistoricCronJob": "5 */15 * * * *",

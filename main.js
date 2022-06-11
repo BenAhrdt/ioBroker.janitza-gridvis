@@ -57,7 +57,8 @@ class JanitzaGridvis extends utils.Adapter {
 			historicValues: "historicValues",
 			devices: "devices",
 			readValuesTrigger: "readValuesTrigger",
-			globalValue: "GlobalValue"
+			globalValue: "GlobalValue",
+			reconnectCount: "reconnectCount"
 		};
 
 		this.communicationStrings = {
@@ -87,7 +88,6 @@ class JanitzaGridvis extends utils.Adapter {
 			lastYear: "LastYear"
 		};
 
-		this.internalValuesInited = false;
 		this.internalConnectionState = false;
 
 		this.reconnectErrorString = "";
@@ -107,6 +107,9 @@ class JanitzaGridvis extends utils.Adapter {
 		this.definedObjects = {
 			noCommunication : {label: this.i18nTranslation[this.communicationStrings.noCommunicationSelectString], value: this.i18nTranslation[this.communicationStrings.noCommunicationSelect]}
 		};
+
+		// Init internal states & device states
+		await this.initInternalValues();
 
 		// start connection to GridVis
 		this.connectToGridVis();
@@ -154,7 +157,7 @@ class JanitzaGridvis extends utils.Adapter {
 			await this.setStateAsync("info.connection", true, true);
 			this.reconnectCounter = 0;
 			this.internalConnectionState = true;
-			await this.initInternalValues();
+			this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
 			this.StartCommunicationToGridVis();
 		}
 		else{
@@ -164,17 +167,14 @@ class JanitzaGridvis extends utils.Adapter {
 			if(this.reconnectCounter >= this.config.reconnectCout || this.reconnectCounter == 0){ // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
 				this.log.warn(this.i18nTranslation[this.communicationStrings.noCommunicationSelectString]);
 			}
+			this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
 			this.timeouts[this.timeoutIds.connectionTimeout] = this.setTimeout(this.connectToGridVis.bind(this),this.timeoutValues[this.timeoutIds.connectionTimeout]);
 		}
 	}
 
 	async initInternalValues(){
-		if(!this.internalValuesInited){
-			// After connection is ok initialize the internal states
-			await this.createInternalStates();
-			await this.delNotConfiguredStates();
-			this.internalValuesInited = true;
-		}
+		await this.createInternalStates();
+		await this.delNotConfiguredStates();
 	}
 
 	clearConnectionTimeout(){
@@ -386,7 +386,7 @@ class JanitzaGridvis extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`,{
 			type: "state",
 			common: {
-				name: "Werte lesen (einmalig)",
+				name: this.internalIds.readValuesTrigger,
 				type: "boolean",
 				role: "state",
 				read: true,
@@ -397,6 +397,20 @@ class JanitzaGridvis extends utils.Adapter {
 		});
 		// Subscribe trigger state
 		this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`);
+
+		// create the state for the reconnection count
+		await this.setObjectNotExistsAsync(`info.${this.internalIds.reconnectCount}`,{
+			type: "state",
+			common: {
+				name: this.internalIds.reconnectCount,
+				type: "number",
+				role: "value",
+				read: true,
+				write: false,
+				def:0
+			},
+			native: {},
+		});
 
 	}
 
@@ -451,13 +465,19 @@ class JanitzaGridvis extends utils.Adapter {
 				activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`;
 				delete this.AdapterObjectsAtStart[activeString];
 			}
-			activeString = `${this.namespace}.info`;
-			delete this.AdapterObjectsAtStart[activeString];
-			activeString = `${this.namespace}.info.connection`;
-			delete this.AdapterObjectsAtStart[activeString];
-			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`;
-			delete this.AdapterObjectsAtStart[activeString];
 		}
+
+		// delete the general states from the array
+		activeString = `${this.namespace}.info`;
+		delete this.AdapterObjectsAtStart[activeString];
+		activeString = `${this.namespace}.info.connection`;
+		delete this.AdapterObjectsAtStart[activeString];
+		activeString = `${this.namespace}.info.${this.internalIds.reconnectCount}`;
+		delete this.AdapterObjectsAtStart[activeString];
+		activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`;
+		delete this.AdapterObjectsAtStart[activeString];
+
+		// delete the remaining states
 		for(const state in this.AdapterObjectsAtStart){
 			this.delObjectAsync(state);
 		}
