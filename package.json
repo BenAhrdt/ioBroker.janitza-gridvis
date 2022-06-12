@@ -1,6 +1,6 @@
 {
   "name": "iobroker.janitza-gridvis",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Read out data from Energymanagementsystem Janitza® GridVis®",
   "author": {
     "name": "BenAhrdt",
