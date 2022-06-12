@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.5",
+        "version": "2.0.6",
         "news": {
+            "2.0.6": {
+                "en": "deviceschanged to type channel\nonlineValues & historicValues \"folder\" changed to \"channel\"",
+                "de": "geräte, die auf kanaltyp geändert werden\nonline Werte & historische Werte Ordner in Kanal geändert",
+                "ru": "устройства изменены на тип канала\nонлайн Ценности и исторические папка Values изменилась на канал",
+                "pt": "dispositivos alterados para digitar canal\nonline Valores e histórico Valores pasta alterada para canal",
+                "nl": "quality over quantity (qoq) releases vertaling:\nonline Vertaling: Vertaling:",
+                "fr": "dispositifs changés pour le canal de type\nen ligne Valeurs historiques Le dossier Valeurs a changé en canal",
+                "it": "dispositivicambiati a canale di tipo\nonline Valori e storici Valori cartella cambiata in canale",
+                "es": "dispositivos cambiados para el canal de tipo\nonline Valores \" históricos Carpeta de valores cambiada al canal",
+                "pl": "urządzenie zmieniało się na typowy kanał\nonline Values & historic (ang.). folder zmieni się na kanał",
+                "zh-cn": "d. 转用类型渠道\n在线 价值和历史 B. 导 言"
+            },
             "2.0.5": {
                 "en": "reconnect count was implemeted into the info states\nset the default value of reconnection before warning to 4 (4 x timeout + 3 x 10s)",
                 "de": "reconnect count wurde in die info-staaten implemetiert\nden standardwert der reconnection vor der warnung auf 4 (4 x timeout + 3 x 10s) einstellen",

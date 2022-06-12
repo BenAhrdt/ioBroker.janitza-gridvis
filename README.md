@@ -35,7 +35,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - set devices to type channel
+### 2.0.6 (2022-06-12) - set devices to type channel
 * (BenAhrdt) deviceschanged to type channel
 * (BenAhrdt) onlineValues & historicValues "folder" changed to "channel"
 
