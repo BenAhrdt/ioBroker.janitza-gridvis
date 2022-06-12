@@ -1,7 +1,7 @@
 {
     "mainSettings": "configurações principais",
     "connectionInformations": "informações de conexão",
-    "justWithRunningAdapter": "a configuração funciona apenas com o adaptador em execução",
+    "justWithRunningAdapter": "a configuração só funciona com o Adapter em execução",
     "communicationSettings": "configurações de comunicação",
     "address": "Endereço IP / Nome do servidor",
     "port": "porta",
@@ -21,5 +21,7 @@
     "No active connection to GridVis": "Nenhuma conexão ativa com o GridVis",
     "Connected to GridVis-Version": "Conectado à versão GridVis",
     "number of reconnects before warning": "número de reconexões antes do aviso",
-    "last communication error": "último erro de comunicação"
+    "last communication error": "último erro de comunicação",
+    "online values": "valores online",
+    "historic values": "valores históricos"
 }

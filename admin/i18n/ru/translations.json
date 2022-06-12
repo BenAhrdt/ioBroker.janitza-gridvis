@@ -21,5 +21,7 @@
     "No active connection to GridVis": "Нет активного подключения к GridVis",
     "Connected to GridVis-Version": "Подключено к версии GridVis",
     "number of reconnects before warning": "количество повторных подключений до предупреждения",
-    "last communication error": "последняя ошибка связи"
+    "last communication error": "последняя ошибка связи",
+    "online values": "онлайн значения",
+    "historic values": "исторические ценности"
 }

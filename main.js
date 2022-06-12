@@ -59,6 +59,7 @@ class JanitzaGridvis extends utils.Adapter {
 			readValuesTrigger: "readValuesTrigger",
 			globalValue: "GlobalValue",
 			reconnectCount: "reconnectCount"
+
 		};
 
 		this.communicationStrings = {
@@ -70,6 +71,12 @@ class JanitzaGridvis extends utils.Adapter {
 			noCommunicationSelect: "No connection",
 			noCommunicationSelectString: "No active connection to GridVis",
 			lastCommunicationError: "last communication error"
+		};
+
+		this.translationIds = {
+			onlineValues: "online values",
+			historicValues: "historic values",
+			devices: "devices"
 		};
 
 		// later defined (after translation is loaded)
@@ -254,9 +261,9 @@ class JanitzaGridvis extends utils.Adapter {
 
 						// create onlinevalue folder
 						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}`,{
-							type:"folder",
+							type:"channel",
 							common:{
-								name: "Ausgelesene Onlinewerte"
+								name: this.i18nTranslation[this.translationIds.onlineValues]
 							},
 							native : {},
 						});
@@ -341,9 +348,9 @@ class JanitzaGridvis extends utils.Adapter {
 
 						// create historic value folder
 						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`,{
-							type:"folder",
+							type:"channel",
 							common:{
-								name: "Ausgelesene historische Werte"
+								name: this.i18nTranslation[this.translationIds.historicValues]
 							},
 							native : {},
 						});
@@ -382,36 +389,8 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 		}
 
-		// Create read trigger for all devices
-		await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`,{
-			type: "state",
-			common: {
-				name: this.internalIds.readValuesTrigger,
-				type: "boolean",
-				role: "state",
-				read: true,
-				write: true,
-				def:false
-			},
-			native: {},
-		});
 		// Subscribe trigger state
 		this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`);
-
-		// create the state for the reconnection count
-		await this.setObjectNotExistsAsync(`info.${this.internalIds.reconnectCount}`,{
-			type: "state",
-			common: {
-				name: this.internalIds.reconnectCount,
-				type: "number",
-				role: "value",
-				read: true,
-				write: false,
-				def:0
-			},
-			native: {},
-		});
-
 	}
 
 	// deletes not configured states
@@ -468,6 +447,8 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 
 		// delete the general states from the array
+		activeString = `${this.namespace}.${this.internalIds.devices}`;
+		delete this.AdapterObjectsAtStart[activeString];
 		activeString = `${this.namespace}.info`;
 		delete this.AdapterObjectsAtStart[activeString];
 		activeString = `${this.namespace}.info.connection`;

@@ -35,6 +35,10 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - set devices to type channel
+* (BenAhrdt) deviceschanged to type channel
+* (BenAhrdt) onlineValues & historicValues "folder" changed to "channel"
+
 ### 2.0.5 (2022-06-12) - reconnect count in info states
 * (BenAhrdt) reconnect count was implemeted into the info states
 * (BenAhrdt) set the default value of reconnection before warning to 4 (4 x timeout + 3 x 10s)

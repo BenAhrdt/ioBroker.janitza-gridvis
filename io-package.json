@@ -264,6 +264,73 @@
                 "def": false
             },
             "native": {}
+        },
+        {
+            "_id": "info.reconnectCount",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "reconnect count",
+                    "de": "Verbindungsaufbau-Zähler",
+                    "ru": "переподключить счет",
+                    "pt": "contagem de reconectação",
+                    "nl": "vertaling:",
+                    "fr": "reconnecter le compte",
+                    "it": "riconnettere il conteggio",
+                    "es": "cuenta de reconexión",
+                    "pl": "rekomendacja",
+                    "zh-cn": "重新计算"
+                },
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": 0
+            },
+            "native": {}
+        },
+        {
+            "_id": "devices",
+            "type": "channel",
+            "common": {
+                "name": {
+                    "en": "devices",
+                    "de": "Geräte",
+                    "ru": "устройства",
+                    "pt": "dispositivos",
+                    "nl": "apparaat",
+                    "fr": "dispositifs",
+                    "it": "dispositivi",
+                    "es": "dispositivos",
+                    "pl": "urządzenia",
+                    "zh-cn": "装置"
+                }
+            },
+            "native": {}
+        },
+        {
+            "_id": "devices.readValuesTrigger",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "read trigger",
+                    "de": "Lesetrigger",
+                    "ru": "читать триггер",
+                    "pt": "gatilho de leitura",
+                    "nl": "lees het",
+                    "fr": "lire le déclencheur",
+                    "it": "trigger di lettura",
+                    "es": "leí el gatillo",
+                    "pl": "odczyt",
+                    "zh-cn": "目 录"
+                },
+                "type": "boolean",
+                "role": "state",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
         }
     ]
 }
