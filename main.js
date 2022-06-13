@@ -158,7 +158,10 @@ class JanitzaGridvis extends utils.Adapter {
 
 		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
 		if(projectInfo){
-			this.log.info(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
+			// log just if the reconnect counter is bigger than the configed number before warning (or at startup)
+			if(this.reconnectCounter > this.config.reconnectCout || this.reconnectCounter == 0){
+				this.log.info(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
+			}
 			// Set connection established
 			await this.setStateAsync("info.connection", true, true);
 			this.reconnectCounter = 0;
@@ -167,7 +170,7 @@ class JanitzaGridvis extends utils.Adapter {
 			this.StartCommunicationToGridVis();
 		}
 		else{
-			if(this.reconnectCounter == this.config.reconnectCout && this.reconnectCounter != 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut werden muss bevor diese Warnung ausgegeben wird.
+			if(this.reconnectCounter == this.config.reconnectCout && this.reconnectCounter != 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut sein musste bevor diese Warnung ausgegeben wird.
 				this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
 			}
 			if(this.reconnectCounter >= this.config.reconnectCout || this.reconnectCounter == 0){ // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
