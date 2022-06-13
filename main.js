@@ -231,6 +231,7 @@ class JanitzaGridvis extends utils.Adapter {
 					if(!this.devices[deviceId]){
 						this.devices[deviceId] = {};
 						this.devices[deviceId].deviceName = configedOnlineDevices.deviceName;
+						this.devices[deviceId].type = configedOnlineDevices.type;
 						this.devices[deviceId].onlineValues = {};
 					}
 					if(!this.devices[deviceId].onlineValues[configedOnlineValues.value]){
@@ -256,7 +257,8 @@ class JanitzaGridvis extends utils.Adapter {
 						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}`,{
 							type:"device",
 							common:{
-								name: this.devices[device].deviceName
+								name: this.devices[device].deviceName,
+								icon: `icons/${this.devices[device].type}.png`,
 							},
 							native : {},
 						});
@@ -737,7 +739,7 @@ class JanitzaGridvis extends utils.Adapter {
 						}
 						for(const element in result.data.device){
 							const label = result.data.device[element].name + "  - Device ID: " + result.data.device[element].id;
-							const value = `{"id":${result.data.device[element].id},"deviceName":"${result.data.device[element].name}"}`;
+							const value = `{"id":${result.data.device[element].id},"deviceName":"${result.data.device[element].name}","type":"${result.data.device[element].type}"}`;
 							devices[myCount] = {label: label,value: value};
 							myCount ++;
 						}
