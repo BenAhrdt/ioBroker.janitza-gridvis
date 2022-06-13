@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.7",
+        "version": "2.0.8",
         "news": {
+            "2.0.8": {
+                "en": "logging changed into english",
+                "de": "logging ins englische",
+                "ru": "вход изменен на английский",
+                "pt": "mudando para inglês",
+                "nl": "verandering in engels",
+                "fr": "journalisation changée en anglais",
+                "it": "logging cambiato in inglese",
+                "es": "logging changed into english",
+                "pl": "logowanie zmieniło się na english",
+                "zh-cn": "伐木的变化"
+            },
             "2.0.7": {
                 "en": "german translation was lost => re-implemented",
                 "de": "deutsche übersetzung wurde verloren => wiedereinführung",
