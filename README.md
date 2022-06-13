@@ -35,6 +35,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - logging language changed
+* (BenAhrdt) logging changed into english
+
 ### 2.0.7 (2022-06-12) - bugfix translation
 * (BenAhrdt) german translation was lost => re-implemented
 

@@ -75,8 +75,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 		this.translationIds = {
 			onlineValues: "online values",
-			historicValues: "historic values",
-			devices: "devices"
+			historicValues: "historic values"
 		};
 
 		// later defined (after translation is loaded)
@@ -147,7 +146,7 @@ class JanitzaGridvis extends utils.Adapter {
 			this.reconnectCounter += 1;
 		}
 		if(this.reconnectCounter == 1 &&  this.config.reconnectCout == 0){
-			this.log.warn(`${this.i18nTranslation[this.communicationStrings.lastCommunicationError]}: ${this.reconnectErrorString}`);
+			this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
 		}
 		// Reset the connection indicator
 		this.internalConnectionState = false;
@@ -159,7 +158,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
 		if(projectInfo){
-			this.log.info(`${this.i18nTranslation[this.communicationStrings.connectedToGridVisVersion]}: ${projectInfo.version} - ${this.i18nTranslation[this.communicationStrings.numberOfDevices]}: ${projectInfo.numberOfDevices}`);
+			this.log.info(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
 			// Set connection established
 			await this.setStateAsync("info.connection", true, true);
 			this.reconnectCounter = 0;
@@ -169,10 +168,10 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 		else{
 			if(this.reconnectCounter == this.config.reconnectCout && this.reconnectCounter != 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut werden muss bevor diese Warnung ausgegeben wird.
-				this.log.warn(`${this.i18nTranslation[this.communicationStrings.lastCommunicationError]}: ${this.reconnectErrorString}`);
+				this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
 			}
 			if(this.reconnectCounter >= this.config.reconnectCout || this.reconnectCounter == 0){ // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
-				this.log.warn(this.i18nTranslation[this.communicationStrings.noCommunicationSelectString]);
+				this.log.warn(this.communicationStrings.noCommunicationSelectString);
 			}
 			this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
 			this.timeouts[this.timeoutIds.connectionTimeout] = this.setTimeout(this.connectToGridVis.bind(this),this.timeoutValues[this.timeoutIds.connectionTimeout]);

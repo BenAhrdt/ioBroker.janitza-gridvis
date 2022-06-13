@@ -1,6 +1,6 @@
 {
     "mainSettings": "Основные параметры",
-    "connectionInformations": "информация о соединении",
+    "connectionInformations": "информация о подключении",
     "justWithRunningAdapter": "конфигурация работает только с запущенным адаптером",
     "communicationSettings": "настройки связи",
     "address": "IP-адрес / имя сервера",
@@ -14,14 +14,12 @@
     "historicvalues": "исторические ценности",
     "historicvalueConfiguration": "конфигурация исторических ценностей",
     "refreshCacleTooltipHistoric": "введите желаемый cronJob, который считывает исторические значения.",
-    "number of devices": "количество устройств",
     "The configured project does not respond. Please check the basic settings.": "Настроенный проект не отвечает. ",
     "Data exchange with REST API successful.": "Обмен данными с REST API выполнен успешно.",
     "No connection": "Нет соединения",
-    "No active connection to GridVis": "Нет активного подключения к GridVis",
     "Connected to GridVis-Version": "Подключено к версии GridVis",
+    "No active connection to GridVis": "Нет активного подключения к GridVis",
     "number of reconnects before warning": "количество повторных подключений до предупреждения",
-    "last communication error": "последняя ошибка связи",
     "online values": "онлайн значения",
     "historic values": "исторические ценности"
 }

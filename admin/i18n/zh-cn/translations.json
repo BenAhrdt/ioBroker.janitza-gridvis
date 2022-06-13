@@ -14,14 +14,12 @@
     "historicvalues": "历史价值",
     "historicvalueConfiguration": "历史价值的配置",
     "refreshCacleTooltipHistoric": "输入所需的 cronJob，读取历史值。",
-    "number of devices": "设备数量",
     "The configured project does not respond. Please check the basic settings.": "配置的项目没有响应。",
     "Data exchange with REST API successful.": "与 REST API 的数据交换成功。",
     "No connection": "没有关联",
-    "No active connection to GridVis": "没有与 GridVis 的活动连接",
     "Connected to GridVis-Version": "连接到 GridVis 版本",
+    "No active connection to GridVis": "没有与 GridVis 的活动连接",
     "number of reconnects before warning": "警告前的重新连接次数",
-    "last communication error": "上次通讯错误",
     "online values": "在线价值观",
     "historic values": "历史价值"
 }

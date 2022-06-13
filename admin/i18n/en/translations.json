@@ -15,14 +15,12 @@
     "historicvalues": "historic values",
     "historicvalueConfiguration": "configuration of the historic values",
     "refreshCacleTooltipHistoric": "enter the desired cronJob, wicht reads out th historic values.",
-    "number of devices": "number of devices",
     "The configured project does not respond. Please check the basic settings.": "The configured project does not respond. Please check the basic settings.",
     "Data exchange with REST API successful.": "Data exchange with REST API successful.",
     "No connection": "No connection",
-    "No active connection to GridVis": "No active connection to GridVis",
     "Connected to GridVis-Version": "Connected to GridVis-Version",
+    "No active connection to GridVis": "No active connection to GridVis",
     "number of reconnects before warning": "number of reconnects before warning",
-    "last communication error": "last communication error",
     "online values": "online values",
     "historic values": "historic values"
 }

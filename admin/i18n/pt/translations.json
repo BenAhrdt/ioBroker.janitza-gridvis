@@ -1,9 +1,9 @@
 {
     "mainSettings": "configurações principais",
     "connectionInformations": "informações de conexão",
-    "justWithRunningAdapter": "a configuração só funciona com o Adapter em execução",
+    "justWithRunningAdapter": "a configuração funciona apenas com o adaptador em execução",
     "communicationSettings": "configurações de comunicação",
-    "address": "Endereço IP / Nome do servidor",
+    "address": "Endereço IP / Nome do Servidor",
     "port": "porta",
     "projectname": "Nome do Projeto",
     "timeout": "Tempo limite (ms)",
@@ -14,14 +14,12 @@
     "historicvalues": "valores históricos",
     "historicvalueConfiguration": "configuração dos valores históricos",
     "refreshCacleTooltipHistoric": "digite o cronJob desejado, que lê os valores históricos.",
-    "number of devices": "número de dispositivos",
     "The configured project does not respond. Please check the basic settings.": "O projeto configurado não responde. ",
     "Data exchange with REST API successful.": "Troca de dados com a API REST bem-sucedida.",
     "No connection": "Sem conexão",
-    "No active connection to GridVis": "Nenhuma conexão ativa com o GridVis",
     "Connected to GridVis-Version": "Conectado à versão GridVis",
+    "No active connection to GridVis": "Nenhuma conexão ativa com o GridVis",
     "number of reconnects before warning": "número de reconexões antes do aviso",
-    "last communication error": "último erro de comunicação",
     "online values": "valores online",
     "historic values": "valores históricos"
 }

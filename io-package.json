@@ -249,6 +249,11 @@
             "config": "json"
         },
         "messagebox": true,
+        "globalDependencies": [
+            {
+                "admin": ">=5.0.0"
+            }
+        ],
         "dependencies": [
             {
                 "js-controller": ">=2.0.0"
