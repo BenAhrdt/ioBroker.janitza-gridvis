@@ -21,5 +21,6 @@
     "No active connection to GridVis": "Sin conexión activa a GridVis",
     "number of reconnects before warning": "número de reconexiones antes de la advertencia",
     "online values": "valores en línea",
-    "historic values": "valores históricos"
+    "historic values": "valores históricos",
+    "number of devices": "número de dispositivos"
 }

@@ -2,6 +2,7 @@
     "common": {
         "name": "janitza-gridvis",
         "version": "2.0.8",
+        "eraseOnUpload": true,
         "news": {
             "2.0.8": {
                 "en": "logging changed into english",

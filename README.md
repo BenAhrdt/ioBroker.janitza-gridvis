@@ -35,6 +35,10 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - implement icson and water consumption
+* (BenAhrdt) implements icons for device channel
+* (BenAhrdt) implements water consumption for historic values
+
 ### 2.0.8 (2022-06-13) - logging language changed
 * (BenAhrdt) logging changed into english
 

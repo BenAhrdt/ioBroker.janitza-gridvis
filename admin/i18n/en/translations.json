@@ -21,6 +21,7 @@
     "Connected to GridVis-Version": "Connected to GridVis-Version",
     "No active connection to GridVis": "No active connection to GridVis",
     "number of reconnects before warning": "number of reconnects before warning",
+    "number of devices": "number of devices",
     "online values": "online values",
     "historic values": "historic values"
 }

@@ -58,6 +58,7 @@ class JanitzaGridvis extends utils.Adapter {
 			devices: "devices",
 			readValuesTrigger: "readValuesTrigger",
 			globalValue: "GlobalValue",
+			userDefined: "UserDefined",
 			reconnectCount: "reconnectCount"
 
 		};
@@ -94,12 +95,19 @@ class JanitzaGridvis extends utils.Adapter {
 			lastYear: "LastYear"
 		};
 
+		// internal connection state to block timeout errors
 		this.internalConnectionState = false;
 
+		// reconnect counter for counting reconnects before lor warning
 		this.reconnectErrorString = "";
 		this.reconnectCounter = 0;
 
+		// Transalation for some channel names
 		this.i18nTranslation = {};
+
+		// object of icons in folde admin/icons
+		this.presentIcons = {};
+		this.defaultIcon = "default.png";
 	}
 
 	/**
@@ -108,6 +116,12 @@ class JanitzaGridvis extends utils.Adapter {
 	async onReady() {
 		// read system translation out of i18n translation
 		this.i18nTranslation = await this.geti18nTranslation();
+
+		// read out present icons
+		const dirInfo = await this.readDirAsync(this.name + ".admin","/icons/");
+		dirInfo.forEach(info => {
+			this.presentIcons[info.file.substring(0,info.file.indexOf("."))] = info.file;
+		});
 
 		// definition der internen Objecte (mit Übersetzung)
 		this.definedObjects = {
@@ -232,6 +246,9 @@ class JanitzaGridvis extends utils.Adapter {
 						this.devices[deviceId] = {};
 						this.devices[deviceId].deviceName = configedOnlineDevices.deviceName;
 						this.devices[deviceId].type = configedOnlineDevices.type;
+					}
+					// Create historic Values structure (in case if its not created or device is created in historicValues)
+					if(!this.devices[deviceId].onlineValues){
 						this.devices[deviceId].onlineValues = {};
 					}
 					if(!this.devices[deviceId].onlineValues[configedOnlineValues.value]){
@@ -253,12 +270,16 @@ class JanitzaGridvis extends utils.Adapter {
 				for(const value in this.devices[device].onlineValues){
 					for(const type in this.devices[device].onlineValues[value].type){
 
-						// Create device folder
-						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}`,{
+						// Create device folder (SetObject used in case the Device  type changes with changing project)
+						let iconPath = this.defaultIcon;
+						if(this.presentIcons[this.devices[device].type]){
+							iconPath = this.presentIcons[this.devices[device].type];
+						}
+						await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
 							type:"device",
 							common:{
 								name: this.devices[device].deviceName,
-								icon: `icons/${this.devices[device].type}.png`,
+								icon: `icons/${iconPath}`,
 							},
 							native : {},
 						});
@@ -276,6 +297,9 @@ class JanitzaGridvis extends utils.Adapter {
 						let channelName = this.devices[device].onlineValues[value].valueName;
 						if(value == this.internalIds.globalValue){
 							channelName = this.internalIds.globalValue;
+						}
+						else if(value == this.internalIds.userDefined){
+							channelName = this.internalIds.userDefined;
 						}
 						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`,{
 							type:"channel",
@@ -316,11 +340,11 @@ class JanitzaGridvis extends utils.Adapter {
 					if(!this.devices[deviceId]){
 						this.devices[deviceId] = {};
 						this.devices[deviceId].deviceName = configedHistoricDevices.deviceName;
+						this.devices[deviceId].type = configedHistoricDevices.type;
 					}
 					// Create historic Values structure (in case if its not created or device is created in onlineValues)
 					if(!this.devices[deviceId].historicValues){
 						this.devices[deviceId].historicValues = {};
-						this.devices[deviceId].historicValues.id = configedHistoricValues.id;
 					}
 					if(!this.devices[deviceId].historicValues[configedHistoricValues.value]){
 						this.devices[deviceId].historicValues[configedHistoricValues.value] = {};
@@ -329,7 +353,8 @@ class JanitzaGridvis extends utils.Adapter {
 					}
 					this.devices[deviceId].historicValues[configedHistoricValues.value].type[configedHistoricValues.type] = {
 						typeName: configedHistoricValues.typeName,
-						unit: configedHistoricValues.unit
+						unit: configedHistoricValues.unit,
+						id: configedHistoricValues.id // special parameter (in reality above the value)
 					};
 				}
 			}
@@ -341,11 +366,16 @@ class JanitzaGridvis extends utils.Adapter {
 				for(const value in this.devices[device].historicValues){
 					for(const type in this.devices[device].historicValues[value].type){
 
-						// Create device folder
-						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}`,{
+						// Create device folder (SetObject used in case the Device  type changes with changing project)
+						let iconPath = this.defaultIcon;
+						if(this.presentIcons[this.devices[device].type]){
+							iconPath = this.presentIcons[this.devices[device].type];
+						}
+						await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
 							type:"device",
 							common:{
-								name: this.devices[device].deviceName
+								name: this.devices[device].deviceName,
+								icon: `icons/${iconPath}`,
 							},
 							native : {},
 						});
@@ -363,6 +393,9 @@ class JanitzaGridvis extends utils.Adapter {
 						let channelName = this.devices[device].historicValues[value].valueName;
 						if(value === this.internalIds.globalValue){
 							channelName = this.internalIds.globalValue;
+						}
+						else if(value == this.internalIds.userDefined){
+							channelName = this.internalIds.userDefined;
 						}
 						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`,{
 							type:"channel",
@@ -810,14 +843,15 @@ class JanitzaGridvis extends utils.Adapter {
 							this.log.debug(`${myUrl} is send to get historic values`);
 						}
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
+
 						if(this.common.loglevel == "debug"){
 							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 						}
 						const myValues = [];
 						myCount = 0;
 						for(const values in result.data.value){
-							// Check for unit Wh
-							if(result.data.value[values].valueType.unit == "Wh"){
+							// Check for unit Wh || m³
+							if(result.data.value[values].valueType.unit == "Wh" || result.data.value[values].valueType.unit == "m³"){
 								let label = result.data.value[values].valueType.valueName;
 								if(result.data.value[values].valueType.valueName != result.data.value[values].valueType.typeName){
 									label += " " + result.data.value[values].valueType.typeName;
