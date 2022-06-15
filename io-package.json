@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.10",
+        "version": "2.0.11",
         "eraseOnUpload": true,
         "news": {
+            "2.0.11": {
+                "en": "for real hardware device implemets information about serialnumber, hardware and firmware",
+                "de": "für reale hardware-gerät implemet informationen über seriennummer, hardware und firmware",
+                "ru": "для реального аппаратного устройства подразумевает информацию о серийном номере, аппаратном и прошивке",
+                "pt": "para o dispositivo de hardware real impleme informações sobre o número de série, hardware e firmware",
+                "nl": "voor echt hardware-apparaat impliceert informatie over serialnumber, hardware en stevigware",
+                "fr": "for real hardware device implemets information about serialnumber, hardware and firmware",
+                "it": "per le informazioni sul numero di serie, hardware e firmware del dispositivo hardware reale",
+                "es": "para dispositivos de hardware real impletó información sobre número de serie, hardware y firmware",
+                "pl": "dla rzeczywistego urządzenia sprzętowego implementuje informacje o numerach seryjnych, sprzętu i oprogramowania",
+                "zh-cn": "对于真正的硬件装置,没有关于序号、硬件和硬件的信息"
+            },
             "2.0.10": {
                 "en": "sort values keys before writing into json config",
                 "de": "sortieren sie werte schlüssel vor dem schreiben in json config",

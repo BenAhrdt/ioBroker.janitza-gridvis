@@ -35,7 +35,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - device information implemented
+### 2.0.11 (2022-06-15) - device information implemented
 * (BenAhrdt) for real hardware device implemets information about serialnumber, hardware and firmware
 
 
