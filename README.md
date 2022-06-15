@@ -35,9 +35,11 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - scheduled request for device informations
+* (BenAhrdt) the device informations will be requested every minute
+
 ### 2.0.11 (2022-06-15) - device information implemented
 * (BenAhrdt) for real hardware device implemets information about serialnumber, hardware and firmware
-
 
 ### 2.0.10 (2022-06-15) - config improoved
 * (BenAhrdt) sort values keys before writing into json config

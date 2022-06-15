@@ -37,8 +37,12 @@ class JanitzaGridvis extends utils.Adapter {
 		// cron Jobs
 		this.cronJobs = {};
 		this.cronJobIds = {
+			getAdditionalDeviceInformations : "getAdditionalDeviceInformations",
 			refreshOnlineCronJob : "refreshOnlineCronJob",
 			refreshHistoricCronJob : "refreshHistoricCronJob"
+		};
+		this.cronJobValues = {
+			getAdditionalDeviceInformations: "* * * * *"
 		};
 
 		// Timeouts
@@ -111,6 +115,8 @@ class JanitzaGridvis extends utils.Adapter {
 		// object of icons in folde admin/icons
 		this.presentIcons = {};
 		this.defaultIcon = "default.png";
+
+		this.devicesWithSerialNumber = undefined;
 	}
 
 	/**
@@ -207,7 +213,10 @@ class JanitzaGridvis extends utils.Adapter {
 	async getAdditionalDeviceInformations(){
 		let myUrl = "";
 		try{
-			for(const device in this.devices){
+			if(this.devicesWithSerialNumber === undefined){
+				this.devicesWithSerialNumber = this.devices;
+			}
+			for(const device in this.devicesWithSerialNumber){
 				myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/connectiontest.json`;
 				const result = await axios.get(myUrl);
 				if(!isNaN(result.data.serialNumber)){
@@ -219,7 +228,8 @@ class JanitzaGridvis extends utils.Adapter {
 						native : {},
 					});
 
-					await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.serialNumber}`,{
+					let id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.serialNumber}`;
+					await this.setObjectAsync(id,{
 						type:"state",
 						common: {
 							name: "serialnumber",
@@ -227,12 +237,14 @@ class JanitzaGridvis extends utils.Adapter {
 							role: "value",
 							read: true,
 							write: false,
-							def:result.data.serialNumber
+							def: result.data.serialNumber
 						},
 						native : {},
 					});
+					this.setStateAsync(id,result.data.serialNumber,true);
 
-					await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.firmware}`,{
+					id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.firmware}`;
+					await this.setObjectAsync(id,{
 						type:"state",
 						common: {
 							name: "firmware",
@@ -240,12 +252,14 @@ class JanitzaGridvis extends utils.Adapter {
 							role: "value",
 							read: true,
 							write: false,
-							def:result.data.firmware
+							def: result.data.firmware
 						},
 						native : {},
 					});
+					this.setStateAsync(id,result.data.firmware,true);
 
-					await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.hardware}`,{
+					id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.hardware}`;
+					await this.setObjectAsync(id,{
 						type:"state",
 						common: {
 							name: "hardware",
@@ -253,10 +267,14 @@ class JanitzaGridvis extends utils.Adapter {
 							role: "value",
 							read: true,
 							write: false,
-							def:result.data.hardware
+							def: result.data.hardware
 						},
 						native : {},
 					});
+					this.setStateAsync(id,result.data.hardware,true);
+				}
+				else{
+					delete this.devicesWithSerialNumber[device];
 				}
 			}
 		}
@@ -575,6 +593,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 	// create schedule Jobs for online and historic values
 	createScheduleJobs(){
+		this.cronJobs[this.cronJobIds.getAdditionalDeviceInformations] = schedule.scheduleJob(this.cronJobValues.getAdditionalDeviceInformations,this.getAdditionalDeviceInformations.bind(this));
 		this.cronJobs[this.cronJobIds.refreshOnlineCronJob] = schedule.scheduleJob(this.config.refreshOnlineCronJob,this.readOnlineValues.bind(this));
 		this.cronJobs[this.cronJobIds.refreshHistoricCronJob] = schedule.scheduleJob(this.config.refreshHistoricCronJob,this.readHistoricValues.bind(this));
 	}
