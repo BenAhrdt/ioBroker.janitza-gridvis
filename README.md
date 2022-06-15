@@ -35,7 +35,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - scheduled request for device informations
+### 2.0.12 (2022-06-15) - scheduled request for device informations
 * (BenAhrdt) the device informations will be requested every minute
 
 ### 2.0.11 (2022-06-15) - device information implemented
