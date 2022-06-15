@@ -214,7 +214,7 @@ class JanitzaGridvis extends utils.Adapter {
 		let myUrl = "";
 		try{
 			if(this.devicesWithSerialNumber === undefined){
-				this.devicesWithSerialNumber = this.devices;
+				this.devicesWithSerialNumber = JSON.parse(JSON.stringify(this.devices));
 			}
 			for(const device in this.devicesWithSerialNumber){
 				myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/connectiontest.json`;
