@@ -35,7 +35,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - Bugfix assign object
+### 2.0.13 (2022-06-16) - Bugfix assign object
 * (BenAhrdt) assigned object deleted => json.parse(JSON.stringify(obj))
 
 ### 2.0.12 (2022-06-15) - scheduled request for device informations
