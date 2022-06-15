@@ -59,8 +59,11 @@ class JanitzaGridvis extends utils.Adapter {
 			readValuesTrigger: "readValuesTrigger",
 			globalValue: "GlobalValue",
 			userDefined: "UserDefined",
-			reconnectCount: "reconnectCount"
-
+			reconnectCount: "reconnectCount",
+			info: "info",
+			serialNumber: "serialNumber",
+			firmware: "firmware",
+			hardware: "hardware"
 		};
 
 		this.communicationStrings = {
@@ -200,6 +203,74 @@ class JanitzaGridvis extends utils.Adapter {
 		await this.delNotConfiguredStates();
 	}
 
+
+	async getAdditionalDeviceInformations(){
+		let myUrl = "";
+		try{
+			for(const device in this.devices){
+				myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/connectiontest.json`;
+				const result = await axios.get(myUrl);
+				if(!isNaN(result.data.serialNumber)){
+					await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}`,{
+						"type": "channel",
+						"common": {
+							"name": "Information"
+						},
+						native : {},
+					});
+
+					await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.serialNumber}`,{
+						type:"state",
+						common: {
+							name: "serialnumber",
+							type: "string",
+							role: "value",
+							read: true,
+							write: false,
+							def:result.data.serialNumber
+						},
+						native : {},
+					});
+
+					await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.firmware}`,{
+						type:"state",
+						common: {
+							name: "firmware",
+							type: "string",
+							role: "value",
+							read: true,
+							write: false,
+							def:result.data.firmware
+						},
+						native : {},
+					});
+
+					await this.setObjectAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.hardware}`,{
+						type:"state",
+						common: {
+							name: "hardware",
+							type: "string",
+							role: "value",
+							read: true,
+							write: false,
+							def:result.data.hardware
+						},
+						native : {},
+					});
+				}
+			}
+		}
+		catch(error){
+			if(this.internalConnectionState){
+				if(this.common.loglevel == "debug"){
+					this.log.debug(`${error} after sending ${myUrl}`);
+				}
+				this.reconnectErrorString = `${error} after sending ${myUrl}`;
+				this.connectToGridVis();
+			}
+		}
+	}
+
 	clearConnectionTimeout(){
 		if(this.timeouts[this.timeoutIds.connectionTimeout]){
 			this.clearTimeout(this.timeouts[this.timeoutIds.connectionTimeout]);
@@ -229,6 +300,7 @@ class JanitzaGridvis extends utils.Adapter {
 	{
 		// create schedulejobs and do initalize reading
 		this.createScheduleJobs();
+		this.getAdditionalDeviceInformations();
 		this.readOnlineValues();
 		this.readHistoricValues();
 	}
