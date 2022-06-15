@@ -808,15 +808,9 @@ class JanitzaGridvis extends utils.Adapter {
 							if(result.data.valuetype[values].valueName != result.data.valuetype[values].typeName){
 								label += " " + result.data.valuetype[values].typeName;
 							}
-							let value = "{";
-							for(const myKey in result.data.valuetype[values]){
-								if(value != "{")
-								{
-									value += ",";
-								}
-								value += `"${myKey}":"${result.data.valuetype[values][myKey]}"`;
-							}
-							value += "}";
+							const keys = Object.keys(result.data.valuetype[values]).sort();
+							const mapedresult = keys.map(myKey => `"${myKey}":"${result.data.valuetype[values][myKey]}"`);
+							const value = "{" + mapedresult.join(",") + "}";
 							myValues[myCount] = {label: label, value: value};
 							myCount ++;
 						}
