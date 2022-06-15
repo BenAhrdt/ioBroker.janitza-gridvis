@@ -35,7 +35,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - config improoved
+### 2.0.10 (2022-06-15) - config improoved
 * (BenAhrdt) sort values keys before writing into json config
 
 ### 2.0.9 (2022-06-14) - implement icson and water consumption

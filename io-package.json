@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.9",
+        "version": "2.0.10",
         "eraseOnUpload": true,
         "news": {
+            "2.0.10": {
+                "en": "sort values keys before writing into json config",
+                "de": "sortieren sie werte schlüssel vor dem schreiben in json config",
+                "ru": "сортировать значения ключи перед написанием в json config",
+                "pt": "classificar valores chaves antes de escrever em json config",
+                "nl": "waardensleutels voor het schrijven van json config",
+                "fr": "trier les valeurs clés avant d'écrire dans la configuration de json",
+                "it": "ordinare i valori prima di scrivere in json config",
+                "es": "valores clave antes de escribir en json config",
+                "pl": "klucze sortowania przed zapisem w json configigig",
+                "zh-cn": "a. 书面前的数值"
+            },
             "2.0.9": {
                 "en": "implements icons for device channel\nimplements water consumption for historic values",
                 "de": "icons für gerätekanal implementiert\nrealisiert wasserverbrauch für historische werte",
