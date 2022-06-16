@@ -7,7 +7,7 @@
     "port": "Puerto",
     "projectname": "nombre del proyecto",
     "timeout": "Tiempo de espera (ms)",
-    "onlinevalues": "valores en linea",
+    "onlinevalues": "valores en línea",
     "onlinevalueConfiguration": "configuración de los valores en línea",
     "refreshCycle": "ciclo de actualización",
     "refreshCacleTooltipOnline": "ingrese el cronJob deseado, que lee los valores en línea.",
@@ -20,9 +20,7 @@
     "Connected to GridVis-Version": "Conectado a la versión de GridVis",
     "No active connection to GridVis": "Sin conexión activa a GridVis",
     "number of reconnects before warning": "número de reconexiones antes de la advertencia",
-    "online values": "valores en línea",
-    "historic values": "valores históricos",
     "number of devices": "número de dispositivos",
-    "detailed logging": "registro detallado",
-    "detailedLoggingTooltip": "registro detallado en modo de depuración (se registrarán todas las conexiones api)"
+    "online values": "valores en línea",
+    "historic values": "valores históricos"
 }

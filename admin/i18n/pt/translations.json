@@ -1,9 +1,9 @@
 {
     "mainSettings": "configurações principais",
     "connectionInformations": "informações de conexão",
-    "justWithRunningAdapter": "a configuração funciona apenas com o adaptador em execução",
+    "justWithRunningAdapter": "a configuração só funciona com o Adapter em execução",
     "communicationSettings": "configurações de comunicação",
-    "address": "Endereço IP / Nome do Servidor",
+    "address": "Endereço IP / Nome do servidor",
     "port": "porta",
     "projectname": "Nome do Projeto",
     "timeout": "Tempo limite (ms)",
@@ -20,9 +20,7 @@
     "Connected to GridVis-Version": "Conectado à versão GridVis",
     "No active connection to GridVis": "Nenhuma conexão ativa com o GridVis",
     "number of reconnects before warning": "número de reconexões antes do aviso",
-    "online values": "valores online",
-    "historic values": "valores históricos",
     "number of devices": "número de dispositivos",
-    "detailed logging": "registro detalhado",
-    "detailedLoggingTooltip": "registro detalhado no modo de depuração (todas as conexões de API serão registradas)"
+    "online values": "valores online",
+    "historic values": "valores históricos"
 }

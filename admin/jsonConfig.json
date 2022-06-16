@@ -70,13 +70,6 @@
                     "max": 10,
                     "default": 4,
                     "sm":3
-                },
-                "detailedLogging": {
-                    "newLine": true,
-                    "type": "checkbox",
-                    "label": "detailed logging",
-                    "tooltip": "detailedLoggingTooltip",
-                    "sm":2
                 }
             }
         },

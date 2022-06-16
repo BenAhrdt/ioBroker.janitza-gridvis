@@ -315,7 +315,6 @@
         "projectname": "EnergieMonitoring",
         "timeout": 2000,
         "reconnectCout": 4,
-        "detailedLogging": false,
         "refreshOnlineCronJob": "*/2 * * * * *",
         "onlineDeviceTable": [],
         "refreshHistoricCronJob": "5 */15 * * * *",

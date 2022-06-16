@@ -20,9 +20,7 @@
     "Connected to GridVis-Version": "Verbonden met GridVis-versie",
     "No active connection to GridVis": "Geen actieve verbinding met GridVis",
     "number of reconnects before warning": "aantal herverbindingen vóór waarschuwing",
-    "online values": "online waarden",
-    "historic values": "historische waarden",
     "number of devices": "aantal apparaten",
-    "detailed logging": "gedetailleerde logboekregistratie",
-    "detailedLoggingTooltip": "gedetailleerde logboekregistratie in debug-modus (alle API-verbindingen worden gelogd)"
+    "online values": "online waarden",
+    "historic values": "historische waarden"
 }

@@ -20,9 +20,7 @@
     "Connected to GridVis-Version": "Подключено к версии GridVis",
     "No active connection to GridVis": "Нет активного подключения к GridVis",
     "number of reconnects before warning": "количество повторных подключений до предупреждения",
-    "online values": "онлайн значения",
-    "historic values": "исторические ценности",
     "number of devices": "количество устройств",
-    "detailed logging": "подробный журнал",
-    "detailedLoggingTooltip": "подробное ведение журнала в режиме отладки (будут регистрироваться все соединения API)"
+    "online values": "онлайн значения",
+    "historic values": "исторические ценности"
 }

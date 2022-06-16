@@ -627,14 +627,10 @@ class JanitzaGridvis extends utils.Adapter {
 		//check for Url
 		if(myUrl != ""){
 			// send request to gridvis and write a valid data into the internal state
-			if(this.config.detailedLogging){
-				this.log.debug(`${myUrl} was send to gridVis`);
-			}
+			this.log.silly(`${myUrl} was send to gridVis`);
 			try{
 				const result = await axios.get(myUrl,{timeout: this.config.timeout});
-				if(this.config.detailedLogging){
-					this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-				}
+				this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 				if(result.status == 200){
 					for(const device in this.devices){
 						if(this.devices[device].onlineValues){
@@ -673,13 +669,9 @@ class JanitzaGridvis extends utils.Adapter {
 								myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/hist/energy/`;
 								myUrl += `${value}/`;
 								myUrl += `${type}/.json?start=NAMED_${this.timeStrings[timeBase]}&end=NAMED_${this.timeStrings[timeBase]}`;
-								if(this.config.detailedLogging){
-									this.log.debug(`${myUrl} was send to gridVis`);
-								}
+								this.log.silly(`${myUrl} was send to gridVis`);
 								const result = await axios.get(myUrl,{timeout: this.config.timeout});
-								if(this.config.detailedLogging){
-									this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-								}
+								this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 								if(result.status == 200){		// OK => write data into internal state
 									if((result.data.energy || result.data.energy == 0) && !isNaN(result.data.energy)){ // Prüfung auf undgleich NaN, oder 0
 										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
@@ -834,13 +826,9 @@ class JanitzaGridvis extends utils.Adapter {
 				if(this.configConnection.port){
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices.json?`;
-						if(this.config.detailedLogging){
-							this.log.debug(`${myUrl} is send to get Devices`);
-						}
+						this.log.silly(`${myUrl} is send to get Devices`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
-						if(this.config.detailedLogging){
-							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-						}
+						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 						for(const element in result.data.device){
 							const label = result.data.device[element].name + "  - Device ID: " + result.data.device[element].id;
 							const value = `{"id":${result.data.device[element].id},"deviceName":"${result.data.device[element].name}","type":"${result.data.device[element].type}"}`;
@@ -865,13 +853,9 @@ class JanitzaGridvis extends utils.Adapter {
 				{
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/online/values.json?`;
-						if(this.config.detailedLogging){
-							this.log.debug(`${myUrl} is send to get online values`);
-						}
+						this.log.silly(`${myUrl} is send to get online values`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
-						if(this.config.detailedLogging){
-							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-						}
+						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 						const myValues = [];
 						myCount = 0;
 						for(const values in result.data.valuetype){
@@ -904,14 +888,10 @@ class JanitzaGridvis extends utils.Adapter {
 				{
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/hist/values.json?`;
-						if(this.config.detailedLogging){
-							this.log.debug(`${myUrl} is send to get historic values`);
-						}
+						this.log.silly(`${myUrl} is send to get historic values`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 
-						if(this.config.detailedLogging){
-							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-						}
+						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 						const myValues = [];
 						myCount = 0;
 						for(const values in result.data.value){
