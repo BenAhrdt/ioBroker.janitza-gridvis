@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.13",
+        "version": "2.0.14",
         "eraseOnUpload": true,
         "news": {
+            "2.0.14": {
+                "en": "detailed logging for debug mode can be selected in config",
+                "de": "detaillierte protokollierung für debug-modus kann in config ausgewählt werden",
+                "ru": "подробный вход для режима debug можно выбрать в config",
+                "pt": "log detalhado para o modo de depuração pode ser selecionado em config",
+                "nl": "gedetailleerde lokatie voor debug mode kan worden geselecteerd in configuur",
+                "fr": "journalisation détaillée pour le mode debug peut être sélectionné dans la configuration",
+                "it": "logging dettagliato per la modalità debug può essere selezionato in configurazione",
+                "es": "registro detallado para el modo de depuración se puede seleccionar en config",
+                "pl": "szczegółowe logowanie trybu debug może być wybrane w formacie conigigig",
+                "zh-cn": "可以从黑暗中挑选出对降格模式的详细伐木。"
+            },
             "2.0.13": {
                 "en": "assigned object deleted => json.parse(JSON.stringify(obj))",
                 "de": "zugewiesenes Objekt gelöscht => json.parse(JSON.stringify(obj)",
@@ -231,18 +243,6 @@
                 "es": "variable de tiempo de espera de conexión implementada",
                 "pl": "zaimplementowana zmienna limitu czasu połączenia",
                 "zh-cn": "已实现连接超时变量"
-            },
-            "1.5.0": {
-                "en": "reconnecting implemented",
-                "de": "Reconnecting implementiert",
-                "ru": "переподключение реализовано",
-                "pt": "reconexão implementada",
-                "nl": "opnieuw verbinden geïmplementeerd",
-                "fr": "reconnexion mise en œuvre",
-                "it": "riconnessione attuata",
-                "es": "reconexión implementada",
-                "pl": "zaimplementowano ponowne łączenie",
-                "zh-cn": "重新连接已实施"
             }
         },
         "title": "Janitza®-GridVis®",
