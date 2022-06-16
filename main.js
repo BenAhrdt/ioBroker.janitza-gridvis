@@ -96,8 +96,8 @@ class JanitzaGridvis extends utils.Adapter {
 			lastWeek: "LastWeek",
 			thisMonth: "ThisMonth",
 			lastMonth: "LastMonth",
-			thisQuater: "ThisQuarter",
-			lastQuater: "LastQuarter",
+			thisQuarter: "ThisQuarter",
+			lastQuarter: "LastQuarter",
 			thisYear: "ThisYear",
 			lastYear: "LastYear"
 		};
@@ -159,6 +159,14 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 	}
 
+	checkHistoricTimeBase(){
+		for(const key in this.config.historicTimeBase){
+			if(!this.config.historicTimeBase[key]){
+				delete this.timeStrings[key];
+			}
+		}
+	}
+
 	async connectToGridVis(){
 		// Reset ConnectionTimeout
 		this.clearConnectionTimeout();
@@ -205,6 +213,7 @@ class JanitzaGridvis extends utils.Adapter {
 	}
 
 	async initInternalValues(){
+		this.checkHistoricTimeBase();
 		await this.createInternalStates();
 		await this.delNotConfiguredStates();
 	}

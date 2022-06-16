@@ -22,5 +22,16 @@
     "number of reconnects before warning": "количество повторных подключений до предупреждения",
     "number of devices": "количество устройств",
     "online values": "онлайн значения",
-    "historic values": "исторические ценности"
+    "historic values": "исторические ценности",
+    "historicToday": "Cегодня",
+    "historicYesterday": "вчерашний день",
+    "historicThisWeek": "На этой неделе",
+    "historicLastWeek": "прошлая неделя",
+    "historicThisMonth": "этот месяц",
+    "historicLastMonth": "прошлый месяц",
+    "historicThisQuarter": "этот квартал",
+    "historicLastQuarter": "Последняя четверть",
+    "historicThisYear": "в этом году",
+    "historicLastYear": "прошедший год",
+    "timeBaseForHistoricValues": "временная база для исторических значений"
 }

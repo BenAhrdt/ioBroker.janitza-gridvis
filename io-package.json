@@ -317,6 +317,18 @@
         "reconnectCout": 4,
         "refreshOnlineCronJob": "*/2 * * * * *",
         "onlineDeviceTable": [],
+        "historicTimeBase": {
+            "today": true,
+            "yesterday": true,
+            "thisWeek": false,
+            "lastWeek": false,
+            "thisMonth": true,
+            "lastMonth": true,
+            "thisQuarter": false,
+            "lastQuarter": false,
+            "thisYear": true,
+            "lastYear": true
+        },
         "refreshHistoricCronJob": "5 */15 * * * *",
         "historicDeviceTable": []
     },

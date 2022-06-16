@@ -22,5 +22,16 @@
     "number of reconnects before warning": "number of reconnects before warning",
     "number of devices": "number of devices",
     "online values": "online values",
-    "historic values": "historic values"
+    "historic values": "historic values",
+    "timeBaseForHistoricValues": "timebase for the historic values",
+    "historicToday": "today",
+    "historicYesterday": "yesterday",
+    "historicThisWeek": "this week",
+    "historicLastWeek": "last week",
+    "historicThisMonth": "this month",
+    "historicLastMonth": "last month",
+    "historicThisQuarter": "this quarter",
+    "historicLastQuarter": "last quarter",
+    "historicThisYear": "this year",
+    "historicLastYear": "last year"    
 }

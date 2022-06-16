@@ -22,5 +22,16 @@
     "number of reconnects before warning": "警告前的重新连接次数",
     "number of devices": "设备数量",
     "online values": "在线价值观",
-    "historic values": "历史价值"
+    "historic values": "历史价值",
+    "historicToday": "今天",
+    "historicYesterday": "昨天",
+    "historicThisWeek": "本星期",
+    "historicLastWeek": "上周",
+    "historicThisMonth": "这个月",
+    "historicLastMonth": "上个月",
+    "historicThisQuarter": "本季度",
+    "historicLastQuarter": "上个季度",
+    "historicThisYear": "今年",
+    "historicLastYear": "去年",
+    "timeBaseForHistoricValues": "历史价值的时基"
 }

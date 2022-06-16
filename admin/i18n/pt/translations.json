@@ -22,5 +22,16 @@
     "number of reconnects before warning": "número de reconexões antes do aviso",
     "number of devices": "número de dispositivos",
     "online values": "valores online",
-    "historic values": "valores históricos"
+    "historic values": "valores históricos",
+    "historicToday": "hoje",
+    "historicYesterday": "ontem",
+    "historicThisWeek": "essa semana",
+    "historicLastWeek": "Semana Anterior",
+    "historicThisMonth": "este mês",
+    "historicLastMonth": "mês passado",
+    "historicThisQuarter": "este trimestre",
+    "historicLastQuarter": "Ultimo quarto",
+    "historicThisYear": "este ano",
+    "historicLastYear": "ano passado",
+    "timeBaseForHistoricValues": "base de tempo para os valores históricos"
 }

@@ -170,6 +170,74 @@
                         "projectname"
                     ]
                 },
+                "timeBaseHeader": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "timeBaseForHistoricValues",
+                    "sm": 12
+                },
+                "historicTimeBase.today": {
+                    "newLine":true,
+                    "type": "checkbox",
+                    "label": "historicToday",
+                    "default": true,
+                    "sm": 1
+                },
+                "historicTimeBase.yesterday": {
+                    "type": "checkbox",
+                    "label": "historicYesterday",
+                    "default": true,
+                    "sm": 1
+                },
+                "historicTimeBase.thisWeek": {
+                    "type": "checkbox",
+                    "label": "historicThisWeek",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.lastWeek": {
+                    "type": "checkbox",
+                    "label": "historicLastWeek",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.thisMonth": {
+                    "type": "checkbox",
+                    "label": "historicThisMonth",
+                    "default": true,
+                    "sm": 1
+                },
+                "historicTimeBase.lastMonth": {
+                    "type": "checkbox",
+                    "label": "historicLastMonth",
+                    "default": true,
+                    "sm": 1
+                },
+                "historicTimeBase.thisQuarter": {
+                    "type": "checkbox",
+                    "label": "historicThisQuarter",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.lastQuarter": {
+                    "type": "checkbox",
+                    "label": "historicLastQuarter",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.thisYear": {
+                    "type": "checkbox",
+                    "label": "historicThisYear",
+                    "default": true,
+                    "sm": 1
+                },
+                "historicTimeBase.lastYear": {
+                    "type": "checkbox",
+                    "label": "historicLastYear",
+                    "default": true,
+                    "sm": 1
+                },
+
                 "historicvalueConfigurationHeader": {
                     "newLine": true,
                     "type": "header",

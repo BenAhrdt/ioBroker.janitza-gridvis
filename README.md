@@ -35,6 +35,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - timebase for historic values implemented
+* (BenAhrdt) implements some checkboxes to select the desired timebsases for historic values
+
 ### 2.0.15 (2022-06-16) - change detailed debugging into silly
 * (BenAhrdt) detailed logging for debug mode removed and changed into silly
 

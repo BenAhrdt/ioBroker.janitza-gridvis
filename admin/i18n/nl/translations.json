@@ -22,5 +22,16 @@
     "number of reconnects before warning": "aantal herverbindingen vóór waarschuwing",
     "number of devices": "aantal apparaten",
     "online values": "online waarden",
-    "historic values": "historische waarden"
+    "historic values": "historische waarden",
+    "historicToday": "vandaag",
+    "historicYesterday": "gisteren",
+    "historicThisWeek": "deze week",
+    "historicLastWeek": "vorige week",
+    "historicThisMonth": "deze maand",
+    "historicLastMonth": "vorige maand",
+    "historicThisQuarter": "dit kwartier",
+    "historicLastQuarter": "vorig kwartaal",
+    "historicThisYear": "dit jaar",
+    "historicLastYear": "afgelopen jaar",
+    "timeBaseForHistoricValues": "tijdbasis voor de historische waarden"
 }
