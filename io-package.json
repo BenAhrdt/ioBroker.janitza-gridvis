@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.14",
+        "version": "2.0.15",
         "eraseOnUpload": true,
         "news": {
+            "2.0.15": {
+                "en": "detailed logging for debug mode removed and changed into silly",
+                "de": "detaillierte protokollierung für debug-modus entfernt und in silly geändert",
+                "ru": "подробный вход для режима отладки удален и изменен в глупость",
+                "pt": "log detalhado para o modo de depuração removido e alterado em bobo",
+                "nl": "vertaling:",
+                "fr": "journalisation détaillée pour le mode de débogage enlevé et changé en stupide",
+                "it": "registrazione dettagliata per la modalità debug rimosso e cambiato in sciocco",
+                "es": "registro detallado para el modo de depuración eliminado y cambiado en tonto",
+                "pl": "szczegółowa praca do debugowania została usunięta i zmieniła się w głupie",
+                "zh-cn": "拆除和改变的诱惑"
+            },
             "2.0.14": {
                 "en": "detailed logging for debug mode can be selected in config",
                 "de": "detaillierte protokollierung für debug-modus kann in config ausgewählt werden",
@@ -231,18 +243,6 @@
                 "es": "problemas de relaciones públicas solucionados",
                 "pl": "naprawiono problemy PR",
                 "zh-cn": "修复公关问题"
-            },
-            "1.5.1": {
-                "en": "connection timout variable implemented",
-                "de": "Verbindungs-Timeout-Variable implementiert",
-                "ru": "реализована переменная тайм-аута соединения",
-                "pt": "variável de tempo limite de conexão implementada",
-                "nl": "verbindingstime-outvariabele geïmplementeerd",
-                "fr": "variable de délai de connexion implémentée",
-                "it": "tempo di connessione variabile implementata",
-                "es": "variable de tiempo de espera de conexión implementada",
-                "pl": "zaimplementowana zmienna limitu czasu połączenia",
-                "zh-cn": "已实现连接超时变量"
             }
         },
         "title": "Janitza®-GridVis®",
