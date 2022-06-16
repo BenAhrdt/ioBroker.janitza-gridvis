@@ -35,6 +35,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - dataild debug logging implemented
+* (BenAhrdt) detailed logging for debug mode can be selected in config
+
 ### 2.0.13 (2022-06-16) - Bugfix assign object
 * (BenAhrdt) assigned object deleted => json.parse(JSON.stringify(obj))
 

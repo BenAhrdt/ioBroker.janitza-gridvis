@@ -22,5 +22,7 @@
     "number of reconnects before warning": "liczba ponownych połączeń przed ostrzeżeniem",
     "online values": "wartości online",
     "historic values": "wartości historyczne",
-    "number of devices": "liczba urządzeń"
+    "number of devices": "liczba urządzeń",
+    "detailed logging": "szczegółowe logowanie",
+    "detailedLoggingTooltip": "szczegółowe logowanie w trybie debugowania (wszystkie połączenia api będą logowane)"
 }

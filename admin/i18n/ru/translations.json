@@ -22,5 +22,7 @@
     "number of reconnects before warning": "количество повторных подключений до предупреждения",
     "online values": "онлайн значения",
     "historic values": "исторические ценности",
-    "number of devices": "количество устройств"
+    "number of devices": "количество устройств",
+    "detailed logging": "подробный журнал",
+    "detailedLoggingTooltip": "подробное ведение журнала в режиме отладки (будут регистрироваться все соединения API)"
 }

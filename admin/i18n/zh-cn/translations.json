@@ -22,5 +22,7 @@
     "number of reconnects before warning": "警告前的重新连接次数",
     "online values": "在线价值观",
     "historic values": "历史价值",
-    "number of devices": "设备数量"
+    "number of devices": "设备数量",
+    "detailed logging": "详细记录",
+    "detailedLoggingTooltip": "调试模式下的详细日志记录（将记录所有 api 连接）"
 }

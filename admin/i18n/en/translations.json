@@ -23,5 +23,7 @@
     "number of reconnects before warning": "number of reconnects before warning",
     "number of devices": "number of devices",
     "online values": "online values",
-    "historic values": "historic values"
+    "historic values": "historic values",
+    "detailed logging": "detailed logging",
+    "detailedLoggingTooltip": "detailed logging in debug mode (all api connections will be loged)"
 }

@@ -280,9 +280,7 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 		catch(error){
 			if(this.internalConnectionState){
-				if(this.common.loglevel == "debug"){
-					this.log.debug(`${error} after sending ${myUrl}`);
-				}
+				this.log.debug(`${error} after sending ${myUrl}`);
 				this.reconnectErrorString = `${error} after sending ${myUrl}`;
 				this.connectToGridVis();
 			}
@@ -629,12 +627,12 @@ class JanitzaGridvis extends utils.Adapter {
 		//check for Url
 		if(myUrl != ""){
 			// send request to gridvis and write a valid data into the internal state
-			if(this.common.loglevel == "debug"){
+			if(this.config.detailedLogging){
 				this.log.debug(`${myUrl} was send to gridVis`);
 			}
 			try{
 				const result = await axios.get(myUrl,{timeout: this.config.timeout});
-				if(this.common.loglevel == "debug"){
+				if(this.config.detailedLogging){
 					this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 				}
 				if(result.status == 200){
@@ -653,9 +651,7 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 			catch(error){
 				if(this.internalConnectionState){
-					if(this.common.loglevel == "debug"){
-						this.log.debug(`${error} after sending ${myUrl}`);
-					}
+					this.log.debug(`${error} after sending ${myUrl}`);
 					this.reconnectErrorString = `${error} after sending ${myUrl}`;
 					this.connectToGridVis();
 				}
@@ -665,9 +661,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 	// red out all configed historic values
 	async readHistoricValues(){
-		if(this.common.loglevel == "debug"){
-			this.log.info("read out historic data started");
-		}
+		this.log.debug("read out historic data started");
 		// create url to read out historic values
 		let myUrl = "";
 		try{
@@ -679,11 +673,11 @@ class JanitzaGridvis extends utils.Adapter {
 								myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/hist/energy/`;
 								myUrl += `${value}/`;
 								myUrl += `${type}/.json?start=NAMED_${this.timeStrings[timeBase]}&end=NAMED_${this.timeStrings[timeBase]}`;
-								if(this.common.loglevel == "debug"){
+								if(this.config.detailedLogging){
 									this.log.debug(`${myUrl} was send to gridVis`);
 								}
 								const result = await axios.get(myUrl,{timeout: this.config.timeout});
-								if(this.common.loglevel == "debug"){
+								if(this.config.detailedLogging){
 									this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 								}
 								if(result.status == 200){		// OK => write data into internal state
@@ -702,40 +696,28 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 		catch(error){
 			if(this.internalConnectionState){
-				if(this.common.loglevel == "debug"){
-					this.log.debug(`${error} after sending ${myUrl}`);
-				}
+				this.log.debug(`${error} after sending ${myUrl}`);
 				this.reconnectErrorString = `${error} after sending ${myUrl}`;
 				this.connectToGridVis();
 			}
 		}
-		if(this.common.loglevel == "debug"){
-			this.log.info("read out historic data finished");
-		}
+		this.log.debug("read out historic data finished");
 	}
 
 	// Check the connection to GridVis
 	async checkConnectionToRestApi(adress,port,projectname){
 		try{
 			let myUrl = `http://${adress}:${port}/rest/1/projects/${projectname}.json?`;
-			if(this.common.loglevel == "debug"){
-				this.log.debug(`${myUrl} was send to gridVis to check connection`);
-			}
+			this.log.debug(`${myUrl} was send to gridVis to check connection and number of devices`);
 			const result = await axios.get(myUrl,{timeout: this.config.timeout});
 			if(result){
-				if(this.common.loglevel == "debug"){
-					this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-				}
+				this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 				if(result.data.status && result.data.status == this.communicationStrings.ready){
 					myUrl = `http://${adress}:${port}/rest/common/info/version/full.json?`;
-					if(this.common.loglevel == "debug"){
-						this.log.debug(`${myUrl} was send to gridVis to check connection`);
-					}
+					this.log.debug(`${myUrl} was send to gridVis to check version`);
 					const version = await axios.get(myUrl,{timeout: this.config.timeout});
 					if(version){
-						if(this.common.loglevel == "debug"){
-							this.log.debug(`result.data: ${JSON.stringify(version.data)}`);
-						}
+						this.log.debug(`result.data: ${JSON.stringify(version.data)}`);
 						return {numberOfDevices:result.data.numberOfDevices,version:version.data.value};
 					}
 					else{
@@ -751,9 +733,7 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 		}
 		catch (error){
-			if(this.common.loglevel == "debug"){
-				this.log.debug(error);
-			}
+			this.log.debug(error);
 			return false;
 		}
 	}
@@ -854,11 +834,11 @@ class JanitzaGridvis extends utils.Adapter {
 				if(this.configConnection.port){
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices.json?`;
-						if(this.common.loglevel == "debug"){
+						if(this.config.detailedLogging){
 							this.log.debug(`${myUrl} is send to get Devices`);
 						}
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
-						if(this.common.loglevel == "debug"){
+						if(this.config.detailedLogging){
 							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 						}
 						for(const element in result.data.device){
@@ -885,11 +865,11 @@ class JanitzaGridvis extends utils.Adapter {
 				{
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/online/values.json?`;
-						if(this.common.loglevel == "debug"){
+						if(this.config.detailedLogging){
 							this.log.debug(`${myUrl} is send to get online values`);
 						}
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
-						if(this.common.loglevel == "debug"){
+						if(this.config.detailedLogging){
 							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 						}
 						const myValues = [];
@@ -924,12 +904,12 @@ class JanitzaGridvis extends utils.Adapter {
 				{
 					try{
 						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/hist/values.json?`;
-						if(this.common.loglevel == "debug"){
+						if(this.config.detailedLogging){
 							this.log.debug(`${myUrl} is send to get historic values`);
 						}
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 
-						if(this.common.loglevel == "debug"){
+						if(this.config.detailedLogging){
 							this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 						}
 						const myValues = [];
