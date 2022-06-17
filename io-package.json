@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.16",
+        "version": "2.0.17",
         "eraseOnUpload": true,
         "news": {
+            "2.0.17": {
+                "en": "change some wrong entries in readme file",
+                "de": "einige falsche einträge in readme-datei ändern",
+                "ru": "изменить некоторые неправильные записи в файле readme",
+                "pt": "alterar algumas entradas erradas no arquivo readme",
+                "nl": "verander wat verkeerde ingangen in het dossier",
+                "fr": "changer quelques entrées incorrectes dans le fichier readme",
+                "it": "cambiare alcune voci sbagliate nel file readme",
+                "es": "cambiar algunas entradas incorrectas en el archivo readme",
+                "pl": "zmiana nieprawidłowych wpisów w pliku odczytowym",
+                "zh-cn": "修改读者档案中的一些错误内容"
+            },
             "2.0.16": {
                 "en": "implements some checkboxes to select the desired timebsases for historic values",
                 "de": "einige kontrollkästchen implementiert, um die gewünschten zeitbsasen für historische werte auszuwählen",
@@ -231,18 +243,6 @@
                 "es": "llenar el archivo Léame completo",
                 "pl": "wypełnij cały plik readme",
                 "zh-cn": "填写完整的自述文件"
-            },
-            "1.5.3": {
-                "en": "comment some functions",
-                "de": "Kommentieren Sie einige Funktionen",
-                "ru": "прокомментируйте некоторые функции",
-                "pt": "comente algumas funções",
-                "nl": "commentaar geven op sommige functies",
-                "fr": "commenter certaines fonctions",
-                "it": "commenta alcune funzioni",
-                "es": "comenta algunas funciones",
-                "pl": "skomentuj niektóre funkcje",
-                "zh-cn": "评论一些功能"
             }
         },
         "title": "Janitza®-GridVis®",
