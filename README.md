@@ -4,12 +4,10 @@
 [![NPM version](https://img.shields.io/npm/v/iobroker.janitza-gridvis.svg)](https://www.npmjs.com/package/iobroker.janitza-gridvis)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.janitza-gridvis.svg)](https://www.npmjs.com/package/iobroker.janitza-gridvis)
 ![Number of Installations](https://iobroker.live/badges/janitza-gridvis-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/janitza-gridvis-stable.svg)
-[![Dependency Status](https://img.shields.io/david/BenAhrdt/iobroker.janitza-gridvis.svg)](https://david-dm.org/BenAhrdt/iobroker.janitza-gridvis)
+![Test and Release](https://github.com/BenAhrdt/ioBroker.janitza-gridvis/workflows/Test%20and%20Release/badge.svg)
+[![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/besc83)
 
 [![NPM](https://nodei.co/npm/iobroker.janitza-gridvis.png?downloads=true)](https://nodei.co/npm/iobroker.janitza-gridvis/)
-
-**Tests:** ![Test and Release](https://github.com/BenAhrdt/ioBroker.janitza-gridvis/workflows/Test%20and%20Release/badge.svg)
 
 ## janitza-gridvis adapter for ioBroker
 
@@ -34,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 2.0.16 (2022-06-16) - readme changed
+* (BenAhrdt) change some wrong entries in readme file
 
 ### 2.0.16 (2022-06-16) - timebase for historic values implemented
 * (BenAhrdt) implements some checkboxes to select the desired timebsases for historic values
