@@ -118,6 +118,11 @@ class JanitzaGridvis extends utils.Adapter {
 		this.defaultIcon = "default.png";
 
 		this.devicesWithSerialNumber = undefined;
+
+		this.supportedHistoricalUnits = {
+			"Wh": "Wh",
+			"m³": "m³"
+		};
 	}
 
 	/**
@@ -909,21 +914,14 @@ class JanitzaGridvis extends utils.Adapter {
 						myCount = 0;
 						for(const values in result.data.value){
 							// Check for unit Wh || m³
-							if(result.data.value[values].valueType.unit == "Wh" || result.data.value[values].valueType.unit == "m³"){
+							if(this.supportedHistoricalUnits[result.data.value[values].valueType.unit]){
 								let label = result.data.value[values].valueType.valueName;
 								if(result.data.value[values].valueType.valueName != result.data.value[values].valueType.typeName){
 									label += " " + result.data.value[values].valueType.typeName;
 								}
-								let value = "{";
-								for(const myKey in result.data.value[values].valueType){
-									if(value != "{")
-									{
-										value += ",";
-									}
-									value += `"${myKey}":"${result.data.value[values].valueType[myKey]}"`;
-								}
-								value += `,"id":"${result.data.value[values].id}"`;
-								value += "}";
+								const keys = Object.keys(result.data.value[values].valueType).sort();
+								const mapedresult = keys.map(myKey => `"${myKey}":"${result.data.value[values].valueType[myKey]}"`);
+								const value = "{" + mapedresult.join(",") + "}";
 								myValues[myCount] = {label: label, value: value};
 								myCount ++;
 							}
