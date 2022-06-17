@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - recodring time displayed in historic values
+* (BenAhrdt) display all recording times in historic value selections
+
 ### 2.1.1 (2022-06-17) - more historical values available
 * (BenAhrdt) make all available values selectable in historical values
 
