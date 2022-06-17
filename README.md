@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - more historical values available
+### 2.1.1 (2022-06-17) - more historical values available
 * (BenAhrdt) make all available values selectable in historical values
 
 ### 2.1.0 (2022-06-17) - config sort values imrooved

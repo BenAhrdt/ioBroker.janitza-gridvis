@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.0",
+        "version": "2.1.1",
         "eraseOnUpload": true,
         "news": {
+            "2.1.1": {
+                "en": "make all available values selectable in historical values",
+                "de": "alle verfügbaren werte in historischen werten auswählbar machen",
+                "ru": "сделать все доступные значения выборными в исторических ценностях",
+                "pt": "fazer todos os valores disponíveis selecionáveis em valores históricos",
+                "nl": "maak alle beschikbare waarden geselecteerd in historische waarden",
+                "fr": "rendre toutes les valeurs disponibles sélectables dans les valeurs historiques",
+                "it": "rendere tutti i valori disponibili selezionabili in valori storici",
+                "es": "hacer todos los valores disponibles seleccionables en valores históricos",
+                "pl": "czy wszystkie dostępne wartości są wybrane w wartościach historycznych",
+                "zh-cn": "所有可选择的历史价值的数值"
+            },
             "2.1.0": {
                 "en": "changeing config sort of values",
                 "de": "änderung der konfiktiven werte",
@@ -231,18 +243,6 @@
                 "es": "mensaje traduciendo en i18n",
                 "pl": "tłumaczenie wiadomości w i18n",
                 "zh-cn": "i18n 中的消息翻译"
-            },
-            "2.0.0": {
-                "en": "bugfixes for first release",
-                "de": "Bugfixes für die erste Version",
-                "ru": "исправления для первого релиза",
-                "pt": "correções de bugs para a primeira versão",
-                "nl": "bugfixes voor eerste release",
-                "fr": "corrections de bogues pour la première version",
-                "it": "correzioni di bug per la prima versione",
-                "es": "correcciones de errores para la primera versión",
-                "pl": "poprawki błędów dla pierwszego wydania",
-                "zh-cn": "首次发布的错误修正"
             }
         },
         "title": "Janitza®-GridVis®",
