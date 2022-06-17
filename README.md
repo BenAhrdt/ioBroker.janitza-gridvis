@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - config improoved
+* (BenAhrdt) check some wrong inputs in config at startup
+
 ### 2.0.17 (2022-06-17) - readme changed
 * (BenAhrdt) change some wrong entries in readme file
 

@@ -33,5 +33,7 @@
     "historicLastQuarter": "Último cuarto",
     "historicThisYear": "este año",
     "historicLastYear": "el año pasado",
-    "timeBaseForHistoricValues": "base de tiempo para los valores históricos"
+    "timeBaseForHistoricValues": "base de tiempo para los valores históricos",
+    "devices": "dispositivos",
+    "No valid device selected": "No se ha seleccionado ningún dispositivo válido"
 }

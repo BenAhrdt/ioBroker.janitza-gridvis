@@ -33,5 +33,7 @@
     "historicLastQuarter": "Последняя четверть",
     "historicThisYear": "в этом году",
     "historicLastYear": "прошедший год",
-    "timeBaseForHistoricValues": "временная база для исторических значений"
+    "timeBaseForHistoricValues": "временная база для исторических значений",
+    "devices": "устройства",
+    "No valid device selected": "Не выбрано действительное устройство"
 }

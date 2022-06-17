@@ -78,6 +78,7 @@ class JanitzaGridvis extends utils.Adapter {
 			communicationOk : "Data exchange with REST API successful.",
 			noCommunicationSelect: "No connection",
 			noCommunicationSelectString: "No active connection to GridVis",
+			noValidDeviceSelectedSelectString: "No valid device selected",
 			lastCommunicationError: "last communication error"
 		};
 
@@ -134,7 +135,8 @@ class JanitzaGridvis extends utils.Adapter {
 
 		// definition der internen Objecte (mit Übersetzung)
 		this.definedObjects = {
-			noCommunication : {label: this.i18nTranslation[this.communicationStrings.noCommunicationSelectString], value: this.i18nTranslation[this.communicationStrings.noCommunicationSelect]}
+			noCommunication : {label: this.i18nTranslation[this.communicationStrings.noCommunicationSelectString], value: this.i18nTranslation[this.communicationStrings.noCommunicationSelect]},
+			noValidDeviceSelected : {label: this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString], value: this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]}
 		};
 
 		// Init internal states & device states
@@ -334,7 +336,8 @@ class JanitzaGridvis extends utils.Adapter {
 	async createInternalStates(){
 		// Parse ans asign online values
 		for(const index in this.config.onlineDeviceTable){
-			if(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices] != this.i18nTranslation[this.communicationStrings.noCommunicationSelect]){
+			if(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices] != this.i18nTranslation[this.communicationStrings.noCommunicationSelect] &&
+				this.config.onlineDeviceTable[index][this.internalIds.onlineValues] != this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]){
 				const configedOnlineDevices = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices]);
 				const configedOnlineValues = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineValues]);
 				if(configedOnlineDevices && configedOnlineValues){
@@ -429,7 +432,8 @@ class JanitzaGridvis extends utils.Adapter {
 
 		// Parse and asign historic values
 		for(const index in this.config.historicDeviceTable){
-			if(this.config.historicDeviceTable[index][this.internalIds.historicDevices] != this.i18nTranslation[this.communicationStrings.noCommunicationSelect]){
+			if(this.config.historicDeviceTable[index][this.internalIds.historicDevices] != this.i18nTranslation[this.communicationStrings.noCommunicationSelect] &&
+				this.config.historicDeviceTable[index][this.internalIds.historicValues] != this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]){
 				const configedHistoricDevices = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicDevices]);
 				const configedHistoricValues = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicValues]);
 				if(configedHistoricDevices && configedHistoricValues){
@@ -881,12 +885,12 @@ class JanitzaGridvis extends utils.Adapter {
 						this.sendTo(obj.from, obj.command, myValues, obj.callback);
 					}
 					catch(error){
-						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);
+						this.sendTo(obj.from, obj.command,[this.definedObjects.noValidDeviceSelected], obj.callback);
 					}
 				}
 				else
 				{
-					this.sendTo(obj.from, obj.command, [this.definedObjects.noCommunication], obj.callback);
+					this.sendTo(obj.from, obj.command, [this.definedObjects.noValidDeviceSelected], obj.callback);
 				}
 				break;
 
@@ -927,12 +931,12 @@ class JanitzaGridvis extends utils.Adapter {
 						this.sendTo(obj.from, obj.command, myValues, obj.callback);
 					}
 					catch(error){
-						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);
+						this.sendTo(obj.from, obj.command,[this.definedObjects.noValidDeviceSelected], obj.callback);
 					}
 				}
 				else
 				{
-					this.sendTo(obj.from, obj.command, [this.definedObjects.noCommunication], obj.callback);
+					this.sendTo(obj.from, obj.command, [this.definedObjects.noValidDeviceSelected], obj.callback);
 				}
 				break;
 		}

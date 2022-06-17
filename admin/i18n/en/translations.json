@@ -19,6 +19,7 @@
     "No connection": "No connection",
     "Connected to GridVis-Version": "Connected to GridVis-Version",
     "No active connection to GridVis": "No active connection to GridVis",
+    "No valid device selected": "No valid device selected",
     "number of reconnects before warning": "number of reconnects before warning",
     "number of devices": "number of devices",
     "online values": "online values",
@@ -33,5 +34,6 @@
     "historicThisQuarter": "this quarter",
     "historicLastQuarter": "last quarter",
     "historicThisYear": "this year",
-    "historicLastYear": "last year"    
+    "historicLastYear": "last year",
+    "devices": "devices"
 }
