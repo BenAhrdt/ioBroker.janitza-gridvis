@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - config sort values imrooved
+### 2.1.0 (2022-06-17) - config sort values imrooved
 * (BenAhrdt) changeing config sort of values
 
 ### 2.0.18 (2022-06-17) - config improoved

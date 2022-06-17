@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.0.18",
+        "version": "2.1.0",
         "eraseOnUpload": true,
         "news": {
+            "2.1.0": {
+                "en": "changeing config sort of values",
+                "de": "änderung der konfiktiven werte",
+                "ru": "изменение config сорта значений",
+                "pt": "alterar o tipo de valores de configuração",
+                "nl": "veranderen van config soort waarden",
+                "fr": "changement de configuration type de valeurs",
+                "it": "cambiamento config sorta di valori",
+                "es": "cambio de configuración tipo de valores",
+                "pl": "zmiana konfigurowalna",
+                "zh-cn": "b. 改变某种价值观"
+            },
             "2.0.18": {
                 "en": "check some wrong inputs in config at startup",
                 "de": "überprüfen sie falsche eingaben in config beim start",
@@ -231,18 +243,6 @@
                 "es": "correcciones de errores para la primera versión",
                 "pl": "poprawki błędów dla pierwszego wydania",
                 "zh-cn": "首次发布的错误修正"
-            },
-            "1.5.5": {
-                "en": "readme fixed",
-                "de": "Readme behoben",
-                "ru": "исправлен файл readme",
-                "pt": "leia-me corrigido",
-                "nl": "leesmij opgelost",
-                "fr": "Lisez-moi corrigé",
-                "it": "readme risolto",
-                "es": "Léame corregido",
-                "pl": "czytaj mi naprawiono",
-                "zh-cn": "自述文件已修复"
             }
         },
         "title": "Janitza®-GridVis®",
