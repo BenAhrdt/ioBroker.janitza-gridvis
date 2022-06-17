@@ -913,18 +913,18 @@ class JanitzaGridvis extends utils.Adapter {
 						const myValues = [];
 						myCount = 0;
 						for(const values in result.data.value){
-							// Check for unit Wh || m³
-							if(this.supportedHistoricalUnits[result.data.value[values].valueType.unit]){
-								let label = result.data.value[values].valueType.valueName;
-								if(result.data.value[values].valueType.valueName != result.data.value[values].valueType.typeName){
-									label += " " + result.data.value[values].valueType.typeName;
-								}
-								const keys = Object.keys(result.data.value[values].valueType).sort();
-								const mapedresult = keys.map(myKey => `"${myKey}":"${result.data.value[values].valueType[myKey]}"`);
-								const value = "{" + mapedresult.join(",") + "}";
-								myValues[myCount] = {label: label, value: value};
-								myCount ++;
+							// deactivate supported Usnits and use all delivered values
+							//if(this.supportedHistoricalUnits[result.data.value[values].valueType.unit]){
+							let label = result.data.value[values].valueType.valueName;
+							if(result.data.value[values].valueType.valueName != result.data.value[values].valueType.typeName){
+								label += " " + result.data.value[values].valueType.typeName;
 							}
+							const keys = Object.keys(result.data.value[values].valueType).sort();
+							const mapedresult = keys.map(myKey => `"${myKey}":"${result.data.value[values].valueType[myKey]}"`);
+							const value = "{" + mapedresult.join(",") + "}";
+							myValues[myCount] = {label: label, value: value};
+							myCount ++;
+							//}
 						}
 						this.sendTo(obj.from, obj.command, myValues, obj.callback);
 					}
