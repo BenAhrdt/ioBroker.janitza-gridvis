@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - extends historic value declaring
+* (BenAhrdt) historic value declaring was extended by id
+
 ### 2.1.2 (2022-06-18) - recodring time displayed in historic values
 * (BenAhrdt) display all recording times in historic value selections
 
