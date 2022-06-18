@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - bugfix recording time
+### 2.1.4 (2022-06-18) - bugfix recording time
 * (BenAhrdt) bugfix recording tme will be displayd
 
 ### 2.1.3 (2022-06-18) - extends historic value declaring
