@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.4",
+        "version": "2.1.5",
         "eraseOnUpload": true,
         "news": {
+            "2.1.5": {
+                "en": "a value type will only displayed once in historic config",
+                "de": "ein werttyp wird nur einmal in historischen config angezeigt",
+                "ru": "тип значения будет отображаться только один раз в историческом конфиге",
+                "pt": "um tipo de valor só será exibido uma vez na configuração histórica",
+                "nl": "een waardetype zal maar één keer in het historische configuur",
+                "fr": "un type de valeur ne sera affiché qu'une fois dans la configuration historique",
+                "it": "un tipo di valore verrà visualizzato solo una volta nella configurazione storica",
+                "es": "un tipo de valor sólo se mostrará una vez en el config histórico",
+                "pl": "typ wartości pojawia się tylko raz w historycznym konfigurze",
+                "zh-cn": "a 只在历史上一刻显示价值类型"
+            },
             "2.1.4": {
                 "en": "bugfix recording tme will be displayd",
                 "de": "bugfix aufnahme tme wird angezeigt",
@@ -231,18 +243,6 @@
                 "es": "reconnect count fue implemeted en los estados info\nestablecer el valor predeterminado de la reconexión antes de advertir a 4 (4 x timeout + 3 x 10s)",
                 "pl": "reconnect hrabia został przedstawiony w stanach informacyjnych\ndomyślna wartość ponownego połączenia przed ostrzeżeniem do 4 (x timeout + 3 x 10s)",
                 "zh-cn": "重新连接的计值被划入主国。\n在发出警告之前(4×时间+3×10)重新连接的过期价值"
-            },
-            "2.0.4": {
-                "en": "count the reconnection and warn after configed count is reached",
-                "de": "zählen sie die wiederverbindung und warnen sie nach der begrenzten anzahl erreicht",
-                "ru": "подсчитайте пересоединение и предупредите после того, как дойдет доверенный счет",
-                "pt": "contar a reconectação e avisar após a contagem configed é alcançado",
-                "nl": "tel de verbinding en waarschuwing na vertrouwelijke telling",
-                "fr": "compter la reconnection et avertir après le comptage confiné est atteint",
-                "it": "contare la riconnessione e avvertire dopo il conteggio configed è raggiunto",
-                "es": "contar la reconexión y advertir después de la cuenta confitada es alcanzado",
-                "pl": "odliczanie połączenia i ostrzeżenie po tym, jak osiągnięto konfigurowany licznik",
-                "zh-cn": "被没收后重新连接和战争"
             }
         },
         "title": "Janitza®-GridVis®",

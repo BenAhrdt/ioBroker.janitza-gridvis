@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - value display in historic config changed
+### 2.1.5 (2022-06-18) - value display in historic config changed
 * (BenAhrdt) a value type will only displayed once in historic config
 
 ### 2.1.4 (2022-06-18) - bugfix recording time
