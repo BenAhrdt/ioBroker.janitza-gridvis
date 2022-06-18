@@ -918,10 +918,10 @@ class JanitzaGridvis extends utils.Adapter {
 							let label = result.data.value[values].valueType.valueName;
 							if(result.data.value[values].valueType.valueName != result.data.value[values].valueType.typeName){
 								label += " " + result.data.value[values].valueType.typeName;
-								label += " (" + result.data.value[values].timebase + "s)";
-								if(result.data.value[values].online){
-									label += " (online)";
-								}
+							}
+							label += " (" + result.data.value[values].timebase + "s)";
+							if(result.data.value[values].online){
+								label += " (online)";
 							}
 							const keys = Object.keys(result.data.value[values].valueType).sort();
 							const mapedresult = keys.map(myKey => `"${myKey}":"${result.data.value[values].valueType[myKey]}"`);
