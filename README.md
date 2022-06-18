@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - extends historic value declaring
+### 2.1.3 (2022-06-18) - extends historic value declaring
 * (BenAhrdt) historic value declaring was extended by id
 
 ### 2.1.2 (2022-06-18) - recodring time displayed in historic values
