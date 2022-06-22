@@ -562,26 +562,10 @@ class JanitzaGridvis extends utils.Adapter {
 					activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`;
 					delete this.AdapterObjectsAtStart[activeString];
 					for(const type in this.devices[device].historicValues[value].type){
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.today}`;
-						delete this.AdapterObjectsAtStart[activeString];
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.yesterday}`;
-						delete this.AdapterObjectsAtStart[activeString];
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.thisWeek}`;
-						delete this.AdapterObjectsAtStart[activeString];
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.lastWeek}`;
-						delete this.AdapterObjectsAtStart[activeString];
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.thisMonth}`;
-						delete this.AdapterObjectsAtStart[activeString];
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.lastMonth}`;
-						delete this.AdapterObjectsAtStart[activeString];
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.thisQuater}`;
-						delete this.AdapterObjectsAtStart[activeString];
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.lastQuater}`;
-						delete this.AdapterObjectsAtStart[activeString];
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.thisYear}`;
-						delete this.AdapterObjectsAtStart[activeString];
-						activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings.lastYear}`;
-						delete this.AdapterObjectsAtStart[activeString];
+						for(const timeBase of Object.values(this.timeStrings)){ // remove all timeBase values out of the structure
+							activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase}`;
+							delete this.AdapterObjectsAtStart[activeString];
+						}
 					}
 				}
 				activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`;
@@ -849,8 +833,8 @@ class JanitzaGridvis extends utils.Adapter {
 						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 						for(const element in result.data.device){
 							const label = result.data.device[element].name + "  - Device ID: " + result.data.device[element].id;
-							const value = `{"id":${result.data.device[element].id},"deviceName":"${result.data.device[element].name}","type":"${result.data.device[element].type}"}`;
-							devices[myCount] = {label: label,value: value};
+							const myValueObject = {id: result.data.device[element].id, deviceName: result.data.device[element].name, type: result.data.device[element].type};
+							devices[myCount] = {label: label,value: JSON.stringify(myValueObject)};
 							myCount ++;
 						}
 						this.sendTo(obj.from, obj.command, devices, obj.callback);
@@ -882,9 +866,11 @@ class JanitzaGridvis extends utils.Adapter {
 								label += " " + result.data.valuetype[values].typeName;
 							}
 							const keys = Object.keys(result.data.valuetype[values]).sort();
-							const mapedresult = keys.map(myKey => `"${myKey}":"${result.data.valuetype[values][myKey]}"`);
-							const value = "{" + mapedresult.join(",") + "}";
-							myValues[myCount] = {label: label, value: value};
+							const myValueObject = {};
+							keys.forEach((key)=>{
+								myValueObject[key] = result.data.valuetype[values][key];
+							});
+							myValues[myCount] = {label: label, value: JSON.stringify(myValueObject)};
 							myCount ++;
 						}
 						this.sendTo(obj.from, obj.command, myValues, obj.callback);
@@ -912,7 +898,7 @@ class JanitzaGridvis extends utils.Adapter {
 						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 						const myValues = [];
 						myCount = 0;
-						let listedLabels = {};
+						const listedLabels = {}; // Labels who are allready listed (eg. Power L1 900s & Power L1 60s)
 						for(const values in result.data.value){
 							// deactivate supported Usnits and use all delivered values
 							//if(this.supportedHistoricalUnits[result.data.value[values].valueType.unit]){
@@ -924,14 +910,14 @@ class JanitzaGridvis extends utils.Adapter {
 								listedLabels[label] = label;
 							}
 							else{
-								this.log.info("Weg damit: " + label);
 								continue;
 							}
 							const keys = Object.keys(result.data.value[values].valueType).sort();
-							const mapedresult = keys.map(myKey => `"${myKey}":"${result.data.value[values].valueType[myKey]}"`);
-							let value = "{" + mapedresult.join(",");
-							value += `,"id":${result.data.value[values].id},"timebase":${result.data.value[values].timebase},"online":${result.data.value[values].online}}`;
-							myValues[myCount] = {label: label, value: value};
+							const myValueObject = {id: result.data.value[values].id, timebase: result.data.value[values].timebase, online: result.data.value[values].online};
+							keys.forEach((key)=>{
+								myValueObject[key] = result.data.value[values].valueType[key];
+							});
+							myValues[myCount] = {label: label, value: JSON.stringify(myValueObject)};
 							myCount ++;
 							//}
 						}

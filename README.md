@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - configed value entry improoved
+* (BenAhrdt) change configed value entry writing from string to Object => JSON.stringify(...)
+
 ### 2.1.5 (2022-06-18) - value display in historic config changed
 * (BenAhrdt) a value type will only displayed once in historic config
 
