@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.6",
+        "version": "2.1.7",
         "eraseOnUpload": true,
         "news": {
+            "2.1.7": {
+                "en": "code improoved in relation to == vs ===",
+                "de": "in bezug auf == vs ====",
+                "ru": "код неповеден по отношению к == vs ===",
+                "pt": "código improoved em relação a == vs ==",
+                "nl": "vertaling:",
+                "fr": "code improoved in relation to == vs ===",
+                "it": "codice improvato in relazione a ======",
+                "es": "código improvisado en relación con == vs ==",
+                "pl": "zawartość kodu w odniesieniu do == vs================",
+                "zh-cn": "与= v======="
+            },
             "2.1.6": {
                 "en": "change configed value entry writing from string to Object => JSON.stringify(...)",
                 "de": "änderung des konfiktiven Werteeintrags Schreiben von String zu Objekt => JSON.stringify()",
@@ -231,18 +243,6 @@
                 "es": "traducción alemana se perdió = re-implemented",
                 "pl": "tłumaczenie germanne zostało utracone =>>>>. reimplementować",
                 "zh-cn": "g 长期翻译损失= 重新实施"
-            },
-            "2.0.6": {
-                "en": "deviceschanged to type channel\nonlineValues & historicValues \"folder\" changed to \"channel\"",
-                "de": "geräte, die auf kanaltyp geändert werden\nonline Werte & historische Werte Ordner in Kanal geändert",
-                "ru": "устройства изменены на тип канала\nонлайн Ценности и исторические папка Values изменилась на канал",
-                "pt": "dispositivos alterados para digitar canal\nonline Valores e histórico Valores pasta alterada para canal",
-                "nl": "quality over quantity (qoq) releases vertaling:\nonline Vertaling: Vertaling:",
-                "fr": "dispositifs changés pour le canal de type\nen ligne Valeurs historiques Le dossier Valeurs a changé en canal",
-                "it": "dispositivicambiati a canale di tipo\nonline Valori e storici Valori cartella cambiata in canale",
-                "es": "dispositivos cambiados para el canal de tipo\nonline Valores \" históricos Carpeta de valores cambiada al canal",
-                "pl": "urządzenie zmieniało się na typowy kanał\nonline Values & historic (ang.). folder zmieni się na kanał",
-                "zh-cn": "d. 转用类型渠道\n在线 价值和历史 B. 导 言"
             }
         },
         "title": "Janitza®-GridVis®",

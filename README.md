@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - code improoved
+### 2.1.7 (2022-06-23) - code improoved
 * (BenAhrdt) code improoved in relation to == vs ===
 
 ### 2.1.6 (2022-06-22) - configed value entry improoved
