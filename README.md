@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - code improoved
+* (BenAhrdt) code improoved in relation to == vs ===
+
 ### 2.1.6 (2022-06-22) - configed value entry improoved
 * (BenAhrdt) change configed value entry writing from string to Object => JSON.stringify(...)
 

@@ -183,7 +183,7 @@ class JanitzaGridvis extends utils.Adapter {
 		if(this.reconnectCounter > 0 || this.internalConnectionState){
 			this.reconnectCounter += 1;
 		}
-		if(this.reconnectCounter == 1 &&  this.config.reconnectCout == 0){
+		if(this.reconnectCounter === 1 &&  this.config.reconnectCout === 0){
 			this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
 		}
 		// Reset the connection indicator
@@ -197,7 +197,7 @@ class JanitzaGridvis extends utils.Adapter {
 		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
 		if(projectInfo){
 			// log just if the reconnect counter is bigger than the configed number before warning (or at startup)
-			if(this.reconnectCounter > this.config.reconnectCout || this.reconnectCounter == 0){
+			if(this.reconnectCounter > this.config.reconnectCout || this.reconnectCounter === 0){
 				this.log.info(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
 			}
 			// Set connection established
@@ -208,10 +208,10 @@ class JanitzaGridvis extends utils.Adapter {
 			this.StartCommunicationToGridVis();
 		}
 		else{
-			if(this.reconnectCounter == this.config.reconnectCout && this.reconnectCounter != 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut sein musste bevor diese Warnung ausgegeben wird.
+			if(this.reconnectCounter === this.config.reconnectCout && this.reconnectCounter != 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut sein musste bevor diese Warnung ausgegeben wird.
 				this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
 			}
-			if(this.reconnectCounter >= this.config.reconnectCout || this.reconnectCounter == 0){ // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
+			if(this.reconnectCounter >= this.config.reconnectCout || this.reconnectCounter === 0){ // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
 				this.log.warn(this.communicationStrings.noCommunicationSelectString);
 			}
 			this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
@@ -400,10 +400,10 @@ class JanitzaGridvis extends utils.Adapter {
 
 						// create value channel
 						let channelName = this.devices[device].onlineValues[value].valueName;
-						if(value == this.internalIds.globalValue){
+						if(value === this.internalIds.globalValue){
 							channelName = this.internalIds.globalValue;
 						}
-						else if(value == this.internalIds.userDefined){
+						else if(value === this.internalIds.userDefined){
 							channelName = this.internalIds.userDefined;
 						}
 						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`,{
@@ -500,7 +500,7 @@ class JanitzaGridvis extends utils.Adapter {
 						if(value === this.internalIds.globalValue){
 							channelName = this.internalIds.globalValue;
 						}
-						else if(value == this.internalIds.userDefined){
+						else if(value === this.internalIds.userDefined){
 							channelName = this.internalIds.userDefined;
 						}
 						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`,{
@@ -605,7 +605,7 @@ class JanitzaGridvis extends utils.Adapter {
 		let firstValueReached = false;
 		for(const device in this.devices){
 			if(this.devices[device].onlineValues){
-				if(myUrl == ""){
+				if(myUrl === ""){
 					myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/onlinevalues/.json?`;
 				}
 				for(const value in this.devices[device].onlineValues){
@@ -633,12 +633,12 @@ class JanitzaGridvis extends utils.Adapter {
 			try{
 				const result = await axios.get(myUrl,{timeout: this.config.timeout});
 				this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
-				if(result.status == 200){
+				if(result.status === 200){
 					for(const device in this.devices){
 						if(this.devices[device].onlineValues){
 							for(const value in this.devices[device].onlineValues){
 								for(const type in this.devices[device].onlineValues[value].type){
-									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] == 0) && !isNaN(result.data.value[`${device}.${value}.${type}`])){ // Prüfung auf undgleich NaN, oder 0
+									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] === 0) && !isNaN(result.data.value[`${device}.${value}.${type}`])){ // Prüfung auf undgleich NaN, oder 0
 										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
 									}
 								}
@@ -674,12 +674,12 @@ class JanitzaGridvis extends utils.Adapter {
 								this.log.silly(`${myUrl} was send to gridVis`);
 								const result = await axios.get(myUrl,{timeout: this.config.timeout});
 								this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
-								if(result.status == 200){		// OK => write data into internal state
-									if((result.data.energy || result.data.energy == 0) && !isNaN(result.data.energy)){ // Prüfung auf undgleich NaN, oder 0
+								if(result.status === 200){		// OK => write data into internal state
+									if((result.data.energy || result.data.energy === 0) && !isNaN(result.data.energy)){ // Prüfung auf undgleich NaN, oder 0
 										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
 									}
 								}
-								else if(result.status == 204){		// no content write 0 into internal state
+								else if(result.status === 204){		// no content write 0 into internal state
 									this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,0,true);
 								}
 							}
@@ -706,7 +706,7 @@ class JanitzaGridvis extends utils.Adapter {
 			const result = await axios.get(myUrl,{timeout: this.config.timeout});
 			if(result){
 				this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-				if(result.data.status && result.data.status == this.communicationStrings.ready){
+				if(result.data.status && result.data.status === this.communicationStrings.ready){
 					myUrl = `http://${adress}:${port}/rest/common/info/version/full.json?`;
 					this.log.debug(`${myUrl} was send to gridVis to check version`);
 					const version = await axios.get(myUrl,{timeout: this.config.timeout});
@@ -774,7 +774,7 @@ class JanitzaGridvis extends utils.Adapter {
 	 */
 	async onStateChange(id, state) {
 		if (state) {
-			if(id == `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`){
+			if(id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`){
 				if(!state.ack){
 					if(state.val){
 						this.readOnlineValues();
