@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.7",
+        "version": "2.1.8",
         "eraseOnUpload": true,
         "news": {
+            "2.1.8": {
+                "en": "reconnect count is counted up and set to zero in case the connection is successfull",
+                "de": "reconnect count wird gezählt und auf null gesetzt, falls die verbindung erfolgreich ist",
+                "ru": "переподключение рассчитывается и устанавливается до нуля, если соединение успешно",
+                "pt": "contagem de reconectar é contado e definido para zero no caso de a conexão é bem sucedida",
+                "nl": "verbindingstel is geteld en op nul gezet voor het geval de connectie succesvol is",
+                "fr": "reconnect count is counted up and set to zero in case the connection is successfull",
+                "it": "il conteggio di ricollegamento viene conteggiato e impostato a zero nel caso in cui la connessione abbia successo",
+                "es": "recontar cuenta se cuenta y se establece a cero en caso de que la conexión sea exitosa",
+                "pl": "zliczanie reconnecti jest liczone i ustawione do zera w przypadku, gdy związek jest udany",
+                "zh-cn": "重新连接的计值是计算的,在联系成功的情况下确定零。"
+            },
             "2.1.7": {
                 "en": "code improoved in relation to == vs ===",
                 "de": "in bezug auf == vs ====",
@@ -231,18 +243,6 @@
                 "es": "logging changed into english",
                 "pl": "logowanie zmieniło się na english",
                 "zh-cn": "伐木的变化"
-            },
-            "2.0.7": {
-                "en": "german translation was lost => re-implemented",
-                "de": "deutsche übersetzung wurde verloren => wiedereinführung",
-                "ru": "немецкий перевод был потерян => повторное обновление",
-                "pt": "tradução alemã foi perdida => re-implementado",
-                "nl": "german vertaling was verloren. vertaling:",
-                "fr": "traduction allemande a été perdue = re-implémenté",
-                "it": "traduzione tedesca è stata persa = > re-implementato",
-                "es": "traducción alemana se perdió = re-implemented",
-                "pl": "tłumaczenie germanne zostało utracone =>>>>. reimplementować",
-                "zh-cn": "g 长期翻译损失= 重新实施"
             }
         },
         "title": "Janitza®-GridVis®",
