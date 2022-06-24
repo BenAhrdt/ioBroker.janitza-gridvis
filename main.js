@@ -193,12 +193,17 @@ class JanitzaGridvis extends utils.Adapter {
 		// Check the configed connection settings
 		// in case there is no connection to GridVis possible
 		// the adapter will not work
-
+		this.log.info("Durchlaufen");
 		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
 		if(projectInfo){
+			// set recoonectionCounter (for better debug)
+			await this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
 			// log just if the reconnect counter is bigger than the configed number before warning (or at startup)
 			if(this.reconnectCounter > this.config.reconnectCout || this.reconnectCounter === 0){
 				this.log.info(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
+			}
+			else {
+				this.log.debug(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
 			}
 			// Set connection established
 			await this.setStateAsync("info.connection", true, true);

@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - counting up reconnectCounter changed
+* (BenAhrdt) reconnect count is counted up and set to zero in case the connection is successfull
+
 ### 2.1.7 (2022-06-23) - code improoved
 * (BenAhrdt) code improoved in relation to == vs ===
 
