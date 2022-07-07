@@ -642,11 +642,12 @@ class JanitzaGridvis extends utils.Adapter {
 						if(this.devices[device].onlineValues){
 							for(const value in this.devices[device].onlineValues){
 								for(const type in this.devices[device].onlineValues[value].type){
-									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] === 0)){ // Prüfung auf vorhanden und ungleich 0
-										if(!isNaN(result.data.value[`${device}.${value}.${type}`])){ // Prüfung auf unglein NaN
+									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] === 0)){ // check present and not equal 0
+										if(!isNaN(result.data.value[`${device}.${value}.${type}`])){ // check not equal to NaN
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
 										}
 										else{
+											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,{q:1},true);
 											this.log.info(`${device}.${value}.${type} is NaN`);
 										}
 									}
@@ -684,11 +685,12 @@ class JanitzaGridvis extends utils.Adapter {
 								const result = await axios.get(myUrl,{timeout: this.config.timeout});
 								this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 								if(result.status === 200){		// OK => write data into internal state
-									if((result.data.energy || result.data.energy === 0)){ // Prüfung auf vorhanden und ungleich 0
-										if(!isNaN(result.data.energy)){ // Prüfung auf unglein NaN
+									if((result.data.energy || result.data.energy === 0)){ // check present and not equal 0
+										if(!isNaN(result.data.energy)){ // check not equal to NaN
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
 										}
 										else{
+											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,{q:1},true);
 											this.log.info(`${device}.${value}.${type}.${this.timeStrings[timeBase]} is NaN`);
 										}
 									}
