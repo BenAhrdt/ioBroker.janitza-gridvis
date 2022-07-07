@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.8",
+        "version": "2.1.9",
         "eraseOnUpload": true,
         "news": {
+            "2.1.9": {
+                "en": "only present projects can be selected by config",
+                "de": "nur vorhandene projekte können von config ausgewählt werden",
+                "ru": "только текущие проекты могут быть выбраны config",
+                "pt": "somente projetos atuais podem ser selecionados por config",
+                "nl": "alleen presentatieprojecten kunnen worden geselecteerd door bevestiging",
+                "fr": "seuls les projets actuels peuvent être sélectionnés par config",
+                "it": "solo i progetti presenti possono essere selezionati da config",
+                "es": "sólo los proyectos actuales pueden ser seleccionados por config",
+                "pl": "projekty mogą być wybierane przez konfigurację",
+                "zh-cn": "仅可以通过混凝土挑选现有项目。"
+            },
             "2.1.8": {
                 "en": "reconnect count is counted up and set to zero in case the connection is successfull",
                 "de": "reconnect count wird gezählt und auf null gesetzt, falls die verbindung erfolgreich ist",
@@ -231,18 +243,6 @@
                 "es": "implementa iconos para canal de dispositivo\nimplementa el consumo de agua para valores históricos",
                 "pl": "implementuje ikony dla kanału urządzenie\nwdrażanie zużycia wody dla historycznych wartości",
                 "zh-cn": "执行装置渠道的天线\n执行水消耗的历史价值"
-            },
-            "2.0.8": {
-                "en": "logging changed into english",
-                "de": "logging ins englische",
-                "ru": "вход изменен на английский",
-                "pt": "mudando para inglês",
-                "nl": "verandering in engels",
-                "fr": "journalisation changée en anglais",
-                "it": "logging cambiato in inglese",
-                "es": "logging changed into english",
-                "pl": "logowanie zmieniło się na english",
-                "zh-cn": "伐木的变化"
             }
         },
         "title": "Janitza®-GridVis®",
