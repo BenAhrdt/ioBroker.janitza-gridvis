@@ -193,7 +193,6 @@ class JanitzaGridvis extends utils.Adapter {
 		// Check the configed connection settings
 		// in case there is no connection to GridVis possible
 		// the adapter will not work
-		this.log.info("Durchlaufen");
 		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
 		if(projectInfo){
 			// set recoonectionCounter (for better debug)
@@ -643,8 +642,13 @@ class JanitzaGridvis extends utils.Adapter {
 						if(this.devices[device].onlineValues){
 							for(const value in this.devices[device].onlineValues){
 								for(const type in this.devices[device].onlineValues[value].type){
-									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] === 0) && !isNaN(result.data.value[`${device}.${value}.${type}`])){ // Prüfung auf undgleich NaN, oder 0
-										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
+									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] === 0)){ // Prüfung auf vorhanden und ungleich 0
+										if(!isNaN(result.data.value[`${device}.${value}.${type}`])){ // Prüfung auf unglein NaN
+											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
+										}
+										else{
+											this.log.info(`${device}.${value}.${type} is NaN`);
+										}
 									}
 								}
 							}
@@ -680,8 +684,13 @@ class JanitzaGridvis extends utils.Adapter {
 								const result = await axios.get(myUrl,{timeout: this.config.timeout});
 								this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 								if(result.status === 200){		// OK => write data into internal state
-									if((result.data.energy || result.data.energy === 0) && !isNaN(result.data.energy)){ // Prüfung auf undgleich NaN, oder 0
-										this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
+									if((result.data.energy || result.data.energy === 0)){ // Prüfung auf vorhanden und ungleich 0
+										if(!isNaN(result.data.energy)){ // Prüfung auf unglein NaN
+											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
+										}
+										else{
+											this.log.info(`${device}.${value}.${type}.${this.timeStrings[timeBase]} is NaN`);
+										}
 									}
 								}
 								else if(result.status === 204){		// no content write 0 into internal state
