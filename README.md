@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - implement select for projects
+* (BenAhrdt) only present projects can be selected by config
+
 ### 2.1.8 (2022-06-24) - counting up reconnectCounter changed
 * (BenAhrdt) reconnect count is counted up and set to zero in case the connection is successfull
 

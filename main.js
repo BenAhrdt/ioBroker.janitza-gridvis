@@ -838,6 +838,27 @@ class JanitzaGridvis extends utils.Adapter {
 				}
 				break;
 
+			// in case connecttion to address and port is ok,
+			// send present projects back to select
+			case "getProjects":
+				if(this.configConnection.port){
+					try{
+						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/.json?`;
+						this.log.silly(`${myUrl} is send to get Devices`);
+						result = await axios.get(myUrl,{timeout: this.config.timeout});
+						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
+						for(const element in result.data.project){
+							const label = result.data.project[element].name;
+							devices[myCount] = {label: label,value: label};
+							myCount ++;
+						}
+						this.sendTo(obj.from, obj.command, devices, obj.callback);
+					}
+					catch(error){
+						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);
+					}
+				}
+				break;
 			// in case the connection is ok get devices for online and historic configuration (same devices)
 			// send the result array back to the select in config
 			case "getDevices":

@@ -51,10 +51,15 @@
                     "sm":1
                 },
                 "projectname":{
-                    "type": "text",
+                    "type": "selectSendTo",
                     "label": "projectname",
                     "defaut":"EnergieMonitoring",
-                    "sm": 3
+                    "sm": 3,
+                    "command": "getProjects",
+                    "alsoDependsOn":[
+                        "address",
+                        "port"
+                    ]
                 },
                 "timeout": {
                     "newLine": true,
