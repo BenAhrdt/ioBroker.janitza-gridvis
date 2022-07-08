@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.14",
+        "version": "2.1.15",
         "eraseOnUpload": true,
         "news": {
+            "2.1.15": {
+                "en": "projectinfos will not longer deleted at startup",
+                "de": "projectinfos wird beim start nicht mehr gelöscht",
+                "ru": "projectinfos больше не будет удалена при запуске",
+                "pt": "projectinfos não será mais excluído na inicialização",
+                "nl": "projectinfo's zullen niet langer worden gewist bij de startup",
+                "fr": "projectinfos ne sera plus supprimé au démarrage",
+                "it": "projectinfos non verrà più cancellato all'avvio",
+                "es": "projectinfos no se eliminará más tiempo al inicio",
+                "pl": "informacje projektowe nie będą dłużej usuwane na początku",
+                "zh-cn": "项目设计将在开办时不再删除"
+            },
             "2.1.14": {
                 "en": "added some projectinfos into info folder",
                 "de": "einige projektinfos in info-ordner hinzugefügt",
@@ -231,18 +243,6 @@
                 "es": "registro detallado para el modo de depuración eliminado y cambiado en tonto",
                 "pl": "szczegółowa praca do debugowania została usunięta i zmieniła się w głupie",
                 "zh-cn": "拆除和改变的诱惑"
-            },
-            "2.0.14": {
-                "en": "detailed logging for debug mode can be selected in config",
-                "de": "detaillierte protokollierung für debug-modus kann in config ausgewählt werden",
-                "ru": "подробный вход для режима debug можно выбрать в config",
-                "pt": "log detalhado para o modo de depuração pode ser selecionado em config",
-                "nl": "gedetailleerde lokatie voor debug mode kan worden geselecteerd in configuur",
-                "fr": "journalisation détaillée pour le mode debug peut être sélectionné dans la configuration",
-                "it": "logging dettagliato per la modalità debug può essere selezionato in configurazione",
-                "es": "registro detallado para el modo de depuración se puede seleccionar en config",
-                "pl": "szczegółowe logowanie trybu debug może być wybrane w formacie conigigig",
-                "zh-cn": "可以从黑暗中挑选出对降格模式的详细伐木。"
             }
         },
         "title": "Janitza®-GridVis®",

@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - projectinfos improoved
+### 2.1.15 (2022-07-08) - projectinfos improoved
 * (BenAhrdt) projectinfos will not longer deleted at startup
 
 ### 2.1.14 (2022-07-08) - projectinfos added
