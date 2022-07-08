@@ -143,7 +143,7 @@ class JanitzaGridvis extends utils.Adapter {
 		// definition der internen Objecte (mit Übersetzung)
 		this.definedObjects = {
 			noCommunication : {label: this.i18nTranslation[this.communicationStrings.noCommunicationSelectString], value: this.i18nTranslation[this.communicationStrings.noCommunicationSelect]},
-			noProject : {label: this.i18nTranslation[this.communicationStrings.noProjectSelectString], value: this.i18nTranslation[this.communicationStrings.noProjectSelect]},
+			noProject : {label: this.i18nTranslation[this.communicationStrings.noProjectSelectString], value: this.i18nTranslation[this.communicationStrings.noProjectSelectString]},
 			noValidDeviceSelected : {label: this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString], value: this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]}
 		};
 
