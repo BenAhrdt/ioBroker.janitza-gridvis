@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - projectinfos added
+* (BenAhrdt) added some projectinfos into info folder
+
 ### 2.1.13 (2022-07-08) - no project selected more improoved
 * (BenAhrdt) change text of no project selected
 
