@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.13",
+        "version": "2.1.14",
         "eraseOnUpload": true,
         "news": {
+            "2.1.14": {
+                "en": "added some projectinfos into info folder",
+                "de": "einige projektinfos in info-ordner hinzugefügt",
+                "ru": "добавлены некоторые сведения о проекте в папку info",
+                "pt": "adicionou alguns projectinfos na pasta info",
+                "nl": "voegde wat projectinfo toe in de info map",
+                "fr": "ajouté quelques informations de projet dans le dossier info",
+                "it": "aggiunto alcuni projectinfos nella cartella info",
+                "es": "añadido algunos informes de proyecto en carpeta info",
+                "pl": "dodał niektóre projekty w folder info",
+                "zh-cn": "增加一些项目info infoinger"
+            },
             "2.1.13": {
                 "en": "change text of no project selected",
                 "de": "änderung des textes von keinem projekt ausgewählt",
@@ -231,18 +243,6 @@
                 "es": "registro detallado para el modo de depuración se puede seleccionar en config",
                 "pl": "szczegółowe logowanie trybu debug może być wybrane w formacie conigigig",
                 "zh-cn": "可以从黑暗中挑选出对降格模式的详细伐木。"
-            },
-            "2.0.13": {
-                "en": "assigned object deleted => json.parse(JSON.stringify(obj))",
-                "de": "zugewiesenes Objekt gelöscht => json.parse(JSON.stringify(obj)",
-                "ru": "назначенный объект удален => json.parse(JSON.stringify(obj)",
-                "pt": "objeto atribuído excluído => json.parse(JSON.stringify(obj)",
-                "nl": "toegewezen object gewist json",
-                "fr": "objet assigné supprimé = Cancer json.parse(JSON.stringify(obj)",
-                "it": "oggetto assegnato cancellato => json.parse(JSON.stringify(obj)",
-                "es": "objeto asignado eliminado = título json.parse(JSON.stringify(obj)",
-                "pl": "przypisane obiekty usunięte => json.parse (JSON.stringify (obj)",
-                "zh-cn": "指定目标删除 = > json.parse(JSON.string(obj)"
             }
         },
         "title": "Janitza®-GridVis®",
