@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - no project selected improoved
+### 2.1.12 (2022-07-08) - no project selected improoved
 * (BenAhrdt) change traslation of no project selected
 
 ### 2.1.11 (2022-07-08) - getProjects logging changed
