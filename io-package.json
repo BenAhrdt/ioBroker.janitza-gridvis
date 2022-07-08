@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.12",
+        "version": "2.1.13",
         "eraseOnUpload": true,
         "news": {
+            "2.1.13": {
+                "en": "change text of no project selected",
+                "de": "änderung des textes von keinem projekt ausgewählt",
+                "ru": "изменить текст не выбранного проекта",
+                "pt": "mudar o texto de nenhum projeto selecionado",
+                "nl": "verandering van geen project geselecteerd",
+                "fr": "changement de texte d'aucun projet sélectionné",
+                "it": "modificare il testo di nessun progetto selezionato",
+                "es": "texto de cambio de ningún proyecto seleccionado",
+                "pl": "tekst nie ma wybranego projektu",
+                "zh-cn": "未选择的项目案文的修改"
+            },
             "2.1.12": {
                 "en": "change traslation of no project selected",
                 "de": "änderung der traslation ohne projekt ausgewählt",
@@ -231,18 +243,6 @@
                 "es": "objeto asignado eliminado = título json.parse(JSON.stringify(obj)",
                 "pl": "przypisane obiekty usunięte => json.parse (JSON.stringify (obj)",
                 "zh-cn": "指定目标删除 = > json.parse(JSON.string(obj)"
-            },
-            "2.0.12": {
-                "en": "the device informations will be requested every minute",
-                "de": "die geräteinformationen werden jede minute angefordert",
-                "ru": "информация о устройстве будет запрошена каждую минуту",
-                "pt": "as informações do dispositivo serão solicitadas a cada minuto",
-                "nl": "de apparatuur zal elke minuut worden gevraagd",
-                "fr": "les informations de l'appareil seront demandées chaque minute",
-                "it": "le informazioni del dispositivo saranno richieste ogni minuto",
-                "es": "las informaciones del dispositivo serán solicitadas cada minuto",
-                "pl": "informacje o urządzeniach są podawane co minutę",
-                "zh-cn": "每分钟请装置资料"
             }
         },
         "title": "Janitza®-GridVis®",
