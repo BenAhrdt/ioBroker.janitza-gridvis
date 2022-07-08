@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.10",
+        "version": "2.1.11",
         "eraseOnUpload": true,
         "news": {
+            "2.1.11": {
+                "en": "getProject logging is changed into level silly",
+                "de": "! Projektprotokollierung wird in Ebene Silly geändert",
+                "ru": "получить Логирование проекта изменено на уровень глупо",
+                "pt": "vamos. O registro do projeto é alterado em nível bobo",
+                "nl": "ga. Project is veranderd in niveau domme dingen",
+                "fr": "allez. L'enregistrement du projet est changé en niveau stupide",
+                "it": "♪ Logging del progetto è cambiato in livello sciocco",
+                "es": "# El registro de proyectos se cambia a nivel tonto",
+                "pl": "przyjść Projekt logowania zmienia się na poziom głupiego",
+                "zh-cn": "出路 预测伐木变化到温饱的水平"
+            },
             "2.1.10": {
                 "en": "getProject message sends data from address and port",
                 "de": "! Projektnachricht sendet Daten von Adresse und Port",
@@ -231,18 +243,6 @@
                 "es": "para dispositivos de hardware real impletó información sobre número de serie, hardware y firmware",
                 "pl": "dla rzeczywistego urządzenia sprzętowego implementuje informacje o numerach seryjnych, sprzętu i oprogramowania",
                 "zh-cn": "对于真正的硬件装置,没有关于序号、硬件和硬件的信息"
-            },
-            "2.0.10": {
-                "en": "sort values keys before writing into json config",
-                "de": "sortieren sie werte schlüssel vor dem schreiben in json config",
-                "ru": "сортировать значения ключи перед написанием в json config",
-                "pt": "classificar valores chaves antes de escrever em json config",
-                "nl": "waardensleutels voor het schrijven van json config",
-                "fr": "trier les valeurs clés avant d'écrire dans la configuration de json",
-                "it": "ordinare i valori prima di scrivere in json config",
-                "es": "valores clave antes de escribir en json config",
-                "pl": "klucze sortowania przed zapisem w json configigig",
-                "zh-cn": "a. 书面前的数值"
             }
         },
         "title": "Janitza®-GridVis®",
