@@ -221,7 +221,7 @@ class JanitzaGridvis extends utils.Adapter {
 			this.StartCommunicationToGridVis();
 		}
 		else{
-			if(this.reconnectCounter === this.config.reconnectCout && this.reconnectCounter != 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut sein musste bevor diese Warnung ausgegeben wird.
+			if(this.reconnectCounter === this.config.reconnectCout && this.reconnectCounter !== 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut sein musste bevor diese Warnung ausgegeben wird.
 				this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
 			}
 			if(this.reconnectCounter >= this.config.reconnectCout || this.reconnectCounter === 0){ // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
@@ -354,8 +354,8 @@ class JanitzaGridvis extends utils.Adapter {
 	async createInternalStates(){
 		// Parse ans asign online values
 		for(const index in this.config.onlineDeviceTable){
-			if(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices] != this.i18nTranslation[this.communicationStrings.noCommunicationSelect] &&
-				this.config.onlineDeviceTable[index][this.internalIds.onlineValues] != this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]){
+			if(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices] !== this.i18nTranslation[this.communicationStrings.noCommunicationSelect] &&
+				this.config.onlineDeviceTable[index][this.internalIds.onlineValues] !== this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]){
 				const configedOnlineDevices = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices]);
 				const configedOnlineValues = JSON.parse(this.config.onlineDeviceTable[index][this.internalIds.onlineValues]);
 				if(configedOnlineDevices && configedOnlineValues){
@@ -450,8 +450,8 @@ class JanitzaGridvis extends utils.Adapter {
 
 		// Parse and asign historic values
 		for(const index in this.config.historicDeviceTable){
-			if(this.config.historicDeviceTable[index][this.internalIds.historicDevices] != this.i18nTranslation[this.communicationStrings.noCommunicationSelect] &&
-				this.config.historicDeviceTable[index][this.internalIds.historicValues] != this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]){
+			if(this.config.historicDeviceTable[index][this.internalIds.historicDevices] !== this.i18nTranslation[this.communicationStrings.noCommunicationSelect] &&
+				this.config.historicDeviceTable[index][this.internalIds.historicValues] !== this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]){
 				const configedHistoricDevices = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicDevices]);
 				const configedHistoricValues = JSON.parse(this.config.historicDeviceTable[index][this.internalIds.historicValues]);
 				if(configedHistoricDevices && configedHistoricValues){
@@ -646,7 +646,7 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 
 		//check for Url
-		if(myUrl != ""){
+		if(myUrl !== ""){
 			// send request to gridvis and write a valid data into the internal state
 			this.log.silly(`${myUrl} was send to gridVis`);
 			try{
@@ -911,7 +911,7 @@ class JanitzaGridvis extends utils.Adapter {
 						myCount = 0;
 						for(const values in result.data.valuetype){
 							let label = result.data.valuetype[values].valueName;
-							if(result.data.valuetype[values].valueName != result.data.valuetype[values].typeName){
+							if(result.data.valuetype[values].valueName !== result.data.valuetype[values].typeName){
 								label += " " + result.data.valuetype[values].typeName;
 							}
 							const keys = Object.keys(result.data.valuetype[values]).sort();
@@ -952,7 +952,7 @@ class JanitzaGridvis extends utils.Adapter {
 							// deactivate supported Usnits and use all delivered values
 							//if(this.supportedHistoricalUnits[result.data.value[values].valueType.unit]){
 							let label = result.data.value[values].valueType.valueName;
-							if(result.data.value[values].valueType.valueName != result.data.value[values].valueType.typeName){
+							if(result.data.value[values].valueType.valueName !== result.data.value[values].valueType.typeName){
 								label += " " + result.data.value[values].valueType.typeName;
 							}
 							if(!listedLabels[label]){
