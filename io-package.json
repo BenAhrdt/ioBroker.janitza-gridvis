@@ -310,9 +310,9 @@
         ]
     },
     "native": {
-        "adress": "192.168.2.50",
+        "address": "192.168.2.50",
         "port": 8080,
-        "projectname": "EnergieMonitoring",
+        "projectname": "no project",
         "timeout": 2000,
         "reconnectCout": 4,
         "refreshOnlineCronJob": "*/2 * * * * *",

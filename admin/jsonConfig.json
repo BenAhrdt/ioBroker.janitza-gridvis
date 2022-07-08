@@ -22,10 +22,10 @@
                 "connectionState":{
                     "newLine":true,
                     "type": "textSendTo",
-                    "jsonData": "{\"adress\":\"${data.adress}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
+                    "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
                     "command": "getConnectionState",
                     "alsoDependsOn":[
-                        "adress",
+                        "address",
                         "port",
                         "projectname"
                     ]
@@ -37,7 +37,7 @@
                     "sm": 12,
                     "size": 3
                 },
-                "adress": {
+                "address": {
                     "newLine":true,
                     "type": "text",
                     "label": "address",
@@ -53,8 +53,9 @@
                 "projectname":{
                     "type": "selectSendTo",
                     "label": "projectname",
-                    "defaut":"EnergieMonitoring",
+                    "default": "no project",
                     "sm": 3,
+                    "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\"}",
                     "command": "getProjects",
                     "alsoDependsOn":[
                         "address",
@@ -100,10 +101,10 @@
                 "connectionStateOnlineTab":{
                     "newLine":true,
                     "type": "textSendTo",
-                    "jsonData": "{\"adress\":\"${data.adress}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
+                    "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
                     "command": "getConnectionState",
                     "alsoDependsOn":[
-                        "adress",
+                        "address",
                         "port",
                         "projectname"
                     ]
@@ -172,10 +173,10 @@
                 "connectionStateHistoricTab":{
                     "newLine":true,
                     "type": "textSendTo",
-                    "jsonData": "{\"adress\":\"${data.adress}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
+                    "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
                     "command": "getConnectionState",
                     "alsoDependsOn":[
-                        "adress",
+                        "address",
                         "port",
                         "projectname"
                     ]

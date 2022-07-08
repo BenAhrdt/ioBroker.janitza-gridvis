@@ -35,5 +35,7 @@
     "historicLastYear": "去年",
     "timeBaseForHistoricValues": "历史价值的时基",
     "devices": "设备",
-    "No valid device selected": "未选择有效设备"
+    "No valid device selected": "未选择有效设备",
+    "No project": "没有项目",
+    "No project selected": "未选择项目"
 }

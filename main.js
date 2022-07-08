@@ -78,6 +78,8 @@ class JanitzaGridvis extends utils.Adapter {
 			communicationOk : "Data exchange with REST API successful.",
 			noCommunicationSelect: "No connection",
 			noCommunicationSelectString: "No active connection to GridVis",
+			noProjectSelect: "No project",
+			noProjectSelectString: "No project selected",
 			noValidDeviceSelectedSelectString: "No valid device selected",
 			lastCommunicationError: "last communication error"
 		};
@@ -141,6 +143,7 @@ class JanitzaGridvis extends utils.Adapter {
 		// definition der internen Objecte (mit Übersetzung)
 		this.definedObjects = {
 			noCommunication : {label: this.i18nTranslation[this.communicationStrings.noCommunicationSelectString], value: this.i18nTranslation[this.communicationStrings.noCommunicationSelect]},
+			noProject : {label: this.i18nTranslation[this.communicationStrings.noProjectSelectString], value: this.i18nTranslation[this.communicationStrings.noProjectSelect]},
 			noValidDeviceSelected : {label: this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString], value: this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]}
 		};
 
@@ -193,7 +196,7 @@ class JanitzaGridvis extends utils.Adapter {
 		// Check the configed connection settings
 		// in case there is no connection to GridVis possible
 		// the adapter will not work
-		const projectInfo = await this.checkConnectionToRestApi(this.config.adress,this.config.port,this.config.projectname);
+		const projectInfo = await this.checkConnectionToRestApi(this.config.address,this.config.port,this.config.projectname);
 		if(projectInfo){
 			// set recoonectionCounter (for better debug)
 			await this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
@@ -237,7 +240,7 @@ class JanitzaGridvis extends utils.Adapter {
 				this.devicesWithSerialNumber = JSON.parse(JSON.stringify(this.devices));
 			}
 			for(const device in this.devicesWithSerialNumber){
-				myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/connectiontest.json`;
+				myUrl = `http://${this.config.address}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/connectiontest.json`;
 				const result = await axios.get(myUrl);
 				if(!isNaN(result.data.serialNumber)){
 					await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}`,{
@@ -610,7 +613,7 @@ class JanitzaGridvis extends utils.Adapter {
 		for(const device in this.devices){
 			if(this.devices[device].onlineValues){
 				if(myUrl === ""){
-					myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/onlinevalues/.json?`;
+					myUrl = `http://${this.config.address}:${this.config.port}/rest/1/projects/${this.config.projectname}/onlinevalues/.json?`;
 				}
 				for(const value in this.devices[device].onlineValues){
 					if(firstValueReached){
@@ -678,7 +681,7 @@ class JanitzaGridvis extends utils.Adapter {
 					for(const value in this.devices[device].historicValues){
 						for(const type in this.devices[device].historicValues[value].type){
 							for(const timeBase in this.timeStrings){
-								myUrl = `http://${this.config.adress}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/hist/energy/`;
+								myUrl = `http://${this.config.address}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/hist/energy/`;
 								myUrl += `${value}/`;
 								myUrl += `${type}/.json?start=NAMED_${this.timeStrings[timeBase]}&end=NAMED_${this.timeStrings[timeBase]}`;
 								this.log.silly(`${myUrl} was send to gridVis`);
@@ -715,15 +718,15 @@ class JanitzaGridvis extends utils.Adapter {
 	}
 
 	// Check the connection to GridVis
-	async checkConnectionToRestApi(adress,port,projectname){
+	async checkConnectionToRestApi(address,port,projectname){
 		try{
-			let myUrl = `http://${adress}:${port}/rest/1/projects/${projectname}.json?`;
+			let myUrl = `http://${address}:${port}/rest/1/projects/${projectname}.json?`;
 			this.log.debug(`${myUrl} was send to gridVis to check connection and number of devices`);
 			const result = await axios.get(myUrl,{timeout: this.config.timeout});
 			if(result){
 				this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
 				if(result.data.status && result.data.status === this.communicationStrings.ready){
-					myUrl = `http://${adress}:${port}/rest/common/info/version/full.json?`;
+					myUrl = `http://${address}:${port}/rest/common/info/version/full.json?`;
 					this.log.debug(`${myUrl} was send to gridVis to check version`);
 					const version = await axios.get(myUrl,{timeout: this.config.timeout});
 					if(version){
@@ -813,16 +816,15 @@ class JanitzaGridvis extends utils.Adapter {
 		let result;
 		const devices = [];
 		let myCount = 0;
-
 		switch(obj.command){
 
 			// check the connection state in case of adresse, port and projectname
 			// send the resut back to the textfield in config
 			case "getConnectionState":
 				try{ // using try catch in case of not undelining projectInfo.version as wrong type
-					const projectInfo = await this.checkConnectionToRestApi(obj.message.adress,obj.message.port,obj.message.projectname);
+					const projectInfo = await this.checkConnectionToRestApi(obj.message.address,obj.message.port,obj.message.projectname);
 					if(projectInfo){
-						this.configConnection.adress = obj.message.adress;
+						this.configConnection.address = obj.message.address;
 						this.configConnection.port = obj.message.port;
 						this.configConnection.projectname = obj.message.projectname;
 						this.sendTo(obj.from, obj.command, `${this.i18nTranslation[this.communicationStrings.communicationOk]} ${projectInfo.version} - ${this.i18nTranslation[this.communicationStrings.numberOfDevices]}: ${projectInfo.numberOfDevices}`, obj.callback);
@@ -841,22 +843,20 @@ class JanitzaGridvis extends utils.Adapter {
 			// in case connecttion to address and port is ok,
 			// send present projects back to select
 			case "getProjects":
-				if(this.configConnection.port){
-					try{
-						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/.json?`;
-						this.log.silly(`${myUrl} is send to get Devices`);
-						result = await axios.get(myUrl,{timeout: this.config.timeout});
-						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
-						for(const element in result.data.project){
-							const label = result.data.project[element].name;
-							devices[myCount] = {label: label,value: label};
-							myCount ++;
-						}
-						this.sendTo(obj.from, obj.command, devices, obj.callback);
+				try{
+					const myUrl = `http://${obj.message.address}:${obj.message.port}/rest/1/projects/.json?`;
+					this.log.info(`${myUrl} is send to get Devices`);
+					result = await axios.get(myUrl,{timeout: this.config.timeout});
+					this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
+					for(const element in result.data.project){
+						const label = result.data.project[element].name;
+						devices[myCount] = {label: label,value: label};
+						myCount ++;
 					}
-					catch(error){
-						this.sendTo(obj.from, obj.command,[this.definedObjects.noCommunication], obj.callback);
-					}
+					this.sendTo(obj.from, obj.command, devices, obj.callback);
+				}
+				catch(error){
+					this.sendTo(obj.from, obj.command,[this.definedObjects.noProject], obj.callback);
 				}
 				break;
 			// in case the connection is ok get devices for online and historic configuration (same devices)
@@ -864,7 +864,7 @@ class JanitzaGridvis extends utils.Adapter {
 			case "getDevices":
 				if(this.configConnection.port){
 					try{
-						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices.json?`;
+						const myUrl = `http://${this.configConnection.address}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices.json?`;
 						this.log.silly(`${myUrl} is send to get Devices`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
@@ -891,7 +891,7 @@ class JanitzaGridvis extends utils.Adapter {
 				if(obj.message && obj.message.id && this.configConnection.port)
 				{
 					try{
-						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/online/values.json?`;
+						const myUrl = `http://${this.configConnection.address}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/online/values.json?`;
 						this.log.silly(`${myUrl} is send to get online values`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
@@ -928,7 +928,7 @@ class JanitzaGridvis extends utils.Adapter {
 				if(obj.message && obj.message.id && this.configConnection.port)
 				{
 					try{
-						const myUrl = `http://${this.configConnection.adress}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/hist/values.json?`;
+						const myUrl = `http://${this.configConnection.address}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/hist/values.json?`;
 						this.log.silly(`${myUrl} is send to get historic values`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 

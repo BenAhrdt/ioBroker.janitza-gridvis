@@ -35,5 +35,7 @@
     "historicLastYear": "el año pasado",
     "timeBaseForHistoricValues": "base de tiempo para los valores históricos",
     "devices": "dispositivos",
-    "No valid device selected": "No se ha seleccionado ningún dispositivo válido"
+    "No valid device selected": "No se ha seleccionado ningún dispositivo válido",
+    "No project": "sin proyecto",
+    "No project selected": "Ningún proyecto seleccionado"
 }

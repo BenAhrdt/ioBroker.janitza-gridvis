@@ -35,5 +35,7 @@
     "historicLastYear": "afgelopen jaar",
     "timeBaseForHistoricValues": "tijdbasis voor de historische waarden",
     "devices": "apparaten",
-    "No valid device selected": "Geen geldig apparaat geselecteerd"
+    "No valid device selected": "Geen geldig apparaat geselecteerd",
+    "No project": "Geen project",
+    "No project selected": "Geen project geselecteerd"
 }

@@ -35,5 +35,7 @@
     "historicLastYear": "прошедший год",
     "timeBaseForHistoricValues": "временная база для исторических значений",
     "devices": "устройства",
-    "No valid device selected": "Не выбрано действительное устройство"
+    "No valid device selected": "Не выбрано действительное устройство",
+    "No project": "Нет проекта",
+    "No project selected": "Проект не выбран"
 }
