@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - getProjects improoved
+* (BenAhrdt) getProject message sends data from address and port
+
 ### 2.1.9 (2022-07-07) - implement select for projects
 * (BenAhrdt) only present projects can be selected by config
 
