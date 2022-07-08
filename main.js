@@ -845,7 +845,7 @@ class JanitzaGridvis extends utils.Adapter {
 			case "getProjects":
 				try{
 					const myUrl = `http://${obj.message.address}:${obj.message.port}/rest/1/projects/.json?`;
-					this.log.info(`${myUrl} is send to get Devices`);
+					this.log.silly(`${myUrl} is send to get Projects`);
 					result = await axios.get(myUrl,{timeout: this.config.timeout});
 					this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 					for(const element in result.data.project){

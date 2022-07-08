@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - getProjects logging changed
+* (BenAhrdt) getProject logging is changed into level silly
+
 ### 2.1.10 (2022-07-08) - getProjects improoved
 * (BenAhrdt) getProject message sends data from address and port
 
