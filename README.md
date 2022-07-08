@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - projectinfos improoved
+* (BenAhrdt) projectinfos will not longer deleted at startup
+
 ### 2.1.14 (2022-07-08) - projectinfos added
 * (BenAhrdt) added some projectinfos into info folder
 

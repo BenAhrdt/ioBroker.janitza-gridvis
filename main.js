@@ -67,7 +67,10 @@ class JanitzaGridvis extends utils.Adapter {
 			info: "info",
 			serialNumber: "serialNumber",
 			firmware: "firmware",
-			hardware: "hardware"
+			hardware: "hardware",
+			gridVisVersion: "gridVisVersion",
+			numberOfDevicesInProject: "numberOfDevicesInProject",
+			connectedProject: "connectedProject"
 		};
 
 		this.communicationStrings = {
@@ -203,9 +206,9 @@ class JanitzaGridvis extends utils.Adapter {
 			// log just if the reconnect counter is bigger than the configed number before warning (or at startup)
 			if(this.reconnectCounter > this.config.reconnectCout || this.reconnectCounter === 0){
 				this.log.info(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
-				this.setStateAsync("info.gridVisVersion",projectInfo.version,true);
-				this.setStateAsync("info.numberOfDevicesInProject",projectInfo.numberOfDevices,true);
-				this.setStateAsync("info.connectedProject",this.config.projectname,true);
+				this.setStateAsync(`info.${this.internalIds.gridVisVersion}`,projectInfo.version,true);
+				this.setStateAsync(`info.${this.internalIds.numberOfDevicesInProject}`,projectInfo.numberOfDevices,true);
+				this.setStateAsync(`info.${this.internalIds.connectedProject}`,this.config.projectname,true);
 			}
 			else {
 				this.log.debug(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
@@ -591,6 +594,12 @@ class JanitzaGridvis extends utils.Adapter {
 		activeString = `${this.namespace}.info.connection`;
 		delete this.AdapterObjectsAtStart[activeString];
 		activeString = `${this.namespace}.info.${this.internalIds.reconnectCount}`;
+		delete this.AdapterObjectsAtStart[activeString];
+		activeString = `${this.namespace}.info.${this.internalIds.connectedProject}`;
+		delete this.AdapterObjectsAtStart[activeString];
+		activeString = `${this.namespace}.info.${this.internalIds.numberOfDevicesInProject}`;
+		delete this.AdapterObjectsAtStart[activeString];
+		activeString = `${this.namespace}.info.${this.internalIds.gridVisVersion}`;
 		delete this.AdapterObjectsAtStart[activeString];
 		activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`;
 		delete this.AdapterObjectsAtStart[activeString];
