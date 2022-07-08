@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - message timestamp implemented
+### 2.1.16 (2022-07-08) - message timestamp implemented
 * (BenAhrdt) timestamp for message "connectionState" and "getProjects" implemented
 
 ### 2.1.15 (2022-07-08) - projectinfos improoved
