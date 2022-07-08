@@ -53,7 +53,7 @@
                 "projectname":{
                     "type": "selectSendTo",
                     "label": "projectname",
-                    "default": "no project",
+                    "default": "No project selected",
                     "sm": 3,
                     "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\"}",
                     "command": "getProjects",

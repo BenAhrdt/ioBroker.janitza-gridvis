@@ -312,7 +312,7 @@
     "native": {
         "address": "192.168.2.50",
         "port": 8080,
-        "projectname": "no project",
+        "projectname": "No project selected",
         "timeout": 2000,
         "reconnectCout": 4,
         "refreshOnlineCronJob": "*/2 * * * * *",
