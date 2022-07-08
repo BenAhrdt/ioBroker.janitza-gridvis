@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - getProjects improoved
+### 2.1.10 (2022-07-08) - getProjects improoved
 * (BenAhrdt) getProject message sends data from address and port
 
 ### 2.1.9 (2022-07-07) - implement select for projects
