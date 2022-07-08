@@ -128,6 +128,10 @@ class JanitzaGridvis extends utils.Adapter {
 			"Wh": "Wh",
 			"m³": "m³"
 		};
+
+		// Timestamp to deside if the timeout of a request will be observed
+		this.lastConnectionStateTimestamp = Date.now();
+		this.lastProjectTimestamp = Date.now();
 	}
 
 	/**
@@ -828,12 +832,16 @@ class JanitzaGridvis extends utils.Adapter {
 		let result;
 		const devices = [];
 		let myCount = 0;
+		let connectionStateTimestamp;
+		let projectTimestamp;
 		switch(obj.command){
 
 			// check the connection state in case of adresse, port and projectname
 			// send the resut back to the textfield in config
 			case "getConnectionState":
 				try{ // using try catch in case of not undelining projectInfo.version as wrong type
+					this.lastConnectionStateTimestamp = Date.now();
+					connectionStateTimestamp = this.lastConnectionStateTimestamp;
 					const projectInfo = await this.checkConnectionToRestApi(obj.message.address,obj.message.port,obj.message.projectname);
 					if(projectInfo){
 						this.configConnection.address = obj.message.address;
@@ -842,13 +850,17 @@ class JanitzaGridvis extends utils.Adapter {
 						this.sendTo(obj.from, obj.command, `${this.i18nTranslation[this.communicationStrings.communicationOk]} ${projectInfo.version} - ${this.i18nTranslation[this.communicationStrings.numberOfDevices]}: ${projectInfo.numberOfDevices}`, obj.callback);
 					}
 					else{
-						this.configConnection = {};
-						this.sendTo(obj.from, obj.command, this.i18nTranslation[this.communicationStrings.noCommunication], obj.callback);
+						if(connectionStateTimestamp == this.lastConnectionStateTimestamp){
+							this.configConnection = {};
+							this.sendTo(obj.from, obj.command, this.i18nTranslation[this.communicationStrings.noCommunication], obj.callback);
+						}
 					}
 				}
 				catch(error){
-					this.configConnection = {};
-					this.sendTo(obj.from, obj.command, this.i18nTranslation[this.communicationStrings.noCommunication], obj.callback);
+					if(connectionStateTimestamp == this.lastConnectionStateTimestamp){
+						this.configConnection = {};
+						this.sendTo(obj.from, obj.command, this.i18nTranslation[this.communicationStrings.noCommunication], obj.callback);
+					}
 				}
 				break;
 
@@ -856,6 +868,8 @@ class JanitzaGridvis extends utils.Adapter {
 			// send present projects back to select
 			case "getProjects":
 				try{
+					this.lastProjectTimestamp = Date.now();
+					projectTimestamp = this.lastProjectTimestamp;
 					const myUrl = `http://${obj.message.address}:${obj.message.port}/rest/1/projects/.json?`;
 					this.log.silly(`${myUrl} is send to get Projects`);
 					result = await axios.get(myUrl,{timeout: this.config.timeout});
@@ -868,7 +882,9 @@ class JanitzaGridvis extends utils.Adapter {
 					this.sendTo(obj.from, obj.command, devices, obj.callback);
 				}
 				catch(error){
-					this.sendTo(obj.from, obj.command,[this.definedObjects.noProject], obj.callback);
+					if(projectTimestamp == this.lastProjectTimestamp){
+						this.sendTo(obj.from, obj.command,[this.definedObjects.noProject], obj.callback);
+					}
 				}
 				break;
 			// in case the connection is ok get devices for online and historic configuration (same devices)

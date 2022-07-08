@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - message timestamp implemented
+* (BenAhrdt) timestamp for message "connectionState" and "getProjects" implemented
+
 ### 2.1.15 (2022-07-08) - projectinfos improoved
 * (BenAhrdt) projectinfos will not longer deleted at startup
 
