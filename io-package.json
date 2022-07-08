@@ -380,6 +380,78 @@
             "native": {}
         },
         {
+            "_id": "info.gridVisVersion",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "gridivis version",
+                    "de": "GridVis Version",
+                    "ru": "версия gridivis",
+                    "pt": "versão em rede",
+                    "nl": "gridivis versie",
+                    "fr": "gridivis version",
+                    "it": "versione grigliate",
+                    "es": "versión gridivis",
+                    "pl": "wersja gry",
+                    "zh-cn": "电网版本"
+                },
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.numberOfDevicesInProject",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "number of devices in project",
+                    "de": "Anzahl der Geräte im Projekt",
+                    "ru": "количество устройств в проекте",
+                    "pt": "número de dispositivos no projeto",
+                    "nl": "cijfers van projecten",
+                    "fr": "nombre de dispositifs dans le projet",
+                    "it": "numero di dispositivi in progetto",
+                    "es": "número de dispositivos en proyecto",
+                    "pl": "wiele urządzeń w projekcie",
+                    "zh-cn": "项目中的装置数量"
+                },
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": 0
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connectedProject",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "connected project",
+                    "de": "anschlussprojekt",
+                    "ru": "подключенный проект",
+                    "pt": "projeto conectado",
+                    "nl": "gerelateerd project",
+                    "fr": "projet connecté",
+                    "it": "progetto collegato",
+                    "es": "proyecto conectado",
+                    "pl": "projekt",
+                    "zh-cn": "相关项目"
+                },
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
             "_id": "devices",
             "type": "channel",
             "common": {

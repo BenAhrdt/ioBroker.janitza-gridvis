@@ -203,6 +203,9 @@ class JanitzaGridvis extends utils.Adapter {
 			// log just if the reconnect counter is bigger than the configed number before warning (or at startup)
 			if(this.reconnectCounter > this.config.reconnectCout || this.reconnectCounter === 0){
 				this.log.info(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
+				this.setStateAsync("info.gridVisVersion",projectInfo.version,true);
+				this.setStateAsync("info.numberOfDevicesInProject",projectInfo.numberOfDevices,true);
+				this.setStateAsync("info.connectedProject",this.config.projectname,true);
 			}
 			else {
 				this.log.debug(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
