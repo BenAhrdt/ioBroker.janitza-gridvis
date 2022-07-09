@@ -965,7 +965,7 @@ class JanitzaGridvis extends utils.Adapter {
 						myCount = 0;
 						const listedLabels = {}; // Labels who are allready listed (eg. Power L1 900s & Power L1 60s)
 						for(const values in result.data.value){
-							// deactivate supported Usnits and use all delivered values
+							// deactivate supported Units and use all delivered values
 							//if(this.supportedHistoricalUnits[result.data.value[values].valueType.unit]){
 							let label = result.data.value[values].valueType.valueName;
 							if(result.data.value[values].valueType.valueName !== result.data.value[values].valueType.typeName){
