@@ -31,7 +31,6 @@ class JanitzaGridvis extends utils.Adapter {
 
 		this.AdapterObjectsAtStart = {};
 
-		this.configConnection = {};
 		this.devices = {};
 
 		// cron Jobs
@@ -844,21 +843,16 @@ class JanitzaGridvis extends utils.Adapter {
 					connectionStateTimestamp = this.lastConnectionStateTimestamp;
 					const projectInfo = await this.checkConnectionToRestApi(obj.message.address,obj.message.port,obj.message.projectname);
 					if(projectInfo){
-						this.configConnection.address = obj.message.address;
-						this.configConnection.port = obj.message.port;
-						this.configConnection.projectname = obj.message.projectname;
 						this.sendTo(obj.from, obj.command, `${this.i18nTranslation[this.communicationStrings.communicationOk]} ${projectInfo.version} - ${this.i18nTranslation[this.communicationStrings.numberOfDevices]}: ${projectInfo.numberOfDevices}`, obj.callback);
 					}
 					else{
 						if(connectionStateTimestamp == this.lastConnectionStateTimestamp){
-							this.configConnection = {};
 							this.sendTo(obj.from, obj.command, this.i18nTranslation[this.communicationStrings.noCommunication], obj.callback);
 						}
 					}
 				}
 				catch(error){
 					if(connectionStateTimestamp == this.lastConnectionStateTimestamp){
-						this.configConnection = {};
 						this.sendTo(obj.from, obj.command, this.i18nTranslation[this.communicationStrings.noCommunication], obj.callback);
 					}
 				}
@@ -890,9 +884,9 @@ class JanitzaGridvis extends utils.Adapter {
 			// in case the connection is ok get devices for online and historic configuration (same devices)
 			// send the result array back to the select in config
 			case "getDevices":
-				if(this.configConnection.port){
+				if(obj.message && obj.message.port){
 					try{
-						const myUrl = `http://${this.configConnection.address}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices.json?`;
+						const myUrl = `http://${obj.message.address}:${obj.message.port}/rest/1/projects/${obj.message.projectname}/devices.json?`;
 						this.log.silly(`${myUrl} is send to get Devices`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
@@ -916,10 +910,11 @@ class JanitzaGridvis extends utils.Adapter {
 			// in case the connection is ok get values for online configuration
 			// send the result array back to the select in config
 			case "getOnlineValues":
-				if(obj.message && obj.message.id && this.configConnection.port)
+				this.log.info(JSON.stringify(obj.message));
+				if(obj.message && obj.message.connection.port && obj.message.device)
 				{
 					try{
-						const myUrl = `http://${this.configConnection.address}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/online/values.json?`;
+						const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/online/values.json?`;
 						this.log.silly(`${myUrl} is send to get online values`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
@@ -953,10 +948,10 @@ class JanitzaGridvis extends utils.Adapter {
 			// in case the connection is ok get values for historic configuration
 			// send the result array back to the select in config
 			case "getHistoricValues":
-				if(obj.message && obj.message.id && this.configConnection.port)
+				if(obj.message && obj.message.connection.port && obj.message.device.id)
 				{
 					try{
-						const myUrl = `http://${this.configConnection.address}:${this.configConnection.port}/rest/1/projects/${this.configConnection.projectname}/devices/${obj.message.id}/hist/values.json?`;
+						const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/hist/values.json?`;
 						this.log.silly(`${myUrl} is send to get historic values`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 

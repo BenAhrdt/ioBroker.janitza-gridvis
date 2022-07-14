@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - sending bigger message
+* (BenAhrdt) sending message from config with connection and device
+
 ### 2.1.16 (2022-07-08) - message timestamp implemented
 * (BenAhrdt) timestamp for message "connectionState" and "getProjects" implemented
 
