@@ -911,7 +911,7 @@ class JanitzaGridvis extends utils.Adapter {
 			// send the result array back to the select in config
 			case "getOnlineValues":
 				this.log.info(JSON.stringify(obj.message));
-				if(obj.message && obj.message.connection.port && obj.message.device)
+				if(obj.message && obj.message.connection && obj.message.device)
 				{
 					try{
 						const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/online/values.json?`;
@@ -948,7 +948,7 @@ class JanitzaGridvis extends utils.Adapter {
 			// in case the connection is ok get values for historic configuration
 			// send the result array back to the select in config
 			case "getHistoricValues":
-				if(obj.message && obj.message.connection.port && obj.message.device)
+				if(obj.message && obj.message.connection && obj.message.device.id)
 				{
 					try{
 						const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/hist/values.json?`;
