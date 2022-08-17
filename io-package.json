@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "janitza-gridvis",
-        "version": "2.1.16",
+        "version": "2.1.17",
         "eraseOnUpload": true,
         "news": {
+            "2.1.17": {
+                "en": "sending message from config with connection and device",
+                "de": "senden von nachricht von config mit verbindung und gerät",
+                "ru": "отправка сообщения с config с подключением и устройством",
+                "pt": "enviar mensagem de configuração com conexão e dispositivo",
+                "nl": "verzenden bericht van configuur met connectie en apparaat",
+                "fr": "envoyer un message de la configuration avec connexion et périphérique",
+                "it": "invio di messaggi da configurazione con connessione e dispositivo",
+                "es": "enviar el mensaje de configuración con conexión y dispositivo",
+                "pl": "sygnalizowanie konfigu z połączeniem i urządzeniem",
+                "zh-cn": "电讯和装置"
+            },
             "2.1.16": {
                 "en": "timestamp for message \"connectionState\" and \"getProjects\" implemented",
                 "de": "zeitstempel für NachrichtenverbindungState und getProjects implementiert",
@@ -231,18 +243,6 @@
                 "es": "cambiar algunas entradas incorrectas en el archivo readme",
                 "pl": "zmiana nieprawidłowych wpisów w pliku odczytowym",
                 "zh-cn": "修改读者档案中的一些错误内容"
-            },
-            "2.0.16": {
-                "en": "implements some checkboxes to select the desired timebsases for historic values",
-                "de": "einige kontrollkästchen implementiert, um die gewünschten zeitbsasen für historische werte auszuwählen",
-                "ru": "реализует некоторые чекбоксы, чтобы выбрать желаемые временные случаи для исторических ценностей",
-                "pt": "implementa algumas caixas de seleção para selecionar os prazos desejados para valores históricos",
-                "nl": "voert wat cheques uit om de gewenste tijdbommen te kiezen voor historische waarden",
-                "fr": "implémente certaines cases à cocher pour sélectionner les timebsases souhaitées pour les valeurs historiques",
-                "it": "implementa alcune caselle di controllo per selezionare i timebsase desiderati per valori storici",
-                "es": "implementa algunas casillas para seleccionar los plazos deseados para valores históricos",
-                "pl": "wdrożenie niektórych skrzydeł do wybierania pożądanych czaszczek dla wartości historycznych",
-                "zh-cn": "执行一些检查箱,以选择历史价值的理想时间。"
             }
         },
         "title": "Janitza®-GridVis®",

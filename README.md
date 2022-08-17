@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS** - sending bigger message
+### 2.1.17 (2022-08-17) - sending bigger message
 * (BenAhrdt) sending message from config with connection and device
 
 ### 2.1.16 (2022-07-08) - message timestamp implemented
