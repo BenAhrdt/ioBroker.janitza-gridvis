@@ -300,7 +300,7 @@
         "messagebox": true,
         "globalDependencies": [
             {
-                "admin": ">=6.2.2"
+                "admin": ">=6.2.14"
             }
         ],
         "dependencies": [
