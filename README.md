@@ -32,8 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS** - update to new release skript
+### 2.1.19 (2022-08-25) - update to new release skript
 * (BenAhrdt) new release skript implemented
 
 ### 2.1.18 (2022-08-25) - debug logging remooved
@@ -139,10 +138,10 @@ Implemented are the following times:
 * (BenAhrdt) set the default value of reconnection before warning to 4 (4 x timeout + 3 x 10s)
 
 ### 2.0.4 (2022-06-12) - nuber of reconnection before warning in config
-* (BenAhrdt) count the reconnection and warn after configed count is reached 
+* (BenAhrdt) count the reconnection and warn after configed count is reached
 
 ### 2.0.3 (2022-06-09) - sequential historical read out
-* (BenAhrdt) sequential readout of historical data 
+* (BenAhrdt) sequential readout of historical data
 
 ### 2.0.2 (2022-06-06) - translation without debug logging
 * (BenAhrdt) debug logging for translation removed
@@ -161,7 +160,6 @@ Implemented are the following times:
 
 ### 1.5.3
 * (BenAhrdt) Comment some functions (dev internal)
-
 
 ### 1.5.2
 * (BenAhrdt) setting toppics and update readme
