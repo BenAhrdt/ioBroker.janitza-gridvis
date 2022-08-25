@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - update to new release skript
+* (BenAhrdt) new release skript implemented
+
 ### 2.1.18 (2022-08-25) - debug logging remooved
 * (BenAhrdt) logging with log.info removed
 
