@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS** - debug logging remooved
+* (BenAhrdt) logging with log.info removed
+
 ### 2.1.17 (2022-08-17) - sending bigger message
 * (BenAhrdt) sending message from config with connection and device
 

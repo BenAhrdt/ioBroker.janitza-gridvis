@@ -910,7 +910,6 @@ class JanitzaGridvis extends utils.Adapter {
 			// in case the connection is ok get values for online configuration
 			// send the result array back to the select in config
 			case "getOnlineValues":
-				this.log.info(JSON.stringify(obj.message));
 				if(obj.message && obj.message.connection && obj.message.device)
 				{
 					try{
