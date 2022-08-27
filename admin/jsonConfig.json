@@ -119,6 +119,7 @@
                 "refreshOnlineCronJob": {
                     "newLine": true,
                     "type": "cron",
+                    "complex": true,
                     "label": "refreshCycle",
                     "tooltip": "refreshCycleTooltipOnline",
                     "sm":2,
@@ -263,6 +264,7 @@
                 "refreshHistoricCronJob": {
                     "newLine": true,
                     "type": "cron",
+                    "complex": true,
                     "label": "refreshCycle",
                     "tooltip": "refreshCycleTooltipHistoric",
                     "sm":2,

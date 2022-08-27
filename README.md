@@ -32,8 +32,8 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS** - Bugfix wizard for cronJob implemented
-* (BenAhrdt) wizard for cronJob does not work before
+### **WORK IN PROGRESS** - changing cronJob to complex
+* (BenAhrdt) removing wizard and enabling complex cronJob config
 
 ### 2.1.20 (2022-08-27) - Bugfix historic value config
 * (BenAhrdt) historic value config crashes the adapter
