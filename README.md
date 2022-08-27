@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS** - Bugfix historic value config
+* (BenAhrdt) historic value config crashes the adapter
+
 ### 2.1.19 (2022-08-25) - update to new release skript
 * (BenAhrdt) new release skript implemented
 
