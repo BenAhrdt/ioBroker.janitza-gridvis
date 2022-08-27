@@ -1,9 +1,21 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.19",
+    "version": "2.1.20",
     "eraseOnUpload": true,
     "news": {
+      "2.1.20": {
+        "en": "historic value config crashes the adapter",
+        "de": "historischer wert config stürzt den adapter",
+        "ru": "историческое значение config сбил адаптер",
+        "pt": "valor histórico config trava o adaptador",
+        "nl": "historische waarde bevestigt de adapter",
+        "fr": "valeur historique config crashe l'adaptateur",
+        "it": "valore storico config blocca l'adattatore",
+        "es": "configuración de valor histórico bloquea el adaptador",
+        "pl": "konfiguracja historyczna rozbija adapter",
+        "zh-cn": "b. 影响适应者的历史价值"
+      },
       "2.1.19": {
         "en": "new release skript implemented",
         "de": "neue release skript implementiert",
@@ -75,18 +87,6 @@
         "es": "añadido algunos informes de proyecto en carpeta info",
         "pl": "dodał niektóre projekty w folder info",
         "zh-cn": "增加一些项目info infoinger"
-      },
-      "2.1.13": {
-        "en": "change text of no project selected",
-        "de": "änderung des textes von keinem projekt ausgewählt",
-        "ru": "изменить текст не выбранного проекта",
-        "pt": "mudar o texto de nenhum projeto selecionado",
-        "nl": "verandering van geen project geselecteerd",
-        "fr": "changement de texte d'aucun projet sélectionné",
-        "it": "modificare il testo di nessun progetto selezionato",
-        "es": "texto de cambio de ningún proyecto seleccionado",
-        "pl": "tekst nie ma wybranego projektu",
-        "zh-cn": "未选择的项目案文的修改"
       }
     },
     "title": "Janitza®-GridVis®",
