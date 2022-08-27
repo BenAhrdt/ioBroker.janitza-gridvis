@@ -616,22 +616,22 @@ class JanitzaGridvis extends utils.Adapter {
 	// create schedule Jobs for online and historic values
 	createScheduleJobs(){
 		this.cronJobs[this.cronJobIds.getAdditionalDeviceInformations] = schedule.scheduleJob(this.cronJobValues.getAdditionalDeviceInformations,this.getAdditionalDeviceInformations.bind(this));
-		let cronJob = "";
-		this.log.info(this.config.refreshOnlineCronJob);
+		let refreshOnlineCronJob = "";
 		try{
-			cronJob = JSON.parse(this.config.refreshOnlineCronJob);
+			refreshOnlineCronJob = JSON.parse(this.config.refreshOnlineCronJob);
 		}
 		catch(error){
-			cronJob = this.config.refreshOnlineCronJob;
+			refreshOnlineCronJob = this.config.refreshOnlineCronJob;
 		}
-		this.cronJobs[this.cronJobIds.refreshOnlineCronJob] = schedule.scheduleJob(cronJob,this.readOnlineValues.bind(this));
+		this.cronJobs[this.cronJobIds.refreshOnlineCronJob] = schedule.scheduleJob(refreshOnlineCronJob,this.readOnlineValues.bind(this));
+		let refreshHistoricCronJob = "";
 		try{
-			cronJob = JSON.parse(this.config.refreshHistoricCronJob);
+			refreshHistoricCronJob = JSON.parse(this.config.refreshHistoricCronJob);
 		}
 		catch(error){
-			cronJob = this.config.refreshHistoricCronJob;
+			refreshHistoricCronJob = this.config.refreshHistoricCronJob;
 		}
-		this.cronJobs[this.cronJobIds.refreshHistoricCronJob] = schedule.scheduleJob(cronJob,this.readHistoricValues.bind(this));
+		this.cronJobs[this.cronJobIds.refreshHistoricCronJob] = schedule.scheduleJob(refreshHistoricCronJob,this.readHistoricValues.bind(this));
 	}
 
 	// read out all configed online values
