@@ -1,9 +1,21 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.20",
+    "version": "2.1.21",
     "eraseOnUpload": true,
     "news": {
+      "2.1.21": {
+        "en": "removing wizard and enabling complex cronJob config",
+        "de": "entfernen des Assistenten und komplexes cron Stellenangebote",
+        "ru": "удаление мастера и предоставление сложного крона Работа config",
+        "pt": "removendo o assistente e permitindo cron complexo Job config",
+        "nl": "wizard verwijderen en complexe gewassen Job conditie",
+        "fr": "enlever l'assistant et le cron complexe habilitant Job config",
+        "it": "rimuovere la procedura guidata e attivare cron complesso Configurazione del lavoro",
+        "es": "quitar mago y habilitar cron complejo Job config",
+        "pl": "usuwanie wizardu i umożliwienie kompleksowego cron. konfiguracja",
+        "zh-cn": "d. 消除恐惧和扶持复杂的危机 Jobig"
+      },
       "2.1.20": {
         "en": "historic value config crashes the adapter",
         "de": "historischer wert config stürzt den adapter",
@@ -75,18 +87,6 @@
         "es": "projectinfos no se eliminará más tiempo al inicio",
         "pl": "informacje projektowe nie będą dłużej usuwane na początku",
         "zh-cn": "项目设计将在开办时不再删除"
-      },
-      "2.1.14": {
-        "en": "added some projectinfos into info folder",
-        "de": "einige projektinfos in info-ordner hinzugefügt",
-        "ru": "добавлены некоторые сведения о проекте в папку info",
-        "pt": "adicionou alguns projectinfos na pasta info",
-        "nl": "voegde wat projectinfo toe in de info map",
-        "fr": "ajouté quelques informations de projet dans le dossier info",
-        "it": "aggiunto alcuni projectinfos nella cartella info",
-        "es": "añadido algunos informes de proyecto en carpeta info",
-        "pl": "dodał niektóre projekty w folder info",
-        "zh-cn": "增加一些项目info infoinger"
       }
     },
     "title": "Janitza®-GridVis®",
