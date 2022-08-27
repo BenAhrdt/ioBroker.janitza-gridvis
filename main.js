@@ -616,7 +616,20 @@ class JanitzaGridvis extends utils.Adapter {
 	// create schedule Jobs for online and historic values
 	createScheduleJobs(){
 		this.cronJobs[this.cronJobIds.getAdditionalDeviceInformations] = schedule.scheduleJob(this.cronJobValues.getAdditionalDeviceInformations,this.getAdditionalDeviceInformations.bind(this));
-		this.cronJobs[this.cronJobIds.refreshOnlineCronJob] = schedule.scheduleJob(this.config.refreshOnlineCronJob,this.readOnlineValues.bind(this));
+		let cronJob = "";
+		try{
+			cronJob = JSON.parse(this.cronJobIds.refreshOnlineCronJob);
+		}
+		catch(error){
+			cronJob = this.cronJobIds.refreshOnlineCronJob;
+		}
+		this.cronJobs[this.cronJobIds.refreshOnlineCronJob] = schedule.scheduleJob(cronJob,this.readOnlineValues.bind(this));
+		try{
+			cronJob = JSON.parse(this.cronJobIds.refreshHistoricCronJob);
+		}
+		catch(error){
+			cronJob = this.cronJobIds.refreshHistoricCronJob;
+		}
 		this.cronJobs[this.cronJobIds.refreshHistoricCronJob] = schedule.scheduleJob(this.config.refreshHistoricCronJob,this.readHistoricValues.bind(this));
 	}
 
