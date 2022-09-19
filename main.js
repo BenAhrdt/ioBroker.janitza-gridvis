@@ -972,7 +972,7 @@ class JanitzaGridvis extends utils.Adapter {
 								continue;
 							}
 							const keys = Object.keys(result.data.value[values].valueType).sort();
-							const myValueObject = {id: result.data.value[values].id, timebase: result.data.value[values].timebase, online: result.data.value[values].online};
+							const myValueObject = {};
 							keys.forEach((key)=>{
 								myValueObject[key] = result.data.value[values].valueType[key];
 							});
