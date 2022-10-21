@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS** - adding warning for error 400
+* (BenAhrdt) the communication error 400 will always be displayed => No reconnection needed
+
 ### 2.1.23 (2022-10-21) - adding warning for error 404
 * (BenAhrdt) the communication error 404 will always be displayed
 

@@ -84,7 +84,8 @@ class JanitzaGridvis extends utils.Adapter {
 			noProjectSelectString: "No project selected",
 			noValidDeviceSelectedSelectString: "No valid device selected",
 			lastCommunicationError: "last communication error",
-			thisWillBlockAndRestartReading: "ATTENTION: this will restart reading and block the following data"
+			checkOnlineValues: "ATTENTION: Please check config of onlinevalues",
+			checkHistoricValues: "ATTENTION: Please check config of historicvalues"
 		};
 
 		this.translationIds = {
@@ -196,11 +197,7 @@ class JanitzaGridvis extends utils.Adapter {
 		if(this.reconnectCounter === 1 &&  this.config.reconnectCout === 0){
 			this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
 		}
-		// Wenn kein Fehler ausgegeben wurde, so wird abgefragt,ob ein 404 (NOT FOUND) vorliegt.
-		// Dieser Fehler wird immer direkt ausgegeben
-		else if (this.reconnectErrorString.indexOf("Request failed with status code 404") != -1){
-			this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString} - ${this.communicationStrings.thisWillBlockAndRestartReading}`);
-		}
+
 		// Reset the connection indicator
 		this.internalConnectionState = false;
 		await this.setStateAsync("info.connection", false, true);
@@ -683,8 +680,13 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 			catch(error){
 				if(this.internalConnectionState){
-					this.log.debug(`${error} after sending ${myUrl}`);
 					this.reconnectErrorString = `${error} after sending ${myUrl}`;
+					if(error.response.status === 400 || // bad request
+						error.response.status === 404){	// not found
+						this.log.warn(`${this.communicationStrings.checkOnlineValues} --- ${this.reconnectErrorString}`);
+						return;
+					}
+					this.log.debug(`${error} after sending ${myUrl}`);
 					this.connectToGridVis();
 				}
 			}
@@ -730,8 +732,13 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 		catch(error){
 			if(this.internalConnectionState){
-				this.log.debug(`${error} after sending ${myUrl}`);
 				this.reconnectErrorString = `${error} after sending ${myUrl}`;
+				if(error.response.status === 400 || // bad request
+					error.response.status === 404){	// not found
+					this.log.warn(`${this.communicationStrings.checkHistoricValues} --- ${this.reconnectErrorString}`);
+					return;
+				}
+				this.log.debug(`${error} after sending ${myUrl}`);
 				this.connectToGridVis();
 			}
 		}
