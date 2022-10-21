@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.23",
+    "version": "2.1.24",
     "eraseOnUpload": true,
     "news": {
+      "2.1.24": {
+        "en": "the communication error 400 will always be displayed => No reconnection needed",
+        "de": "der Kommunikationsfehler 400 wird immer angezeigt => Keine Umschaltung erforderlich",
+        "ru": "ошибка связи 400 всегда будет отображаться => Не требуется переподключение",
+        "pt": "o erro de comunicação 400 será sempre exibido => Nenhuma reconexão necessária",
+        "nl": "de communicatiefout zal altijd worden getoond Geen verbinding nodig",
+        "fr": "l'erreur de communication 400 sera toujours affichée = Pas besoin de reconnection",
+        "it": "l'errore di comunicazione 400 sarà sempre visualizzato = > Nessuna riconnessione necessaria",
+        "es": "el error de comunicación 400 siempre se mostrará = No se necesita reconexión",
+        "pl": "błąd telekomunikacyjny 400 będzie zawsze wyświetlany />>>. Nie potrzeba ponownego połączenia",
+        "uk": "помилка зв'язку 400 завжди буде відображатися => Немає необхідності підключення",
+        "zh-cn": "通信错误400将一向显示> 不需要重新连接"
+      },
       "2.1.23": {
         "en": "the communication error 404 will always be displayed",
         "de": "der kommunikationsfehler 404 wird immer angezeigt",
@@ -76,18 +89,6 @@
         "es": "registro con log.info eliminado",
         "pl": "log.info usunięta",
         "zh-cn": "与伐木有关的伐木"
-      },
-      "2.1.17": {
-        "en": "sending message from config with connection and device",
-        "de": "senden von nachricht von config mit verbindung und gerät",
-        "ru": "отправка сообщения с config с подключением и устройством",
-        "pt": "enviar mensagem de configuração com conexão e dispositivo",
-        "nl": "verzenden bericht van configuur met connectie en apparaat",
-        "fr": "envoyer un message de la configuration avec connexion et périphérique",
-        "it": "invio di messaggi da configurazione con connessione e dispositivo",
-        "es": "enviar el mensaje de configuración con conexión y dispositivo",
-        "pl": "sygnalizowanie konfigu z połączeniem i urządzeniem",
-        "zh-cn": "电讯和装置"
       }
     },
     "title": "Janitza®-GridVis®",
