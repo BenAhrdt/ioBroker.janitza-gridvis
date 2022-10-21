@@ -84,8 +84,8 @@ class JanitzaGridvis extends utils.Adapter {
 			noProjectSelectString: "No project selected",
 			noValidDeviceSelectedSelectString: "No valid device selected",
 			lastCommunicationError: "last communication error",
-			checkOnlineValues: "ATTENTION: Please check config of onlinevalues",
-			checkHistoricValues: "ATTENTION: Please check config of historicvalues"
+			checkOnlineValues: "ATTENTION: Please check config of onlinevalues - maybe certain values cause an error and stop reading.",
+			checkHistoricValues: "ATTENTION: Please check config of historicvalues - maybe certain values cause an error and stop reading."
 		};
 
 		this.translationIds = {
