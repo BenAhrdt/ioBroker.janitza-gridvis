@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS** - Bugfix errorcheck
+* (BenAhrdt) before checking error for status, the error will be check for exist
+
 ### 2.1.24 (2022-10-21) - adding warning for error 400
 * (BenAhrdt) the communication error 400 will always be displayed => No reconnection needed
 

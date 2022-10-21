@@ -681,8 +681,8 @@ class JanitzaGridvis extends utils.Adapter {
 			catch(error){
 				if(this.internalConnectionState){
 					this.reconnectErrorString = `${error} after sending ${myUrl}`;
-					if(error.response.status === 400 || // bad request
-						error.response.status === 404){	// not found
+					if(error.response && error.response.status && (error.response.status === 400 || // bad request
+						error.response.status === 404)){	// not found
 						this.log.warn(`${this.communicationStrings.checkOnlineValues} --- ${this.reconnectErrorString}`);
 						return;
 					}
@@ -733,8 +733,8 @@ class JanitzaGridvis extends utils.Adapter {
 		catch(error){
 			if(this.internalConnectionState){
 				this.reconnectErrorString = `${error} after sending ${myUrl}`;
-				if(error.response.status === 400 || // bad request
-					error.response.status === 404){	// not found
+				if(error.response && error.response.status && (error.response.status === 400 || // bad request
+				error.response.status === 404)){	// not found
 					this.log.warn(`${this.communicationStrings.checkHistoricValues} --- ${this.reconnectErrorString}`);
 					return;
 				}
