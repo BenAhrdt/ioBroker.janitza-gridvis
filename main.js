@@ -83,7 +83,8 @@ class JanitzaGridvis extends utils.Adapter {
 			noProjectSelect: "No project",
 			noProjectSelectString: "No project selected",
 			noValidDeviceSelectedSelectString: "No valid device selected",
-			lastCommunicationError: "last communication error"
+			lastCommunicationError: "last communication error",
+			thisWillBlockAndRestartReading: "ATTENTION: this will restart reading and block the following data"
 		};
 
 		this.translationIds = {
@@ -194,6 +195,11 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 		if(this.reconnectCounter === 1 &&  this.config.reconnectCout === 0){
 			this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
+		}
+		// Wenn kein Fehler ausgegeben wurde, so wird abgefragt,ob ein 404 (NOT FOUND) vorliegt.
+		// Dieser Fehler wird immer direkt ausgegeben
+		else if (this.reconnectErrorString.indexOf("Request failed with status code 404") != -1){
+			this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString} - ${this.communicationStrings.thisWillBlockAndRestartReading}`);
 		}
 		// Reset the connection indicator
 		this.internalConnectionState = false;
