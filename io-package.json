@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.22",
+    "version": "2.1.23",
     "eraseOnUpload": true,
     "news": {
+      "2.1.23": {
+        "en": "the communication error 404 will always be displayed",
+        "de": "der kommunikationsfehler 404 wird immer angezeigt",
+        "ru": "ошибка связи 404 всегда будет отображаться",
+        "pt": "o erro de comunicação 404 será sempre exibido",
+        "nl": "de communicatiefout zal altijd worden vertoond",
+        "fr": "l'erreur de communication 404 sera toujours affichée",
+        "it": "l'errore di comunicazione 404 sarà sempre visualizzato",
+        "es": "el error de comunicación 404 se mostrará siempre",
+        "pl": "błąd łączności 404 będzie zawsze wyświetlany",
+        "uk": "помилка зв'язку 404 завжди буде відображатися",
+        "zh-cn": "通信错误404将一向显示。"
+      },
       "2.1.22": {
         "en": "removing id, timebase and online key from historic value keys",
         "de": "entfernen von id, timebase und online schlüssel aus historischen wertschlüsseln",
@@ -75,18 +88,6 @@
         "es": "enviar el mensaje de configuración con conexión y dispositivo",
         "pl": "sygnalizowanie konfigu z połączeniem i urządzeniem",
         "zh-cn": "电讯和装置"
-      },
-      "2.1.16": {
-        "en": "timestamp for message \"connectionState\" and \"getProjects\" implemented",
-        "de": "zeitstempel für NachrichtenverbindungState und getProjects implementiert",
-        "ru": "timetamp for message connectionState и getProjects реализовано",
-        "pt": "timestamp para conexão de mensagemState e getProjects implementado",
-        "nl": "quality over Quantity (QoQ) Releases Vertaling:",
-        "fr": "timetamp for message connectionState and getProjects implemented",
-        "it": "timestamp per il collegamento messaggiState e ottenereProgetti implementati",
-        "es": "timetamp for message connectionState and getProjects implemented",
-        "pl": "tablica komunikatów i zaimplementowana",
-        "zh-cn": "信息联系国和信息执行时间"
       }
     },
     "title": "Janitza®-GridVis®",
