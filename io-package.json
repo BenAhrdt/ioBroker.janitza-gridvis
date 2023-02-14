@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.25",
+    "version": "2.1.26",
     "eraseOnUpload": true,
     "news": {
+      "2.1.26": {
+        "en": "adding info folder for every device",
+        "de": "hinzufügen von info-ordner für jedes gerät",
+        "ru": "добавление папки информации для каждого устройства",
+        "pt": "adicionando pasta de informações para cada dispositivo",
+        "nl": "vertaling:",
+        "fr": "l'ajout de dossier d'information pour chaque appareil",
+        "it": "aggiungere cartella di informazioni per ogni dispositivo",
+        "es": "añadir carpeta de información para cada dispositivo",
+        "pl": "dodać plik multimedialny dla każdego urządzenia",
+        "uk": "додаючи папку інформації для кожного пристрою",
+        "zh-cn": "增加每一种装置的电池组"
+      },
       "2.1.25": {
         "en": "before checking error for status, the error will be check for exist",
         "de": "bevor der fehler für den status überprüft wird, wird der fehler überprüft, ob",
@@ -78,18 +91,6 @@
         "es": "configuración de valor histórico bloquea el adaptador",
         "pl": "konfiguracja historyczna rozbija adapter",
         "zh-cn": "b. 影响适应者的历史价值"
-      },
-      "2.1.19": {
-        "en": "new release skript implemented",
-        "de": "neue release skript implementiert",
-        "ru": "новый релиз skript реализован",
-        "pt": "novo lançamento skript implementado",
-        "nl": "nieuwe vrijlatingskist geïnfiltreerd",
-        "fr": "new release skript implemented",
-        "it": "nuovo rilascio skript implementato",
-        "es": "nueva publicación",
-        "pl": "nowe wydanie",
-        "zh-cn": "新的释放队"
       }
     },
     "title": "Janitza®-GridVis®",

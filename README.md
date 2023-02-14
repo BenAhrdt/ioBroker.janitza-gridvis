@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.1.26 (2023-02-14)
 * (BenAhrdt) adding info folder for every device
 
 ### 2.1.25 (2022-10-21) - Bugfix errorcheck
