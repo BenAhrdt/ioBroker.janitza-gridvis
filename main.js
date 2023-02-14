@@ -67,6 +67,8 @@ class JanitzaGridvis extends utils.Adapter {
 			serialNumber: "serialNumber",
 			firmware: "firmware",
 			hardware: "hardware",
+			statusMsg: "statusMsg",
+			status: "status",
 			gridVisVersion: "gridVisVersion",
 			numberOfDevicesInProject: "numberOfDevicesInProject",
 			connectedProject: "connectedProject"
@@ -248,69 +250,109 @@ class JanitzaGridvis extends utils.Adapter {
 	async getAdditionalDeviceInformations(){
 		let myUrl = "";
 		try{
+			// Assign just one time at startup adapter
 			if(this.devicesWithSerialNumber === undefined){
 				this.devicesWithSerialNumber = JSON.parse(JSON.stringify(this.devices));
 			}
 			for(const device in this.devicesWithSerialNumber){
 				myUrl = `http://${this.config.address}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/connectiontest.json`;
 				const result = await axios.get(myUrl);
-				if(!isNaN(result.data.serialNumber)){
-					await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}`,{
-						"type": "channel",
-						"common": {
-							"name": "Information"
-						},
-						native : {},
-					});
+				// No check => no device will be deleted and becomes an info folder
+				//if(result.data.serialNumber !== "unknown"){
 
-					let id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.serialNumber}`;
-					await this.setObjectAsync(id,{
-						type:"state",
-						common: {
-							name: "serialnumber",
-							type: "string",
-							role: "value",
-							read: true,
-							write: false,
-							def: result.data.serialNumber
-						},
-						native : {},
-					});
-					this.setStateAsync(id,result.data.serialNumber,true);
+				// create info-folder
+				await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}`,{
+					"type": "channel",
+					"common": {
+						"name": "Information"
+					},
+					native : {},
+				});
 
-					id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.firmware}`;
-					await this.setObjectAsync(id,{
-						type:"state",
-						common: {
-							name: "firmware",
-							type: "string",
-							role: "value",
-							read: true,
-							write: false,
-							def: result.data.firmware
-						},
-						native : {},
-					});
-					this.setStateAsync(id,result.data.firmware,true);
+				// create state serialnumber
+				let id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.serialNumber}`;
+				await this.setObjectNotExistsAsync(id,{
+					type:"state",
+					common: {
+						name: "serialnumber",
+						type: "string",
+						role: "value",
+						read: true,
+						write: false,
+						def: result.data.serialNumber
+					},
+					native : {},
+				});
+				this.setStateAsync(id,result.data.serialNumber,true);
 
-					id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.hardware}`;
-					await this.setObjectAsync(id,{
-						type:"state",
-						common: {
-							name: "hardware",
-							type: "string",
-							role: "value",
-							read: true,
-							write: false,
-							def: result.data.hardware
-						},
-						native : {},
-					});
-					this.setStateAsync(id,result.data.hardware,true);
-				}
-				else{
+				// create state firmware
+				id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.firmware}`;
+				await this.setObjectNotExistsAsync(id,{
+					type:"state",
+					common: {
+						name: "firmware",
+						type: "string",
+						role: "value",
+						read: true,
+						write: false,
+						def: result.data.firmware
+					},
+					native : {},
+				});
+				this.setStateAsync(id,result.data.firmware,true);
+
+				// create state hardware
+				id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.hardware}`;
+				await this.setObjectNotExistsAsync(id,{
+					type:"state",
+					common: {
+						name: "hardware",
+						type: "string",
+						role: "value",
+						read: true,
+						write: false,
+						def: result.data.hardware
+					},
+					native : {},
+				});
+				this.setStateAsync(id,result.data.hardware,true);
+
+				// create state status
+				id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.status}`;
+				await this.setObjectNotExistsAsync(id,{
+					type:"state",
+					common: {
+						name: "status",
+						type: "string",
+						role: "value",
+						read: true,
+						write: false,
+						def: result.data.status
+					},
+					native : {},
+				});
+				this.setStateAsync(id,result.data.status,true);
+
+				// create state statusMsg
+				id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.statusMsg}`;
+				await this.setObjectNotExistsAsync(id,{
+					type:"state",
+					common: {
+						name: "statusMsg",
+						type: "string",
+						role: "value",
+						read: true,
+						write: false,
+						def: result.data.statusMsg
+					},
+					native : {},
+				});
+				this.setStateAsync(id,result.data.statusMsg,true);
+
+				//}
+				/**else{
 					delete this.devicesWithSerialNumber[device];
-				}
+				}**/
 			}
 		}
 		catch(error){
@@ -371,7 +413,7 @@ class JanitzaGridvis extends utils.Adapter {
 						this.devices[deviceId].deviceName = configedOnlineDevices.deviceName;
 						this.devices[deviceId].type = configedOnlineDevices.type;
 					}
-					// Create historic Values structure (in case if its not created or device is created in historicValues)
+					// Create online Values structure (in case if its not created or device is created in historicValues)
 					if(!this.devices[deviceId].onlineValues){
 						this.devices[deviceId].onlineValues = {};
 					}
@@ -394,7 +436,7 @@ class JanitzaGridvis extends utils.Adapter {
 				for(const value in this.devices[device].onlineValues){
 					for(const type in this.devices[device].onlineValues[value].type){
 
-						// Create device folder (SetObject used in case the Device  type changes with changing project)
+						// Create device folder (SetObject used in case the Device type changes with changing project)
 						let iconPath = this.defaultIcon;
 						if(this.presentIcons[this.devices[device].type]){
 							iconPath = this.presentIcons[this.devices[device].type];
