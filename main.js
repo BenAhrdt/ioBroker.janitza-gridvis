@@ -604,8 +604,26 @@ class JanitzaGridvis extends utils.Adapter {
 		this.AdapterObjectsAtStart = await this.getAdapterObjectsAsync();
 		let activeString = "";
 		for(const device in this.devices){
+
+			// folder devices
 			activeString = `${this.namespace}.${this.internalIds.devices}.${device}`;
 			delete this.AdapterObjectsAtStart[activeString];
+
+			// all informations
+			activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.info}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = 	`${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.serialNumber}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = 	`${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.firmware}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = 	`${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.hardware}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = 	`${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.status}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = 	`${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.statusMsg}`;
+			delete this.AdapterObjectsAtStart[activeString];
+
+			// all online configed states
 			if(this.devices[device].onlineValues){
 				for(const value in this.devices[device].onlineValues){
 					activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`;
@@ -618,6 +636,8 @@ class JanitzaGridvis extends utils.Adapter {
 				activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}`;
 				delete this.AdapterObjectsAtStart[activeString];
 			}
+
+			// all historic configed states
 			if(this.devices[device].historicValues){
 				for(const value in this.devices[device].historicValues){
 					activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`;
