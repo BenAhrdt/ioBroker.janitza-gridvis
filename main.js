@@ -750,7 +750,7 @@ class JanitzaGridvis extends utils.Adapter {
 										}
 										else{
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,{q:1},true);
-											this.log.info(`${device}.${value}.${type} is NaN`);
+											this.log.info(`${device}.${value}.${type} is NaN  --  (${this.devices[device].deviceName})`);
 										}
 									}
 								}
@@ -798,7 +798,7 @@ class JanitzaGridvis extends utils.Adapter {
 										}
 										else{
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,{q:1},true);
-											this.log.info(`${device}.${value}.${type}.${this.timeStrings[timeBase]} is NaN`);
+											this.log.info(`${device}.${value}.${type} is NaN  --  (${this.devices[device].deviceName})`);
 										}
 									}
 								}
