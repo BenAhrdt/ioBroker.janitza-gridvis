@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.1.29 (2023-02-15)
 * (BenAhrdt) deficeinfo in case of values is NaN added
 
 ### 2.1.28 (2023-02-15)

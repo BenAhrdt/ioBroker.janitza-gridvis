@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.28",
+    "version": "2.1.29",
     "eraseOnUpload": true,
     "news": {
+      "2.1.29": {
+        "en": "deficeinfo in case of values is NaN added",
+        "de": "deficeinfo bei Werten ist NaN hinzugefügt",
+        "ru": "deficeinfo в случае значения NaN добавлен",
+        "pt": "deficeinfo em caso de valores é NaN adicionado",
+        "nl": "deficeinfo in geval van waarden is NaN toegevoegd",
+        "fr": "deficeinfo en cas de valeurs est ajouté NaN",
+        "it": "deficeinfo in caso di valori è aggiunto NaN",
+        "es": "deficeinfo en caso de valores es NaN añadido",
+        "pl": "deficeinfo w przypadku wartości jest dodawany NaN",
+        "uk": "deficeinfo при значеннях NaN додано",
+        "zh-cn": "纳尼加在价值观方面的缺陷"
+      },
       "2.1.28": {
         "en": "devicetype added to info-folder for every device",
         "de": "gerätetyp zu info-ordner für jedes gerät hinzugefügt",
@@ -81,18 +94,6 @@
         "pl": "błąd łączności 404 będzie zawsze wyświetlany",
         "uk": "помилка зв'язку 404 завжди буде відображатися",
         "zh-cn": "通信错误404将一向显示。"
-      },
-      "2.1.22": {
-        "en": "removing id, timebase and online key from historic value keys",
-        "de": "entfernen von id, timebase und online schlüssel aus historischen wertschlüsseln",
-        "ru": "удаление id, timebase и онлайн ключ от исторических ключей",
-        "pt": "remover id, timebase e chave on-line de chaves de valor histórico",
-        "nl": "removing id, timebase en online sleutel van historische waardes",
-        "fr": "supprimer id, timebase et clé en ligne des clés de valeur historique",
-        "it": "rimuovere id, timebase e chiave online da chiavi di valore storico",
-        "es": "eliminar id, timebase y clave en línea de claves de valor histórico",
-        "pl": "usuwanie idów, harmonogramów i kluczy online od kluczy historycznych",
-        "zh-cn": "消除历史价值的关键的id、时限和网上关键"
       }
     },
     "title": "Janitza®-GridVis®",
