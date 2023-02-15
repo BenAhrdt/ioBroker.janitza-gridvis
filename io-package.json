@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.27",
+    "version": "2.1.28",
     "eraseOnUpload": true,
     "news": {
+      "2.1.28": {
+        "en": "devicetype added to info-folder for every device",
+        "de": "gerätetyp zu info-ordner für jedes gerät hinzugefügt",
+        "ru": "тип устройства добавлен в info-folder для каждого устройства",
+        "pt": "dispositivotipo adicionado ao info-folder para cada dispositivo",
+        "nl": "apparaat voegde toe aan info-folder voor elk apparaat",
+        "fr": "devicetype ajouté à info-folder pour chaque appareil",
+        "it": "devicetype aggiunto a info-folder per ogni dispositivo",
+        "es": "tipo de dispositivo añadido a la carpeta de información para cada dispositivo",
+        "pl": "urządzenie dodano do info-foldera dla każdego urządzenia",
+        "uk": "пристрій додано в інформаційний затискач для кожного пристрою",
+        "zh-cn": "每种装置的集成器的装置"
+      },
       "2.1.27": {
         "en": "Bugfix info-folder will not deleted at startup, if there is no connection",
         "de": "Bugfix info-folder wird beim Start nicht gelöscht, wenn es keine Verbindung gibt",
@@ -80,18 +93,6 @@
         "es": "eliminar id, timebase y clave en línea de claves de valor histórico",
         "pl": "usuwanie idów, harmonogramów i kluczy online od kluczy historycznych",
         "zh-cn": "消除历史价值的关键的id、时限和网上关键"
-      },
-      "2.1.21": {
-        "en": "removing wizard and enabling complex cronJob config",
-        "de": "entfernen des Assistenten und komplexes cron Stellenangebote",
-        "ru": "удаление мастера и предоставление сложного крона Работа config",
-        "pt": "removendo o assistente e permitindo cron complexo Job config",
-        "nl": "wizard verwijderen en complexe gewassen Job conditie",
-        "fr": "enlever l'assistant et le cron complexe habilitant Job config",
-        "it": "rimuovere la procedura guidata e attivare cron complesso Configurazione del lavoro",
-        "es": "quitar mago y habilitar cron complejo Job config",
-        "pl": "usuwanie wizardu i umożliwienie kompleksowego cron. konfiguracja",
-        "zh-cn": "d. 消除恐惧和扶持复杂的危机 Jobig"
       }
     },
     "title": "Janitza®-GridVis®",
