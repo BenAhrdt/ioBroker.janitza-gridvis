@@ -69,6 +69,7 @@ class JanitzaGridvis extends utils.Adapter {
 			hardware: "hardware",
 			statusMsg: "statusMsg",
 			status: "status",
+			type: "type",
 			gridVisVersion: "gridVisVersion",
 			numberOfDevicesInProject: "numberOfDevicesInProject",
 			connectedProject: "connectedProject"
@@ -349,6 +350,22 @@ class JanitzaGridvis extends utils.Adapter {
 				});
 				this.setStateAsync(id,result.data.statusMsg,true);
 
+				// create state type
+				id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.type}`;
+				await this.setObjectNotExistsAsync(id,{
+					type:"state",
+					common: {
+						name: "type",
+						type: "string",
+						role: "value",
+						read: true,
+						write: false,
+						def: this.devices[device].type
+					},
+					native : {},
+				});
+				this.setStateAsync(id,this.devices[device].type,true);
+
 				//}
 				/**else{
 					delete this.devicesWithSerialNumber[device];
@@ -621,6 +638,8 @@ class JanitzaGridvis extends utils.Adapter {
 			activeString = 	`${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.status}`;
 			delete this.AdapterObjectsAtStart[activeString];
 			activeString = 	`${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.statusMsg}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = 	`${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.type}`;
 			delete this.AdapterObjectsAtStart[activeString];
 
 			// all online configed states

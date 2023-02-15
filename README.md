@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) devicetype added to info-folder for every device
+
 ### 2.1.27 (2023-02-14)
 * (BenAhrdt) Bugfix info-folder will not deleted at startup, if there is no connection
 
