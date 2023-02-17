@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.29",
+    "version": "2.1.30",
     "eraseOnUpload": true,
     "news": {
+      "2.1.30": {
+        "en": "Bugfix: devicestates will created only once at startup (not more times at startup)",
+        "de": "Bugfix: devicestates wird nur einmal beim Start erstellt (nicht mehr mal beim Start)",
+        "ru": "Bugfix: устройства будут созданы только один раз при запуске (не больше раз при запуске)",
+        "pt": "Bugfix: os estados de dispositivo só serão criados uma vez na inicialização (não mais vezes na inicialização)",
+        "nl": "De apparaten zullen maar één keer opstarten",
+        "fr": "Bugfix: les périphériques ne seront créés qu'une fois au démarrage (pas plus de fois au démarrage)",
+        "it": "Bugfix: i dispositivi si creeranno solo una volta all'avvio (non più volte all'avvio)",
+        "es": "Bugfix: los estados de dispositivo crearán sólo una vez al inicio (no más veces al inicio)",
+        "pl": "Bugfix: urządzenie powstają tylko raz na startup (nie więcej razy na startup)",
+        "uk": "Виправлення помилок: пристрої",
+        "zh-cn": "Bugfix:装置国只有在开办后才能建立(在开办时间不长)。"
+      },
       "2.1.29": {
         "en": "deficeinfo in case of values is NaN added",
         "de": "deficeinfo bei Werten ist NaN hinzugefügt",
@@ -81,19 +94,6 @@
         "pl": "błąd telekomunikacyjny 400 będzie zawsze wyświetlany />>>. Nie potrzeba ponownego połączenia",
         "uk": "помилка зв'язку 400 завжди буде відображатися => Немає необхідності підключення",
         "zh-cn": "通信错误400将一向显示> 不需要重新连接"
-      },
-      "2.1.23": {
-        "en": "the communication error 404 will always be displayed",
-        "de": "der kommunikationsfehler 404 wird immer angezeigt",
-        "ru": "ошибка связи 404 всегда будет отображаться",
-        "pt": "o erro de comunicação 404 será sempre exibido",
-        "nl": "de communicatiefout zal altijd worden vertoond",
-        "fr": "l'erreur de communication 404 sera toujours affichée",
-        "it": "l'errore di comunicazione 404 sarà sempre visualizzato",
-        "es": "el error de comunicación 404 se mostrará siempre",
-        "pl": "błąd łączności 404 będzie zawsze wyświetlany",
-        "uk": "помилка зв'язку 404 завжди буде відображатися",
-        "zh-cn": "通信错误404将一向显示。"
       }
     },
     "title": "Janitza®-GridVis®",
