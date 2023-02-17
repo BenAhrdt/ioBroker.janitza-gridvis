@@ -133,6 +133,9 @@ class JanitzaGridvis extends utils.Adapter {
 			"m³": "m³"
 		};
 
+		// Icons struct with created icons
+		this.createdDeviceicons = {};
+
 		// Timestamp to deside if the timeout of a request will be observed
 		this.lastConnectionStateTimestamp = Date.now();
 		this.lastProjectTimestamp = Date.now();
@@ -450,47 +453,50 @@ class JanitzaGridvis extends utils.Adapter {
 		// Create onlinevalue structur
 		for(const device in this.devices){
 			if(this.devices[device].onlineValues){
+
+				// Create device folder (SetObject used in case the Devicetype changes with changing project)
+				let iconPath = this.defaultIcon;
+				if(this.presentIcons[this.devices[device].type]){
+					iconPath = this.presentIcons[this.devices[device].type];
+				}
+				await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
+					type:"device",
+					common:{
+						name: this.devices[device].deviceName,
+						icon: `icons/${iconPath}`,
+					},
+					native : {},
+				});
+				this.createdDeviceicons[device] = {};
+
+				// create onlinevalue folder
+				await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}`,{
+					type:"channel",
+					common:{
+						name: this.i18nTranslation[this.translationIds.onlineValues]
+					},
+					native : {},
+				});
+
 				for(const value in this.devices[device].onlineValues){
+
+					// create value channel
+					let channelName = this.devices[device].onlineValues[value].valueName;
+					if(value === this.internalIds.globalValue){
+						channelName = this.internalIds.globalValue;
+					}
+					else if(value === this.internalIds.userDefined){
+						channelName = this.internalIds.userDefined;
+					}
+					await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`,{
+						type:"channel",
+						common:{
+							name: channelName
+						},
+						native : {},
+					});
+
 					for(const type in this.devices[device].onlineValues[value].type){
-
-						// Create device folder (SetObject used in case the Device type changes with changing project)
-						let iconPath = this.defaultIcon;
-						if(this.presentIcons[this.devices[device].type]){
-							iconPath = this.presentIcons[this.devices[device].type];
-						}
-						await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
-							type:"device",
-							common:{
-								name: this.devices[device].deviceName,
-								icon: `icons/${iconPath}`,
-							},
-							native : {},
-						});
-
-						// create onlinevalue folder
-						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}`,{
-							type:"channel",
-							common:{
-								name: this.i18nTranslation[this.translationIds.onlineValues]
-							},
-							native : {},
-						});
-
-						// create value channel
-						let channelName = this.devices[device].onlineValues[value].valueName;
-						if(value === this.internalIds.globalValue){
-							channelName = this.internalIds.globalValue;
-						}
-						else if(value === this.internalIds.userDefined){
-							channelName = this.internalIds.userDefined;
-						}
-						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`,{
-							type:"channel",
-							common:{
-								name: channelName
-							},
-							native : {},
-						});
 
 						// create value state
 						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,{
@@ -547,47 +553,52 @@ class JanitzaGridvis extends utils.Adapter {
 		// Create historic value structure
 		for(const device in this.devices){
 			if(this.devices[device].historicValues){
+
+				// Create device folder (SetObject used in case the Devicetype changes with changing project)
+				// Query, if device was created in onlinevalueloop
+				if(!this.createdDeviceicons[device]){
+					let iconPath = this.defaultIcon;
+					if(this.presentIcons[this.devices[device].type]){
+						iconPath = this.presentIcons[this.devices[device].type];
+					}
+					await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
+						type:"device",
+						common:{
+							name: this.devices[device].deviceName,
+							icon: `icons/${iconPath}`,
+						},
+						native : {},
+					});
+				}
+
+				// create historic value folder
+				await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`,{
+					type:"channel",
+					common:{
+						name: this.i18nTranslation[this.translationIds.historicValues]
+					},
+					native : {},
+				});
+
 				for(const value in this.devices[device].historicValues){
+
+					// create historic value channel
+					let channelName = this.devices[device].historicValues[value].valueName;
+					if(value === this.internalIds.globalValue){
+						channelName = this.internalIds.globalValue;
+					}
+					else if(value === this.internalIds.userDefined){
+						channelName = this.internalIds.userDefined;
+					}
+					await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`,{
+						type:"channel",
+						common:{
+							name: channelName
+						},
+						native : {},
+					});
+
 					for(const type in this.devices[device].historicValues[value].type){
-
-						// Create device folder (SetObject used in case the Device  type changes with changing project)
-						let iconPath = this.defaultIcon;
-						if(this.presentIcons[this.devices[device].type]){
-							iconPath = this.presentIcons[this.devices[device].type];
-						}
-						await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
-							type:"device",
-							common:{
-								name: this.devices[device].deviceName,
-								icon: `icons/${iconPath}`,
-							},
-							native : {},
-						});
-
-						// create historic value folder
-						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`,{
-							type:"channel",
-							common:{
-								name: this.i18nTranslation[this.translationIds.historicValues]
-							},
-							native : {},
-						});
-
-						// create historic value channel
-						let channelName = this.devices[device].historicValues[value].valueName;
-						if(value === this.internalIds.globalValue){
-							channelName = this.internalIds.globalValue;
-						}
-						else if(value === this.internalIds.userDefined){
-							channelName = this.internalIds.userDefined;
-						}
-						await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`,{
-							type:"channel",
-							common:{
-								name: channelName
-							},
-							native : {},
-						});
 
 						// create value state
 						for(const timeBase in this.timeStrings){
