@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.31",
+    "version": "2.1.32",
     "eraseOnUpload": true,
     "news": {
+      "2.1.32": {
+        "en": "do some code improvments",
+        "de": "einige code-improvisationen",
+        "ru": "сделать некоторые изменения кода",
+        "pt": "fazer algumas melhorias de código",
+        "nl": "doe wat code improvmenten",
+        "fr": "faire quelques improvisations de code",
+        "it": "fare alcune improvvisazioni di codice",
+        "es": "hacer algunas improvisaciones de código",
+        "pl": "niektóre zanieczyszczenie kodu",
+        "uk": "зробити деякі недоліки коду",
+        "zh-cn": "有些守则的批准"
+      },
       "2.1.31": {
         "en": "internal rename of variables",
         "de": "interne umbenennung von variablen",
@@ -81,19 +94,6 @@
         "pl": "dodać plik multimedialny dla każdego urządzenia",
         "uk": "додаючи папку інформації для кожного пристрою",
         "zh-cn": "增加每一种装置的电池组"
-      },
-      "2.1.25": {
-        "en": "before checking error for status, the error will be check for exist",
-        "de": "bevor der fehler für den status überprüft wird, wird der fehler überprüft, ob",
-        "ru": "прежде чем проверять ошибку для статуса, ошибка будет проверяться на наличие",
-        "pt": "antes de verificar o erro de status, o erro será verificado para existir",
-        "nl": "voor het controleren van fouten voor status, zal de fout worden gecontroleerd op bestaan",
-        "fr": "avant de vérifier l'erreur d'état, l'erreur sera de vérifier l'existence",
-        "it": "prima di verificare l'errore per lo stato, l'errore verrà controllato per esistere",
-        "es": "antes de comprobar el error para el estado, el error se comprobará por existir",
-        "pl": "przed błędem w sprawdzaniu statusu, błędy będą sprawdzane dla istnienia",
-        "uk": "перед перевіркою помилки за статус, помилка буде перевірятися на наявність",
-        "zh-cn": "在核实现状的错误之前,存在错误。"
       }
     },
     "title": "Janitza®-GridVis®",
