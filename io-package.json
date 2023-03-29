@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.32",
+    "version": "2.2.0",
     "eraseOnUpload": true,
     "news": {
+      "2.2.0": {
+        "en": "Testings 12.x removed & Testings 18.x implemented",
+        "de": "Testings 12.x entfernt & Testings 18.x implementiert",
+        "ru": "Тестирование 12.x удалено и тестирование 18.x реализовано",
+        "pt": "Testes 12.x removidos & Testes 18.x implementados",
+        "nl": "Test 12.x verwijderde Testing 18",
+        "fr": "Épreuves 12.x enlevées & Épreuves 18.x mises en œuvre",
+        "it": "Testings 12.x rimosso & Testings 18.x implementato",
+        "es": "Pruebas 12.x eliminados \" Pruebas 18.x aplicadas",
+        "pl": "Testy 12.x usunięte i testy 18.x zaimplementowane",
+        "uk": "Тестування 12.x видалено та тестування 18.x реалізовано",
+        "zh-cn": "试验12.x 拆除和试验18.x"
+      },
       "2.1.32": {
         "en": "do some code improvments",
         "de": "einige code-improvisationen",
@@ -81,19 +94,6 @@
         "pl": "Bugfix info-folder nie zostanie usunięty na początku, jeśli nie ma połączenia",
         "uk": "Виправлення інформації про помилку не буде видалено при запуску, якщо немає підключення",
         "zh-cn": "如果没有联系,就不会在开工时删除泡沫剂。"
-      },
-      "2.1.26": {
-        "en": "adding info folder for every device",
-        "de": "hinzufügen von info-ordner für jedes gerät",
-        "ru": "добавление папки информации для каждого устройства",
-        "pt": "adicionando pasta de informações para cada dispositivo",
-        "nl": "vertaling:",
-        "fr": "l'ajout de dossier d'information pour chaque appareil",
-        "it": "aggiungere cartella di informazioni per ogni dispositivo",
-        "es": "añadir carpeta de información para cada dispositivo",
-        "pl": "dodać plik multimedialny dla każdego urządzenia",
-        "uk": "додаючи папку інформації для кожного пристрою",
-        "zh-cn": "增加每一种装置的电池组"
       }
     },
     "title": "Janitza®-GridVis®",
