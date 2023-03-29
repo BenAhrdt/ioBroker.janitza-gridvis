@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) do some code improvments
+
 ### 2.1.31 (2023-03-29)
 * (BenAhrdt) internal rename of variables
 
