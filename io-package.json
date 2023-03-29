@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.1.30",
+    "version": "2.1.31",
     "eraseOnUpload": true,
     "news": {
+      "2.1.31": {
+        "en": "internal rename of variables",
+        "de": "interne umbenennung von variablen",
+        "ru": "внутреннее переименование переменных",
+        "pt": "renomeação interna de variáveis",
+        "nl": "inwendige naam van variabelen",
+        "fr": "renommer interne des variables",
+        "it": "rinominare interno delle variabili",
+        "es": "renombre interno de variables",
+        "pl": "nazwy zmiennych wewnętrznej",
+        "uk": "внутрішня назва змінних",
+        "zh-cn": "变量的内部重新命名"
+      },
       "2.1.30": {
         "en": "Bugfix: devicestates will created only once at startup (not more times at startup)",
         "de": "Bugfix: devicestates wird nur einmal beim Start erstellt (nicht mehr mal beim Start)",
@@ -81,19 +94,6 @@
         "pl": "przed błędem w sprawdzaniu statusu, błędy będą sprawdzane dla istnienia",
         "uk": "перед перевіркою помилки за статус, помилка буде перевірятися на наявність",
         "zh-cn": "在核实现状的错误之前,存在错误。"
-      },
-      "2.1.24": {
-        "en": "the communication error 400 will always be displayed => No reconnection needed",
-        "de": "der Kommunikationsfehler 400 wird immer angezeigt => Keine Umschaltung erforderlich",
-        "ru": "ошибка связи 400 всегда будет отображаться => Не требуется переподключение",
-        "pt": "o erro de comunicação 400 será sempre exibido => Nenhuma reconexão necessária",
-        "nl": "de communicatiefout zal altijd worden getoond Geen verbinding nodig",
-        "fr": "l'erreur de communication 400 sera toujours affichée = Pas besoin de reconnection",
-        "it": "l'errore di comunicazione 400 sarà sempre visualizzato = > Nessuna riconnessione necessaria",
-        "es": "el error de comunicación 400 siempre se mostrará = No se necesita reconexión",
-        "pl": "błąd telekomunikacyjny 400 będzie zawsze wyświetlany />>>. Nie potrzeba ponownego połączenia",
-        "uk": "помилка зв'язку 400 завжди буде відображатися => Немає необхідності підключення",
-        "zh-cn": "通信错误400将一向显示> 不需要重新连接"
       }
     },
     "title": "Janitza®-GridVis®",
