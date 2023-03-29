@@ -934,6 +934,7 @@ class JanitzaGridvis extends utils.Adapter {
 	async onMessage(obj) {
 
 		let result;
+		const projects = [];
 		const devices = [];
 		let myCount = 0;
 		let connectionStateTimestamp;
@@ -975,10 +976,10 @@ class JanitzaGridvis extends utils.Adapter {
 					this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 					for(const element in result.data.project){
 						const label = result.data.project[element].name;
-						devices[myCount] = {label: label,value: label};
+						projects[myCount] = {label: label,value: label};
 						myCount ++;
 					}
-					this.sendTo(obj.from, obj.command, devices, obj.callback);
+					this.sendTo(obj.from, obj.command, projects, obj.callback);
 				}
 				catch(error){
 					if(projectTimestamp == this.lastProjectTimestamp){
