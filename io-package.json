@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.2.1",
+    "version": "2.2.2",
     "eraseOnUpload": true,
     "news": {
+      "2.2.2": {
+        "en": "node-schedule updated",
+        "de": "node-schedule aktualisiert",
+        "ru": "node-schedule обновлен",
+        "pt": "node-schedule atualizado",
+        "nl": "node-schedule update",
+        "fr": "node-schedule updated",
+        "it": "node-schedule aggiornato",
+        "es": "node-schedule updated",
+        "pl": "zaktualizowana",
+        "uk": "node-schedule оновлений",
+        "zh-cn": "无期更新"
+      },
       "2.2.1": {
         "en": "get projects and get devices improved",
         "de": "erhalten projekte und erhalten geräte verbessert",
@@ -81,19 +94,6 @@
         "pl": "deficeinfo w przypadku wartości jest dodawany NaN",
         "uk": "deficeinfo при значеннях NaN додано",
         "zh-cn": "纳尼加在价值观方面的缺陷"
-      },
-      "2.1.28": {
-        "en": "devicetype added to info-folder for every device",
-        "de": "gerätetyp zu info-ordner für jedes gerät hinzugefügt",
-        "ru": "тип устройства добавлен в info-folder для каждого устройства",
-        "pt": "dispositivotipo adicionado ao info-folder para cada dispositivo",
-        "nl": "apparaat voegde toe aan info-folder voor elk apparaat",
-        "fr": "devicetype ajouté à info-folder pour chaque appareil",
-        "it": "devicetype aggiunto a info-folder per ogni dispositivo",
-        "es": "tipo de dispositivo añadido a la carpeta de información para cada dispositivo",
-        "pl": "urządzenie dodano do info-foldera dla każdego urządzenia",
-        "uk": "пристрій додано в інформаційний затискач для кожного пристрою",
-        "zh-cn": "每种装置的集成器的装置"
       }
     },
     "title": "Janitza®-GridVis®",
