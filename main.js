@@ -934,8 +934,6 @@ class JanitzaGridvis extends utils.Adapter {
 	async onMessage(obj) {
 
 		let result;
-		const projects = [];
-		const devices = [];
 		let myCount = 0;
 		let connectionStateTimestamp;
 		let projectTimestamp;
@@ -968,6 +966,7 @@ class JanitzaGridvis extends utils.Adapter {
 			// send present projects back to select
 			case "getProjects":
 				try{
+					const projects = [];
 					this.lastProjectTimestamp = Date.now();
 					projectTimestamp = this.lastProjectTimestamp;
 					const myUrl = `http://${obj.message.address}:${obj.message.port}/rest/1/projects/.json?`;
@@ -992,6 +991,7 @@ class JanitzaGridvis extends utils.Adapter {
 			case "getDevices":
 				if(obj.message && obj.message.port){
 					try{
+						const devices = [];
 						const myUrl = `http://${obj.message.address}:${obj.message.port}/rest/1/projects/${obj.message.projectname}/devices.json?`;
 						this.log.silly(`${myUrl} is send to get Devices`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
