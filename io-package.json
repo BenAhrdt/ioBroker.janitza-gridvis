@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "eraseOnUpload": true,
     "news": {
+      "2.2.1": {
+        "en": "get projects and get devices improved",
+        "de": "erhalten projekte und erhalten geräte verbessert",
+        "ru": "получить проекты и улучшить устройства",
+        "pt": "obter projetos e obter dispositivos melhorados",
+        "nl": "projecten krijgen en apparaten verbeteren",
+        "fr": "obtenir des projets et améliorer les appareils",
+        "it": "ottenere progetti e migliorare i dispositivi",
+        "es": "conseguir proyectos y mejorar dispositivos",
+        "pl": "ulepszenia i ulepszenia urządzeń",
+        "uk": "отримайте проекти та отримайте пристрої",
+        "zh-cn": "获得项目和改良装置"
+      },
       "2.2.0": {
         "en": "Testings 12.x removed & Testings 18.x implemented",
         "de": "Testings 12.x entfernt & Testings 18.x implementiert",
@@ -81,19 +94,6 @@
         "pl": "urządzenie dodano do info-foldera dla każdego urządzenia",
         "uk": "пристрій додано в інформаційний затискач для кожного пристрою",
         "zh-cn": "每种装置的集成器的装置"
-      },
-      "2.1.27": {
-        "en": "Bugfix info-folder will not deleted at startup, if there is no connection",
-        "de": "Bugfix info-folder wird beim Start nicht gelöscht, wenn es keine Verbindung gibt",
-        "ru": "Bugfix info-folder не будет удалена при запуске, если нет соединения",
-        "pt": "Bugfix info-folder não será excluído na inicialização, se não houver conexão",
-        "nl": "Bugfix info-folder zal niet opstarten als er geen verband is",
-        "fr": "Bugfix info-folder ne sera pas supprimé au démarrage, s'il n'y a pas de connexion",
-        "it": "Bugfix info-folder non verrà cancellato all'avvio, se non c'è connessione",
-        "es": "Bugfix info-folder no se eliminará al iniciarse, si no hay conexión",
-        "pl": "Bugfix info-folder nie zostanie usunięty na początku, jeśli nie ma połączenia",
-        "uk": "Виправлення інформації про помилку не буде видалено при запуску, якщо немає підключення",
-        "zh-cn": "如果没有联系,就不会在开工时删除泡沫剂。"
       }
     },
     "title": "Janitza®-GridVis®",
