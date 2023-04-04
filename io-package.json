@@ -170,18 +170,25 @@
         "onlineDeviceTable": [],
         "historicTimeBase": {
             "today": true,
+            "todayMinus1Year": true,
             "yesterday": true,
+            "yesterdayMinus1Year": false,
             "thisWeek": false,
+            "thisWeekMinus1Year": false,
             "lastWeek": false,
+            "lastWeekMinus1Year": false,
             "thisMonth": true,
             "thisMonthMinus1Year": true,
             "lastMonth": true,
             "lastMonthMinus1Year": true,
             "thisQuarter": false,
+            "thisQuarterMinus1Year": false,
             "lastQuarter": false,
+            "lastQuarterMinus1Year": false,
             "thisYear": true,
             "thisYearMinus1Year": true,
-            "lastYear": true
+            "lastYear": true,
+            "lastYearMinus1Year": false
         },
         "refreshHistoricCronJob": "5 */15 * * * *",
         "historicDeviceTable": []

@@ -253,8 +253,39 @@
                     "default": true,
                     "sm": 1
                 },
-                "historicTimeBase.thisMonthMinus1Year": {
+                "timeBase-1YearHeader": {
                     "newLine": true,
+                    "type": "header",
+                    "text": "timeBaseForHistoricValues-1Year",
+                    "sm": 12,
+                    "size": 3
+                },
+                "historicTimeBase.todayMinus1Year": {
+                    "newLine":true,
+                    "type": "checkbox",
+                    "label": "historicTodayMinus1Year",
+                    "default": true,
+                    "sm": 1
+                },
+                "historicTimeBase.yesterdayMinus1Year": {
+                    "type": "checkbox",
+                    "label": "historicYesterdayMinus1Year",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.thisWeekMinus1Year": {
+                    "type": "checkbox",
+                    "label": "historicThisWeekMinus1Year",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.lastWeekMinus1Year": {
+                    "type": "checkbox",
+                    "label": "historicLastWeekMinus1Year",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.thisMonthMinus1Year": {
                     "type": "checkbox",
                     "label": "historicThisMonthMinus1Year",
                     "default": true,
@@ -266,10 +297,28 @@
                     "default": true,
                     "sm": 1
                 },
+                "historicTimeBase.thisQuarterMinus1Year": {
+                    "type": "checkbox",
+                    "label": "historicThisQuarterMinus1Year",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.lastQuarterMinus1Year": {
+                    "type": "checkbox",
+                    "label": "historicLastQuarterMinus1Year",
+                    "default": false,
+                    "sm": 1
+                },
                 "historicTimeBase.thisYearMinus1Year": {
                     "type": "checkbox",
                     "label": "historicThisYearMinus1Year",
                     "default": true,
+                    "sm": 1
+                },
+                "historicTimeBase.lastYearMinus1Year": {
+                    "type": "checkbox",
+                    "label": "historicLastYearMinus1Year",
+                    "default": false,
                     "sm": 1
                 },
 

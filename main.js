@@ -106,11 +106,23 @@ class JanitzaGridvis extends utils.Adapter {
 				endstring: "NAMED_Today",
 				anchorstring: ""
 			},
+			todayMinus1Year: {
+				namestring: "Today-1Year",
+				startstring: "NAMED_Today",
+				endstring: "NAMED_Today",
+				anchorstring: "RELATIVE_-1YEAR"
+			},
 			yesterday: {
 				namestring: "Yesterday",
 				startstring: "NAMED_Yesterday",
 				endstring: "NAMED_Yesterday",
 				anchorstring: ""
+			},
+			yesterdayMinus1Year: {
+				namestring: "Yesterday-1Year",
+				startstring: "NAMED_Yesterday",
+				endstring: "NAMED_Yesterday",
+				anchorstring: "RELATIVE_-1YEAR"
 			},
 			thisWeek: {
 				namestring: "ThisWeek",
@@ -118,11 +130,23 @@ class JanitzaGridvis extends utils.Adapter {
 				endstring: "NAMED_ThisWeek",
 				anchorstring: ""
 			},
+			thisWeekMinus1Year: {
+				namestring: "ThisWeek-1Year",
+				startstring: "NAMED_ThisWeek",
+				endstring: "NAMED_Today",
+				anchorstring: "RELATIVE_-1YEAR"
+			},
 			lastWeek: {
 				namestring: "LastWeek",
 				startstring: "NAMED_LastWeek",
 				endstring: "NAMED_LastWeek",
 				anchorstring: ""
+			},
+			lastWeekMinus1Year: {
+				namestring: "LastWeek-1Year",
+				startstring: "NAMED_LastWeek",
+				endstring: "NAMED_LastWeek",
+				anchorstring: "RELATIVE_-1YEAR"
 			},
 			thisMonth: {
 				namestring: "ThisMonth",
@@ -154,11 +178,23 @@ class JanitzaGridvis extends utils.Adapter {
 				endstring: "NAMED_ThisQuarter",
 				anchorstring: ""
 			},
+			thisQuarterMinus1Year: {
+				namestring: "ThisQuarter-1Year",
+				startstring: "NAMED_ThisQuarter",
+				endstring: "NAMED_Today",
+				anchorstring: "RELATIVE_-1YEAR"
+			},
 			lastQuarter: {
 				namestring: "LastQuarter",
 				startstring: "NAMED_LastQuarter",
 				endstring: "NAMED_LastQuarter",
 				anchorstring: ""
+			},
+			lastQuarterMinus1Year: {
+				namestring: "LastQuarter-1Year",
+				startstring: "NAMED_LastQuarter",
+				endstring: "NAMED_LastQuarter",
+				anchorstring: "RELATIVE_-1YEAR"
 			},
 			thisYear: {
 				namestring: "ThisYear",
@@ -177,6 +213,12 @@ class JanitzaGridvis extends utils.Adapter {
 				startstring: "NAMED_LastYear",
 				endstring: "NAMED_LastYear",
 				anchorstring: ""
+			},
+			lastYearMinus1Year: {
+				namestring: "LastYear-1Year",
+				startstring: "NAMED_LastYear",
+				endstring: "NAMED_LastYear",
+				anchorstring: "RELATIVE_-1YEAR"
 			}
 		};
 
@@ -870,7 +912,6 @@ class JanitzaGridvis extends utils.Adapter {
 									if(timeBase.endstring == "NAMED_Today"){
 										const actDate = new Date(Date.now());
 										endtimestring = `EUROPEAN_${actDate.getDate()}.${actDate.getMonth() + 1}.${actDate.getFullYear() - 1} ${actDate.toLocaleTimeString()}`;
-										this.log.info(endtimestring);
 									}
 									myUrl += `${type}/.json?start=${timeBase.startstring}&end=${endtimestring}&anchor=${timeBase.anchorstring}`;
 								}
