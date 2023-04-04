@@ -32,10 +32,13 @@
     "historicThisWeek": "this week",
     "historicLastWeek": "last week",
     "historicThisMonth": "this month",
+    "historicThisMonthMinus1Year": "this month (-1 year)",
     "historicLastMonth": "last month",
+    "historicLastMonthMinus1Year": "last month (-1 year)",
     "historicThisQuarter": "this quarter",
     "historicLastQuarter": "last quarter",
     "historicThisYear": "this year",
+    "historicThisYearMinus1Year": "this year (-1 year)",
     "historicLastYear": "last year",
     "devices": "devices"
 }

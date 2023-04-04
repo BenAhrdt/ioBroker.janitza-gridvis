@@ -1,349 +1,352 @@
 {
-  "common": {
-    "name": "janitza-gridvis",
-    "version": "2.2.2",
-    "eraseOnUpload": true,
-    "news": {
-      "2.2.2": {
-        "en": "node-schedule updated",
-        "de": "node-schedule aktualisiert",
-        "ru": "node-schedule обновлен",
-        "pt": "node-schedule atualizado",
-        "nl": "node-schedule update",
-        "fr": "node-schedule updated",
-        "it": "node-schedule aggiornato",
-        "es": "node-schedule updated",
-        "pl": "zaktualizowana",
-        "uk": "node-schedule оновлений",
-        "zh-cn": "无期更新"
-      },
-      "2.2.1": {
-        "en": "get projects and get devices improved",
-        "de": "erhalten projekte und erhalten geräte verbessert",
-        "ru": "получить проекты и улучшить устройства",
-        "pt": "obter projetos e obter dispositivos melhorados",
-        "nl": "projecten krijgen en apparaten verbeteren",
-        "fr": "obtenir des projets et améliorer les appareils",
-        "it": "ottenere progetti e migliorare i dispositivi",
-        "es": "conseguir proyectos y mejorar dispositivos",
-        "pl": "ulepszenia i ulepszenia urządzeń",
-        "uk": "отримайте проекти та отримайте пристрої",
-        "zh-cn": "获得项目和改良装置"
-      },
-      "2.2.0": {
-        "en": "Testings 12.x removed & Testings 18.x implemented",
-        "de": "Testings 12.x entfernt & Testings 18.x implementiert",
-        "ru": "Тестирование 12.x удалено и тестирование 18.x реализовано",
-        "pt": "Testes 12.x removidos & Testes 18.x implementados",
-        "nl": "Test 12.x verwijderde Testing 18",
-        "fr": "Épreuves 12.x enlevées & Épreuves 18.x mises en œuvre",
-        "it": "Testings 12.x rimosso & Testings 18.x implementato",
-        "es": "Pruebas 12.x eliminados \" Pruebas 18.x aplicadas",
-        "pl": "Testy 12.x usunięte i testy 18.x zaimplementowane",
-        "uk": "Тестування 12.x видалено та тестування 18.x реалізовано",
-        "zh-cn": "试验12.x 拆除和试验18.x"
-      },
-      "2.1.32": {
-        "en": "do some code improvments",
-        "de": "einige code-improvisationen",
-        "ru": "сделать некоторые изменения кода",
-        "pt": "fazer algumas melhorias de código",
-        "nl": "doe wat code improvmenten",
-        "fr": "faire quelques improvisations de code",
-        "it": "fare alcune improvvisazioni di codice",
-        "es": "hacer algunas improvisaciones de código",
-        "pl": "niektóre zanieczyszczenie kodu",
-        "uk": "зробити деякі недоліки коду",
-        "zh-cn": "有些守则的批准"
-      },
-      "2.1.31": {
-        "en": "internal rename of variables",
-        "de": "interne umbenennung von variablen",
-        "ru": "внутреннее переименование переменных",
-        "pt": "renomeação interna de variáveis",
-        "nl": "inwendige naam van variabelen",
-        "fr": "renommer interne des variables",
-        "it": "rinominare interno delle variabili",
-        "es": "renombre interno de variables",
-        "pl": "nazwy zmiennych wewnętrznej",
-        "uk": "внутрішня назва змінних",
-        "zh-cn": "变量的内部重新命名"
-      },
-      "2.1.30": {
-        "en": "Bugfix: devicestates will created only once at startup (not more times at startup)",
-        "de": "Bugfix: devicestates wird nur einmal beim Start erstellt (nicht mehr mal beim Start)",
-        "ru": "Bugfix: устройства будут созданы только один раз при запуске (не больше раз при запуске)",
-        "pt": "Bugfix: os estados de dispositivo só serão criados uma vez na inicialização (não mais vezes na inicialização)",
-        "nl": "De apparaten zullen maar één keer opstarten",
-        "fr": "Bugfix: les périphériques ne seront créés qu'une fois au démarrage (pas plus de fois au démarrage)",
-        "it": "Bugfix: i dispositivi si creeranno solo una volta all'avvio (non più volte all'avvio)",
-        "es": "Bugfix: los estados de dispositivo crearán sólo una vez al inicio (no más veces al inicio)",
-        "pl": "Bugfix: urządzenie powstają tylko raz na startup (nie więcej razy na startup)",
-        "uk": "Виправлення помилок: пристрої",
-        "zh-cn": "Bugfix:装置国只有在开办后才能建立(在开办时间不长)。"
-      },
-      "2.1.29": {
-        "en": "deficeinfo in case of values is NaN added",
-        "de": "deficeinfo bei Werten ist NaN hinzugefügt",
-        "ru": "deficeinfo в случае значения NaN добавлен",
-        "pt": "deficeinfo em caso de valores é NaN adicionado",
-        "nl": "deficeinfo in geval van waarden is NaN toegevoegd",
-        "fr": "deficeinfo en cas de valeurs est ajouté NaN",
-        "it": "deficeinfo in caso di valori è aggiunto NaN",
-        "es": "deficeinfo en caso de valores es NaN añadido",
-        "pl": "deficeinfo w przypadku wartości jest dodawany NaN",
-        "uk": "deficeinfo при значеннях NaN додано",
-        "zh-cn": "纳尼加在价值观方面的缺陷"
-      }
-    },
-    "title": "Janitza®-GridVis®",
-    "titleLang": {
-      "en": "Janitza®-GridVis®",
-      "de": "Janitza®-GridVis®",
-      "ru": "Janitza®-GridVis®",
-      "pt": "Janitza®-GridVis®",
-      "nl": "Janitza®-GridVis®",
-      "fr": "Janitza®-GridVis®",
-      "it": "Janitza®-GridVis®",
-      "es": "Janitza®-GridVis®",
-      "pl": "Janitza®-GridVis®",
-      "zh-cn": "Janitza®-GridVis®"
-    },
-    "desc": {
-      "en": "Read out data from Energymanagementsystem Janitza® GridVis®",
-      "de": "Daten aus dem Energiemanagementsystem Janitza® GridVis® auslesen",
-      "ru": "Считывание данных из системы управления энергопотреблением Janitza® GridVis®",
-      "pt": "Leia os dados do Energymanagementsystem Janitza® GridVis®",
-      "nl": "Gegevens uitlezen Energiemanagementsysteem Janitza® GridVis®",
-      "fr": "Lire les données du système de gestion de l'énergie Janitza® GridVis®",
-      "it": "Leggi i dati da Energymanagementsystem Janitza® GridVis®",
-      "es": "Leer datos del sistema de gestión de energía Janitza® GridVis®",
-      "pl": "Odczytywanie danych z systemu zarządzania energią Janitza® GridVis®",
-      "zh-cn": "从 Energymanagementsystem Janitza® GridVis® 读取数据"
-    },
-    "authors": [
-      "BenAhrdt <bsahrdt@gmail.com>"
-    ],
-    "keywords": [
-      "Energymanagementsystem",
-      "Energymeter",
-      "Janitza",
-      "GridVis",
-      "consumption",
-      "delivered"
-    ],
-    "license": "MIT",
-    "platform": "Javascript/Node.js",
-    "main": "main.js",
-    "icon": "janitza-gridvis.png",
-    "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/BenAhrdt/ioBroker.janitza-gridvis/main/admin/janitza-gridvis.png",
-    "readme": "https://github.com/BenAhrdt/ioBroker.janitza-gridvis/blob/main/README.md",
-    "loglevel": "info",
-    "mode": "daemon",
-    "type": "energy",
-    "compact": true,
-    "connectionType": "local",
-    "dataSource": "poll",
-    "adminUI": {
-      "config": "json"
-    },
-    "messagebox": true,
-    "globalDependencies": [
-      {
-        "admin": ">=6.2.14"
-      }
-    ],
-    "dependencies": [
-      {
-        "js-controller": ">=2.0.0"
-      }
-    ]
-  },
-  "native": {
-    "address": "192.168.2.50",
-    "port": 8080,
-    "projectname": "No project selected",
-    "timeout": 2000,
-    "reconnectCout": 4,
-    "refreshOnlineCronJob": "*/2 * * * * *",
-    "onlineDeviceTable": [],
-    "historicTimeBase": {
-      "today": true,
-      "yesterday": true,
-      "thisWeek": false,
-      "lastWeek": false,
-      "thisMonth": true,
-      "lastMonth": true,
-      "thisQuarter": false,
-      "lastQuarter": false,
-      "thisYear": true,
-      "lastYear": true
-    },
-    "refreshHistoricCronJob": "5 */15 * * * *",
-    "historicDeviceTable": []
-  },
-  "objects": [],
-  "instanceObjects": [
-    {
-      "_id": "info",
-      "type": "channel",
-      "common": {
-        "name": "Information"
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.connection",
-      "type": "state",
-      "common": {
-        "role": "indicator.connected",
-        "name": "Device or service connected",
-        "type": "boolean",
-        "read": true,
-        "write": false,
-        "def": false
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.reconnectCount",
-      "type": "state",
-      "common": {
-        "name": {
-          "en": "reconnect count",
-          "de": "Verbindungsaufbau-Zähler",
-          "ru": "переподключить счет",
-          "pt": "contagem de reconectação",
-          "nl": "vertaling:",
-          "fr": "reconnecter le compte",
-          "it": "riconnettere il conteggio",
-          "es": "cuenta de reconexión",
-          "pl": "rekomendacja",
-          "zh-cn": "重新计算"
+    "common": {
+        "name": "janitza-gridvis",
+        "version": "2.2.2",
+        "eraseOnUpload": true,
+        "news": {
+            "2.2.2": {
+                "en": "node-schedule updated",
+                "de": "node-schedule aktualisiert",
+                "ru": "node-schedule обновлен",
+                "pt": "node-schedule atualizado",
+                "nl": "node-schedule update",
+                "fr": "node-schedule updated",
+                "it": "node-schedule aggiornato",
+                "es": "node-schedule updated",
+                "pl": "zaktualizowana",
+                "uk": "node-schedule оновлений",
+                "zh-cn": "无期更新"
+            },
+            "2.2.1": {
+                "en": "get projects and get devices improved",
+                "de": "erhalten projekte und erhalten geräte verbessert",
+                "ru": "получить проекты и улучшить устройства",
+                "pt": "obter projetos e obter dispositivos melhorados",
+                "nl": "projecten krijgen en apparaten verbeteren",
+                "fr": "obtenir des projets et améliorer les appareils",
+                "it": "ottenere progetti e migliorare i dispositivi",
+                "es": "conseguir proyectos y mejorar dispositivos",
+                "pl": "ulepszenia i ulepszenia urządzeń",
+                "uk": "отримайте проекти та отримайте пристрої",
+                "zh-cn": "获得项目和改良装置"
+            },
+            "2.2.0": {
+                "en": "Testings 12.x removed & Testings 18.x implemented",
+                "de": "Testings 12.x entfernt & Testings 18.x implementiert",
+                "ru": "Тестирование 12.x удалено и тестирование 18.x реализовано",
+                "pt": "Testes 12.x removidos & Testes 18.x implementados",
+                "nl": "Test 12.x verwijderde Testing 18",
+                "fr": "Épreuves 12.x enlevées & Épreuves 18.x mises en œuvre",
+                "it": "Testings 12.x rimosso & Testings 18.x implementato",
+                "es": "Pruebas 12.x eliminados \" Pruebas 18.x aplicadas",
+                "pl": "Testy 12.x usunięte i testy 18.x zaimplementowane",
+                "uk": "Тестування 12.x видалено та тестування 18.x реалізовано",
+                "zh-cn": "试验12.x 拆除和试验18.x"
+            },
+            "2.1.32": {
+                "en": "do some code improvments",
+                "de": "einige code-improvisationen",
+                "ru": "сделать некоторые изменения кода",
+                "pt": "fazer algumas melhorias de código",
+                "nl": "doe wat code improvmenten",
+                "fr": "faire quelques improvisations de code",
+                "it": "fare alcune improvvisazioni di codice",
+                "es": "hacer algunas improvisaciones de código",
+                "pl": "niektóre zanieczyszczenie kodu",
+                "uk": "зробити деякі недоліки коду",
+                "zh-cn": "有些守则的批准"
+            },
+            "2.1.31": {
+                "en": "internal rename of variables",
+                "de": "interne umbenennung von variablen",
+                "ru": "внутреннее переименование переменных",
+                "pt": "renomeação interna de variáveis",
+                "nl": "inwendige naam van variabelen",
+                "fr": "renommer interne des variables",
+                "it": "rinominare interno delle variabili",
+                "es": "renombre interno de variables",
+                "pl": "nazwy zmiennych wewnętrznej",
+                "uk": "внутрішня назва змінних",
+                "zh-cn": "变量的内部重新命名"
+            },
+            "2.1.30": {
+                "en": "Bugfix: devicestates will created only once at startup (not more times at startup)",
+                "de": "Bugfix: devicestates wird nur einmal beim Start erstellt (nicht mehr mal beim Start)",
+                "ru": "Bugfix: устройства будут созданы только один раз при запуске (не больше раз при запуске)",
+                "pt": "Bugfix: os estados de dispositivo só serão criados uma vez na inicialização (não mais vezes na inicialização)",
+                "nl": "De apparaten zullen maar één keer opstarten",
+                "fr": "Bugfix: les périphériques ne seront créés qu'une fois au démarrage (pas plus de fois au démarrage)",
+                "it": "Bugfix: i dispositivi si creeranno solo una volta all'avvio (non più volte all'avvio)",
+                "es": "Bugfix: los estados de dispositivo crearán sólo una vez al inicio (no más veces al inicio)",
+                "pl": "Bugfix: urządzenie powstają tylko raz na startup (nie więcej razy na startup)",
+                "uk": "Виправлення помилок: пристрої",
+                "zh-cn": "Bugfix:装置国只有在开办后才能建立(在开办时间不长)。"
+            },
+            "2.1.29": {
+                "en": "deficeinfo in case of values is NaN added",
+                "de": "deficeinfo bei Werten ist NaN hinzugefügt",
+                "ru": "deficeinfo в случае значения NaN добавлен",
+                "pt": "deficeinfo em caso de valores é NaN adicionado",
+                "nl": "deficeinfo in geval van waarden is NaN toegevoegd",
+                "fr": "deficeinfo en cas de valeurs est ajouté NaN",
+                "it": "deficeinfo in caso di valori è aggiunto NaN",
+                "es": "deficeinfo en caso de valores es NaN añadido",
+                "pl": "deficeinfo w przypadku wartości jest dodawany NaN",
+                "uk": "deficeinfo при значеннях NaN додано",
+                "zh-cn": "纳尼加在价值观方面的缺陷"
+            }
         },
-        "type": "number",
-        "role": "value",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.gridVisVersion",
-      "type": "state",
-      "common": {
-        "name": {
-          "en": "gridivis version",
-          "de": "GridVis Version",
-          "ru": "версия gridivis",
-          "pt": "versão em rede",
-          "nl": "gridivis versie",
-          "fr": "gridivis version",
-          "it": "versione grigliate",
-          "es": "versión gridivis",
-          "pl": "wersja gry",
-          "zh-cn": "电网版本"
+        "title": "Janitza®-GridVis®",
+        "titleLang": {
+            "en": "Janitza®-GridVis®",
+            "de": "Janitza®-GridVis®",
+            "ru": "Janitza®-GridVis®",
+            "pt": "Janitza®-GridVis®",
+            "nl": "Janitza®-GridVis®",
+            "fr": "Janitza®-GridVis®",
+            "it": "Janitza®-GridVis®",
+            "es": "Janitza®-GridVis®",
+            "pl": "Janitza®-GridVis®",
+            "zh-cn": "Janitza®-GridVis®"
         },
-        "type": "string",
-        "role": "value",
-        "read": true,
-        "write": false,
-        "def": ""
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.numberOfDevicesInProject",
-      "type": "state",
-      "common": {
-        "name": {
-          "en": "number of devices in project",
-          "de": "Anzahl der Geräte im Projekt",
-          "ru": "количество устройств в проекте",
-          "pt": "número de dispositivos no projeto",
-          "nl": "cijfers van projecten",
-          "fr": "nombre de dispositifs dans le projet",
-          "it": "numero di dispositivi in progetto",
-          "es": "número de dispositivos en proyecto",
-          "pl": "wiele urządzeń w projekcie",
-          "zh-cn": "项目中的装置数量"
+        "desc": {
+            "en": "Read out data from Energymanagementsystem Janitza® GridVis®",
+            "de": "Daten aus dem Energiemanagementsystem Janitza® GridVis® auslesen",
+            "ru": "Считывание данных из системы управления энергопотреблением Janitza® GridVis®",
+            "pt": "Leia os dados do Energymanagementsystem Janitza® GridVis®",
+            "nl": "Gegevens uitlezen Energiemanagementsysteem Janitza® GridVis®",
+            "fr": "Lire les données du système de gestion de l'énergie Janitza® GridVis®",
+            "it": "Leggi i dati da Energymanagementsystem Janitza® GridVis®",
+            "es": "Leer datos del sistema de gestión de energía Janitza® GridVis®",
+            "pl": "Odczytywanie danych z systemu zarządzania energią Janitza® GridVis®",
+            "zh-cn": "从 Energymanagementsystem Janitza® GridVis® 读取数据"
         },
-        "type": "number",
-        "role": "value",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.connectedProject",
-      "type": "state",
-      "common": {
-        "name": {
-          "en": "connected project",
-          "de": "anschlussprojekt",
-          "ru": "подключенный проект",
-          "pt": "projeto conectado",
-          "nl": "gerelateerd project",
-          "fr": "projet connecté",
-          "it": "progetto collegato",
-          "es": "proyecto conectado",
-          "pl": "projekt",
-          "zh-cn": "相关项目"
+        "authors": [
+            "BenAhrdt <bsahrdt@gmail.com>"
+        ],
+        "keywords": [
+            "Energymanagementsystem",
+            "Energymeter",
+            "Janitza",
+            "GridVis",
+            "consumption",
+            "delivered"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "janitza-gridvis.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/BenAhrdt/ioBroker.janitza-gridvis/main/admin/janitza-gridvis.png",
+        "readme": "https://github.com/BenAhrdt/ioBroker.janitza-gridvis/blob/main/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "energy",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "poll",
+        "adminUI": {
+            "config": "json"
         },
-        "type": "string",
-        "role": "value",
-        "read": true,
-        "write": false,
-        "def": ""
-      },
-      "native": {}
+        "messagebox": true,
+        "globalDependencies": [
+            {
+                "admin": ">=6.2.14"
+            }
+        ],
+        "dependencies": [
+            {
+                "js-controller": ">=2.0.0"
+            }
+        ]
     },
-    {
-      "_id": "devices",
-      "type": "channel",
-      "common": {
-        "name": {
-          "en": "devices",
-          "de": "Geräte",
-          "ru": "устройства",
-          "pt": "dispositivos",
-          "nl": "apparaat",
-          "fr": "dispositifs",
-          "it": "dispositivi",
-          "es": "dispositivos",
-          "pl": "urządzenia",
-          "zh-cn": "装置"
+    "native": {
+        "address": "192.168.2.50",
+        "port": 8080,
+        "projectname": "No project selected",
+        "timeout": 2000,
+        "reconnectCout": 4,
+        "refreshOnlineCronJob": "*/2 * * * * *",
+        "onlineDeviceTable": [],
+        "historicTimeBase": {
+            "today": true,
+            "yesterday": true,
+            "thisWeek": false,
+            "lastWeek": false,
+            "thisMonth": true,
+            "thisMonthMinus1Year": true,
+            "lastMonth": true,
+            "lastMonthMinus1Year": true,
+            "thisQuarter": false,
+            "lastQuarter": false,
+            "thisYear": true,
+            "thisYearMinus1Year": true,
+            "lastYear": true
+        },
+        "refreshHistoricCronJob": "5 */15 * * * *",
+        "historicDeviceTable": []
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Device or service connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.reconnectCount",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "reconnect count",
+                    "de": "Verbindungsaufbau-Zähler",
+                    "ru": "переподключить счет",
+                    "pt": "contagem de reconectação",
+                    "nl": "vertaling:",
+                    "fr": "reconnecter le compte",
+                    "it": "riconnettere il conteggio",
+                    "es": "cuenta de reconexión",
+                    "pl": "rekomendacja",
+                    "zh-cn": "重新计算"
+                },
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": 0
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.gridVisVersion",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "gridivis version",
+                    "de": "GridVis Version",
+                    "ru": "версия gridivis",
+                    "pt": "versão em rede",
+                    "nl": "gridivis versie",
+                    "fr": "gridivis version",
+                    "it": "versione grigliate",
+                    "es": "versión gridivis",
+                    "pl": "wersja gry",
+                    "zh-cn": "电网版本"
+                },
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.numberOfDevicesInProject",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "number of devices in project",
+                    "de": "Anzahl der Geräte im Projekt",
+                    "ru": "количество устройств в проекте",
+                    "pt": "número de dispositivos no projeto",
+                    "nl": "cijfers van projecten",
+                    "fr": "nombre de dispositifs dans le projet",
+                    "it": "numero di dispositivi in progetto",
+                    "es": "número de dispositivos en proyecto",
+                    "pl": "wiele urządzeń w projekcie",
+                    "zh-cn": "项目中的装置数量"
+                },
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": 0
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connectedProject",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "connected project",
+                    "de": "anschlussprojekt",
+                    "ru": "подключенный проект",
+                    "pt": "projeto conectado",
+                    "nl": "gerelateerd project",
+                    "fr": "projet connecté",
+                    "it": "progetto collegato",
+                    "es": "proyecto conectado",
+                    "pl": "projekt",
+                    "zh-cn": "相关项目"
+                },
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "devices",
+            "type": "channel",
+            "common": {
+                "name": {
+                    "en": "devices",
+                    "de": "Geräte",
+                    "ru": "устройства",
+                    "pt": "dispositivos",
+                    "nl": "apparaat",
+                    "fr": "dispositifs",
+                    "it": "dispositivi",
+                    "es": "dispositivos",
+                    "pl": "urządzenia",
+                    "zh-cn": "装置"
+                }
+            },
+            "native": {}
+        },
+        {
+            "_id": "devices.readValuesTrigger",
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "read trigger",
+                    "de": "Lesetrigger",
+                    "ru": "читать триггер",
+                    "pt": "gatilho de leitura",
+                    "nl": "lees het",
+                    "fr": "lire le déclencheur",
+                    "it": "trigger di lettura",
+                    "es": "leí el gatillo",
+                    "pl": "odczyt",
+                    "zh-cn": "目 录"
+                },
+                "type": "boolean",
+                "role": "state",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
         }
-      },
-      "native": {}
-    },
-    {
-      "_id": "devices.readValuesTrigger",
-      "type": "state",
-      "common": {
-        "name": {
-          "en": "read trigger",
-          "de": "Lesetrigger",
-          "ru": "читать триггер",
-          "pt": "gatilho de leitura",
-          "nl": "lees het",
-          "fr": "lire le déclencheur",
-          "it": "trigger di lettura",
-          "es": "leí el gatillo",
-          "pl": "odczyt",
-          "zh-cn": "目 录"
-        },
-        "type": "boolean",
-        "role": "state",
-        "read": true,
-        "write": true,
-        "def": false
-      },
-      "native": {}
-    }
-  ]
+    ]
 }

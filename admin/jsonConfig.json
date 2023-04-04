@@ -253,6 +253,25 @@
                     "default": true,
                     "sm": 1
                 },
+                "historicTimeBase.thisMonthMinus1Year": {
+                    "newLine": true,
+                    "type": "checkbox",
+                    "label": "historicThisMonthMinus1Year",
+                    "default": true,
+                    "sm": 1
+                },
+                "historicTimeBase.lastMonthMinus1Year": {
+                    "type": "checkbox",
+                    "label": "historicLastMonthMinus1Year",
+                    "default": true,
+                    "sm": 1
+                },
+                "historicTimeBase.thisYearMinus1Year": {
+                    "type": "checkbox",
+                    "label": "historicThisYearMinus1Year",
+                    "default": true,
+                    "sm": 1
+                },
 
                 "historicvalueConfigurationHeader": {
                     "newLine": true,

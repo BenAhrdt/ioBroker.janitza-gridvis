@@ -99,17 +99,85 @@ class JanitzaGridvis extends utils.Adapter {
 		// later defined (after translation is loaded)
 		this.definedObjects = {};
 
-		this.timeStrings = {
-			today: "Today",
-			yesterday: "Yesterday",
-			thisWeek: "ThisWeek",
-			lastWeek: "LastWeek",
-			thisMonth: "ThisMonth",
-			lastMonth: "LastMonth",
-			thisQuarter: "ThisQuarter",
-			lastQuarter: "LastQuarter",
-			thisYear: "ThisYear",
-			lastYear: "LastYear"
+		this.timeBases = {
+			today: {
+				namestring: "Today",
+				startstring: "NAMED_Today",
+				endstring: "NAMED_Today",
+				anchorstring: ""
+			},
+			yesterday: {
+				namestring: "Yesterday",
+				startstring: "NAMED_Yesterday",
+				endstring: "NAMED_Yesterday",
+				anchorstring: ""
+			},
+			thisWeek: {
+				namestring: "ThisWeek",
+				startstring: "NAMED_ThisWeek",
+				endstring: "NAMED_ThisWeek",
+				anchorstring: ""
+			},
+			lastWeek: {
+				namestring: "LastWeek",
+				startstring: "NAMED_LastWeek",
+				endstring: "NAMED_LastWeek",
+				anchorstring: ""
+			},
+			thisMonth: {
+				namestring: "ThisMonth",
+				startstring: "NAMED_ThisMonth",
+				endstring: "NAMED_ThisMonth",
+				anchorstring: ""
+			},
+			thisMonthMinus1Year: {
+				namestring: "ThisMonth-1Year",
+				startstring: "NAMED_ThisMonth",
+				endstring: "NAMED_Today",
+				anchorstring: "RELATIVE_-1YEAR"
+			},
+			lastMonth: {
+				namestring: "LastMonth",
+				startstring: "NAMED_LastMonth",
+				endstring: "NAMED_LastMonth",
+				anchorstring: ""
+			},
+			lastMonthMinus1Year: {
+				namestring: "LastMonth-1Year",
+				startstring: "NAMED_LastMonth",
+				endstring: "NAMED_LastMonth",
+				anchorstring: "RELATIVE_-1YEAR"
+			},
+			thisQuarter: {
+				namestring: "ThisQuarter",
+				startstring: "NAMED_ThisQuarter",
+				endstring: "NAMED_ThisQuarter",
+				anchorstring: ""
+			},
+			lastQuarter: {
+				namestring: "LastQuarter",
+				startstring: "NAMED_LastQuarter",
+				endstring: "NAMED_LastQuarter",
+				anchorstring: ""
+			},
+			thisYear: {
+				namestring: "ThisYear",
+				startstring: "NAMED_ThisYear",
+				endstring: "NAMED_ThisYear",
+				anchorstring: ""
+			},
+			thisYearMinus1Year: {
+				namestring: "ThisYear-1Year",
+				startstring: "NAMED_ThisYear",
+				endstring: "NAMED_Today",
+				anchorstring: "RELATIVE_-1YEAR"
+			},
+			lastYear: {
+				namestring: "LastYear",
+				startstring: "NAMED_LastYear",
+				endstring: "NAMED_LastYear",
+				anchorstring: ""
+			}
 		};
 
 		// internal connection state to block timeout errors
@@ -186,7 +254,7 @@ class JanitzaGridvis extends utils.Adapter {
 	checkHistoricTimeBase(){
 		for(const key in this.config.historicTimeBase){
 			if(!this.config.historicTimeBase[key]){
-				delete this.timeStrings[key];
+				delete this.timeBases[key];
 			}
 		}
 	}
@@ -601,8 +669,8 @@ class JanitzaGridvis extends utils.Adapter {
 					for(const type in this.devices[device].historicValues[value].type){
 
 						// create value state
-						for(const timeBase in this.timeStrings){
-							await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,{
+						for(const timeBase of Object.values(this.timeBases)){
+							await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,{
 								type: "state",
 								common: {
 									name: this.devices[device].historicValues[value].type[type].typeName,
@@ -673,8 +741,8 @@ class JanitzaGridvis extends utils.Adapter {
 					activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`;
 					delete this.AdapterObjectsAtStart[activeString];
 					for(const type in this.devices[device].historicValues[value].type){
-						for(const timeBase of Object.values(this.timeStrings)){ // remove all timeBase values out of the structure
-							activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase}`;
+						for(const timeBase of Object.values(this.timeBases)){ // remove all timeBase values out of the structure
+							activeString = `${this.namespace}.${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`;
 							delete this.AdapterObjectsAtStart[activeString];
 						}
 					}
@@ -683,7 +751,6 @@ class JanitzaGridvis extends utils.Adapter {
 				delete this.AdapterObjectsAtStart[activeString];
 			}
 		}
-
 		// delete the general states from the array
 		activeString = `${this.namespace}.${this.internalIds.devices}`;
 		delete this.AdapterObjectsAtStart[activeString];
@@ -760,7 +827,7 @@ class JanitzaGridvis extends utils.Adapter {
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
 										}
 										else{
-											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,{q:1},true);
+											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,{q:1, c:"GridVis sends value NaN"},true);
 											this.log.info(`${device}.${value}.${type} is NaN  --  (${this.devices[device].deviceName})`);
 										}
 									}
@@ -795,26 +862,37 @@ class JanitzaGridvis extends utils.Adapter {
 				if(this.devices[device].historicValues){
 					for(const value in this.devices[device].historicValues){
 						for(const type in this.devices[device].historicValues[value].type){
-							for(const timeBase in this.timeStrings){
+							for(const timeBase of Object.values(this.timeBases)){
 								myUrl = `http://${this.config.address}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/hist/energy/`;
 								myUrl += `${value}/`;
-								myUrl += `${type}/.json?start=NAMED_${this.timeStrings[timeBase]}&end=NAMED_${this.timeStrings[timeBase]}`;
+								if(timeBase.anchorstring != ""){
+									let endtimestring = timeBase.endstring;
+									if(timeBase.endstring == "NAMED_Today"){
+										const actDate = new Date(Date.now());
+										endtimestring = `EUROPEAN_${actDate.getDate()}.${actDate.getMonth() + 1}.${actDate.getFullYear() - 1} ${actDate.toLocaleTimeString()}`;
+										this.log.info(endtimestring);
+									}
+									myUrl += `${type}/.json?start=${timeBase.startstring}&end=${endtimestring}&anchor=${timeBase.anchorstring}`;
+								}
+								else{
+									myUrl += `${type}/.json?start=${timeBase.startstring}&end=${timeBase.endstring}`;
+								}
 								this.log.silly(`${myUrl} was send to gridVis`);
 								const result = await axios.get(myUrl,{timeout: this.config.timeout});
 								this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 								if(result.status === 200){		// OK => write data into internal state
 									if((result.data.energy || result.data.energy === 0)){ // check present and not equal 0
 										if(!isNaN(result.data.energy)){ // check not equal to NaN
-											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,result.data.energy,true);
+											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,result.data.energy,true);
 										}
 										else{
-											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,{q:1},true);
+											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,{q:1, c:"GridVis sends value NaN"},true);
 											this.log.info(`${device}.${value}.${type} is NaN  --  (${this.devices[device].deviceName})`);
 										}
 									}
 								}
 								else if(result.status === 204){		// no content write 0 into internal state
-									this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${this.timeStrings[timeBase]}`,0,true);
+									this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,0,true);
 								}
 							}
 						}
