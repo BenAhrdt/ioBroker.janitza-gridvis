@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2023-04-05)
 * (BenAhrdt) Timbases from past implemented (to compare)
 
 ### 2.2.2 (2023-03-30)
