@@ -48,5 +48,7 @@
     "historicLastQuarterMinus1Year": "dernier trimestre (-1 an)",
     "historicThisYearMinus1Year": "cette année (-1 an)",
     "historicLastYearMinus1Year": "l'année dernière (-1 an)",
-    "devices": "dispositifs"
+    "devices": "dispositifs",
+    "timeBaseHeaderTooltip": "bases de temps pour les valeurs historiques.",
+    "timeBaseHeaderMinus1YearTooltip": "bases de temps pour comparer les valeurs (la base de temps sélectionnée 1 an dans le passé)."
 }

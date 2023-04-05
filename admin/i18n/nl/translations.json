@@ -48,5 +48,7 @@
     "historicLastQuarterMinus1Year": "laatste kwartaal (-1 jaar)",
     "historicThisYearMinus1Year": "dit jaar (-1 jaar)",
     "historicLastYearMinus1Year": "vorig jaar (-1 jaar)",
-    "devices": "apparaten"
+    "devices": "apparaten",
+    "timeBaseHeaderTooltip": "tijdbasissen voor de historische waarden.",
+    "timeBaseHeaderMinus1YearTooltip": "tijdbasissen om waarden te vergelijken (de geselecteerde tijdbasis 1 jaar in het verleden)."
 }

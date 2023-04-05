@@ -48,5 +48,7 @@
     "historicLastQuarterMinus1Year": "last quarter (-1 year)",
     "historicThisYearMinus1Year": "this year (-1 year)",
     "historicLastYearMinus1Year": "last year (-1 year)",
+    "timeBaseHeaderTooltip": "timebases for the historic values.",
+    "timeBaseHeaderMinus1YearTooltip": "timebases to compare values (the selected timebase 1 Year in the past).",
     "devices": "devices"
 }

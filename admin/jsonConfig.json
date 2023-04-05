@@ -190,6 +190,7 @@
                     "type": "header",
                     "text": "timeBaseForHistoricValues",
                     "sm": 12,
+                    "tooltip":"timeBaseHeaderTooltip",
                     "size": 3
                 },
                 "historicTimeBase.today": {
@@ -258,6 +259,7 @@
                     "type": "header",
                     "text": "timeBaseForHistoricValues-1Year",
                     "sm": 12,
+                    "tooltip":"timeBaseHeaderMinus1YearTooltip",
                     "size": 3
                 },
                 "historicTimeBase.todayMinus1Year": {

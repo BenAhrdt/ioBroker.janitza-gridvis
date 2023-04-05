@@ -48,5 +48,7 @@
     "historicLastQuarterMinus1Year": "上个季度（-1 年）",
     "historicThisYearMinus1Year": "今年（-1年）",
     "historicLastYearMinus1Year": "去年（-1 年）",
-    "devices": "设备"
+    "devices": "设备",
+    "timeBaseHeaderTooltip": "历史值的时基。",
+    "timeBaseHeaderMinus1YearTooltip": "比较值的时基（过去 1 年的选定时基）。"
 }

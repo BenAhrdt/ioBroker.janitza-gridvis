@@ -48,5 +48,7 @@
     "historicLastQuarterMinus1Year": "letztes Quartal (-1 Jahr)",
     "historicThisYearMinus1Year": "dieses Jahr (-1 Jahr)",
     "historicLastYearMinus1Year": "Letztes Jahr (-1 Jahr)",
-    "devices": "Geräte"
+    "devices": "Geräte",
+    "timeBaseHeaderTooltip": "Zeitbasen für die historischen Werte.",
+    "timeBaseHeaderMinus1YearTooltip": "Zeitbasen zum Vergleichen von Werten (die ausgewählte Zeitbasis 1 Jahr in der Vergangenheit)."
 }
