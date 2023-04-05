@@ -907,6 +907,7 @@ class JanitzaGridvis extends utils.Adapter {
 							for(const timeBase of Object.values(this.timeBases)){
 								myUrl = `http://${this.config.address}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/hist/energy/`;
 								myUrl += `${value}/`;
+								// set endtime to current time (-1 year), to became values only to this time(eg. for toay)
 								if(timeBase.anchorstring != ""){
 									let endtimestring = timeBase.endstring;
 									if(timeBase.endstring == "NAMED_Today"){
