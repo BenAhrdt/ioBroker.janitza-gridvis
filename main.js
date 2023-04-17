@@ -225,13 +225,13 @@ class JanitzaGridvis extends utils.Adapter {
 				endstring: "NAMED_LastYear",
 				anchorstring: "RELATIVE_-1YEAR"
 			},
-			flexibleTimestamp1: {
+			flexibleTime1: {
 				namestring: "FlexibleTime1",
 				startstring: "UTC_1681682400000", // 17.04.2023 00:00
 				endstring: "UTC_1681743600000",	// 17.04.2023 17:00
 				anchorstring: ""
 			},
-			flexibleTimestamp2: {
+			flexibleTime2: {
 				namestring: "FlexibleTime2",
 				startstring: "UTC_1681596000000", // 16.04.2023 00:00
 				endstring: "UTC_1681657200000",	// 16.04.2023 17:00
@@ -839,30 +839,30 @@ class JanitzaGridvis extends utils.Adapter {
 		delete this.AdapterObjectsAtStart[activeString];
 
 		// Delete timestamp state in case of selection is deactivted
-		if(this.timeBases.flexibleTimestamp1){
+		if(this.timeBases.flexibleTime1){
 			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}`; // Delete folder from array
 			delete this.AdapterObjectsAtStart[activeString];
 
 			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp1}`;
 			delete this.AdapterObjectsAtStart[activeString];
-			this.assignTimestamps(activeString,await this.getStateAsync(activeString));
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
 
 			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp1}`;
 			delete this.AdapterObjectsAtStart[activeString];
-			this.assignTimestamps(activeString,await this.getStateAsync(activeString));
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
 		}
 
-		if(this.timeBases.flexibleTimestamp2){
+		if(this.timeBases.flexibleTime2){
 			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}`;  // Delete folder from array
 			delete this.AdapterObjectsAtStart[activeString];
 
 			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp2}`;
 			delete this.AdapterObjectsAtStart[activeString];
-			this.assignTimestamps(activeString,await this.getStateAsync(activeString));
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
 
 			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp2}`;
 			delete this.AdapterObjectsAtStart[activeString];
-			this.assignTimestamps(activeString,await this.getStateAsync(activeString));
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
 		}
 
 		// delete the remaining states
@@ -1045,14 +1045,15 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 	}
 
-	assignTimestamps(id,state){
+	asignTimestamps(id,state){
 		if(Number(state.val)){
 			if(id.indexOf("start") !==-1){
-				this.timeBases[`flexible${id.substring(id.lastIndexOf("Timestamp"), id.length)}`].startstring = `UTC_${state.val}`;
+				this.log.info(`flexible${id.substring(id.lastIndexOf("Timestamp"), id.lastIndexOf("Timestamp") + 4)}${id.substring(id.length - 1, id.length)}`);
+				this.timeBases[`flexible${id.substring(id.lastIndexOf("Timestamp"), id.lastIndexOf("Timestamp") + 4)}${id.substring(id.length - 1, id.length)}`].startstring = `UTC_${state.val}`;
 				return true;
 			}
 			else if(id.indexOf("end") !==-1){
-				this.timeBases[`flexible${id.substring(id.lastIndexOf("Timestamp"), id.length)}`].endstring = `UTC_${state.val}`;
+				this.timeBases[`flexible${id.substring(id.lastIndexOf("Timestamp"), id.lastIndexOf("Timestamp") + 4)}${id.substring(id.length - 1, id.length)}`].endstring = `UTC_${state.val}`;
 				return true;
 			}
 			return false;
@@ -1119,7 +1120,7 @@ class JanitzaGridvis extends utils.Adapter {
 				if(!state.ack){
 					if(state.val){
 						if(Number(state.val)){
-							if(this.assignTimestamps(id,state)){
+							if(this.asignTimestamps(id,state)){
 								this.readHistoricValues();
 								this.setStateAsync(id,state.val,true);
 							}

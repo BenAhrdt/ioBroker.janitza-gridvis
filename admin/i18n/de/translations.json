@@ -53,6 +53,6 @@
     "devices": "Geräte",
     "timeBaseForHistoricValues-Flexible": "Zeitbasis für zusätzliche historische Werte (basierend auf Zeitstempeln in ms)",
     "timeBaseHeaderFlexibleTooltip": "flexible zusätzliche Zeitbasen (einstellbar über Zeitstempel - in ms)",
-    "historicFlexibleTime1": "Flexible Zeit 1",
+    "historicFlexibleTime1": "flexible Zeit 1",
     "historicFlexibleTime2": "flexible Zeit 2"
 }
