@@ -752,11 +752,11 @@ class JanitzaGridvis extends utils.Adapter {
 		this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`);
 
 		// Subscribe timestamps for start and end of flexible timebase states
-		if(this.timeBases.flexibleTimestamp1){
+		if(this.timeBases.flexibleTime1){
 			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp1}`);
 			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp1}`);
 		}
-		if(this.timeBases.flexibleTimestamp2){
+		if(this.timeBases.flexibleTime2){
 			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp2}`);
 			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp2}`);
 		}
@@ -1048,7 +1048,6 @@ class JanitzaGridvis extends utils.Adapter {
 	asignTimestamps(id,state){
 		if(Number(state.val)){
 			if(id.indexOf("start") !==-1){
-				this.log.info(`flexible${id.substring(id.lastIndexOf("Timestamp"), id.lastIndexOf("Timestamp") + 4)}${id.substring(id.length - 1, id.length)}`);
 				this.timeBases[`flexible${id.substring(id.lastIndexOf("Timestamp"), id.lastIndexOf("Timestamp") + 4)}${id.substring(id.length - 1, id.length)}`].startstring = `UTC_${state.val}`;
 				return true;
 			}
