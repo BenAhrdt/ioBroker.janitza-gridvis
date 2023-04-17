@@ -7,7 +7,6 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
-const { time } = require("console");
 const axios = require("axios").default;
 const schedule = require("node-schedule");
 
@@ -776,6 +775,7 @@ class JanitzaGridvis extends utils.Adapter {
 	{
 		// Get all objects in the adapter (later)
 		this.AdapterObjectsAtStart = await this.getAdapterObjectsAsync();
+		this.log.info(JSON.stringify(this.AdapterObjectsAtStart));
 		let activeString = "";
 		for(const device in this.devices){
 
@@ -848,19 +848,19 @@ class JanitzaGridvis extends utils.Adapter {
 		delete this.AdapterObjectsAtStart[activeString];
 
 		// Delete timestamp state in case of selection is deactivted
-	/*	if(!this.timeBases.flexibleTimestamp1){
+		if(this.timeBases.flexibleTimestamp1){
 			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp1}`;
 			delete this.AdapterObjectsAtStart[activeString];
 			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp1}`;
 			delete this.AdapterObjectsAtStart[activeString];
 		}
-		if(!this.timeBases.flexibleTimestamp1){
+		if(this.timeBases.flexibleTimestamp1){
 			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp2}`;
 			delete this.AdapterObjectsAtStart[activeString];
 			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp2}`;
 			delete this.AdapterObjectsAtStart[activeString];
 		}
-*/
+
 		// delete the remaining states
 		for(const state in this.AdapterObjectsAtStart){
 			this.delObjectAsync(state);
