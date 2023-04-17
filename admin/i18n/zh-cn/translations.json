@@ -50,5 +50,9 @@
     "historicLastYearMinus1Year": "去年（-1 年）",
     "devices": "设备",
     "timeBaseHeaderTooltip": "历史值的时基。",
-    "timeBaseHeaderMinus1YearTooltip": "比较值的时基（过去 1 年的选定时基）。"
+    "timeBaseHeaderMinus1YearTooltip": "比较值的时基（过去 1 年的选定时基）。",
+    "timeBaseHeaderFlexibleTooltip": "灵活的附加时基（可通过时间戳调整）",
+    "historicFlexibleTimestamp_1": "时间戳_1",
+    "historicFlexibleTimestamp_2": "时间戳_2",
+    "timeBaseForHistoricValues-Flexible": "附加历史值的时基（基于时间戳）"
 }

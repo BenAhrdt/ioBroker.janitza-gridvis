@@ -7,6 +7,7 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
+const { time } = require("console");
 const axios = require("axios").default;
 const schedule = require("node-schedule");
 
@@ -72,7 +73,11 @@ class JanitzaGridvis extends utils.Adapter {
 			type: "type",
 			gridVisVersion: "gridVisVersion",
 			numberOfDevicesInProject: "numberOfDevicesInProject",
-			connectedProject: "connectedProject"
+			connectedProject: "connectedProject",
+			startTimestamp1: "startTimestamp1",
+			endTimestamp1: "endTimestamp1",
+			startTimestamp2: "startTimestamp2",
+			endTimestamp2: "endTimestamp2"
 		};
 
 		this.communicationStrings = {
@@ -219,6 +224,18 @@ class JanitzaGridvis extends utils.Adapter {
 				startstring: "NAMED_LastYear",
 				endstring: "NAMED_LastYear",
 				anchorstring: "RELATIVE_-1YEAR"
+			},
+			flexibleTimestamp1: {
+				namestring: "FlexibleTimestamp_1",
+				startstring: "UTC_1681682400000000000", // 17.04.2023 00:00
+				endstring: "UTC_1681743600000000000",	// 17.04.2023 17:00
+				anchorstring: ""
+			},
+			flexibleTimestamp2: {
+				namestring: "FlexibleTimestamp_2",
+				startstring: "UTC_1681596000000000000", // 17.04.2023 00:00
+				endstring: "UTC_1681657200000000000",	// 16.04.2023 17:00
+				anchorstring: ""
 			}
 		};
 
@@ -530,7 +547,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 	// creates internal states
 	async createInternalStates(){
-		// Parse ans asign online values
+		// Parse and asign online values
 		for(const index in this.config.onlineDeviceTable){
 			if(this.config.onlineDeviceTable[index][this.internalIds.onlineDevices] !== this.i18nTranslation[this.communicationStrings.noCommunicationSelect] &&
 				this.config.onlineDeviceTable[index][this.internalIds.onlineValues] !== this.i18nTranslation[this.communicationStrings.noValidDeviceSelectedSelectString]){
@@ -712,10 +729,19 @@ class JanitzaGridvis extends utils.Adapter {
 
 						// create value state
 						for(const timeBase of Object.values(this.timeBases)){
+							// Assign names of timestamp states
+							let stateName = this.devices[device].historicValues[value].type[type].typeName;
+							if(timeBase.namestring === this.timeBases.flexibleTimestamp1.namestring){
+								stateName = "Timestamp 1";
+							}
+							else if(timeBase.namestring === this.timeBases.flexibleTimestamp2.namestring){
+								stateName = "Timestamp 2";
+							}
+
 							await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,{
 								type: "state",
 								common: {
-									name: this.devices[device].historicValues[value].type[type].typeName,
+									name: stateName,
 									type: "number",
 									role: "value",
 									read: true,
@@ -733,6 +759,16 @@ class JanitzaGridvis extends utils.Adapter {
 
 		// Subscribe trigger state
 		this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`);
+
+		// Subscribe timestamps for start and end of flexible timebase states
+		if(this.timeBases.flexibleTimestamp1){
+			this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.startTimestamp1}`);
+			this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.endTimestamp1}`);
+		}
+		if(this.timeBases.flexibleTimestamp2){
+			this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.startTimestamp2}`);
+			this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.endTimestamp2}`);
+		}
 	}
 
 	// deletes not configured states
@@ -811,6 +847,20 @@ class JanitzaGridvis extends utils.Adapter {
 		activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`;
 		delete this.AdapterObjectsAtStart[activeString];
 
+		// Delete timestamp state in case of selection is deactivted
+	/*	if(!this.timeBases.flexibleTimestamp1){
+			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp1}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp1}`;
+			delete this.AdapterObjectsAtStart[activeString];
+		}
+		if(!this.timeBases.flexibleTimestamp1){
+			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp2}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp2}`;
+			delete this.AdapterObjectsAtStart[activeString];
+		}
+*/
 		// delete the remaining states
 		for(const state in this.AdapterObjectsAtStart){
 			this.delObjectAsync(state);
@@ -1040,6 +1090,18 @@ class JanitzaGridvis extends utils.Adapter {
 						this.readHistoricValues();
 					}
 					this.setStateAsync(id,state.val,true);
+				}
+			}
+			else if(id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp1}` ||
+					id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp1}` ||
+					id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp2}` ||
+					id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp2}`){
+				if(!state.ack){
+					if(state.val){
+						this.timeBases[id.substring(id.lastIndexOf(".") + 1, id.length)] = `UTC_${state.val}`;
+						this.readHistoricValues();
+						this.setStateAsync(id,state.val,true);
+					}
 				}
 			}
 		}

@@ -50,5 +50,9 @@
     "historicLastYearMinus1Year": "ostatni rok (-1 rok)",
     "devices": "urządzenia",
     "timeBaseHeaderTooltip": "podstawy czasowe dla wartości historycznych.",
-    "timeBaseHeaderMinus1YearTooltip": "podstawy czasu, aby porównać wartości (wybrana podstawa czasu 1 rok wstecz)."
+    "timeBaseHeaderMinus1YearTooltip": "podstawy czasu, aby porównać wartości (wybrana podstawa czasu 1 rok wstecz).",
+    "timeBaseHeaderFlexibleTooltip": "elastyczne dodatkowe podstawy czasu (regulowane za pomocą znacznika czasu)",
+    "historicFlexibleTimestamp_1": "znacznik czasu_1",
+    "historicFlexibleTimestamp_2": "znacznik czasu_2",
+    "timeBaseForHistoricValues-Flexible": "podstawa czasu dla dodatkowych wartości historycznych (na podstawie znaczników czasu)"
 }

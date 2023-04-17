@@ -50,5 +50,9 @@
     "historicLastYearMinus1Year": "Letztes Jahr (-1 Jahr)",
     "devices": "Geräte",
     "timeBaseHeaderTooltip": "Zeitbasen für die historischen Werte.",
-    "timeBaseHeaderMinus1YearTooltip": "Zeitbasen zum Vergleichen von Werten (die ausgewählte Zeitbasis 1 Jahr in der Vergangenheit)."
+    "timeBaseHeaderMinus1YearTooltip": "Zeitbasen zum Vergleichen von Werten (die ausgewählte Zeitbasis 1 Jahr in der Vergangenheit).",
+    "timeBaseHeaderFlexibleTooltip": "Flexible zusätzliche Zeitbasen (einstellbar über Zeitstempel)",
+    "historicFlexibleTimestamp_1": "Zeitstempel 1",
+    "historicFlexibleTimestamp_2": "Zeitstempel 2",
+    "timeBaseForHistoricValues-Flexible": "Zeitbasis für zusätzliche historische Werte (basierend auf Zeitstempeln)"
 }

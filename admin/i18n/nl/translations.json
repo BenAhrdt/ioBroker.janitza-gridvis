@@ -50,5 +50,9 @@
     "historicLastYearMinus1Year": "vorig jaar (-1 jaar)",
     "devices": "apparaten",
     "timeBaseHeaderTooltip": "tijdbasissen voor de historische waarden.",
-    "timeBaseHeaderMinus1YearTooltip": "tijdbasissen om waarden te vergelijken (de geselecteerde tijdbasis 1 jaar in het verleden)."
+    "timeBaseHeaderMinus1YearTooltip": "tijdbasissen om waarden te vergelijken (de geselecteerde tijdbasis 1 jaar in het verleden).",
+    "timeBaseHeaderFlexibleTooltip": "flexibele extra tijdbases (instelbaar via tijdstempel)",
+    "historicFlexibleTimestamp_1": "tijdstempel_1",
+    "historicFlexibleTimestamp_2": "tijdstempel_2",
+    "timeBaseForHistoricValues-Flexible": "tijdbasis voor aanvullende historische waarden (gebaseerd op tijdstempels)"
 }

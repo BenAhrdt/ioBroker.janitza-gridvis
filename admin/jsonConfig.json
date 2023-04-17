@@ -323,6 +323,27 @@
                     "default": false,
                     "sm": 1
                 },
+                "timeBase-FlexibleHeader": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "timeBaseForHistoricValues-Flexible",
+                    "sm": 12,
+                    "tooltip":"timeBaseHeaderFlexibleTooltip",
+                    "size": 3
+                },
+                "historicTimeBase.FlexibleTimestamp1": {
+                    "newLine":true,
+                    "type": "checkbox",
+                    "label": "historicFlexibleTimestamp_1",
+                    "default": true,
+                    "sm": 2
+                },
+                "historicTimeBase.FlexibleTimestamp2": {
+                    "type": "checkbox",
+                    "label": "historicFlexibleTimestamp_2",
+                    "default": true,
+                    "sm": 2
+                },
 
                 "historicvalueConfigurationHeader": {
                     "newLine": true,

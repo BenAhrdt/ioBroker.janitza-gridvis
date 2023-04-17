@@ -50,5 +50,9 @@
     "historicLastYearMinus1Year": "в прошлом году (-1 год)",
     "devices": "устройства",
     "timeBaseHeaderTooltip": "временные рамки для исторических значений.",
-    "timeBaseHeaderMinus1YearTooltip": "временные базы для сравнения значений (выбранная временная база 1 год назад)."
+    "timeBaseHeaderMinus1YearTooltip": "временные базы для сравнения значений (выбранная временная база 1 год назад).",
+    "timeBaseHeaderFlexibleTooltip": "гибкие дополнительные временные базы (настраиваемые с помощью метки времени)",
+    "historicFlexibleTimestamp_1": "временная метка_1",
+    "historicFlexibleTimestamp_2": "временная метка_2",
+    "timeBaseForHistoricValues-Flexible": "временная база для дополнительных исторических значений (на основе меток времени)"
 }

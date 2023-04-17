@@ -50,5 +50,9 @@
     "historicLastYearMinus1Year": "l'anno scorso (-1 anno)",
     "devices": "dispositivi",
     "timeBaseHeaderTooltip": "basi temporali per i valori storici.",
-    "timeBaseHeaderMinus1YearTooltip": "basi temporali per confrontare i valori (la base temporale selezionata 1 anno nel passato)."
+    "timeBaseHeaderMinus1YearTooltip": "basi temporali per confrontare i valori (la base temporale selezionata 1 anno nel passato).",
+    "timeBaseHeaderFlexibleTooltip": "basi temporali aggiuntive flessibili (regolabili tramite timestamp)",
+    "historicFlexibleTimestamp_1": "timestamp_1",
+    "historicFlexibleTimestamp_2": "timestamp_2",
+    "timeBaseForHistoricValues-Flexible": "timebase per valori storici aggiuntivi (basati su timestamp)"
 }
