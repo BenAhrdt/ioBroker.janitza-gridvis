@@ -376,7 +376,7 @@
                     "uk": "1 частамп для старту",
                     "zh-cn": "1. 开始时间"
                 },
-                "type": "boolean",
+                "type": "number",
                 "role": "date",
                 "read": true,
                 "write": true,
@@ -401,7 +401,7 @@
                     "uk": "2. своєчасність запуску",
                     "zh-cn": "2. 开始时间"
                 },
-                "type": "boolean",
+                "type": "number",
                 "role": "date",
                 "read": true,
                 "write": true,
@@ -426,7 +426,7 @@
                     "uk": "2. своєчасність для закінчення",
                     "zh-cn": "2. 结束时间"
                 },
-                "type": "boolean",
+                "type": "number",
                 "role": "date",
                 "read": true,
                 "write": true,
@@ -451,7 +451,7 @@
                     "uk": "1 частамп для кінця",
                     "zh-cn": "1. 结束时间"
                 },
-                "type": "boolean",
+                "type": "number",
                 "role": "date",
                 "read": true,
                 "write": true,
