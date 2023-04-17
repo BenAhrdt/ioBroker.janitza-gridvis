@@ -73,6 +73,7 @@ class JanitzaGridvis extends utils.Adapter {
 			gridVisVersion: "gridVisVersion",
 			numberOfDevicesInProject: "numberOfDevicesInProject",
 			connectedProject: "connectedProject",
+			historicTimestamps: "historicTimestamps",
 			startTimestamp1: "startTimestamp1",
 			endTimestamp1: "endTimestamp1",
 			startTimestamp2: "startTimestamp2",
@@ -761,12 +762,12 @@ class JanitzaGridvis extends utils.Adapter {
 
 		// Subscribe timestamps for start and end of flexible timebase states
 		if(this.timeBases.flexibleTimestamp1){
-			this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.startTimestamp1}`);
-			this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.endTimestamp1}`);
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp1}`);
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp1}`);
 		}
 		if(this.timeBases.flexibleTimestamp2){
-			this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.startTimestamp2}`);
-			this.subscribeStatesAsync(`${this.internalIds.devices}.${this.internalIds.endTimestamp2}`);
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp2}`);
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp2}`);
 		}
 	}
 
@@ -849,15 +850,15 @@ class JanitzaGridvis extends utils.Adapter {
 
 		// Delete timestamp state in case of selection is deactivted
 		if(this.timeBases.flexibleTimestamp1){
-			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp1}`;
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp1}`;
 			delete this.AdapterObjectsAtStart[activeString];
-			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp1}`;
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp1}`;
 			delete this.AdapterObjectsAtStart[activeString];
 		}
 		if(this.timeBases.flexibleTimestamp1){
-			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp2}`;
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp2}`;
 			delete this.AdapterObjectsAtStart[activeString];
-			activeString = `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp2}`;
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp2}`;
 			delete this.AdapterObjectsAtStart[activeString];
 		}
 
@@ -1092,10 +1093,10 @@ class JanitzaGridvis extends utils.Adapter {
 					this.setStateAsync(id,state.val,true);
 				}
 			}
-			else if(id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp1}` ||
-					id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp1}` ||
-					id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.startTimestamp2}` ||
-					id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.endTimestamp2}`){
+			else if(id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp1}` ||
+					id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp1}` ||
+					id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp2}` ||
+					id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp2}`){
 				if(!state.ack){
 					if(state.val){
 						this.timeBases[id.substring(id.lastIndexOf(".") + 1, id.length)] = `UTC_${state.val}`;

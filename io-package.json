@@ -360,7 +360,27 @@
             "native": {}
         },
         {
-            "_id": "devices.startTimestamp1",
+            "_id": "historicTimestamps",
+            "type": "folder",
+            "common": {
+                "name": {
+                    "en": "historic timestamps",
+                    "de": "historische Zeitstempel",
+                    "ru": "исторические метеоры",
+                    "pt": "timestamps históricos",
+                    "nl": "vertaling:",
+                    "fr": "historiques",
+                    "it": "timestamp storici",
+                    "es": "tiempos históricos",
+                    "pl": "historyczny znaczek czasowy",
+                    "uk": "історичний час",
+                    "zh-cn": "a. 历史时期"
+                  }
+            },
+            "native": {}
+        },
+        {
+            "_id": "historicTimestamps.startTimestamp1",
             "type": "state",
             "common": {
                 "name": {
@@ -385,7 +405,7 @@
             "native": {}
         },
         {
-            "_id": "devices.endTimestamp1",
+            "_id": "historicTimestamps.endTimestamp1",
             "type": "state",
             "common": {
                 "name": {
@@ -410,7 +430,7 @@
             "native": {}
         },
         {
-            "_id": "devices.startTimestamp2",
+            "_id": "historicTimestamps.startTimestamp2",
             "type": "state",
             "common": {
                 "name": {
@@ -435,7 +455,7 @@
             "native": {}
         },
         {
-            "_id": "devices.endTimestamp2",
+            "_id": "historicTimestamps.endTimestamp2",
             "type": "state",
             "common": {
                 "name": {
