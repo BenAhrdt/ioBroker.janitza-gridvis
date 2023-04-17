@@ -191,8 +191,8 @@
             "thisYearMinus1Year": true,
             "lastYear": true,
             "lastYearMinus1Year": false,
-            "flexibleTimestamp1": true,
-            "flexibleTimestamp2": true
+            "flexibleTime1": true,
+            "flexibleTime2": true
         },
         "refreshHistoricCronJob": "5 */15 * * * *",
         "historicDeviceTable": []
@@ -375,7 +375,7 @@
                     "pl": "historyczny znaczek czasowy",
                     "uk": "історичний час",
                     "zh-cn": "a. 历史时期"
-                  }
+                }
             },
             "native": {}
         },

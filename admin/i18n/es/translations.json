@@ -14,7 +14,7 @@
     "historicvalues": "valores históricos",
     "historicvalueConfiguration": "configuración de los valores históricos",
     "refreshCacleTooltipHistoric": "ingrese el cronJob deseado, que lee los valores históricos.",
-    "The configured project does not respond. Please check the basic settings.": "El proyecto configurado no responde. ",
+    "The configured project does not respond. Please check the basic settings.": "El proyecto configurado no responde. Por favor, compruebe la configuración básica.",
     "Data exchange with REST API successful.": "Intercambio de datos con REST API exitoso.",
     "No connection": "Sin conexión",
     "Connected to GridVis-Version": "Conectado a la versión de GridVis",
@@ -48,11 +48,11 @@
     "historicLastQuarterMinus1Year": "último trimestre (-1 año)",
     "historicThisYearMinus1Year": "este año (-1 año)",
     "historicLastYearMinus1Year": "el año pasado (-1 año)",
-    "devices": "dispositivos",
     "timeBaseHeaderTooltip": "bases de tiempo para los valores históricos.",
     "timeBaseHeaderMinus1YearTooltip": "bases de tiempo para comparar valores (la base de tiempo seleccionada 1 año en el pasado).",
-    "timeBaseHeaderFlexibleTooltip": "bases de tiempo adicionales flexibles (ajustables mediante marca de tiempo)",
-    "historicFlexibleTimestamp_1": "marca de tiempo_1",
-    "historicFlexibleTimestamp_2": "marca de tiempo_2",
-    "timeBaseForHistoricValues-Flexible": "base de tiempo para valores históricos adicionales (basado en marcas de tiempo)"
+    "devices": "dispositivos",
+    "timeBaseForHistoricValues-Flexible": "base de tiempo para valores históricos adicionales (basado en marcas de tiempo)",
+    "timeBaseHeaderFlexibleTooltip": "bases de tiempo adicionales flexibles (ajustables mediante marca de tiempo - en ms)",
+    "historicFlexibleTime1": "tiempo flexible 1",
+    "historicFlexibleTime2": "tiempo flexible 2"
 }

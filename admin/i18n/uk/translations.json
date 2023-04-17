@@ -51,8 +51,8 @@
     "timeBaseHeaderTooltip": "часові основи для історичних цінностей.",
     "timeBaseHeaderMinus1YearTooltip": "бази часу для порівняння значень (вибрана база часу 1 рік у минулому).",
     "devices": "пристроїв",
-    "timeBaseHeaderFlexibleTooltip": "гнучка додаткова часова база (регулюється за допомогою мітки часу)",
-    "historicFlexibleTimestamp_1": "timestamp_1",
-    "historicFlexibleTimestamp_2": "timestamp_2",
-    "timeBaseForHistoricValues-Flexible": "часова база для додаткових історичних значень (на основі часових позначок)"
+    "timeBaseForHistoricValues-Flexible": "часова база для додаткових історичних значень (на основі часових позначок)",
+    "timeBaseHeaderFlexibleTooltip": "гнучка додаткова база часу (регулюється за допомогою мітки часу - у мс)",
+    "historicFlexibleTime1": "гнучкий графік 1",
+    "historicFlexibleTime2": "гнучкий графік 2"
 }

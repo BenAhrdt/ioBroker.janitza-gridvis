@@ -331,16 +331,16 @@
                     "tooltip":"timeBaseHeaderFlexibleTooltip",
                     "size": 3
                 },
-                "historicTimeBase.flexibleTimestamp1": {
+                "historicTimeBase.flexibleTime1": {
                     "newLine":true,
                     "type": "checkbox",
-                    "label": "historicFlexibleTimestamp_1",
+                    "label": "historicFlexibleTime1",
                     "default": true,
                     "sm": 2
                 },
-                "historicTimeBase.flexibleTimestamp2": {
+                "historicTimeBase.flexibleTime2": {
                     "type": "checkbox",
-                    "label": "historicFlexibleTimestamp_2",
+                    "label": "historicFlexibleTime2",
                     "default": true,
                     "sm": 2
                 },

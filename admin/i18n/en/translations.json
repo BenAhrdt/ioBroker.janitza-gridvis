@@ -51,8 +51,8 @@
     "timeBaseHeaderTooltip": "timebases for the historic values.",
     "timeBaseHeaderMinus1YearTooltip": "timebases to compare values (the selected timebase 1 Year in the past).",
     "devices": "devices",
-    "timeBaseForHistoricValues-Flexible": "timebase for additional historic values (based on timestamps)",
-    "timeBaseHeaderFlexibleTooltip": "flexible additional timebases (adjustable via timestamp)",
-    "historicFlexibleTimestamp_1": "timestamp 1",
-    "historicFlexibleTimestamp_2": "timestamp 2"
+    "timeBaseForHistoricValues-Flexible": "timebase for additional historic values (based on timestamps in ms)",
+    "timeBaseHeaderFlexibleTooltip": "flexible additional timebases (adjustable via timestamp - in ms)",
+    "historicFlexibleTime1": "flexible time 1",
+    "historicFlexibleTime2": "flexible time 2"
 }

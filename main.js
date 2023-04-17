@@ -226,13 +226,13 @@ class JanitzaGridvis extends utils.Adapter {
 				anchorstring: "RELATIVE_-1YEAR"
 			},
 			flexibleTimestamp1: {
-				namestring: "FlexibleTimestamp_1",
+				namestring: "FlexibleTime1",
 				startstring: "UTC_1681682400000", // 17.04.2023 00:00
 				endstring: "UTC_1681743600000",	// 17.04.2023 17:00
 				anchorstring: ""
 			},
 			flexibleTimestamp2: {
-				namestring: "FlexibleTimestamp_2",
+				namestring: "FlexibleTime2",
 				startstring: "UTC_1681596000000", // 16.04.2023 00:00
 				endstring: "UTC_1681657200000",	// 16.04.2023 17:00
 				anchorstring: ""
@@ -729,19 +729,10 @@ class JanitzaGridvis extends utils.Adapter {
 
 						// create value state
 						for(const timeBase of Object.values(this.timeBases)){
-							// Assign names of timestamp states
-							let stateName = this.devices[device].historicValues[value].type[type].typeName;
-							if(timeBase.namestring === this.timeBases.flexibleTimestamp1.namestring){
-								stateName = "Timestamp 1";
-							}
-							else if(timeBase.namestring === this.timeBases.flexibleTimestamp2.namestring){
-								stateName = "Timestamp 2";
-							}
-
 							await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,{
 								type: "state",
 								common: {
-									name: stateName,
+									name: this.devices[device].historicValues[value].type[type].typeName,
 									type: "number",
 									role: "value",
 									read: true,

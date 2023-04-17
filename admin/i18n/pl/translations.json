@@ -14,7 +14,7 @@
     "historicvalues": "wartości historyczne",
     "historicvalueConfiguration": "konfiguracja wartości historycznych",
     "refreshCacleTooltipHistoric": "wprowadź żądany cronJob, który odczytuje wartości historyczne.",
-    "The configured project does not respond. Please check the basic settings.": "Skonfigurowany projekt nie odpowiada. ",
+    "The configured project does not respond. Please check the basic settings.": "Skonfigurowany projekt nie odpowiada. Proszę sprawdzić podstawowe ustawienia.",
     "Data exchange with REST API successful.": "Wymiana danych z REST API powiodła się.",
     "No connection": "Brak połączenia",
     "Connected to GridVis-Version": "Połączono z wersją GridVis",
@@ -48,11 +48,11 @@
     "historicLastQuarterMinus1Year": "ostatni kwartał (-1 rok)",
     "historicThisYearMinus1Year": "w tym roku (-1 rok)",
     "historicLastYearMinus1Year": "ostatni rok (-1 rok)",
-    "devices": "urządzenia",
     "timeBaseHeaderTooltip": "podstawy czasowe dla wartości historycznych.",
     "timeBaseHeaderMinus1YearTooltip": "podstawy czasu, aby porównać wartości (wybrana podstawa czasu 1 rok wstecz).",
-    "timeBaseHeaderFlexibleTooltip": "elastyczne dodatkowe podstawy czasu (regulowane za pomocą znacznika czasu)",
-    "historicFlexibleTimestamp_1": "znacznik czasu_1",
-    "historicFlexibleTimestamp_2": "znacznik czasu_2",
-    "timeBaseForHistoricValues-Flexible": "podstawa czasu dla dodatkowych wartości historycznych (na podstawie znaczników czasu)"
+    "devices": "urządzenia",
+    "timeBaseForHistoricValues-Flexible": "podstawa czasu dla dodatkowych wartości historycznych (na podstawie znaczników czasu)",
+    "timeBaseHeaderFlexibleTooltip": "elastyczne dodatkowe podstawy czasu (regulowane za pomocą znacznika czasu - w ms)",
+    "historicFlexibleTime1": "elastyczny czas 1",
+    "historicFlexibleTime2": "elastyczny czas 2"
 }

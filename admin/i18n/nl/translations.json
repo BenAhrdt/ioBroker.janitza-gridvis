@@ -14,7 +14,7 @@
     "historicvalues": "historische waarden",
     "historicvalueConfiguration": "configuratie van de historische waarden",
     "refreshCacleTooltipHistoric": "voer de gewenste cronJob in, die de historische waarden uitleest.",
-    "The configured project does not respond. Please check the basic settings.": "Het geconfigureerde project reageert niet. ",
+    "The configured project does not respond. Please check the basic settings.": "Het geconfigureerde project reageert niet. Controleer de basisinstellingen.",
     "Data exchange with REST API successful.": "Gegevensuitwisseling met REST API succesvol.",
     "No connection": "Geen connectie",
     "Connected to GridVis-Version": "Verbonden met GridVis-versie",
@@ -48,11 +48,11 @@
     "historicLastQuarterMinus1Year": "laatste kwartaal (-1 jaar)",
     "historicThisYearMinus1Year": "dit jaar (-1 jaar)",
     "historicLastYearMinus1Year": "vorig jaar (-1 jaar)",
-    "devices": "apparaten",
     "timeBaseHeaderTooltip": "tijdbasissen voor de historische waarden.",
     "timeBaseHeaderMinus1YearTooltip": "tijdbasissen om waarden te vergelijken (de geselecteerde tijdbasis 1 jaar in het verleden).",
-    "timeBaseHeaderFlexibleTooltip": "flexibele extra tijdbases (instelbaar via tijdstempel)",
-    "historicFlexibleTimestamp_1": "tijdstempel_1",
-    "historicFlexibleTimestamp_2": "tijdstempel_2",
-    "timeBaseForHistoricValues-Flexible": "tijdbasis voor aanvullende historische waarden (gebaseerd op tijdstempels)"
+    "devices": "apparaten",
+    "timeBaseForHistoricValues-Flexible": "tijdbasis voor aanvullende historische waarden (gebaseerd op tijdstempels)",
+    "timeBaseHeaderFlexibleTooltip": "flexibele extra tijdbases (instelbaar via tijdstempel - in ms)",
+    "historicFlexibleTime1": "flexibele tijd 1",
+    "historicFlexibleTime2": "flexibele tijd 2"
 }
