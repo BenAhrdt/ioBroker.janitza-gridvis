@@ -1045,8 +1045,16 @@ class JanitzaGridvis extends utils.Adapter {
 		}
 	}
 
+	isValidDate(timestamp){
+		if (timestamp && typeof timestamp === "number") {
+			const date = new Date(timestamp);
+			return date instanceof Date && !isNaN(date.getTime()); // Check that date is possible and that getTime delivers a number
+		}
+		return false;
+	}
+
 	asignTimestamps(id,state){
-		if(Number(state.val)){
+		if(this.isValidDate(state.val)){
 			if(id.indexOf("start") !==-1){
 				this.timeBases[`flexible${id.substring(id.lastIndexOf("Timestamp"), id.lastIndexOf("Timestamp") + 4)}${id.substring(id.length - 1, id.length)}`].startstring = `UTC_${state.val}`;
 				return true;

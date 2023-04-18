@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) check timestamp improoved
+
 ### 3.1.1 (2023-04-18)
 * (BenAhrdt) warning in case of invalid timestamp
 
