@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) warning in case of invalid timestamp
+
 ### 3.1.0 (2023-04-17)
 * (BenAhrdt) flexible timebases with timestamp added
 

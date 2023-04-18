@@ -1058,6 +1058,7 @@ class JanitzaGridvis extends utils.Adapter {
 			return false;
 		}
 		else{
+			this.log.warn(`${id} has an invalid timestamp.`);
 			return false;
 		}
 	}
@@ -1117,13 +1118,9 @@ class JanitzaGridvis extends utils.Adapter {
 					id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp2}` ||
 					id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp2}`){
 				if(!state.ack){
-					if(state.val){
-						if(Number(state.val)){
-							if(this.asignTimestamps(id,state)){
-								this.readHistoricValues();
-								this.setStateAsync(id,state.val,true);
-							}
-						}
+					if(this.asignTimestamps(id,state)){
+						this.readHistoricValues();
+						this.setStateAsync(id,state.val,true);
 					}
 				}
 			}
