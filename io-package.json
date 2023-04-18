@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.1.1",
+    "version": "3.1.2",
     "eraseOnUpload": true,
     "news": {
+      "3.1.2": {
+        "en": "check timestamp improoved",
+        "de": "zeitstempel improoviert überprüfen",
+        "ru": "проверить timetamp improoved",
+        "pt": "check timestamp improoved",
+        "nl": "controle timetamp improovatie",
+        "fr": "check timestamp improoved",
+        "it": "check timestamp improvato",
+        "es": "check timestamp improoved",
+        "pl": "premisja czasowa",
+        "uk": "контроль часу",
+        "zh-cn": "检查时间不完善"
+      },
       "3.1.1": {
         "en": "warning in case of invalid timestamp",
         "de": "warnung bei ungültigem zeitstempel",
@@ -81,19 +94,6 @@
         "pl": "Testy 12.x usunięte i testy 18.x zaimplementowane",
         "uk": "Тестування 12.x видалено та тестування 18.x реалізовано",
         "zh-cn": "试验12.x 拆除和试验18.x"
-      },
-      "2.1.32": {
-        "en": "do some code improvments",
-        "de": "einige code-improvisationen",
-        "ru": "сделать некоторые изменения кода",
-        "pt": "fazer algumas melhorias de código",
-        "nl": "doe wat code improvmenten",
-        "fr": "faire quelques improvisations de code",
-        "it": "fare alcune improvvisazioni di codice",
-        "es": "hacer algunas improvisaciones de código",
-        "pl": "niektóre zanieczyszczenie kodu",
-        "uk": "зробити деякі недоліки коду",
-        "zh-cn": "有些守则的批准"
       }
     },
     "title": "Janitza®-GridVis®",
