@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.1.0",
+    "version": "3.1.1",
     "eraseOnUpload": true,
     "news": {
+      "3.1.1": {
+        "en": "warning in case of invalid timestamp",
+        "de": "warnung bei ungültigem zeitstempel",
+        "ru": "предупреждение в случае недействительного времени",
+        "pt": "aviso em caso de inválido timestamp",
+        "nl": "waarschuwing in geval van invalide tijdtamp",
+        "fr": "avertissement en cas d ' extinction",
+        "it": "avvertimento in caso di timestamp non valido",
+        "es": "advertencia en caso de inválido",
+        "pl": "ostrzeżenie w przypadku nieprawidłowego dokumentu czasowego",
+        "uk": "попередження у разі недійсного часу",
+        "zh-cn": "对失效时间的警告"
+      },
       "3.1.0": {
         "en": "flexible timebases with timestamp added",
         "de": "flexible zeitbasen mit zeitstempel hinzugefügt",
@@ -81,19 +94,6 @@
         "pl": "niektóre zanieczyszczenie kodu",
         "uk": "зробити деякі недоліки коду",
         "zh-cn": "有些守则的批准"
-      },
-      "2.1.31": {
-        "en": "internal rename of variables",
-        "de": "interne umbenennung von variablen",
-        "ru": "внутреннее переименование переменных",
-        "pt": "renomeação interna de variáveis",
-        "nl": "inwendige naam van variabelen",
-        "fr": "renommer interne des variables",
-        "it": "rinominare interno delle variabili",
-        "es": "renombre interno de variables",
-        "pl": "nazwy zmiennych wewnętrznej",
-        "uk": "внутрішня назва змінних",
-        "zh-cn": "变量的内部重新命名"
       }
     },
     "title": "Janitza®-GridVis®",
