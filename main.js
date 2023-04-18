@@ -1112,6 +1112,12 @@ class JanitzaGridvis extends utils.Adapter {
 	 */
 	async onStateChange(id, state) {
 		if (state) {
+			// create string to search for (generic without endcount 1,2 ...)
+			let startTimestampString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp1}`;
+			startTimestampString = startTimestampString.substring(0,startTimestampString.length - 1);
+			let endTimestampString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp1}`;
+			endTimestampString = endTimestampString.substring(0,endTimestampString.length - 1);
+
 			if(id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`){
 				if(!state.ack){
 					if(state.val){
@@ -1121,10 +1127,8 @@ class JanitzaGridvis extends utils.Adapter {
 					this.setStateAsync(id,state.val,true);
 				}
 			}
-			else if(id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp1}` ||
-					id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp1}` ||
-					id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp2}` ||
-					id === `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp2}`){
+			else if(id.indexOf(startTimestampString) !== -1 ||	// check timestampString
+					id.indexOf(endTimestampString) !== -1){
 				if(!state.ack){
 					if(this.asignTimestamps(id,state)){
 						this.readHistoricValues();
