@@ -918,7 +918,7 @@ class JanitzaGridvis extends utils.Adapter {
 						if(this.devices[device].onlineValues){
 							for(const value in this.devices[device].onlineValues){
 								for(const type in this.devices[device].onlineValues[value].type){
-									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] === 0)){ // check present or equal 0 (real value == 0)
+									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] === 0)){ // check present or equal 0 (a value must be present => also value == 0)
 										if(!isNaN(result.data.value[`${device}.${value}.${type}`])){ // check not equal to NaN
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
 										}
@@ -977,7 +977,7 @@ class JanitzaGridvis extends utils.Adapter {
 								const result = await axios.get(myUrl,{timeout: this.config.timeout});
 								this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 								if(result.status === 200){		// OK => write data into internal state
-									if((result.data.energy || result.data.energy === 0)){ // check present or equal 0 (real value == 0)
+									if((result.data.energy || result.data.energy === 0)){ // check present or equal 0 (a value must be present => also value == 0)
 										if(!isNaN(result.data.energy)){ // check not equal to NaN
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,result.data.energy,true);
 										}
