@@ -1009,6 +1009,7 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 		}
 		this.log.debug("read out historic data finished");
+		this.setStateAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`,false,true);
 	}
 
 	// Check the connection to GridVis
