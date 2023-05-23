@@ -975,7 +975,7 @@ class JanitzaGridvis extends utils.Adapter {
 								}
 								this.log.silly(`${myUrl} was send to gridVis`);
 								const result = await axios.get(myUrl,{timeout: this.config.timeout});
-								this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
+							//	this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 								if(result.status === 200){		// OK => write data into internal state
 									if((result.data.energy || result.data.energy === 0)){ // check present or equal 0 (a value must be present => also value == 0)
 										if(!isNaN(result.data.energy)){ // check not equal to NaN
