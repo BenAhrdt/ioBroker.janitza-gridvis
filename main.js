@@ -93,7 +93,8 @@ class JanitzaGridvis extends utils.Adapter {
 			noValidDeviceSelectedSelectString: "No valid device selected",
 			lastCommunicationError: "last communication error",
 			checkOnlineValues: "ATTENTION: Please check config of onlinevalues - maybe certain values cause an error and stop reading.",
-			checkHistoricValues: "ATTENTION: Please check config of historicvalues - maybe certain values cause an error and stop reading."
+			checkHistoricValues: "ATTENTION: Please check config of historicvalues - maybe certain values cause an error and stop reading.",
+			checkDeviceconfig: "ATTENTION: Please check config of devices - maybe certain values cause an error and stop reading additional values."
 		};
 
 		this.translationIds = {
@@ -506,6 +507,11 @@ class JanitzaGridvis extends utils.Adapter {
 			if(this.internalConnectionState){
 				this.log.debug(`${error} after sending ${myUrl}`);
 				this.reconnectErrorString = `${error} after sending ${myUrl}`;
+				if(error.response && error.response.status && (error.response.status === 400 || // bad request
+				error.response.status === 404)){	// not found
+					this.log.warn(`${this.communicationStrings.checkDeviceconfig} --- ${this.reconnectErrorString}`);
+					return;
+				}
 				this.connectToGridVis();
 			}
 		}
