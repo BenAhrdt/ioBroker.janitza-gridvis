@@ -20,6 +20,9 @@
     "type": "git",
     "url": "https://github.com/BenAhrdt/ioBroker.janitza-gridvis"
   },
+  "engines": {
+    "node": ">= 16"
+  },
   "dependencies": {
     "@iobroker/adapter-core": "^3.0.3",
     "node-schedule": "^2.1.1"
