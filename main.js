@@ -1217,8 +1217,25 @@ class JanitzaGridvis extends utils.Adapter {
 						this.log.silly(`${myUrl} is send to get Devices`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
+						//const devicetype = {};
 						for(const element in result.data.device){
+						/*	devicetype[result.data.device[element].id] = result.data.device[element].type;
+							try{
+								const seachstring = "Besitzt übergeordnetes Gerät:";
+								if(result.data.device[element].connectionString && result.data.device[element].connectionString.indexOf(seachstring) !== -1){
+									const parentDeviceId = result.data.device[element].connectionString.substring(seachstring.length,result.data.device[element].connectionString.length);
+									if(devicetype[parentDeviceId]){
+										result.data.device[element].type = devicetype[parentDeviceId];
+									}
+								}
+							}
+							catch(error){
+								this.log.error(`Error during searching parent device id: ${error}`);
+							}*/
 							const label = result.data.device[element].name + "  - Device ID: " + result.data.device[element].id;
+							if(result.data.device[element].id === 27){
+								result.data.device[element].type;
+							}
 							const myValueObject = {id: result.data.device[element].id, deviceName: result.data.device[element].name, type: result.data.device[element].type};
 							devices[myCount] = {label: label,value: JSON.stringify(myValueObject)};
 							myCount ++;
