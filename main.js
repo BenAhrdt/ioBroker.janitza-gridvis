@@ -9,6 +9,7 @@
 const utils = require("@iobroker/adapter-core");
 const axios = require("axios").default;
 const schedule = require("node-schedule");
+const { start } = require("repl");
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -565,6 +566,9 @@ class JanitzaGridvis extends utils.Adapter {
 						this.devices[deviceId] = {};
 						this.devices[deviceId].deviceName = configedOnlineDevices.deviceName;
 						this.devices[deviceId].type = configedOnlineDevices.type;
+						if(configedOnlineDevices.parentType){
+							this.devices[deviceId].parentType = configedOnlineDevices.parentType;
+						}
 					}
 					// Create online Values structure (in case if its not created or device is created in historicValues)
 					if(!this.devices[deviceId].onlineValues){
@@ -589,7 +593,12 @@ class JanitzaGridvis extends utils.Adapter {
 
 				// Create device folder (SetObject used in case the Devicetype changes with changing project)
 				let iconPath = this.defaultIcon;
-				if(this.presentIcons[this.devices[device].type]){
+				// Check for parent device
+				if(this.devices[device].parentType){
+					iconPath = this.presentIcons[this.devices[device].parentType];
+				}
+				// Define icon in case there is no parent device / parent type
+				else if(this.presentIcons[this.devices[device].type]){
 					iconPath = this.presentIcons[this.devices[device].type];
 				}
 				await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
@@ -664,6 +673,9 @@ class JanitzaGridvis extends utils.Adapter {
 						this.devices[deviceId] = {};
 						this.devices[deviceId].deviceName = configedHistoricDevices.deviceName;
 						this.devices[deviceId].type = configedHistoricDevices.type;
+						if(configedHistoricDevices.parentType){
+							this.devices[deviceId].parentType = configedHistoricDevices.parentType;
+						}
 					}
 					// Create historic Values structure (in case if its not created or device is created in onlineValues)
 					if(!this.devices[deviceId].historicValues){
@@ -691,7 +703,12 @@ class JanitzaGridvis extends utils.Adapter {
 				// Query, if device was created in onlinevalueloop
 				if(!this.createdDeviceicons[device]){
 					let iconPath = this.defaultIcon;
-					if(this.presentIcons[this.devices[device].type]){
+					// Check for parent device
+					if(this.devices[device].parentType){
+						iconPath = this.presentIcons[this.devices[device].parentType];
+					}
+					// Define icon in case there is no parent device / parent type
+					else if(this.presentIcons[this.devices[device].type]){
 						iconPath = this.presentIcons[this.devices[device].type];
 					}
 					await this.setObjectAsync(`${this.internalIds.devices}.${device}`,{
@@ -1217,26 +1234,35 @@ class JanitzaGridvis extends utils.Adapter {
 						this.log.silly(`${myUrl} is send to get Devices`);
 						result = await axios.get(myUrl,{timeout: this.config.timeout});
 						this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
-						//const devicetype = {};
+						const devicetype = {};
 						for(const element in result.data.device){
-						/*	devicetype[result.data.device[element].id] = result.data.device[element].type;
+							devicetype[result.data.device[element].id] = result.data.device[element].type;
 							try{
-								const seachstring = "Besitzt übergeordnetes Gerät:";
-								if(result.data.device[element].connectionString && result.data.device[element].connectionString.indexOf(seachstring) !== -1){
-									const parentDeviceId = result.data.device[element].connectionString.substring(seachstring.length,result.data.device[element].connectionString.length);
-									if(devicetype[parentDeviceId]){
-										result.data.device[element].type = devicetype[parentDeviceId];
+								if(result.data.device[element].connectionString){
+									// German
+									let seachstring = "Besitzt übergeordnetes Gerät:";
+									let startindex = result.data.device[element].connectionString.indexOf(seachstring);
+									if(startindex === -1){
+										// Englisch
+										seachstring = "ParentDevice:";
+										startindex = result.data.device[element].connectionString.indexOf(seachstring);
+									}
+									if(startindex !== -1){
+										const parentDeviceId = result.data.device[element].connectionString.substring(seachstring.length,result.data.device[element].connectionString.length);
+										if(devicetype[parentDeviceId]){
+											result.data.device[element].parentType = devicetype[parentDeviceId];
+										}
 									}
 								}
 							}
 							catch(error){
 								this.log.error(`Error during searching parent device id: ${error}`);
-							}*/
-							const label = result.data.device[element].name + "  - Device ID: " + result.data.device[element].id;
-							if(result.data.device[element].id === 27){
-								result.data.device[element].type;
 							}
+							const label = result.data.device[element].name + "  - Device ID: " + result.data.device[element].id;
 							const myValueObject = {id: result.data.device[element].id, deviceName: result.data.device[element].name, type: result.data.device[element].type};
+							if(result.data.device[element].parentType){
+								myValueObject.parentType = result.data.device[element].parentType;
+							}
 							devices[myCount] = {label: label,value: JSON.stringify(myValueObject)};
 							myCount ++;
 						}

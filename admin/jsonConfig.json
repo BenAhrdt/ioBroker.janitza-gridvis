@@ -137,7 +137,6 @@
                             "title": "devices",
                             "filter": true,
                             "sort": false,
-                            "allowAddByFilter": true,
                             "jsonData": "{\"address\":\"${globalData.address}\",\"port\":\"${globalData.port}\",\"projectname\":\"${globalData.projectname}\"}",
                             "command": "getDevices"
                         },
