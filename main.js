@@ -988,7 +988,7 @@ class JanitzaGridvis extends utils.Adapter {
 									let endtimestring = timeBase.endstring;
 									if(timeBase.endstring == "NAMED_Today"){
 										const actDate = new Date(Date.now());
-										endtimestring = `EUROPEAN_${actDate.getDate()}.${actDate.getMonth() + 1}.${actDate.getFullYear() - 1} ${actDate.getUTCHours()}:${actDate.getUTCMinutes()}:${actDate.getUTCSeconds()}`;//${actDate.toLocaleTimeString()}`;
+										endtimestring = `EUROPEAN_${actDate.getDate()}.${actDate.getMonth() + 1}.${actDate.getFullYear() - 1} ${actDate.toLocaleTimeString()}`;
 									}
 									myUrl += `${type}/.json?start=${timeBase.startstring}&end=${endtimestring}&anchor=${timeBase.anchorstring}`;
 								}
