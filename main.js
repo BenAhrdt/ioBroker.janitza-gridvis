@@ -9,7 +9,6 @@
 const utils = require("@iobroker/adapter-core");
 const axios = require("axios").default;
 const schedule = require("node-schedule");
-const { start } = require("repl");
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
