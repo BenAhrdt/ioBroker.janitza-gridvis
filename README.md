@@ -32,9 +32,6 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (BenAhrdt) timebase improoved
-
 ### 3.1.4 (2023-11-02)
 * (BenAhrdt) corrction in jsonconfig schema & new order of deviceicons
 
