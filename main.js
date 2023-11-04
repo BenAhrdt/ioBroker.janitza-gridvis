@@ -987,8 +987,14 @@ class JanitzaGridvis extends utils.Adapter {
 								if(timeBase.anchorstring != ""){
 									let endtimestring = timeBase.endstring;
 									if(timeBase.endstring == "NAMED_Today"){
+										// 04.11.2023 - New time definition for "- 1 Year" parameters (timestamp)
+										const endDate = new Date(Date.now());
+										endDate.setFullYear(endDate.getFullYear() - 1);
+										endtimestring = `UTC_${endDate.getTime()}`;
+										this.log.info(endtimestring);
+										/* Old Versionmwith EUROPEAN Timezone
 										const actDate = new Date(Date.now());
-										endtimestring = `EUROPEAN_${actDate.getDate()}.${actDate.getMonth() + 1}.${actDate.getFullYear() - 1} ${actDate.toLocaleTimeString()}`;
+										endtimestring = `EUROPEAN_${actDate.getDate()}.${actDate.getMonth() + 1}.${actDate.getFullYear() - 1} ${actDate.toLocaleTimeString()}`;*/
 									}
 									myUrl += `${type}/.json?start=${timeBase.startstring}&end=${endtimestring}&anchor=${timeBase.anchorstring}`;
 								}
@@ -1223,6 +1229,7 @@ class JanitzaGridvis extends utils.Adapter {
 					}
 				}
 				break;
+
 			// in case the connection is ok get devices for online and historic configuration (same devices)
 			// send the result array back to the select in config
 			case "getDevices":
