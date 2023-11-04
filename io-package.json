@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.1.4",
+    "version": "3.1.5",
     "eraseOnUpload": true,
     "news": {
+      "3.1.5": {
+        "en": "change endstring of timerparameters to utc",
+        "de": "änderung der endstring von timerparametern auf utc",
+        "ru": "изменить конструкцию таймерпараметров к utc",
+        "pt": "alterar a resistência de parâmetros de tempo para utc",
+        "nl": "verandering van tijdrparameters naar utc",
+        "fr": "extrémité de changement de timerparameters à utc",
+        "it": "cambiare la stringa finale dei parametri di tempo a utc",
+        "es": "cambio final de tiemporparameters a utc",
+        "pl": "zmiana końcowa parametrów czasu do utc",
+        "uk": "змінити кінцевий рядок таймерпараметрів до utc",
+        "zh-cn": "对时间参数的改变"
+      },
       "3.1.4": {
         "en": "corrction in jsonconfig schema & new order of deviceicons",
         "de": "corrction in jsonconfig schema & neue ordnung von deviceicons",
@@ -81,19 +94,6 @@
         "pl": "Timbases from past implementation (ang.)",
         "uk": "Тімази з минулих реалізованих (для порівняння)",
         "zh-cn": "B. 以往执行的时间安排(比较)"
-      },
-      "2.2.2": {
-        "en": "node-schedule updated",
-        "de": "node-schedule aktualisiert",
-        "ru": "node-schedule обновлен",
-        "pt": "node-schedule atualizado",
-        "nl": "node-schedule update",
-        "fr": "node-schedule updated",
-        "it": "node-schedule aggiornato",
-        "es": "node-schedule updated",
-        "pl": "zaktualizowana",
-        "uk": "node-schedule оновлений",
-        "zh-cn": "无期更新"
       }
     },
     "title": "Janitza®-GridVis®",
