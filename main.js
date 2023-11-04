@@ -991,7 +991,6 @@ class JanitzaGridvis extends utils.Adapter {
 										const endDate = new Date(Date.now());
 										endDate.setFullYear(endDate.getFullYear() - 1);
 										endtimestring = `UTC_${endDate.getTime()}`;
-										this.log.info(endtimestring);
 										/* Old Versionmwith EUROPEAN Timezone
 										const actDate = new Date(Date.now());
 										endtimestring = `EUROPEAN_${actDate.getDate()}.${actDate.getMonth() + 1}.${actDate.getFullYear() - 1} ${actDate.toLocaleTimeString()}`;*/
