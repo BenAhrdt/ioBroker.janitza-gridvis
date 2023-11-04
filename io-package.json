@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.1.5",
+    "version": "3.1.6",
     "eraseOnUpload": true,
     "news": {
+      "3.1.6": {
+        "en": "Bugfix Logging utc time",
+        "de": "Bugfix Logging utc Zeit",
+        "ru": "Bugfix Logging utc время",
+        "pt": "Bugfix Logging tempo utc",
+        "nl": "Bugfix Logging Utc time",
+        "fr": "Bugfix Logging utc time",
+        "it": "Bugfix Logging utc time",
+        "es": "Bugfix Logging utc time",
+        "pl": "Bugfix Logging utc time (ang.)",
+        "uk": "Виправлення помилок",
+        "zh-cn": "Bugfix Loc时"
+      },
       "3.1.5": {
         "en": "change endstring of timerparameters to utc",
         "de": "änderung der endstring von timerparametern auf utc",
@@ -81,19 +94,6 @@
         "pl": "elastyczność czasu z dodatkiem czasowym",
         "uk": "гнучкі часові бази з таймером",
         "zh-cn": "附加时间的灵活时限"
-      },
-      "3.0.0": {
-        "en": "Timbases from past implemented (to compare)",
-        "de": "Timbases aus der Vergangenheit implementiert (zum Vergleich)",
-        "ru": "Тимбазы из прошлых реализованных (для сравнения)",
-        "pt": "Timbases do passado implementado (para comparar)",
-        "nl": "Timbases uit het verleden",
-        "fr": "Timbases from past implemented (to compare)",
-        "it": "Timbases dal passato implementato (per confrontare)",
-        "es": "Timbases del pasado implementado (para comparar)",
-        "pl": "Timbases from past implementation (ang.)",
-        "uk": "Тімази з минулих реалізованих (для порівняння)",
-        "zh-cn": "B. 以往执行的时间安排(比较)"
       }
     },
     "title": "Janitza®-GridVis®",
