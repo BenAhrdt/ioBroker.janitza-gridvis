@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.1.7",
+    "version": "3.1.8",
     "eraseOnUpload": true,
     "news": {
+      "3.1.8": {
+        "en": "remove debuglogging from stable version",
+        "de": "debuglogging aus stabiler version entfernen",
+        "ru": "удалить отладку из стабильной версии",
+        "pt": "remover debuglogging da versão estável",
+        "nl": "verwijder het ontbreken van stabiele versie",
+        "fr": "supprimer debuglogging de la version stable",
+        "it": "rimuovere il debuglogging dalla versione stabile",
+        "es": "eliminar depuración de la versión estable",
+        "pl": "usunąć debugowanie ze stabilnej wersji",
+        "uk": "видалення знезараження від стабільної версії",
+        "zh-cn": "删除从稳定的版本中乞讨"
+      },
       "3.1.7": {
         "en": "Handling of iconsetting improoved & implements new icon",
         "de": "Handhabung von Iconset improoved & implementiert neues Icon",
@@ -81,19 +94,6 @@
         "pl": "premisja czasowa",
         "uk": "контроль часу",
         "zh-cn": "检查时间不完善"
-      },
-      "3.1.1": {
-        "en": "warning in case of invalid timestamp",
-        "de": "warnung bei ungültigem zeitstempel",
-        "ru": "предупреждение в случае недействительного времени",
-        "pt": "aviso em caso de inválido timestamp",
-        "nl": "waarschuwing in geval van invalide tijdtamp",
-        "fr": "avertissement en cas d ' extinction",
-        "it": "avvertimento in caso di timestamp non valido",
-        "es": "advertencia en caso de inválido",
-        "pl": "ostrzeżenie w przypadku nieprawidłowego dokumentu czasowego",
-        "uk": "попередження у разі недійсного часу",
-        "zh-cn": "对失效时间的警告"
       }
     },
     "title": "Janitza®-GridVis®",
