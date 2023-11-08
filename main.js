@@ -592,7 +592,7 @@ class JanitzaGridvis extends utils.Adapter {
 
 				// Create device folder (SetObject used in case the Devicetype changes with changing project)
 				let iconPath = this.defaultIcon;
-				this.log.info(JSON.stringify(this.presentIcons));
+
 				// Check for parent device
 				if(this.devices[device].parentType && this.presentIcons[this.devices[device].parentType]){
 					iconPath = this.presentIcons[this.devices[device].parentType];
