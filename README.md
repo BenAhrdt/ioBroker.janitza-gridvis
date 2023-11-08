@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (BenAhrdt) Handyling of iconsetting improoved & implements new icon
+* (BenAhrdt) Handling of iconsetting improoved & implements new icon
 
 ### 3.1.6 (2023-11-04)
 * (BenAhrdt) Bugfix Logging utc time
