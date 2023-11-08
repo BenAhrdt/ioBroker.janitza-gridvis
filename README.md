@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.1.7 (2023-11-08)
 * (BenAhrdt) Handling of iconsetting improoved & implements new icon
 
 ### 3.1.6 (2023-11-04)
