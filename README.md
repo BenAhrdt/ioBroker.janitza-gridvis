@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) Plugin for release added
+
 ### 3.1.10 (2024-05-07)
 * (BenAhrdt) manual review for release script
 
