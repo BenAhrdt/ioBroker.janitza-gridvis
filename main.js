@@ -77,7 +77,15 @@ class JanitzaGridvis extends utils.Adapter {
 			startTimestamp1: "startTimestamp1",
 			endTimestamp1: "endTimestamp1",
 			startTimestamp2: "startTimestamp2",
-			endTimestamp2: "endTimestamp2"
+			endTimestamp2: "endTimestamp2",
+			startTimestamp3: "startTimestamp3",
+			endTimestamp3: "endTimestamp3",
+			startTimestamp4: "startTimestamp4",
+			endTimestamp4: "endTimestamp4",
+			startTimestamp5: "startTimestamp5",
+			endTimestamp5: "endTimestamp5",
+			startTimestamp6: "startTimestamp6",
+			endTimestamp6: "endTimestamp6"
 		};
 
 		this.communicationStrings = {
@@ -236,6 +244,30 @@ class JanitzaGridvis extends utils.Adapter {
 				namestring: "FlexibleTime2",
 				startstring: "UTC_1681596000000", // 16.04.2023 00:00
 				endstring: "UTC_1681657200000",	// 16.04.2023 17:00
+				anchorstring: ""
+			},
+			flexibleTime3: {
+				namestring: "FlexibleTime3",
+				startstring: "UTC_1715075100006", // 07.05.2024 11:45
+				endstring: "UTC_1715082300006",	// 07.05.2024 13:45
+				anchorstring: ""
+			},
+			flexibleTime4: {
+				namestring: "FlexibleTime4",
+				startstring: "UTC_1715071500006", // 07.05.2024 10:45
+				endstring: "UTC_1715082300006",	// 07.05.2024 13:45
+				anchorstring: ""
+			},
+			flexibleTime5: {
+				namestring: "FlexibleTime5",
+				startstring: "UTC_1715067900006", // 07.05.2024 09:45
+				endstring: "UTC_1715082300006",	// 07.05.2024 13:45
+				anchorstring: ""
+			},
+			flexibleTime6: {
+				namestring: "FlexibleTime6",
+				startstring: "UTC_1715064300006", // 07.05.2024 08:45
+				endstring: "UTC_1715082300006",	// 07.05.2024 13:45
 				anchorstring: ""
 			}
 		};
@@ -783,6 +815,22 @@ class JanitzaGridvis extends utils.Adapter {
 			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp2}`);
 			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp2}`);
 		}
+		if(this.timeBases.flexibleTime3){
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp3}`);
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp3}`);
+		}
+		if(this.timeBases.flexibleTime4){
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp4}`);
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp4}`);
+		}
+		if(this.timeBases.flexibleTime5){
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp5}`);
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp5}`);
+		}
+		if(this.timeBases.flexibleTime6){
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp6}`);
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp6}`);
+		}
 	}
 
 	// deletes not configured states
@@ -884,6 +932,58 @@ class JanitzaGridvis extends utils.Adapter {
 			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
 
 			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp2}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
+		}
+
+		if(this.timeBases.flexibleTime3){
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}`;  // Delete folder from array
+			delete this.AdapterObjectsAtStart[activeString];
+
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp3}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
+
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp3}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
+		}
+
+		if(this.timeBases.flexibleTime4){
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}`;  // Delete folder from array
+			delete this.AdapterObjectsAtStart[activeString];
+
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp4}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
+
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp4}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
+		}
+
+		if(this.timeBases.flexibleTime5){
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}`;  // Delete folder from array
+			delete this.AdapterObjectsAtStart[activeString];
+
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp5}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
+
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp5}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
+		}
+
+		if(this.timeBases.flexibleTime6){
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}`;  // Delete folder from array
+			delete this.AdapterObjectsAtStart[activeString];
+
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp6}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
+
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp6}`;
 			delete this.AdapterObjectsAtStart[activeString];
 			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
 		}

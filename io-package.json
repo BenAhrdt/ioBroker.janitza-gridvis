@@ -409,6 +409,31 @@
       "type": "state",
       "common": {
         "name": {
+          "en": "1. timestamp for end",
+          "de": "1. Zeitstempel für Ende",
+          "ru": "1. метка времени для конца",
+          "pt": "1. timestamp para o fim",
+          "nl": "1",
+          "fr": "1. timestamp for end",
+          "it": "1. timestamp per la fine",
+          "es": "1. timetamp para el final",
+          "pl": "1. timestamp for end",
+          "uk": "1 частамп для кінця",
+          "zh-cn": "1. 结束时间"
+        },
+        "type": "number",
+        "role": "date",
+        "read": true,
+        "write": true,
+        "def": 1681743600000
+      },
+      "native": {}
+    },
+    {
+      "_id": "historicTimestamps.startTimestamp2",
+      "type": "state",
+      "common": {
+        "name": {
           "en": "2. timestamp for start",
           "de": "2. Zeitstempel für Start",
           "ru": "2. метка времени для начала",
@@ -425,12 +450,12 @@
         "role": "date",
         "read": true,
         "write": true,
-        "def": 1681743600000
+        "def": 1681596000000
       },
       "native": {}
     },
     {
-      "_id": "historicTimestamps.startTimestamp2",
+      "_id": "historicTimestamps.endTimestamp2",
       "type": "state",
       "common": {
         "name": {
@@ -450,32 +475,207 @@
         "role": "date",
         "read": true,
         "write": true,
-        "def": 1681596000000
+        "def": 1681657200000
       },
       "native": {}
     },
     {
-      "_id": "historicTimestamps.endTimestamp2",
+      "_id": "historicTimestamps.startTimestamp3",
       "type": "state",
       "common": {
         "name": {
-          "en": "1. timestamp for end",
-          "de": "1. Zeitstempel für Ende",
-          "ru": "1. метка времени для конца",
-          "pt": "1. timestamp para o fim",
-          "nl": "1",
-          "fr": "1. timestamp for end",
-          "it": "1. timestamp per la fine",
-          "es": "1. timetamp para el final",
-          "pl": "1. timestamp for end",
-          "uk": "1 частамп для кінця",
-          "zh-cn": "1. 结束时间"
+          "en": "3. timestamp for start",
+          "de": "3. Zeitstempel für Start",
+          "ru": "3. метка времени для начала",
+          "pt": "3. timestamp para começar",
+          "nl": "twee keer zoveel",
+          "fr": "3. timetamp for start",
+          "it": "3. timestamp per inizio",
+          "es": "3. timetamp para empezar",
+          "pl": "3 znaki startowe",
+          "uk": "3. своєчасність запуску",
+          "zh-cn": "3. 开始时间"
         },
         "type": "number",
         "role": "date",
         "read": true,
         "write": true,
-        "def": 1681657200000
+        "def": 1715075100006
+      },
+      "native": {}
+    },
+    {
+      "_id": "historicTimestamps.endTimestamp3",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "3. timestamp for end",
+          "de": "3. Zeitstempel für Ende",
+          "ru": "3. метка времени для конца",
+          "pt": "3. timestamp para o fim",
+          "nl": "twee keer zoveel",
+          "fr": "3. timetamp for end",
+          "it": "3. timestamp per la fine",
+          "es": "3. timetamp para el final",
+          "pl": "3. timestamp for end",
+          "uk": "3. своєчасність для закінчення",
+          "zh-cn": "3. 结束时间"
+        },
+        "type": "number",
+        "role": "date",
+        "read": true,
+        "write": true,
+        "def": 1715082300006
+      },
+      "native": {}
+    },
+    {
+      "_id": "historicTimestamps.startTimestamp4",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "4. timestamp for start",
+          "de": "4. Zeitstempel für Start",
+          "ru": "4. метка времени для начала",
+          "pt": "4. timestamp para começar",
+          "nl": "twee keer zoveel",
+          "fr": "4. timetamp for start",
+          "it": "4. timestamp per inizio",
+          "es": "4. timetamp para empezar",
+          "pl": "4 znaki startowe",
+          "uk": "4. своєчасність запуску",
+          "zh-cn": "4. 开始时间"
+        },
+        "type": "number",
+        "role": "date",
+        "read": true,
+        "write": true,
+        "def": 1715071500006
+      },
+      "native": {}
+    },
+    {
+      "_id": "historicTimestamps.endTimestamp4",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "4. timestamp for end",
+          "de": "4. Zeitstempel für Ende",
+          "ru": "4. метка времени для конца",
+          "pt": "4. timestamp para o fim",
+          "nl": "twee keer zoveel",
+          "fr": "4. timetamp for end",
+          "it": "4. timestamp per la fine",
+          "es": "4. timetamp para el final",
+          "pl": "4. timestamp for end",
+          "uk": "4. своєчасність для закінчення",
+          "zh-cn": "4. 结束时间"
+        },
+        "type": "number",
+        "role": "date",
+        "read": true,
+        "write": true,
+        "def": 1715082300006
+      },
+      "native": {}
+    },
+    {
+      "_id": "historicTimestamps.startTimestamp5",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "5. timestamp for start",
+          "de": "5. Zeitstempel für Start",
+          "ru": "5. метка времени для начала",
+          "pt": "5. timestamp para começar",
+          "nl": "twee keer zoveel",
+          "fr": "5. timetamp for start",
+          "it": "5. timestamp per inizio",
+          "es": "5. timetamp para empezar",
+          "pl": "5 znaki startowe",
+          "uk": "5. своєчасність запуску",
+          "zh-cn": "5. 开始时间"
+        },
+        "type": "number",
+        "role": "date",
+        "read": true,
+        "write": true,
+        "def": 1715067900006
+      },
+      "native": {}
+    },
+    {
+      "_id": "historicTimestamps.endTimestamp5",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "5. timestamp for end",
+          "de": "5. Zeitstempel für Ende",
+          "ru": "5. метка времени для конца",
+          "pt": "5. timestamp para o fim",
+          "nl": "twee keer zoveel",
+          "fr": "5. timetamp for end",
+          "it": "5. timestamp per la fine",
+          "es": "5. timetamp para el final",
+          "pl": "5. timestamp for end",
+          "uk": "5. своєчасність для закінчення",
+          "zh-cn": "5. 结束时间"
+        },
+        "type": "number",
+        "role": "date",
+        "read": true,
+        "write": true,
+        "def": 1715082300006
+      },
+      "native": {}
+    },
+    {
+      "_id": "historicTimestamps.startTimestamp6",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "6. timestamp for start",
+          "de": "6. Zeitstempel für Start",
+          "ru": "6. метка времени для начала",
+          "pt": "6. timestamp para começar",
+          "nl": "twee keer zoveel",
+          "fr": "6. timetamp for start",
+          "it": "6. timestamp per inizio",
+          "es": "6. timetamp para empezar",
+          "pl": "6 znaki startowe",
+          "uk": "6. своєчасність запуску",
+          "zh-cn": "6. 开始时间"
+        },
+        "type": "number",
+        "role": "date",
+        "read": true,
+        "write": true,
+        "def": 1715064300006
+      },
+      "native": {}
+    },
+    {
+      "_id": "historicTimestamps.endTimestamp6",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "6. timestamp for end",
+          "de": "6. Zeitstempel für Ende",
+          "ru": "6. метка времени для конца",
+          "pt": "6. timestamp para o fim",
+          "nl": "twee keer zoveel",
+          "fr": "6. timetamp for end",
+          "it": "6. timestamp per la fine",
+          "es": "6. timetamp para el final",
+          "pl": "6. timestamp for end",
+          "uk": "6. своєчасність для закінчення",
+          "zh-cn": "6. 结束时间"
+        },
+        "type": "number",
+        "role": "date",
+        "read": true,
+        "write": true,
+        "def": 1715082300006
       },
       "native": {}
     }

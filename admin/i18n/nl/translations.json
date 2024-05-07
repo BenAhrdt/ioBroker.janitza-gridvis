@@ -54,5 +54,9 @@
     "timeBaseForHistoricValues-Flexible": "tijdbasis voor aanvullende historische waarden (gebaseerd op tijdstempels)",
     "timeBaseHeaderFlexibleTooltip": "flexibele extra tijdbases (instelbaar via tijdstempel - in ms)",
     "historicFlexibleTime1": "flexibele tijd 1",
-    "historicFlexibleTime2": "flexibele tijd 2"
+    "historicFlexibleTime2": "flexibele tijd 2",
+    "historicFlexibleTime3": "flexibele tijd 3",
+    "historicFlexibleTime4": "flexibele tijd 4",
+    "historicFlexibleTime5": "flexibele tijd 5",
+    "historicFlexibleTime6": "flexibele tijd 6"
 }

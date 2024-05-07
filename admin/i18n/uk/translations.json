@@ -54,5 +54,9 @@
     "timeBaseForHistoricValues-Flexible": "часова база для додаткових історичних значень (на основі часових позначок)",
     "timeBaseHeaderFlexibleTooltip": "гнучка додаткова база часу (регулюється за допомогою мітки часу - у мс)",
     "historicFlexibleTime1": "гнучкий графік 1",
-    "historicFlexibleTime2": "гнучкий графік 2"
+    "historicFlexibleTime2": "гнучкий графік 2",
+    "historicFlexibleTime3": "гнучкий графік 3",
+    "historicFlexibleTime4": "гнучкий графік 4",
+    "historicFlexibleTime5": "гнучкий графік 5",
+    "historicFlexibleTime6": "гнучкий графік 6"
 }

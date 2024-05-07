@@ -26,12 +26,16 @@ Implemented are the following times:
 	LastQuarter
 	ThisYear
 	LastYear
-
+	Flexible Timebases
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (BenAhrdt) implement more flexible timebases
+
 ### 3.1.8 (2023-11-08)
 * (BenAhrdt) remove debuglogging from stable version
 

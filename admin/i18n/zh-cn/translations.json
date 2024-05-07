@@ -54,5 +54,9 @@
     "timeBaseForHistoricValues-Flexible": "附加历史值的时基（基于时间戳）",
     "timeBaseHeaderFlexibleTooltip": "灵活的附加时基（可通过时间戳调整 - 以毫秒为单位）",
     "historicFlexibleTime1": "弹性时间 1",
-    "historicFlexibleTime2": "弹性时间 2"
+    "historicFlexibleTime2": "弹性时间 2",
+    "historicFlexibleTime3": "弹性时间3",
+    "historicFlexibleTime4": "弹性时间4",
+    "historicFlexibleTime5": "弹性时间5",
+    "historicFlexibleTime6": "弹性时间6"
 }

@@ -343,6 +343,30 @@
                     "default": true,
                     "sm": 2
                 },
+                "historicTimeBase.flexibleTime3": {
+                    "type": "checkbox",
+                    "label": "historicFlexibleTime3",
+                    "default": true,
+                    "sm": 2
+                },
+                "historicTimeBase.flexibleTime4": {
+                    "type": "checkbox",
+                    "label": "historicFlexibleTime4",
+                    "default": true,
+                    "sm": 2
+                },
+                "historicTimeBase.flexibleTime5": {
+                    "type": "checkbox",
+                    "label": "historicFlexibleTime5",
+                    "default": true,
+                    "sm": 2
+                },
+                "historicTimeBase.flexibleTime6": {
+                    "type": "checkbox",
+                    "label": "historicFlexibleTime6",
+                    "default": true,
+                    "sm": 2
+                },
 
                 "historicvalueConfigurationHeader": {
                     "newLine": true,

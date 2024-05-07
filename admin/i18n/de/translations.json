@@ -54,5 +54,9 @@
     "timeBaseForHistoricValues-Flexible": "Zeitbasis für zusätzliche historische Werte (basierend auf Zeitstempeln in ms)",
     "timeBaseHeaderFlexibleTooltip": "flexible zusätzliche Zeitbasen (einstellbar über Zeitstempel - in ms)",
     "historicFlexibleTime1": "flexible Zeit 1",
-    "historicFlexibleTime2": "flexible Zeit 2"
+    "historicFlexibleTime2": "flexible Zeit 2",
+    "historicFlexibleTime3": "flexible Zeit 3",
+    "historicFlexibleTime4": "flexible Zeit 4",
+    "historicFlexibleTime5": "flexible Zeit 5",
+    "historicFlexibleTime6": "flexible Zeit 6"
 }

@@ -54,5 +54,9 @@
     "timeBaseForHistoricValues-Flexible": "podstawa czasu dla dodatkowych wartości historycznych (na podstawie znaczników czasu)",
     "timeBaseHeaderFlexibleTooltip": "elastyczne dodatkowe podstawy czasu (regulowane za pomocą znacznika czasu - w ms)",
     "historicFlexibleTime1": "elastyczny czas 1",
-    "historicFlexibleTime2": "elastyczny czas 2"
+    "historicFlexibleTime2": "elastyczny czas 2",
+    "historicFlexibleTime3": "elastyczny czas 3",
+    "historicFlexibleTime4": "elastyczny czas 4",
+    "historicFlexibleTime5": "elastyczny czas 5",
+    "historicFlexibleTime6": "elastyczny czas 6"
 }
