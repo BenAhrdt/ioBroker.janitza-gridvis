@@ -32,6 +32,10 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (BenAhrdt) manual review for release script
+
 ### 3.1.9 (2024-05-07)
 * (BenAhrdt) implement more flexible timebases
 
