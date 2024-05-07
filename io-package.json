@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.1.10",
+    "version": "3.1.11",
     "eraseOnUpload": true,
     "news": {
+      "3.1.11": {
+        "en": "Plugin for release added",
+        "de": "Plugin für Release hinzugefügt",
+        "ru": "Plugin for release added",
+        "pt": "Plugin para lançamento adicionado",
+        "nl": "Plugin voor release toegevoegd",
+        "fr": "Plugin pour la sortie ajouté",
+        "it": "Plugin per il rilascio aggiunto",
+        "es": "Plugin para lanzamiento añadido",
+        "pl": "Wtyczka do wydania",
+        "uk": "Плагін для виходу доданий",
+        "zh-cn": "添加释放插件"
+      },
       "3.1.10": {
         "en": "manual review for release script",
         "de": "manuelle überprüfung für release-skript",
@@ -81,19 +94,6 @@
         "pl": "zmiana końcowa parametrów czasu do utc",
         "uk": "змінити кінцевий рядок таймерпараметрів до utc",
         "zh-cn": "对时间参数的改变"
-      },
-      "3.1.4": {
-        "en": "corrction in jsonconfig schema & new order of deviceicons",
-        "de": "corrction in jsonconfig schema & neue ordnung von deviceicons",
-        "ru": "коррекции в jsonconfig schema & новый заказ приборов",
-        "pt": "corrção em jsonconfig schema & nova ordem de deviceicons",
-        "nl": "vertaling:",
-        "fr": "corrction in jsonconfig schema & new order of deviceicons",
-        "it": "corrction in jsonconfig schema & nuovo ordine di deviceicons",
-        "es": "corrction in jsonconfig schema \" new order of deviceicons",
-        "pl": "korkacja w schema i nowym porządku urządzenia",
-        "uk": "конструкція в джсонconfig schema & новий порядок пристосувань",
-        "zh-cn": "jsonconfig schema和新装置的装置"
       }
     },
     "title": "Janitza®-GridVis®",
