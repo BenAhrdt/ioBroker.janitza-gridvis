@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.1.8",
+    "version": "3.1.9",
     "eraseOnUpload": true,
     "news": {
+      "3.1.9": {
+        "en": "implement more flexible timebases",
+        "de": "flexiblere zeitbasen implementieren",
+        "ru": "внедрение более гибких временных баз",
+        "pt": "implementar bases de tempo mais flexíveis",
+        "nl": "meer flexibele tijdbasis implementeren",
+        "fr": "mettre en œuvre des délais plus flexibles",
+        "it": "implementare basi di tempo più flessibili",
+        "es": "implementar bases de tiempo más flexibles",
+        "pl": "wdrożenie bardziej elastycznych podstaw czasowych",
+        "uk": "реалізація більш гнучких баз часу",
+        "zh-cn": "实施更灵活的时间表"
+      },
       "3.1.8": {
         "en": "remove debuglogging from stable version",
         "de": "debuglogging aus stabiler version entfernen",
@@ -81,19 +94,6 @@
         "pl": "W przypadku, gdy urządzenie nie jest obecne. Zmiana połączenia API do c",
         "uk": "У разі, якщо пристрій не присутній. => Зменшення метаболізму API",
         "zh-cn": "如果装置不在场,则在情况中装卸。 A. 减少缺碘症"
-      },
-      "3.1.2": {
-        "en": "check timestamp improoved",
-        "de": "zeitstempel improoviert überprüfen",
-        "ru": "проверить timetamp improoved",
-        "pt": "check timestamp improoved",
-        "nl": "controle timetamp improovatie",
-        "fr": "check timestamp improoved",
-        "it": "check timestamp improvato",
-        "es": "check timestamp improoved",
-        "pl": "premisja czasowa",
-        "uk": "контроль часу",
-        "zh-cn": "检查时间不完善"
       }
     },
     "title": "Janitza®-GridVis®",
