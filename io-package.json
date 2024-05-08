@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.1.11",
+    "version": "3.1.12",
     "eraseOnUpload": true,
     "news": {
+      "3.1.12": {
+        "en": "config default for additional flexible time changed",
+        "de": "config default für zusätzliche flexible zeitänderung",
+        "ru": "настройка по умолчанию для дополнительного гибкого времени",
+        "pt": "padrão de configuração para tempo flexível adicional alterado",
+        "nl": "config standaard voor extra flexibele tijd gewijzigd",
+        "fr": "configuration par défaut pour le temps flexible supplémentaire modifié",
+        "it": "config default per il cambio di tempo flessibile aggiuntivo",
+        "es": "configuración predeterminado para tiempo flexible adicional cambiado",
+        "pl": "domyślna konfiguracja dla dodatkowego elastycznego czasu",
+        "uk": "налаштування за замовчуванням для додаткової зміни гнучкого часу",
+        "zh-cn": "更改额外灵活时间的配置默认值"
+      },
       "3.1.11": {
         "en": "Plugin for release added",
         "de": "Plugin für Release hinzugefügt",
@@ -81,19 +94,6 @@
         "pl": "Bugfix Logging utc time (ang.)",
         "uk": "Виправлення помилок",
         "zh-cn": "Bugfix Loc时"
-      },
-      "3.1.5": {
-        "en": "change endstring of timerparameters to utc",
-        "de": "änderung der endstring von timerparametern auf utc",
-        "ru": "изменить конструкцию таймерпараметров к utc",
-        "pt": "alterar a resistência de parâmetros de tempo para utc",
-        "nl": "verandering van tijdrparameters naar utc",
-        "fr": "extrémité de changement de timerparameters à utc",
-        "it": "cambiare la stringa finale dei parametri di tempo a utc",
-        "es": "cambio final de tiemporparameters a utc",
-        "pl": "zmiana końcowa parametrów czasu do utc",
-        "uk": "змінити кінцевий рядок таймерпараметрів до utc",
-        "zh-cn": "对时间参数的改变"
       }
     },
     "title": "Janitza®-GridVis®",
