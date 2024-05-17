@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.1.12",
+    "version": "3.2.0",
     "eraseOnUpload": true,
     "news": {
+      "3.2.0": {
+        "en": "add historic timebases (hours)",
+        "de": "historische zeitbasen (stunden) hinzufügen",
+        "ru": "добавить исторические временные базы (часы)",
+        "pt": "adicionar bases históricas (horas)",
+        "nl": "historische tijdbasis (uren) toevoegen",
+        "fr": "ajouter des fuseaux horaires historiques (heures)",
+        "it": "aggiungere le basi storiche (ore)",
+        "es": "añadir tiempo histórico (horas)",
+        "pl": "dodać historyczne bazy czasowe (godziny)",
+        "uk": "додати історичні бази часу (години)",
+        "zh-cn": "添加历史时间基数(小时)"
+      },
       "3.1.12": {
         "en": "config default for additional flexible time changed",
         "de": "config default für zusätzliche flexible zeitänderung",
@@ -81,19 +94,6 @@
         "pl": "Rzeźba o ikonywanie improrowizowane i wprowadza nowe ikony",
         "uk": "Обробка іконок, що просочують і реалізує нову ікону",
         "zh-cn": "D. 排 定 制和实施新一环"
-      },
-      "3.1.6": {
-        "en": "Bugfix Logging utc time",
-        "de": "Bugfix Logging utc Zeit",
-        "ru": "Bugfix Logging utc время",
-        "pt": "Bugfix Logging tempo utc",
-        "nl": "Bugfix Logging Utc time",
-        "fr": "Bugfix Logging utc time",
-        "it": "Bugfix Logging utc time",
-        "es": "Bugfix Logging utc time",
-        "pl": "Bugfix Logging utc time (ang.)",
-        "uk": "Виправлення помилок",
-        "zh-cn": "Bugfix Loc时"
       }
     },
     "title": "Janitza®-GridVis®",

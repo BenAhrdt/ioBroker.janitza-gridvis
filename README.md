@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.2.0 (2024-05-17)
 * (BenAhrdt) add historic timebases (hours)
 
 ### 3.1.12 (2024-05-08)
