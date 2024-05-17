@@ -58,5 +58,13 @@
     "historicFlexibleTime3": "orario flessibile 3",
     "historicFlexibleTime4": "orario flessibile 4",
     "historicFlexibleTime5": "orario flessibile 5",
-    "historicFlexibleTime6": "orario flessibile 6"
+    "historicFlexibleTime6": "orario flessibile 6",
+    "historicHour1": "ultima ora",
+    "historicHour2": "ultime 2 ore",
+    "historicHour3": "ultime 3 ore",
+    "historicHour4": "ultime 4 ore",
+    "historicHour5": "ultime 5 ore",
+    "historicHour6": "ultime 6 ore",
+    "historicHourX": "ultime X ore",
+    "timeBaseForHistoricValues-Hours": "base temporale per i valori storici delle ultime ore"
 }

@@ -58,5 +58,13 @@
     "historicFlexibleTime3": "гнучкий графік 3",
     "historicFlexibleTime4": "гнучкий графік 4",
     "historicFlexibleTime5": "гнучкий графік 5",
-    "historicFlexibleTime6": "гнучкий графік 6"
+    "historicFlexibleTime6": "гнучкий графік 6",
+    "historicHour1": "остання година",
+    "historicHour2": "останні 2 години",
+    "historicHour3": "останні 3 години",
+    "historicHour4": "останні 4 години",
+    "historicHour5": "останні 5 годин",
+    "historicHour6": "останні 6 годин",
+    "historicHourX": "за останні X годин",
+    "timeBaseForHistoricValues-Hours": "часова база для історичних цінностей за останні години"
 }

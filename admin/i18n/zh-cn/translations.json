@@ -58,5 +58,13 @@
     "historicFlexibleTime3": "弹性时间3",
     "historicFlexibleTime4": "弹性时间4",
     "historicFlexibleTime5": "弹性时间5",
-    "historicFlexibleTime6": "弹性时间6"
+    "historicFlexibleTime6": "弹性时间6",
+    "historicHour1": "上一个小时",
+    "historicHour2": "最后 2 小时",
+    "historicHour3": "过去 3 小时",
+    "historicHour4": "过去 4 小时",
+    "historicHour5": "过去 5 小时",
+    "historicHour6": "过去 6 小时",
+    "historicHourX": "过去 X 小时",
+    "timeBaseForHistoricValues-Hours": "过去几小时历史值的时基"
 }

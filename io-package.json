@@ -678,6 +678,32 @@
         "def": 1715082300006
       },
       "native": {}
+    },
+    {
+      "_id": "historicTimestamps.hourX",
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "number of hours for historic value",
+          "de": "anzahl der stunden für den historischen wert",
+          "ru": "количество часов для исторической ценности",
+          "pt": "número de horas para o valor histórico",
+          "nl": "aantal uren voor historische waarde",
+          "fr": "nombre d'heures pour valeur historique",
+          "it": "numero di ore per valore storico",
+          "es": "número de horas para valor histórico",
+          "pl": "liczba godzin dla wartości historycznej",
+          "uk": "кількість годин на історичне значення",
+          "zh-cn": "历史价值时数"
+        },
+        "type": "number",
+        "role": "state",
+        "read": true,
+        "write": true,
+        "def": 12,
+        "min": 1
+      },
+      "native": {}
     }
   ]
 }

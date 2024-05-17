@@ -58,5 +58,13 @@
     "historicFlexibleTime3": "flexibele tijd 3",
     "historicFlexibleTime4": "flexibele tijd 4",
     "historicFlexibleTime5": "flexibele tijd 5",
-    "historicFlexibleTime6": "flexibele tijd 6"
+    "historicFlexibleTime6": "flexibele tijd 6",
+    "historicHour1": "laatste uur",
+    "historicHour2": "laatste 2 uur",
+    "historicHour3": "laatste 3 uur",
+    "historicHour4": "laatste 4 uur",
+    "historicHour5": "laatste 5 uur",
+    "historicHour6": "laatste 6 uur",
+    "historicHourX": "laatste X uur",
+    "timeBaseForHistoricValues-Hours": "tijdbasis voor historische waarden in de afgelopen uren"
 }

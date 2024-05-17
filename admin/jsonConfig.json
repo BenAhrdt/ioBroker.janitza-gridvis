@@ -322,6 +322,63 @@
                     "default": false,
                     "sm": 1
                 },
+                "timeBase-HoursHeader": {
+                    "newLine": true,
+                    "type": "header",
+                    "text": "timeBaseForHistoricValues-Hours",
+                    "sm": 12,
+                    "tooltip":"timeBaseHeaderHoursTooltip",
+                    "size": 3
+                },
+                "historicTimeBase.hour1": {
+                    "newLine": true,
+                    "type": "checkbox",
+                    "label": "historicHour1",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.hour2": {
+                    "newLine": false,
+                    "type": "checkbox",
+                    "label": "historicHour2",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.hour3": {
+                    "newLine": false,
+                    "type": "checkbox",
+                    "label": "historicHour3",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.hour4": {
+                    "newLine": false,
+                    "type": "checkbox",
+                    "label": "historicHour4",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.hour5": {
+                    "newLine": false,
+                    "type": "checkbox",
+                    "label": "historicHour5",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.hour6": {
+                    "newLine": false,
+                    "type": "checkbox",
+                    "label": "historicHour6",
+                    "default": false,
+                    "sm": 1
+                },
+                "historicTimeBase.hourX": {
+                    "newLine": false,
+                    "type": "checkbox",
+                    "label": "historicHourX",
+                    "default": false,
+                    "sm": 1
+                },
                 "timeBase-FlexibleHeader": {
                     "newLine": true,
                     "type": "header",

@@ -58,5 +58,13 @@
     "historicFlexibleTime3": "гибкий график 3",
     "historicFlexibleTime4": "гибкий график 4",
     "historicFlexibleTime5": "гибкий график 5",
-    "historicFlexibleTime6": "гибкий график 6"
+    "historicFlexibleTime6": "гибкий график 6",
+    "historicHour1": "последний час",
+    "historicHour2": "последние 2 часа",
+    "historicHour3": "последние 3 часа",
+    "historicHour4": "последние 4 часа",
+    "historicHour5": "последние 5 часов",
+    "historicHour6": "последние 6 часов",
+    "historicHourX": "последние Х часов",
+    "timeBaseForHistoricValues-Hours": "временная база для исторических значений за последние часы"
 }

@@ -85,7 +85,8 @@ class JanitzaGridvis extends utils.Adapter {
 			startTimestamp5: "startTimestamp5",
 			endTimestamp5: "endTimestamp5",
 			startTimestamp6: "startTimestamp6",
-			endTimestamp6: "endTimestamp6"
+			endTimestamp6: "endTimestamp6",
+			hourX: "hourX"
 		};
 
 		this.communicationStrings = {
@@ -233,6 +234,48 @@ class JanitzaGridvis extends utils.Adapter {
 				startstring: "NAMED_LastYear",
 				endstring: "NAMED_LastYear",
 				anchorstring: "RELATIVE_-1YEAR"
+			},
+			hour1: {
+				namestring: "Last_1_Hour",
+				startstring: "RELATIVE_-1HOUR",
+				endstring: "NAMED_Today",
+				anchorstring: ""
+			},
+			hour2: {
+				namestring: "Last_2_Hours",
+				startstring: "RELATIVE_-2HOUR",
+				endstring: "NAMED_Today",
+				anchorstring: ""
+			},
+			hour3: {
+				namestring: "Last_3_Hours",
+				startstring: "RELATIVE_-3HOUR",
+				endstring: "NAMED_Today",
+				anchorstring: ""
+			},
+			hour4: {
+				namestring: "Last_4_Hours",
+				startstring: "RELATIVE_-4HOUR",
+				endstring: "NAMED_Today",
+				anchorstring: ""
+			},
+			hour5: {
+				namestring: "Last_5_Hours",
+				startstring: "RELATIVE_-5HOUR",
+				endstring: "NAMED_Today",
+				anchorstring: ""
+			},
+			hour6: {
+				namestring: "Last_6_Hours",
+				startstring: "RELATIVE_-6HOUR",
+				endstring: "NAMED_Today",
+				anchorstring: ""
+			},
+			hourX: {
+				namestring: "Last_X_Hours",
+				startstring: "RELATIVE_-12HOUR",
+				endstring: "NAMED_Today",
+				anchorstring: ""
 			},
 			flexibleTime1: {
 				namestring: "FlexibleTime1",
@@ -831,6 +874,10 @@ class JanitzaGridvis extends utils.Adapter {
 			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.startTimestamp6}`);
 			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp6}`);
 		}
+
+		if(this.timeBases.hourX){
+			this.subscribeStatesAsync(`${this.internalIds.historicTimestamps}.${this.internalIds.hourX}`);
+		}
 	}
 
 	// deletes not configured states
@@ -984,6 +1031,15 @@ class JanitzaGridvis extends utils.Adapter {
 			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
 
 			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp6}`;
+			delete this.AdapterObjectsAtStart[activeString];
+			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
+		}
+
+		if(this.timeBases.hourX){
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}`;  // Delete folder from array
+			delete this.AdapterObjectsAtStart[activeString];
+
+			activeString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.hourX}`;
 			delete this.AdapterObjectsAtStart[activeString];
 			this.asignTimestamps(activeString,await this.getStateAsync(activeString));
 		}
@@ -1247,22 +1303,26 @@ class JanitzaGridvis extends utils.Adapter {
 			let endTimestampString = `${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.endTimestamp1}`;
 			endTimestampString = endTimestampString.substring(0,endTimestampString.length - 1);
 
-			if(id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`){
-				if(!state.ack){
+			// Just react with state.ack === false
+			if(!state.ack){
+				if(id === `${this.namespace}.${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`){
 					if(state.val){
 						this.readOnlineValues();
 						this.readHistoricValues();
 					}
 					this.setStateAsync(id,state.val,true);
 				}
-			}
-			else if(id.indexOf(startTimestampString) !== -1 ||	// check timestampString
-					id.indexOf(endTimestampString) !== -1){
-				if(!state.ack){
+				else if(id.indexOf(startTimestampString) !== -1 ||	// check timestampString
+						id.indexOf(endTimestampString) !== -1){
 					if(this.asignTimestamps(id,state)){
 						this.readHistoricValues();
 						this.setStateAsync(id,state.val,true);
 					}
+				}
+				else if(id.indexOf(`${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.hourX}`) !== -1){
+					this.timeBases.hourX.startstring = `RELATIVE_-${state.val}HOUR`;
+					this.readHistoricValues();
+					this.setStateAsync(id,state.val,true);
 				}
 			}
 		}
