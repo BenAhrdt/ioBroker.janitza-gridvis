@@ -34,7 +34,7 @@ Implemented are the following times:
 -->
 ### **WORK IN PROGRESS**
 * (BenAhrdt) do not send axios or setState after unload Adapter
-* (BenAhrdt) rename reconnectCout in reconnectCount
+* (BenAhrdt) rename reconnectCout in reconnectCount (connfig-parameter)
 
 ### 3.2.0 (2024-05-17)
 * (BenAhrdt) add historic timebases (hours)
