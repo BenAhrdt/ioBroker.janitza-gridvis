@@ -342,6 +342,15 @@ class JanitzaGridvis extends utils.Adapter {
 		// Timestamp to deside if the timeout of a request will be observed
 		this.lastConnectionStateTimestamp = Date.now();
 		this.lastProjectTimestamp = Date.now();
+
+		// States for don´t start twice reading online or historic Data
+		this.readSate = {
+			online: false,
+			historic: false
+		};
+
+		// Create unload state to deactivate writing in state after unload Adapter
+		this.unloaded = false;
 	}
 
 	/**
@@ -398,12 +407,13 @@ class JanitzaGridvis extends utils.Adapter {
 		// Reset ConnectionTimeout
 		this.clearConnectionTimeout();
 		this.clearAllSchedules();
+		this.clearAllReadstate();
 
 		// increment the reconnect counter
 		if(this.reconnectCounter > 0 || this.internalConnectionState){
 			this.reconnectCounter += 1;
 		}
-		if(this.reconnectCounter === 1 &&  this.config.reconnectCout === 0){
+		if(this.reconnectCounter === 1 &&  this.config.reconnectCount === 0){
 			this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
 		}
 
@@ -419,7 +429,7 @@ class JanitzaGridvis extends utils.Adapter {
 			// set recoonectionCounter (for better debug)
 			await this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
 			// log just if the reconnect counter is bigger than the configed number before warning (or at startup)
-			if(this.reconnectCounter > this.config.reconnectCout || this.reconnectCounter === 0){
+			if(this.reconnectCounter > this.config.reconnectCount || this.reconnectCounter === 0){
 				this.log.info(`${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`);
 				this.setStateAsync(`info.${this.internalIds.gridVisVersion}`,projectInfo.version,true);
 				this.setStateAsync(`info.${this.internalIds.numberOfDevicesInProject}`,projectInfo.numberOfDevices,true);
@@ -436,10 +446,10 @@ class JanitzaGridvis extends utils.Adapter {
 			this.StartCommunicationToGridVis();
 		}
 		else{
-			if(this.reconnectCounter === this.config.reconnectCout && this.reconnectCounter !== 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut sein musste bevor diese Warnung ausgegeben wird.
+			if(this.reconnectCounter === this.config.reconnectCount && this.reconnectCounter !== 0){ // Abfrage auf ungleich 0, da erst eine Verbindung aufgebaut sein musste bevor diese Warnung ausgegeben wird.
 				this.log.warn(`${this.communicationStrings.lastCommunicationError}: ${this.reconnectErrorString}`);
 			}
-			if(this.reconnectCounter >= this.config.reconnectCout || this.reconnectCounter === 0){ // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
+			if(this.reconnectCounter >= this.config.reconnectCount || this.reconnectCounter === 0){ // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
 				this.log.warn(this.communicationStrings.noCommunicationSelectString);
 			}
 			this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
@@ -605,6 +615,13 @@ class JanitzaGridvis extends utils.Adapter {
 		{
 			schedule.cancelJob(this.cronJobs[cronJob]);
 			delete this.cronJobs[cronJob];
+		}
+	}
+
+	clearAllReadstate(){
+		for(const readstate in this.readSate)
+		{
+			this.readSate[readstate] = false;
 		}
 	}
 
@@ -1059,6 +1076,9 @@ class JanitzaGridvis extends utils.Adapter {
 
 	// read out all configed online values
 	async readOnlineValues(){
+		if(this.readSate.online) return;
+		this.readSate.online = true;
+
 		// create url to read out onlinevalues
 		let myUrl = "";
 		let firstValueReached = false;
@@ -1098,6 +1118,7 @@ class JanitzaGridvis extends utils.Adapter {
 							for(const value in this.devices[device].onlineValues){
 								for(const type in this.devices[device].onlineValues[value].type){
 									if((result.data.value[`${device}.${value}.${type}`] || result.data.value[`${device}.${value}.${type}`] === 0)){ // check present or equal 0 (a value must be present => also value == 0)
+										if(this.unloaded) return; // Do not execute after starting unload Adapter
 										if(!isNaN(result.data.value[`${device}.${value}.${type}`])){ // check not equal to NaN
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,result.data.value[`${device}.${value}.${type}`],true);
 										}
@@ -1118,17 +1139,22 @@ class JanitzaGridvis extends utils.Adapter {
 					if(error.response && error.response.status && (error.response.status === 400 || // bad request
 						error.response.status === 404)){	// not found
 						this.log.warn(`${this.communicationStrings.checkOnlineValues} --- ${this.reconnectErrorString}`);
+						this.readSate.online = false;
 						return;
 					}
 					this.log.debug(`${error} after sending ${myUrl}`);
 					this.connectToGridVis();
 				}
 			}
+			this.readSate.online = false;
 		}
 	}
 
 	// red out all configed historic values
 	async readHistoricValues(){
+		if(this.readSate.historic) return;
+		this.readSate.historic = true;
+
 		this.log.debug("read out historic data started");
 		// create url to read out historic values
 		let myUrl = "";
@@ -1162,6 +1188,7 @@ class JanitzaGridvis extends utils.Adapter {
 								this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
 								if(result.status === 200){		// OK => write data into internal state
 									if((result.data.energy || result.data.energy === 0)){ // check present or equal 0 (a value must be present => also value == 0)
+										if(this.unloaded) return; // Do not execute after starting unload Adapter
 										if(!isNaN(result.data.energy)){ // check not equal to NaN
 											this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,result.data.energy,true);
 										}
@@ -1172,6 +1199,7 @@ class JanitzaGridvis extends utils.Adapter {
 									}
 								}
 								else if(result.status === 204){		// no content write 0 into internal state
+									if(this.unloaded) return; // Do not execute after starting unload Adapter
 									this.setStateAsync(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,0,true);
 								}
 							}
@@ -1186,6 +1214,7 @@ class JanitzaGridvis extends utils.Adapter {
 				if(error.response && error.response.status && (error.response.status === 400 || // bad request
 				error.response.status === 404)){	// not found
 					this.log.warn(`${this.communicationStrings.checkHistoricValues} --- ${this.reconnectErrorString}`);
+					this.readSate.historic = false;
 					return;
 				}
 				this.log.debug(`${error} after sending ${myUrl}`);
@@ -1193,6 +1222,7 @@ class JanitzaGridvis extends utils.Adapter {
 			}
 		}
 		this.log.debug("read out historic data finished");
+		this.readSate.historic = false;
 		this.setStateAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`,false,true);
 	}
 
@@ -1261,6 +1291,9 @@ class JanitzaGridvis extends utils.Adapter {
 	 */
 	onUnload(callback) {
 		try {
+			// Set unload state => no more actions will be executed
+			this.unloaded = true;
+
 			// clear all schedules
 			this.clearAllSchedules();
 

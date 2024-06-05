@@ -167,7 +167,7 @@
     "port": 8080,
     "projectname": "No project selected",
     "timeout": 2000,
-    "reconnectCout": 4,
+    "reconnectCount": 4,
     "refreshOnlineCronJob": "*/2 * * * * *",
     "onlineDeviceTable": [],
     "historicTimeBase": {

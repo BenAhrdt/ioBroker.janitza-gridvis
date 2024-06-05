@@ -71,7 +71,7 @@
                     "default": 2000,
                     "sm":3
                 },
-                "reconnectCout": {
+                "reconnectCount": {
                     "type": "number",
                     "label": "number of reconnects before warning",
                     "min": 0,
