@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.2.3 (2024-08-09)
 * (BenAhrdt) correct changes for check and service bot
 
 ### 3.2.2 (2024-08-09)

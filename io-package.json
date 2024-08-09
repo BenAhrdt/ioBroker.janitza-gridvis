@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.2.2",
+    "version": "3.2.3",
     "eraseOnUpload": true,
     "news": {
+      "3.2.3": {
+        "en": "correct changes for check and service bot",
+        "de": "korrekte änderungen für check und service bot",
+        "ru": "правильные изменения для проверки и обслуживания бота",
+        "pt": "alterações corretas para check e service bot",
+        "nl": "correcte wijzigingen voor controle en service bot",
+        "fr": "corrects changements pour vérifier et service bot",
+        "it": "modifiche corrette per check e service bot",
+        "es": "cambios correctos para cheque y servicio bot",
+        "pl": "poprawne zmiany dla bota czekowego i serwisowego",
+        "uk": "правильні зміни для перевірки та обслуговування бота",
+        "zh-cn": "检查和服务机器人的正确更改"
+      },
       "3.2.2": {
         "en": "changes for check and service bot",
         "de": "änderungen für check- und service-bot",
@@ -81,19 +94,6 @@
         "pl": "instrukcja przeglądu skryptu wydania",
         "uk": "ручний огляд для сценарію релізу",
         "zh-cn": "发布脚本的手动审查"
-      },
-      "3.1.9": {
-        "en": "implement more flexible timebases",
-        "de": "flexiblere zeitbasen implementieren",
-        "ru": "внедрение более гибких временных баз",
-        "pt": "implementar bases de tempo mais flexíveis",
-        "nl": "meer flexibele tijdbasis implementeren",
-        "fr": "mettre en œuvre des délais plus flexibles",
-        "it": "implementare basi di tempo più flessibili",
-        "es": "implementar bases de tiempo más flexibles",
-        "pl": "wdrożenie bardziej elastycznych podstaw czasowych",
-        "uk": "реалізація більш гнучких баз часу",
-        "zh-cn": "实施更灵活的时间表"
       }
     },
     "titleLang": {
