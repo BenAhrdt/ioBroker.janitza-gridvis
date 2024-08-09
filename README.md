@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) changes for check and service bot
+
 ### 3.2.1 (2024-06-05)
 * (BenAhrdt) do not send axios or setState after unload Adapter
 * (BenAhrdt) rename reconnectCout in reconnectCount (connfig-parameter)

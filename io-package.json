@@ -96,7 +96,6 @@
         "zh-cn": "删除从稳定的版本中乞讨"
       }
     },
-    "title": "Janitza®-GridVis®",
     "titleLang": {
       "en": "Janitza®-GridVis®",
       "de": "Janitza®-GridVis®",
@@ -127,6 +126,7 @@
       "BenAhrdt <bsahrdt@gmail.com>"
     ],
     "keywords": [
+      "ioBroker",
       "Energymanagementsystem",
       "Energymeter",
       "Janitza",
@@ -144,6 +144,7 @@
     "extIcon": "https://raw.githubusercontent.com/BenAhrdt/ioBroker.janitza-gridvis/main/admin/janitza-gridvis.png",
     "readme": "https://github.com/BenAhrdt/ioBroker.janitza-gridvis/blob/main/README.md",
     "loglevel": "info",
+    "tier": 2,
     "mode": "daemon",
     "type": "energy",
     "compact": true,
