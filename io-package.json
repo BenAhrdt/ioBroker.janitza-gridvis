@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.2.3",
+    "version": "3.3.0",
     "eraseOnUpload": true,
     "news": {
+      "3.3.0": {
+        "en": "* Update Dependencies: \"js-controller\": \">=5.0.19\"\n  Check your System before installing new Version",
+        "de": "* Update Dependencies: \"js-controller\": \">=5.0.19\"\nÜberprüfen Sie Ihr System vor der Installation neuer Version",
+        "ru": "* Зависимость обновления: \"Js-controller\": \">=5.0.19\"\nПроверьте свою систему перед установкой новой версии",
+        "pt": "* Dependências de atualização: \"js-controller\": \">=5.0.19\"\nVerifique o seu sistema antes de instalar nova versão",
+        "nl": "* Update afhankelijkheden: \"js-controller\": \">=5.0.19\"\nControleer uw systeem voordat u nieuwe versie installeert",
+        "fr": "* Mise à jour des dépendances : \"js-controller\" : \">=5.0.19\"\nVérifiez votre système avant d'installer une nouvelle version",
+        "it": "* Dipendenze di aggiornamento: \"js-controller\": \">=5.0.19\"\nControlla il tuo sistema prima di installare una nuova versione",
+        "es": "* Actualizar Dependencias: \"js-controller\": \"Inglés=5.0.19\"\nCompruebe su sistema antes de instalar nueva versión",
+        "pl": "* Update Dependences: \"js- controller\": \"> = 5.0.19\"\nSprawdź system przed zainstalowaniem nowej wersji",
+        "uk": "* Оновлення залежностей: \"js-controller\": \">=5.0.19\"\nПеревірити систему до встановлення нової версії",
+        "zh-cn": "* 更新属:\"js-controller\":\">=5.0.19\"\n在安装新版本前检查您的系统"
+      },
       "3.2.3": {
         "en": "correct changes for check and service bot",
         "de": "korrekte änderungen für check und service bot",
@@ -81,19 +94,6 @@
         "pl": "Wtyczka do wydania",
         "uk": "Плагін для виходу доданий",
         "zh-cn": "添加释放插件"
-      },
-      "3.1.10": {
-        "en": "manual review for release script",
-        "de": "manuelle überprüfung für release-skript",
-        "ru": "ручный обзор сценария релиза",
-        "pt": "revisão manual para script de lançamento",
-        "nl": "handmatige herziening voor release script",
-        "fr": "examen manuel pour le script de sortie",
-        "it": "recensione manuale per lo script di rilascio",
-        "es": "revisión manual para script de liberación",
-        "pl": "instrukcja przeglądu skryptu wydania",
-        "uk": "ручний огляд для сценарію релізу",
-        "zh-cn": "发布脚本的手动审查"
       }
     },
     "titleLang": {
