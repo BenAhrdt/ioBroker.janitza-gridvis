@@ -33,7 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (BenAhrdt) update admin dependecies and responsive tags
+* (BenAhrdt) update admin dependecies and responsive tags and deviceicons for UMG806_LP and UMG800
 
 ### 3.3.0 (2024-08-13)
 * (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
