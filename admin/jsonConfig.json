@@ -10,14 +10,21 @@
                     "newLine": true,
                     "type": "header",
                     "text": "connectionInformations",
-                    "sm": 12,
-                    "size": 3
+                    "size": 3,
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "conectionInformation":{
                     "newLine":true,
                     "type": "staticText",
                     "label": "justWithRunningAdapter",
-                    "hidden":"_alive === true"
+                    "hidden":"_alive === true",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12
                 },
                 "connectionState":{
                     "newLine":true,
@@ -28,39 +35,56 @@
                         "address",
                         "port",
                         "projectname"
-                    ]
+                    ],
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12,
+                    "xl": 12
                 },
                 "communicationHeader": {
                     "newLine": true,
                     "type": "header",
                     "text": "communicationSettings",
-                    "sm": 12,
-                    "size": 3
+                    "size": 3,
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "address": {
                     "newLine":true,
                     "type": "text",
                     "label": "address",
                     "default":"192.168.2.50",
-                    "sm":2
+                    "xs": 12,
+                    "sm": 2,
+                    "md": 2,
+                    "lg": 2
                 },
                 "port": {
                     "type": "number",
                     "label": "port",
                     "default": 8080,
-                    "sm":1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "projectname":{
                     "type": "selectSendTo",
                     "label": "projectname",
                     "default": "No project selected",
-                    "sm": 3,
                     "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\"}",
                     "command": "getProjects",
                     "alsoDependsOn":[
                         "address",
                         "port"
-                    ]
+                    ],
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "timeout": {
                     "newLine": true,
@@ -69,7 +93,10 @@
                     "min": 500,
                     "max": 5000,
                     "default": 2000,
-                    "sm":3
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "reconnectCount": {
                     "type": "number",
@@ -77,7 +104,10 @@
                     "min": 0,
                     "max": 10,
                     "default": 4,
-                    "sm":3
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 }
             }
         },
@@ -89,14 +119,21 @@
                     "newLine": true,
                     "type": "header",
                     "text": "connectionInformations",
-                    "sm": 12,
-                    "size": 3
+                    "size": 3,
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "conectionInformationOnlineTab":{
                     "newLine":true,
                     "type": "staticText",
                     "label": "justWithRunningAdapter",
-                    "hidden":"_alive === true"
+                    "hidden":"_alive === true",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12
                 },
                 "connectionStateOnlineTab":{
                     "newLine":true,
@@ -107,14 +144,22 @@
                         "address",
                         "port",
                         "projectname"
-                    ]
+                    ],
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12,
+                    "xl": 12
                 },
                 "onlinevalueConfigurationHeader": {
                     "newLine": true,
                     "type": "header",
                     "text": "onlinevalueConfiguration",
-                    "sm": 12,
-                    "size": 3
+                    "size": 3,
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "refreshOnlineCronJob": {
                     "newLine": true,
@@ -122,13 +167,16 @@
                     "complex": true,
                     "label": "refreshCycle",
                     "tooltip": "refreshCycleTooltipOnline",
-                    "sm":2,
-                    "default": "*/2 * * * * *"
+                    "default": "*/2 * * * * *",
+                    "xs": 12,
+                    "sm": 2,
+                    "md": 2,
+                    "lg": 2,
+                    "xl": 2
                   },
                 "onlineDeviceTable":{
                     "newLine": true,
                     "type":"table",
-                    "sm":12,
                     "allowAddByFilter": true,
                     "items":[
                         {
@@ -152,7 +200,11 @@
                                 "onlineDevices"
                             ]
                         }
-                    ]
+                    ],
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12
                 }
             }
         },
@@ -164,14 +216,21 @@
                     "newLine": true,
                     "type": "header",
                     "text": "connectionInformations",
-                    "sm": 12,
-                    "size": 3
+                    "size": 3,
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "conectionInformationHirstoricTab":{
                     "newLine":true,
                     "type": "staticText",
                     "label": "justWithRunningAdapter",
-                    "hidden":"_alive === true"
+                    "hidden":"_alive === true",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12
                 },
                 "connectionStateHistoricTab":{
                     "newLine":true,
@@ -182,255 +241,373 @@
                         "address",
                         "port",
                         "projectname"
-                    ]
+                    ],
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12,
+                    "xl": 12
                 },
                 "timeBaseHeader": {
                     "newLine": true,
                     "type": "header",
                     "text": "timeBaseForHistoricValues",
-                    "sm": 12,
                     "tooltip":"timeBaseHeaderTooltip",
-                    "size": 3
+                    "size": 3,
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "historicTimeBase.today": {
                     "newLine":true,
                     "type": "checkbox",
                     "label": "historicToday",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.yesterday": {
                     "type": "checkbox",
                     "label": "historicYesterday",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.thisWeek": {
                     "type": "checkbox",
                     "label": "historicThisWeek",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.lastWeek": {
                     "type": "checkbox",
                     "label": "historicLastWeek",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.thisMonth": {
                     "type": "checkbox",
                     "label": "historicThisMonth",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.lastMonth": {
                     "type": "checkbox",
                     "label": "historicLastMonth",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.thisQuarter": {
                     "type": "checkbox",
                     "label": "historicThisQuarter",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.lastQuarter": {
                     "type": "checkbox",
                     "label": "historicLastQuarter",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.thisYear": {
                     "type": "checkbox",
                     "label": "historicThisYear",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.lastYear": {
                     "type": "checkbox",
                     "label": "historicLastYear",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "timeBase-1YearHeader": {
                     "newLine": true,
                     "type": "header",
                     "text": "timeBaseForHistoricValues-1Year",
-                    "sm": 12,
                     "tooltip":"timeBaseHeaderMinus1YearTooltip",
-                    "size": 3
+                    "size": 3,
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "historicTimeBase.todayMinus1Year": {
                     "newLine":true,
                     "type": "checkbox",
                     "label": "historicTodayMinus1Year",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.yesterdayMinus1Year": {
                     "type": "checkbox",
                     "label": "historicYesterdayMinus1Year",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.thisWeekMinus1Year": {
                     "type": "checkbox",
                     "label": "historicThisWeekMinus1Year",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.lastWeekMinus1Year": {
                     "type": "checkbox",
                     "label": "historicLastWeekMinus1Year",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.thisMonthMinus1Year": {
                     "type": "checkbox",
                     "label": "historicThisMonthMinus1Year",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.lastMonthMinus1Year": {
                     "type": "checkbox",
                     "label": "historicLastMonthMinus1Year",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.thisQuarterMinus1Year": {
                     "type": "checkbox",
                     "label": "historicThisQuarterMinus1Year",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.lastQuarterMinus1Year": {
                     "type": "checkbox",
                     "label": "historicLastQuarterMinus1Year",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.thisYearMinus1Year": {
                     "type": "checkbox",
                     "label": "historicThisYearMinus1Year",
                     "default": true,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.lastYearMinus1Year": {
                     "type": "checkbox",
                     "label": "historicLastYearMinus1Year",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "timeBase-HoursHeader": {
                     "newLine": true,
                     "type": "header",
                     "text": "timeBaseForHistoricValues-Hours",
-                    "sm": 12,
                     "tooltip":"timeBaseHeaderHoursTooltip",
-                    "size": 3
+                    "size": 3,
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "historicTimeBase.hour1": {
                     "newLine": true,
                     "type": "checkbox",
                     "label": "historicHour1",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.hour2": {
                     "newLine": false,
                     "type": "checkbox",
                     "label": "historicHour2",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.hour3": {
                     "newLine": false,
                     "type": "checkbox",
                     "label": "historicHour3",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.hour4": {
                     "newLine": false,
                     "type": "checkbox",
                     "label": "historicHour4",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.hour5": {
                     "newLine": false,
                     "type": "checkbox",
                     "label": "historicHour5",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.hour6": {
                     "newLine": false,
                     "type": "checkbox",
                     "label": "historicHour6",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "historicTimeBase.hourX": {
                     "newLine": false,
                     "type": "checkbox",
                     "label": "historicHourX",
                     "default": false,
-                    "sm": 1
+                    "xs": 12,
+                    "sm": 1,
+                    "md": 1,
+                    "lg": 1
                 },
                 "timeBase-FlexibleHeader": {
                     "newLine": true,
                     "type": "header",
                     "text": "timeBaseForHistoricValues-Flexible",
-                    "sm": 12,
                     "tooltip":"timeBaseHeaderFlexibleTooltip",
-                    "size": 3
+                    "size": 3,
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "historicTimeBase.flexibleTime1": {
                     "newLine":true,
                     "type": "checkbox",
                     "label": "historicFlexibleTime1",
                     "default": true,
-                    "sm": 2
+                    "xs": 12,
+                    "sm": 2,
+                    "md": 2,
+                    "lg": 2
                 },
                 "historicTimeBase.flexibleTime2": {
                     "type": "checkbox",
                     "label": "historicFlexibleTime2",
                     "default": true,
-                    "sm": 2
+                    "xs": 12,
+                    "sm": 2,
+                    "md": 2,
+                    "lg": 2
                 },
                 "historicTimeBase.flexibleTime3": {
                     "type": "checkbox",
                     "label": "historicFlexibleTime3",
                     "default": false,
-                    "sm": 2
+                    "xs": 12,
+                    "sm": 2,
+                    "md": 2,
+                    "lg": 2
                 },
                 "historicTimeBase.flexibleTime4": {
                     "type": "checkbox",
                     "label": "historicFlexibleTime4",
                     "default": false,
-                    "sm": 2
+                    "xs": 12,
+                    "sm": 2,
+                    "md": 2,
+                    "lg": 2
                 },
                 "historicTimeBase.flexibleTime5": {
                     "type": "checkbox",
                     "label": "historicFlexibleTime5",
                     "default": false,
-                    "sm": 2
+                    "xs": 12,
+                    "sm": 2,
+                    "md": 2,
+                    "lg": 2
                 },
                 "historicTimeBase.flexibleTime6": {
                     "type": "checkbox",
                     "label": "historicFlexibleTime6",
                     "default": false,
-                    "sm": 2
+                    "xs": 12,
+                    "sm": 2,
+                    "md": 2,
+                    "lg": 2
                 },
 
                 "historicvalueConfigurationHeader": {
                     "newLine": true,
                     "type": "header",
                     "text": "historicvalueConfiguration",
-                    "sm": 12,
-                    "size": 3
+                    "xs": 12,
+                    "sm": 3,
+                    "md": 3,
+                    "lg": 3
                 },
                 "refreshHistoricCronJob": {
                     "newLine": true,
@@ -438,13 +615,15 @@
                     "complex": true,
                     "label": "refreshCycle",
                     "tooltip": "refreshCycleTooltipHistoric",
-                    "sm":2,
-                    "default": "5 */15 * * * *"
+                    "default": "5 */15 * * * *",
+                    "xs": 12,
+                    "sm": 2,
+                    "md": 2,
+                    "lg": 2
                   },
                 "historicDeviceTable":{
                     "newLine": true,
                     "type":"table",
-                    "sm":12,
                     "allowAddByFilter": true,
                     "items":[
                         {
@@ -468,7 +647,11 @@
                                 "historicDevices"
                             ]
                         }
-                    ]
+                    ],
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 12,
+                    "lg": 12
                 }
             }
         }
