@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) Schemas updated
+
 ### 3.3.1 (2024-11-26)
 * (BenAhrdt) update admin dependecies and responsive tags and deviceicons for UMG806_LP and UMG800
 

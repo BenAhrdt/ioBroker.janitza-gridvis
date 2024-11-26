@@ -14,7 +14,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "conectionInformation":{
                     "newLine":true,
@@ -24,7 +25,8 @@
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
-                    "lg": 12
+                    "lg": 12,
+                    "xl": 12
                 },
                 "connectionState":{
                     "newLine":true,
@@ -50,7 +52,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "address": {
                     "newLine":true,
@@ -60,7 +63,8 @@
                     "xs": 12,
                     "sm": 2,
                     "md": 2,
-                    "lg": 2
+                    "lg": 2,
+                    "xl": 2
                 },
                 "port": {
                     "type": "number",
@@ -69,7 +73,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "projectname":{
                     "type": "selectSendTo",
@@ -84,7 +89,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "timeout": {
                     "newLine": true,
@@ -96,7 +102,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "reconnectCount": {
                     "type": "number",
@@ -107,7 +114,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 }
             }
         },
@@ -123,7 +131,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "conectionInformationOnlineTab":{
                     "newLine":true,
@@ -133,7 +142,8 @@
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
-                    "lg": 12
+                    "lg": 12,
+                    "xl": 12
                 },
                 "connectionStateOnlineTab":{
                     "newLine":true,
@@ -159,7 +169,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "refreshOnlineCronJob": {
                     "newLine": true,
@@ -204,7 +215,8 @@
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
-                    "lg": 12
+                    "lg": 12,
+                    "xl": 12
                 }
             }
         },
@@ -220,7 +232,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "conectionInformationHirstoricTab":{
                     "newLine":true,
@@ -230,7 +243,8 @@
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
-                    "lg": 12
+                    "lg": 12,
+                    "xl": 12
                 },
                 "connectionStateHistoricTab":{
                     "newLine":true,
@@ -257,7 +271,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "historicTimeBase.today": {
                     "newLine":true,
@@ -267,7 +282,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.yesterday": {
                     "type": "checkbox",
@@ -276,7 +292,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.thisWeek": {
                     "type": "checkbox",
@@ -285,7 +302,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.lastWeek": {
                     "type": "checkbox",
@@ -294,7 +312,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.thisMonth": {
                     "type": "checkbox",
@@ -303,7 +322,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.lastMonth": {
                     "type": "checkbox",
@@ -312,7 +332,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.thisQuarter": {
                     "type": "checkbox",
@@ -321,7 +342,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.lastQuarter": {
                     "type": "checkbox",
@@ -330,7 +352,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.thisYear": {
                     "type": "checkbox",
@@ -339,7 +362,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.lastYear": {
                     "type": "checkbox",
@@ -348,7 +372,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "timeBase-1YearHeader": {
                     "newLine": true,
@@ -359,7 +384,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "historicTimeBase.todayMinus1Year": {
                     "newLine":true,
@@ -369,7 +395,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.yesterdayMinus1Year": {
                     "type": "checkbox",
@@ -378,7 +405,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.thisWeekMinus1Year": {
                     "type": "checkbox",
@@ -387,7 +415,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.lastWeekMinus1Year": {
                     "type": "checkbox",
@@ -396,7 +425,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.thisMonthMinus1Year": {
                     "type": "checkbox",
@@ -405,7 +435,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.lastMonthMinus1Year": {
                     "type": "checkbox",
@@ -414,7 +445,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.thisQuarterMinus1Year": {
                     "type": "checkbox",
@@ -423,7 +455,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.lastQuarterMinus1Year": {
                     "type": "checkbox",
@@ -432,7 +465,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.thisYearMinus1Year": {
                     "type": "checkbox",
@@ -441,7 +475,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.lastYearMinus1Year": {
                     "type": "checkbox",
@@ -450,7 +485,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "timeBase-HoursHeader": {
                     "newLine": true,
@@ -461,7 +497,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "historicTimeBase.hour1": {
                     "newLine": true,
@@ -471,7 +508,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.hour2": {
                     "newLine": false,
@@ -481,7 +519,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.hour3": {
                     "newLine": false,
@@ -491,7 +530,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.hour4": {
                     "newLine": false,
@@ -501,7 +541,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.hour5": {
                     "newLine": false,
@@ -511,7 +552,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.hour6": {
                     "newLine": false,
@@ -521,7 +563,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "historicTimeBase.hourX": {
                     "newLine": false,
@@ -531,7 +574,8 @@
                     "xs": 12,
                     "sm": 1,
                     "md": 1,
-                    "lg": 1
+                    "lg": 1,
+                    "xl": 1
                 },
                 "timeBase-FlexibleHeader": {
                     "newLine": true,
@@ -542,7 +586,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "historicTimeBase.flexibleTime1": {
                     "newLine":true,
@@ -552,7 +597,8 @@
                     "xs": 12,
                     "sm": 2,
                     "md": 2,
-                    "lg": 2
+                    "lg": 2,
+                    "xl": 2
                 },
                 "historicTimeBase.flexibleTime2": {
                     "type": "checkbox",
@@ -561,7 +607,8 @@
                     "xs": 12,
                     "sm": 2,
                     "md": 2,
-                    "lg": 2
+                    "lg": 2,
+                    "xl": 2
                 },
                 "historicTimeBase.flexibleTime3": {
                     "type": "checkbox",
@@ -570,7 +617,8 @@
                     "xs": 12,
                     "sm": 2,
                     "md": 2,
-                    "lg": 2
+                    "lg": 2,
+                    "xl": 2
                 },
                 "historicTimeBase.flexibleTime4": {
                     "type": "checkbox",
@@ -579,7 +627,8 @@
                     "xs": 12,
                     "sm": 2,
                     "md": 2,
-                    "lg": 2
+                    "lg": 2,
+                    "xl": 2
                 },
                 "historicTimeBase.flexibleTime5": {
                     "type": "checkbox",
@@ -588,7 +637,8 @@
                     "xs": 12,
                     "sm": 2,
                     "md": 2,
-                    "lg": 2
+                    "lg": 2,
+                    "xl": 2
                 },
                 "historicTimeBase.flexibleTime6": {
                     "type": "checkbox",
@@ -597,7 +647,8 @@
                     "xs": 12,
                     "sm": 2,
                     "md": 2,
-                    "lg": 2
+                    "lg": 2,
+                    "xl": 2
                 },
 
                 "historicvalueConfigurationHeader": {
@@ -607,7 +658,8 @@
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
-                    "lg": 3
+                    "lg": 3,
+                    "xl": 3
                 },
                 "refreshHistoricCronJob": {
                     "newLine": true,
@@ -619,7 +671,8 @@
                     "xs": 12,
                     "sm": 2,
                     "md": 2,
-                    "lg": 2
+                    "lg": 2,
+                    "xl": 2
                   },
                 "historicDeviceTable":{
                     "newLine": true,
@@ -651,7 +704,8 @@
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
-                    "lg": 12
+                    "lg": 12,
+                    "xl": 12
                 }
             }
         }
