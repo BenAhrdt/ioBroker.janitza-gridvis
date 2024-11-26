@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.3.0",
+    "version": "3.3.1",
     "eraseOnUpload": true,
     "news": {
+      "3.3.1": {
+        "en": "update admin dependecies and responsive tags and deviceicons for UMG806_LP and UMG800",
+        "de": "adminabhängigkeiten und responsive Tags und Deviceicons für UMG806_LP und UMG800 aktualisieren",
+        "ru": "обновление админовых и зависимостей и адаптивных тегов и устройств для UMG806_LP и UMG800",
+        "pt": "atualizar dependências de administrador e tags e dispositivos responsivos para UMG806_LP e UMG800",
+        "nl": "update admin afhankelijkheden en responsieve tags en apparaten voor UMG806_LP en UMG800",
+        "fr": "mettre à jour les dépendances d'administration et les balises et périphériques réactifs pour UMG806_LP et UMG800",
+        "it": "aggiorna le dipendenze e i tag reattivi e i dispositivi per UMG806_LP e UMG800",
+        "es": "actualizar las dependencias de administración y las etiquetas y dispositivos sensibles para UMG806_LP y UMG800",
+        "pl": "aktualizacji admin zależy i reagujące znaczniki i deviceicon dla UMG806 _ LP i UMG800",
+        "uk": "uMG806_LP і UMG800",
+        "zh-cn": "更新 UMG806_LP 和 UMG800 的管理员依赖性及响应标记和装置"
+      },
       "3.3.0": {
         "en": "* Update Dependencies: \"js-controller\": \">=5.0.19\"\n  Check your System before installing new Version",
         "de": "* Update Dependencies: \"js-controller\": \">=5.0.19\"\nÜberprüfen Sie Ihr System vor der Installation neuer Version",
@@ -81,19 +94,6 @@
         "pl": "domyślna konfiguracja dla dodatkowego elastycznego czasu",
         "uk": "налаштування за замовчуванням для додаткової зміни гнучкого часу",
         "zh-cn": "更改额外灵活时间的配置默认值"
-      },
-      "3.1.11": {
-        "en": "Plugin for release added",
-        "de": "Plugin für Release hinzugefügt",
-        "ru": "Plugin for release added",
-        "pt": "Plugin para lançamento adicionado",
-        "nl": "Plugin voor release toegevoegd",
-        "fr": "Plugin pour la sortie ajouté",
-        "it": "Plugin per il rilascio aggiunto",
-        "es": "Plugin para lanzamiento añadido",
-        "pl": "Wtyczka do wydania",
-        "uk": "Плагін для виходу доданий",
-        "zh-cn": "添加释放插件"
       }
     },
     "titleLang": {
