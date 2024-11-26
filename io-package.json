@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.3.1",
+    "version": "3.3.2",
     "eraseOnUpload": true,
     "news": {
+      "3.3.2": {
+        "en": "Schemas updated",
+        "de": "Schemas aktualisiert",
+        "ru": "Обновленные схемы",
+        "pt": "Esquemas atualizados",
+        "nl": "Schema's bijgewerkt",
+        "fr": "Schémas mis à jour",
+        "it": "Schema aggiornato",
+        "es": "Datos actualizados",
+        "pl": "Schematy zaktualizowane",
+        "uk": "Schemas оновлений",
+        "zh-cn": "更新 Schemas"
+      },
       "3.3.1": {
         "en": "update admin dependecies and responsive tags and deviceicons for UMG806_LP and UMG800",
         "de": "adminabhängigkeiten und responsive Tags und Deviceicons für UMG806_LP und UMG800 aktualisieren",
@@ -81,19 +94,6 @@
         "pl": "dodać historyczne bazy czasowe (godziny)",
         "uk": "додати історичні бази часу (години)",
         "zh-cn": "添加历史时间基数(小时)"
-      },
-      "3.1.12": {
-        "en": "config default for additional flexible time changed",
-        "de": "config default für zusätzliche flexible zeitänderung",
-        "ru": "настройка по умолчанию для дополнительного гибкого времени",
-        "pt": "padrão de configuração para tempo flexível adicional alterado",
-        "nl": "config standaard voor extra flexibele tijd gewijzigd",
-        "fr": "configuration par défaut pour le temps flexible supplémentaire modifié",
-        "it": "config default per il cambio di tempo flessibile aggiuntivo",
-        "es": "configuración predeterminado para tiempo flexible adicional cambiado",
-        "pl": "domyślna konfiguracja dla dodatkowego elastycznego czasu",
-        "uk": "налаштування за замовчуванням для додаткової зміни гнучкого часу",
-        "zh-cn": "更改额外灵活时间的配置默认值"
       }
     },
     "titleLang": {
