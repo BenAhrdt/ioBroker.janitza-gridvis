@@ -155,7 +155,7 @@
     "messagebox": true,
     "globalDependencies": [
       {
-        "admin": ">=6.2.14"
+        "admin": ">=7.1.5"
       }
     ],
     "dependencies": [
