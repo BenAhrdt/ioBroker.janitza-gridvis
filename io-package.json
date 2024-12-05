@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.3.2",
+    "version": "3.4.0",
     "eraseOnUpload": true,
     "news": {
+      "3.4.0": {
+        "en": "update eslint",
+        "de": "update eslint",
+        "ru": "обновление eslint",
+        "pt": "atualização eslint",
+        "nl": "eslint bijwerken",
+        "fr": "mettre à jour eslint",
+        "it": "aggiornamento eslint",
+        "es": "update eslint",
+        "pl": "update eslint",
+        "uk": "оновлення eslint",
+        "zh-cn": "更新埃斯林特"
+      },
       "3.3.2": {
         "en": "Schemas updated",
         "de": "Schemas aktualisiert",
@@ -81,19 +94,6 @@
         "pl": "nie wysyłaj axios lub setState po rozładowaniu Adapter\nzmień nazwę ponownego połączenia Cout in reconnect Liczba (parametr connfig-)",
         "uk": "не надсилати axios або setState після перевантаження адаптера\nвідключення перейменування Відключення Кількість (конніг-параметр)",
         "zh-cn": "卸载适配器后不发送轴或设置状态\n重命名重连接 重新连接时显示 计数(connfig-参数)"
-      },
-      "3.2.0": {
-        "en": "add historic timebases (hours)",
-        "de": "historische zeitbasen (stunden) hinzufügen",
-        "ru": "добавить исторические временные базы (часы)",
-        "pt": "adicionar bases históricas (horas)",
-        "nl": "historische tijdbasis (uren) toevoegen",
-        "fr": "ajouter des fuseaux horaires historiques (heures)",
-        "it": "aggiungere le basi storiche (ore)",
-        "es": "añadir tiempo histórico (horas)",
-        "pl": "dodać historyczne bazy czasowe (godziny)",
-        "uk": "додати історичні бази часу (години)",
-        "zh-cn": "添加历史时间基数(小时)"
       }
     },
     "titleLang": {
