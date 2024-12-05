@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) update eslint
+
 ### 3.3.2 (2024-11-26)
 * (BenAhrdt) Schemas updated
 
