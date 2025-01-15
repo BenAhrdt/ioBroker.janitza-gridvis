@@ -1474,7 +1474,6 @@ class JanitzaGridvis extends utils.Adapter {
     //  * @param {ioBroker.Message} obj
     //  */
     async onMessage(obj) {
-        this.log.error(JSON.stringify(obj));
         let result;
         let myCount = 0;
         let connectionStateTimestamp;
