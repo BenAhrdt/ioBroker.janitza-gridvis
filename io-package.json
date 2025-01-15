@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.4.1",
+    "version": "3.4.2",
     "eraseOnUpload": true,
     "news": {
+      "3.4.2": {
+        "en": "remove wrong errorlogging",
+        "de": "fehlersuche entfernen",
+        "ru": "удалить неправильные ошибки",
+        "pt": "remover erro errado",
+        "nl": "foutmelding verwijderen",
+        "fr": "supprimer l'erreur",
+        "it": "rimuovere errori di errore",
+        "es": "eliminar errores equivocados",
+        "pl": "usunąć błędne logowanie błędów",
+        "uk": "видалити неправильні помилки",
+        "zh-cn": "删除错误的日志"
+      },
       "3.4.1": {
         "en": "set the \\\" in jsonconfig and parse the message.device (bugfix for valueconfig)",
         "de": "setzen sie die \\\" in jsonconfig und parse die nachricht. gerät (bugfix für valueconfig)",
@@ -81,19 +94,6 @@
         "pl": "poprawne zmiany dla bota czekowego i serwisowego",
         "uk": "правильні зміни для перевірки та обслуговування бота",
         "zh-cn": "检查和服务机器人的正确更改"
-      },
-      "3.2.2": {
-        "en": "changes for check and service bot",
-        "de": "änderungen für check- und service-bot",
-        "ru": "изменения для проверки и обслуживания бота",
-        "pt": "alterações para verificação e serviço bot",
-        "nl": "wijzigingen voor controle en service bot",
-        "fr": "modifications pour vérifier et service bot",
-        "it": "modifiche per check e service bot",
-        "es": "cambios para cheque y servicio bot",
-        "pl": "zmiany dotyczące bota kontrolnego i serwisowego",
-        "uk": "зміни для перевірки та сервісу",
-        "zh-cn": "检查和服务机器人的更改"
       }
     },
     "titleLang": {

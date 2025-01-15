@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.4.2 (2025-01-15)
 * (BenAhrdt) remove wrong errorlogging
 
 ### 3.4.1 (2025-01-15)
