@@ -1610,26 +1610,30 @@ class JanitzaGridvis extends utils.Adapter {
                 if (obj.message && obj.message.connection && obj.message.device) {
                     try {
                         obj.message.device = JSON.parse(obj.message.device);
-                        const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/online/values.json?`;
-                        this.log.silly(`${myUrl} is send to get online values`);
-                        result = await axios.get(myUrl, { timeout: this.config.timeout });
-                        this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
-                        const myValues = [];
-                        myCount = 0;
-                        for (const values in result.data.valuetype) {
-                            let label = result.data.valuetype[values].valueName;
-                            if (result.data.valuetype[values].valueName !== result.data.valuetype[values].typeName) {
-                                label += ` ${result.data.valuetype[values].typeName}`;
+                        if (obj.message.device) {
+                            const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/online/values.json?`;
+                            this.log.silly(`${myUrl} is send to get online values`);
+                            result = await axios.get(myUrl, { timeout: this.config.timeout });
+                            this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
+                            const myValues = [];
+                            myCount = 0;
+                            for (const values in result.data.valuetype) {
+                                let label = result.data.valuetype[values].valueName;
+                                if (
+                                    result.data.valuetype[values].valueName !== result.data.valuetype[values].typeName
+                                ) {
+                                    label += ` ${result.data.valuetype[values].typeName}`;
+                                }
+                                const keys = Object.keys(result.data.valuetype[values]).sort();
+                                const myValueObject = {};
+                                keys.forEach(key => {
+                                    myValueObject[key] = result.data.valuetype[values][key];
+                                });
+                                myValues[myCount] = { label: label, value: JSON.stringify(myValueObject) };
+                                myCount++;
                             }
-                            const keys = Object.keys(result.data.valuetype[values]).sort();
-                            const myValueObject = {};
-                            keys.forEach(key => {
-                                myValueObject[key] = result.data.valuetype[values][key];
-                            });
-                            myValues[myCount] = { label: label, value: JSON.stringify(myValueObject) };
-                            myCount++;
+                            this.sendTo(obj.from, obj.command, myValues, obj.callback);
                         }
-                        this.sendTo(obj.from, obj.command, myValues, obj.callback);
                     } catch (error) {
                         this.sendTo(obj.from, obj.command, [this.definedObjects.noValidDeviceSelected], obj.callback);
                         this.log.error(error);
