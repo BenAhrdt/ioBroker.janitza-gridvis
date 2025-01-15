@@ -1474,6 +1474,7 @@ class JanitzaGridvis extends utils.Adapter {
     //  * @param {ioBroker.Message} obj
     //  */
     async onMessage(obj) {
+        this.log.error(JSON.stringify(obj));
         let result;
         let myCount = 0;
         let connectionStateTimestamp;
@@ -1609,6 +1610,7 @@ class JanitzaGridvis extends utils.Adapter {
             case 'getOnlineValues':
                 if (obj.message && obj.message.connection && obj.message.device) {
                     try {
+                        obj.message.device = JSON.parse(obj.message.device);
                         const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/online/values.json?`;
                         this.log.silly(`${myUrl} is send to get online values`);
                         result = await axios.get(myUrl, { timeout: this.config.timeout });
@@ -1643,6 +1645,7 @@ class JanitzaGridvis extends utils.Adapter {
             case 'getHistoricValues':
                 if (obj.message && obj.message.connection && obj.message.device) {
                     try {
+                        obj.message.device = JSON.parse(obj.message.device);
                         const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/hist/values.json?`;
                         this.log.silly(`${myUrl} is send to get historic values`);
                         result = await axios.get(myUrl, { timeout: this.config.timeout });

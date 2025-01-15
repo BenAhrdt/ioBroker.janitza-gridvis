@@ -205,7 +205,7 @@
                             "title": "online values",
                             "filter": true,
                             "sort": false,
-                            "jsonData": "{\"connection\":{\"address\":\"${globalData.address}\",\"port\":\"${globalData.port}\",\"projectname\":\"${globalData.projectname}\"},\"device\":${data.onlineDevices}}",
+                            "jsonData": "{\"connection\":{\"address\":\"${globalData.address}\",\"port\":\"${globalData.port}\",\"projectname\":\"${globalData.projectname}\"},\"device\":\"${data.onlineDevices}\"}",
                             "command": "getOnlineValues",
                             "alsoDependsOn":[
                                 "onlineDevices"
@@ -694,7 +694,7 @@
                             "title": "historic values",
                             "filter": true,
                             "sort": false,
-                            "jsonData": "{\"connection\":{\"address\":\"${globalData.address}\",\"port\":\"${globalData.port}\",\"projectname\":\"${globalData.projectname}\"},\"device\":${data.historicDevices}}",
+                            "jsonData": "{\"connection\":{\"address\":\"${globalData.address}\",\"port\":\"${globalData.port}\",\"projectname\":\"${globalData.projectname}\"},\"device\":\"${data.historicDevices}\"}",
                             "command": "getHistoricValues",
                             "alsoDependsOn":[
                                 "historicDevices"

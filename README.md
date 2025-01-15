@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) set the \" in jsonconfig and parse the message.device (bugfix for valueconfig)
+
 ### 3.4.0 (2024-12-05)
 * (BenAhrdt) update eslint
 
