@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.5.1 (2025-03-15)
 * (BenAhrdt) add local links tile
 
 ### 3.5.0 (2025-02-22)
