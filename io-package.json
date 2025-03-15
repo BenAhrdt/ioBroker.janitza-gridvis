@@ -158,6 +158,25 @@
         "admin": ">=7.4.10"
       }
     ],
+    "localLinks": {
+      "_default": {
+        "description": {
+          "en": "Web interface of the energymanagement-software GridVis",
+          "de": "Web-Oberläche der Energiemanagement-Software GridVis",
+          "ru": "Веб-интерфейс программного обеспечения для управления энергией GridVis",
+          "pt": "Interface Web do GridVis de gerenciamento de energia",
+          "nl": "Webinterface van het energiemanagement-software GridVis",
+          "fr": "Interface Web du logiciel de gestion énergétique GridVis",
+          "it": "Interfaccia web del software di gestione energetica GridVis",
+          "es": "Interfaz web del software de gestión de energía GridVis",
+          "pl": "Interfejs internetowy zarządzania energią - oprogramowanie GridVis",
+          "uk": "Веб-інтерфейс енергоменеджменту GridVis",
+          "zh-cn": "能源管理软件GridVis的网络接口"
+        },
+        "link": "http://%address%:%port%",
+        "color": "black"
+      }
+    },
     "dependencies": [
       {
         "js-controller": ">=7.0.6"
