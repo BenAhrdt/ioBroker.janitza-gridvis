@@ -162,7 +162,7 @@
       "_default": {
         "description": {
           "en": "Web interface of the energymanagement-software GridVis",
-          "de": "Web-Oberläche der Energiemanagement-Software GridVis",
+          "de": "Web-Oberfläche der Energiemanagement-Software GridVis",
           "ru": "Веб-интерфейс программного обеспечения для управления энергией GridVis",
           "pt": "Interface Web do GridVis de gerenciamento de energia",
           "nl": "Webinterface van het energiemanagement-software GridVis",
