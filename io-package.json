@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.5.1",
+    "version": "3.5.2",
     "eraseOnUpload": true,
     "news": {
+      "3.5.2": {
+        "en": "Bugfix text",
+        "de": "Bugfix Text",
+        "ru": "Bugfix текст",
+        "pt": "Texto do Bugfix",
+        "nl": "Bugfix-tekst",
+        "fr": "Texte de correction du bogue",
+        "it": "Testo di bugfix",
+        "es": "Texto de Bugfix",
+        "pl": "Tekst bugfix",
+        "uk": "Текст повідомлення",
+        "zh-cn": "错误修正文本"
+      },
       "3.5.1": {
         "en": "add local links tile",
         "de": "lokale links hinzufügen",
@@ -81,19 +94,6 @@
         "pl": "update eslint",
         "uk": "оновлення eslint",
         "zh-cn": "更新埃斯林特"
-      },
-      "3.3.2": {
-        "en": "Schemas updated",
-        "de": "Schemas aktualisiert",
-        "ru": "Обновленные схемы",
-        "pt": "Esquemas atualizados",
-        "nl": "Schema's bijgewerkt",
-        "fr": "Schémas mis à jour",
-        "it": "Schema aggiornato",
-        "es": "Datos actualizados",
-        "pl": "Schematy zaktualizowane",
-        "uk": "Schemas оновлений",
-        "zh-cn": "更新 Schemas"
       }
     },
     "titleLang": {
