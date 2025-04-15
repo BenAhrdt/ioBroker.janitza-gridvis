@@ -362,6 +362,8 @@ class JanitzaGridvis extends utils.Adapter {
         // read system translation out of i18n translation
         this.i18nTranslation = await this.geti18nTranslation();
 
+        this.log.warn(JSON.stringify(this.config.Testselect));
+
         // read out present icons
         const dirInfo = await this.readDirAsync(`${this.name}.admin`, '/icons/');
         dirInfo.forEach(info => {
