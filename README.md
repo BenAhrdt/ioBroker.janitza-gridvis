@@ -33,6 +33,7 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (BenAhrdt) bugfix jsonconfig schema
 * (BenAhrdt) update dependencie to node >= 20
 * (BenAhrdt) update testing to 24.x
 
