@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.5.3",
+    "version": "3.5.4",
     "eraseOnUpload": true,
     "news": {
+      "3.5.4": {
+        "en": "update dependencies",
+        "de": "aktualisierung der abhängigkeiten",
+        "ru": "обновление зависимостей",
+        "pt": "atualizar dependências",
+        "nl": "afhankelijkheden bijwerken",
+        "fr": "mettre à jour les dépendances",
+        "it": "aggiornamento dipendenze",
+        "es": "dependencias de actualización",
+        "pl": "aktualizacji zależności",
+        "uk": "оновлення залежності",
+        "zh-cn": "更新依赖关系"
+      },
       "3.5.3": {
         "en": "bugfix jsonconfig schema\nupdate dependencie to node >= 20\nupdate testing to 24.x",
         "de": "bugfix jsonconfig schema\nupdate abhängigencier to node >= 20\nupdate-tests auf 24.x",
@@ -81,19 +94,6 @@
         "pl": "usunąć błędne logowanie błędów",
         "uk": "видалити неправильні помилки",
         "zh-cn": "删除错误的日志"
-      },
-      "3.4.1": {
-        "en": "set the \\\" in jsonconfig and parse the message.device (bugfix for valueconfig)",
-        "de": "setzen sie die \\\" in jsonconfig und parse die nachricht. gerät (bugfix für valueconfig)",
-        "ru": "установите \\\" в jsonconfig и изобразите сообщение. устройство (фикс ошибки для конфигурации значения)",
-        "pt": "definir o \\\" em jsonconfig e analisar a mensagem. dispositivo (bugfix for valueconfig)",
-        "nl": "stel de \\\" in in jsonconfig en ontleed het bericht. apparaat (bugfix voor waardeconfig)",
-        "fr": "définir le \\\" dans jsonconfig et analyser le message. périphérique (bugfix pour valueconfig)",
-        "it": "impostare il \\\" in jsonconfig e analizzare il messaggio. dispositivo (bugfix per valueconfig)",
-        "es": "establecer el \\\" en jsonconfig y analizar el mensaje. dispositivo (bugfix para valorconfig)",
-        "pl": "ustaw\\ \"w jsonconfig i przeanalizuj wiadomość. urządzenie (bugfix dla valueconfig)",
-        "uk": "встановити \\\" в jsonconfig і записати повідомлення. пристрій (bugfix для налаштування значення)",
-        "zh-cn": "在 jsonconfig 中设置\\ 并解析信件。 设备"
       }
     },
     "titleLang": {

@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.5.4 (2025-08-30)
 * (BenAhrdt) update dependencies
 
 ### 3.5.3 (2025-06-10)
