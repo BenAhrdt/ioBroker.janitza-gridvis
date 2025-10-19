@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.5.4",
+    "version": "3.6.0",
     "eraseOnUpload": true,
     "news": {
+      "3.6.0": {
+        "en": "update Authentication NPM",
+        "de": "update Authentication NPM",
+        "ru": "обновление Authentication NPM",
+        "pt": "atualizar a autenticação NPM",
+        "nl": "authenticatie NPM bijwerken",
+        "fr": "mettre à jour Authentification NPM",
+        "it": "aggiornamento Autenticazione NPM",
+        "es": "actualización de la autenticación NPM",
+        "pl": "aktualizacja Uwierzytelnianie NPM",
+        "uk": "оновлення аутентифікації NPM",
+        "zh-cn": "更新认证国家预防机制"
+      },
       "3.5.4": {
         "en": "update dependencies",
         "de": "aktualisierung der abhängigkeiten",
@@ -81,19 +94,6 @@
         "pl": "identyfikator odczytu bugfix urządzenia",
         "uk": "виправлення читання id пристрою",
         "zh-cn": "设备的读取符"
-      },
-      "3.4.2": {
-        "en": "remove wrong errorlogging",
-        "de": "fehlersuche entfernen",
-        "ru": "удалить неправильные ошибки",
-        "pt": "remover erro errado",
-        "nl": "foutmelding verwijderen",
-        "fr": "supprimer l'erreur",
-        "it": "rimuovere errori di errore",
-        "es": "eliminar errores equivocados",
-        "pl": "usunąć błędne logowanie błędów",
-        "uk": "видалити неправильні помилки",
-        "zh-cn": "删除错误的日志"
       }
     },
     "titleLang": {
