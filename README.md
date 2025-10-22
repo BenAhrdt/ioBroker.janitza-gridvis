@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) Bugfix adding Historic Device
+
 ### 3.6.0 (2025-10-19)
 * (BenAhrdt) update Authentication NPM
 

@@ -1649,39 +1649,41 @@ class JanitzaGridvis extends utils.Adapter {
                 if (obj.message && obj.message.connection && obj.message.device) {
                     try {
                         obj.message.device = JSON.parse(obj.message.device);
-                        const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/hist/values.json?`;
-                        this.log.silly(`${myUrl} is send to get historic values`);
-                        result = await axios.get(myUrl, { timeout: this.config.timeout });
+                        if (obj.message.device) {
+                            const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/hist/values.json?`;
+                            this.log.silly(`${myUrl} is send to get historic values`);
+                            result = await axios.get(myUrl, { timeout: this.config.timeout });
 
-                        this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
-                        const myValues = [];
-                        myCount = 0;
-                        const listedLabels = {}; // Labels who are allready listed (eg. Power L1 900s & Power L1 60s)
-                        for (const values in result.data.value) {
-                            // deactivate supported Units and use all delivered values
-                            //if(this.supportedHistoricalUnits[result.data.value[values].valueType.unit]){
-                            let label = result.data.value[values].valueType.valueName;
-                            if (
-                                result.data.value[values].valueType.valueName !==
-                                result.data.value[values].valueType.typeName
-                            ) {
-                                label += ` ${result.data.value[values].valueType.typeName}`;
+                            this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
+                            const myValues = [];
+                            myCount = 0;
+                            const listedLabels = {}; // Labels who are allready listed (eg. Power L1 900s & Power L1 60s)
+                            for (const values in result.data.value) {
+                                // deactivate supported Units and use all delivered values
+                                //if(this.supportedHistoricalUnits[result.data.value[values].valueType.unit]){
+                                let label = result.data.value[values].valueType.valueName;
+                                if (
+                                    result.data.value[values].valueType.valueName !==
+                                    result.data.value[values].valueType.typeName
+                                ) {
+                                    label += ` ${result.data.value[values].valueType.typeName}`;
+                                }
+                                if (!listedLabels[label]) {
+                                    listedLabels[label] = label;
+                                } else {
+                                    continue;
+                                }
+                                const keys = Object.keys(result.data.value[values].valueType).sort();
+                                const myValueObject = {};
+                                keys.forEach(key => {
+                                    myValueObject[key] = result.data.value[values].valueType[key];
+                                });
+                                myValues[myCount] = { label: label, value: JSON.stringify(myValueObject) };
+                                myCount++;
+                                //}
                             }
-                            if (!listedLabels[label]) {
-                                listedLabels[label] = label;
-                            } else {
-                                continue;
-                            }
-                            const keys = Object.keys(result.data.value[values].valueType).sort();
-                            const myValueObject = {};
-                            keys.forEach(key => {
-                                myValueObject[key] = result.data.value[values].valueType[key];
-                            });
-                            myValues[myCount] = { label: label, value: JSON.stringify(myValueObject) };
-                            myCount++;
-                            //}
+                            this.sendTo(obj.from, obj.command, myValues, obj.callback);
                         }
-                        this.sendTo(obj.from, obj.command, myValues, obj.callback);
                     } catch (error) {
                         this.sendTo(obj.from, obj.command, [this.definedObjects.noValidDeviceSelected], obj.callback);
                         this.log.error(error);
