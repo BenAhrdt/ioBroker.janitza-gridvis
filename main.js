@@ -30,6 +30,9 @@ class JanitzaGridvis extends utils.Adapter {
 
         this.AdapterObjectsAtStart = {};
 
+        // Init message Queue
+        this.messageQueue = Promise.resolve();
+
         this.devices = {};
 
         // cron Jobs
@@ -1467,13 +1470,29 @@ class JanitzaGridvis extends utils.Adapter {
         }
     }
 
+    async onMessage(obj) {
+        this.messageQueue = this.messageQueue
+            .then(() =>
+                Promise.race([
+                    this.handleMessage(obj),
+                    new Promise((_, reject) =>
+                        setTimeout(() => reject(new Error(`Message timeout: ${obj.command}`)), this.config.timeout * 2),
+                    ),
+                ]),
+            )
+            .catch(err => {
+                this.log.error(`Message handling failed: ${err}`);
+            });
+        return this.messageQueue;
+    }
+
     // If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
     // /**
     //  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
     //  * Using this method requires "common.messagebox" property to be set to true in io-package.json
     //  * @param {ioBroker.Message} obj
     //  */
-    async onMessage(obj) {
+    async handleMessage(obj) {
         let result;
         let myCount = 0;
         let connectionStateTimestamp;

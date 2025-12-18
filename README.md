@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) Serialize config requests
+
 ### 3.6.1 (2025-10-22)
 * (BenAhrdt) Bugfix adding Historic Device
 
