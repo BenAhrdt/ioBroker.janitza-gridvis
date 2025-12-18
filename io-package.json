@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.1",
+    "version": "3.6.2",
     "eraseOnUpload": true,
     "news": {
+      "3.6.2": {
+        "en": "Serialize config requests",
+        "de": "Konfiktive Anfragen Serialisieren",
+        "ru": "Сериализация запросов конфигураций",
+        "pt": "Serializar pedidos de configuração",
+        "nl": "Config-verzoeken serieren",
+        "fr": "Sérialiser les requêtes de configuration",
+        "it": "Serializzare le richieste di configurazione",
+        "es": "Serialize config requests",
+        "pl": "Serialize config requests",
+        "uk": "Налаштування запитів на налаштування",
+        "zh-cn": "序列化配置请求"
+      },
       "3.6.1": {
         "en": "Bugfix adding Historic Device",
         "de": "Bugfix Hinzufügen historischer Geräte",
@@ -81,19 +94,6 @@
         "pl": "dodaj kafelki linków lokalnych",
         "uk": "додати локальні посилання плитка",
         "zh-cn": "添加本地链接瓦片"
-      },
-      "3.5.0": {
-        "en": "update admin and js-controller dependencies",
-        "de": "admin- und js-controller-abhängigkeiten aktualisieren",
-        "ru": "обновление зависимостей администратора и js-контроллера",
-        "pt": "atualizar as dependências admin e js-controller",
-        "nl": "admin en js-controller afhankelijkheden bijwerken",
-        "fr": "mettre à jour les dépendances admin et js-controller",
-        "it": "aggiornare le dipendenze di admin e js-controller",
-        "es": "actualizar las dependencias de administración y js-controller",
-        "pl": "aktualizacja zależności admin i js- kontroler",
-        "uk": "оновлення залежності адміністратора та js-controller",
-        "zh-cn": "更新管理员和js控制器依赖性"
       }
     },
     "titleLang": {
