@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.2",
+    "version": "3.6.3",
     "eraseOnUpload": true,
     "news": {
+      "3.6.3": {
+        "en": "Cache Api results in config for 30s for better performance",
+        "de": "Cache Api Ergebnisse in config für 30er Jahre für bessere Leistung",
+        "ru": "Cache Api дает конфигурацию для 30 для лучшей производительности",
+        "pt": "Cache Api resulta em configuração para 30s para melhor desempenho",
+        "nl": "Cache Api resulteert in configuratie voor 30s voor betere prestaties",
+        "fr": "Cache Api résultats en config pour 30s pour une meilleure performance",
+        "it": "Cache Api risultati in configurazione per 30s per prestazioni migliori",
+        "es": "Cache Api resultados en config for 30s para un mejor rendimiento",
+        "pl": "Cache Api daje wynik w config dla 30 lat dla lepszej wydajności",
+        "uk": "Cache Api результати в конфігурації для 30-х для кращої продуктивності",
+        "zh-cn": "缓存 Api 为更好的性能配置了 30 个"
+      },
       "3.6.2": {
         "en": "Serialize config requests",
         "de": "Konfiktive Anfragen Serialisieren",
@@ -81,19 +94,6 @@
         "pl": "Tekst bugfix",
         "uk": "Текст повідомлення",
         "zh-cn": "错误修正文本"
-      },
-      "3.5.1": {
-        "en": "add local links tile",
-        "de": "lokale links hinzufügen",
-        "ru": "добавить локальные ссылки",
-        "pt": "adicionar telha de links locais",
-        "nl": "lokale linkstegel toevoegen",
-        "fr": "ajouter des liens locaux carrelage",
-        "it": "aggiungere piastrelle link locali",
-        "es": "añadir enlaces locales",
-        "pl": "dodaj kafelki linków lokalnych",
-        "uk": "додати локальні посилання плитка",
-        "zh-cn": "添加本地链接瓦片"
       }
     },
     "titleLang": {
