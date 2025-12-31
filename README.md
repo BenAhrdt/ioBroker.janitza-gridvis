@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) Cache Api results in config for 30s for better performance
+
 ### 3.6.2 (2025-12-18)
 * (BenAhrdt) Serialize config requests
 

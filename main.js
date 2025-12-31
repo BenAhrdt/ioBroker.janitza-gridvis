@@ -356,6 +356,10 @@ class JanitzaGridvis extends utils.Adapter {
 
         // Create unload state to deactivate writing in state after unload Adapter
         this.unloaded = false;
+
+        // Cache for API Calls in config
+        this._apiCache = new Map();
+        this._apiCacheMaxSize = 200;
     }
 
     /**
@@ -1573,7 +1577,9 @@ class JanitzaGridvis extends utils.Adapter {
                         const devices = [];
                         const myUrl = `http://${obj.message.address}:${obj.message.port}/rest/1/projects/${obj.message.projectname}/devices.json?`;
                         this.log.silly(`${myUrl} is send to get Devices`);
-                        result = await axios.get(myUrl, { timeout: this.config.timeout });
+                        result = await this.getCached(myUrl, 30_000, () =>
+                            axios.get(myUrl, { timeout: this.config.timeout }),
+                        );
                         this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
                         const devicetype = {};
                         for (const element in result.data.device) {
@@ -1632,7 +1638,9 @@ class JanitzaGridvis extends utils.Adapter {
                         if (obj.message.device) {
                             const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/online/values.json?`;
                             this.log.silly(`${myUrl} is send to get online values`);
-                            result = await axios.get(myUrl, { timeout: this.config.timeout });
+                            result = await this.getCached(myUrl, 30_000, () =>
+                                axios.get(myUrl, { timeout: this.config.timeout }),
+                            );
                             this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
                             const myValues = [];
                             myCount = 0;
@@ -1671,8 +1679,9 @@ class JanitzaGridvis extends utils.Adapter {
                         if (obj.message.device) {
                             const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/hist/values.json?`;
                             this.log.silly(`${myUrl} is send to get historic values`);
-                            result = await axios.get(myUrl, { timeout: this.config.timeout });
-
+                            result = await this.getCached(myUrl, 30_000, () =>
+                                axios.get(myUrl, { timeout: this.config.timeout }),
+                            );
                             this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
                             const myValues = [];
                             myCount = 0;
@@ -1712,6 +1721,30 @@ class JanitzaGridvis extends utils.Adapter {
                 }
                 break;
         }
+    }
+
+    async getCached(key, ttl, loader) {
+        const now = Date.now();
+        const cached = this._apiCache.get(key);
+
+        if (cached && cached.expires > now) {
+            return cached.value;
+        }
+
+        const value = await loader();
+
+        this._apiCache.set(key, {
+            value,
+            expires: now + ttl,
+        });
+
+        // optional: ältesten Eintrag entfernen
+        if (this._apiCache.size > this._apiCacheMaxSize) {
+            const firstKey = this._apiCache.keys().next().value;
+            this._apiCache.delete(firstKey);
+        }
+
+        return value;
     }
 }
 
