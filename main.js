@@ -9,6 +9,7 @@
 const utils = require('@iobroker/adapter-core');
 const axios = require('axios').default;
 const schedule = require('node-schedule');
+const assignHandlerClass = require('./lib/modules/assignHandler');
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -366,6 +367,9 @@ class JanitzaGridvis extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
+        // Init assignhandler
+        this.assignHander = new assignHandlerClass(this);
+
         // read system translation out of i18n translation
         this.i18nTranslation = await this.geti18nTranslation();
 
@@ -508,7 +512,7 @@ class JanitzaGridvis extends utils.Adapter {
                 //if(result.data.serialNumber !== "unknown"){
 
                 // create info-folder
-                await this.setObjectNotExistsAsync(`${this.internalIds.devices}.${device}.${this.internalIds.info}`, {
+                await this.extendObject(`${this.internalIds.devices}.${device}.${this.internalIds.info}`, {
                     type: 'channel',
                     common: {
                         name: 'Information',
@@ -518,7 +522,7 @@ class JanitzaGridvis extends utils.Adapter {
 
                 // create state serialnumber
                 let id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.serialNumber}`;
-                await this.setObjectNotExistsAsync(id, {
+                await this.extendObject(id, {
                     type: 'state',
                     common: {
                         name: 'serialnumber',
@@ -534,7 +538,7 @@ class JanitzaGridvis extends utils.Adapter {
 
                 // create state firmware
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.firmware}`;
-                await this.setObjectNotExistsAsync(id, {
+                await this.extendObject(id, {
                     type: 'state',
                     common: {
                         name: 'firmware',
@@ -550,7 +554,7 @@ class JanitzaGridvis extends utils.Adapter {
 
                 // create state hardware
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.hardware}`;
-                await this.setObjectNotExistsAsync(id, {
+                await this.extendObject(id, {
                     type: 'state',
                     common: {
                         name: 'hardware',
@@ -566,7 +570,7 @@ class JanitzaGridvis extends utils.Adapter {
 
                 // create state status
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.status}`;
-                await this.setObjectNotExistsAsync(id, {
+                await this.extendObject(id, {
                     type: 'state',
                     common: {
                         name: 'status',
@@ -582,7 +586,7 @@ class JanitzaGridvis extends utils.Adapter {
 
                 // create state statusMsg
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.statusMsg}`;
-                await this.setObjectNotExistsAsync(id, {
+                await this.extendObject(id, {
                     type: 'state',
                     common: {
                         name: 'statusMsg',
@@ -598,7 +602,7 @@ class JanitzaGridvis extends utils.Adapter {
 
                 // create state type
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.type}`;
-                await this.setObjectNotExistsAsync(id, {
+                await this.extendObject(id, {
                     type: 'state',
                     common: {
                         name: 'type',
@@ -741,16 +745,13 @@ class JanitzaGridvis extends utils.Adapter {
                 this.createdDeviceicons[device] = {};
 
                 // create onlinevalue folder
-                await this.setObjectNotExistsAsync(
-                    `${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}`,
-                    {
-                        type: 'channel',
-                        common: {
-                            name: this.i18nTranslation[this.translationIds.onlineValues],
-                        },
-                        native: {},
+                await this.extendObject(`${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}`, {
+                    type: 'channel',
+                    common: {
+                        name: this.i18nTranslation[this.translationIds.onlineValues],
                     },
-                );
+                    native: {},
+                });
 
                 for (const value in this.devices[device].onlineValues) {
                     // create value channel
@@ -760,7 +761,7 @@ class JanitzaGridvis extends utils.Adapter {
                     } else if (value === this.internalIds.userDefined) {
                         channelName = this.internalIds.userDefined;
                     }
-                    await this.setObjectNotExistsAsync(
+                    await this.extendObject(
                         `${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}`,
                         {
                             type: 'channel',
@@ -770,17 +771,16 @@ class JanitzaGridvis extends utils.Adapter {
                             native: {},
                         },
                     );
-
                     for (const type in this.devices[device].onlineValues[value].type) {
                         // create value state
-                        await this.setObjectNotExistsAsync(
+                        await this.extendObject(
                             `${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,
                             {
                                 type: 'state',
                                 common: {
                                     name: this.devices[device].onlineValues[value].type[type].typeName,
                                     type: 'number',
-                                    role: 'value',
+                                    role: this.assignHander ? this.assignHander.getRole(value) : 'state',
                                     read: true,
                                     write: false,
                                     unit: this.devices[device].onlineValues[value].type[type].unit,
@@ -864,16 +864,13 @@ class JanitzaGridvis extends utils.Adapter {
                 }
 
                 // create historic value folder
-                await this.setObjectNotExistsAsync(
-                    `${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`,
-                    {
-                        type: 'channel',
-                        common: {
-                            name: this.i18nTranslation[this.translationIds.historicValues],
-                        },
-                        native: {},
+                await this.extendObject(`${this.internalIds.devices}.${device}.${this.internalIds.historicValues}`, {
+                    type: 'channel',
+                    common: {
+                        name: this.i18nTranslation[this.translationIds.historicValues],
                     },
-                );
+                    native: {},
+                });
 
                 for (const value in this.devices[device].historicValues) {
                     // create historic value channel
@@ -883,7 +880,7 @@ class JanitzaGridvis extends utils.Adapter {
                     } else if (value === this.internalIds.userDefined) {
                         channelName = this.internalIds.userDefined;
                     }
-                    await this.setObjectNotExistsAsync(
+                    await this.extendObject(
                         `${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}`,
                         {
                             type: 'channel',
@@ -897,14 +894,14 @@ class JanitzaGridvis extends utils.Adapter {
                     for (const type in this.devices[device].historicValues[value].type) {
                         // create value state
                         for (const timeBase of Object.values(this.timeBases)) {
-                            await this.setObjectNotExistsAsync(
+                            await this.extendObject(
                                 `${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,
                                 {
                                     type: 'state',
                                     common: {
                                         name: this.devices[device].historicValues[value].type[type].typeName,
                                         type: 'number',
-                                        role: 'value',
+                                        role: this.assignHander ? this.assignHander.getRole(value) : 'state',
                                         read: true,
                                         write: false,
                                         unit: this.devices[device].historicValues[value].type[type].unit,
