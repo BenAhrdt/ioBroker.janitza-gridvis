@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.3",
+    "version": "3.6.4",
     "eraseOnUpload": true,
     "news": {
+      "3.6.4": {
+        "en": "add roles for power and energy",
+        "de": "rollen für strom und energie hinzufügen",
+        "ru": "добавить роли для власти и энергии",
+        "pt": "adicionar funções para poder e energia",
+        "nl": "rol voor energie en energie toevoegen",
+        "fr": "ajouter des rôles pour la puissance et l'énergie",
+        "it": "aggiungere ruoli per energia ed energia",
+        "es": "añadir roles para poder y energía",
+        "pl": "dodać role dla energii i energii",
+        "uk": "додати ролі для енергії та енергії",
+        "zh-cn": "增加电力和能源的作用"
+      },
       "3.6.3": {
         "en": "Cache Api results in config for 30s for better performance",
         "de": "Cache Api Ergebnisse in config für 30er Jahre für bessere Leistung",
@@ -81,19 +94,6 @@
         "pl": "bugfix jsonconfig schema\naktualizacja zależności do węzła > = 20\naktualizacja testów do 24.x",
         "uk": "javascript licenses api веб-сайт\nоновлення залежності до вершини >= 20 хв\nтестування оновлення до 24.x",
         "zh-cn": "bugfix jsonconfig 计划\n更新依赖到节点 {} 20 (简体中文)\n更新测试到 24.x"
-      },
-      "3.5.2": {
-        "en": "Bugfix text",
-        "de": "Bugfix Text",
-        "ru": "Bugfix текст",
-        "pt": "Texto do Bugfix",
-        "nl": "Bugfix-tekst",
-        "fr": "Texte de correction du bogue",
-        "it": "Testo di bugfix",
-        "es": "Texto de Bugfix",
-        "pl": "Tekst bugfix",
-        "uk": "Текст повідомлення",
-        "zh-cn": "错误修正文本"
       }
     },
     "titleLang": {
