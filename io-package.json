@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.4",
+    "version": "3.6.5",
     "eraseOnUpload": true,
     "news": {
+      "3.6.5": {
+        "en": "first implememtation of device Manager",
+        "de": "erste Implemtation des Gerätemanagers",
+        "ru": "первая иммемтация диспетчера устройств",
+        "pt": "primeira implementação do gerenciador de dispositivos",
+        "nl": "eerste implementatie van apparaatbeheer",
+        "fr": "première mise en œuvre du gestionnaire de périphériques",
+        "it": "primo implememtation di dispositivo Manager",
+        "es": "primera implememtación del administrador del dispositivo",
+        "pl": "pierwsza implementacja menedżera urządzeń",
+        "uk": "перша інструкція диспетчера пристроїв",
+        "zh-cn": "设备管理器的首次执行"
+      },
       "3.6.4": {
         "en": "add roles for power and energy",
         "de": "rollen für strom und energie hinzufügen",
@@ -81,19 +94,6 @@
         "pl": "aktualizacji zależności",
         "uk": "оновлення залежності",
         "zh-cn": "更新依赖关系"
-      },
-      "3.5.3": {
-        "en": "bugfix jsonconfig schema\nupdate dependencie to node >= 20\nupdate testing to 24.x",
-        "de": "bugfix jsonconfig schema\nupdate abhängigencier to node >= 20\nupdate-tests auf 24.x",
-        "ru": "схема jsonconfig\nобновление зависимых узлов >= 20\nтестирование обновлений до 24.x",
-        "pt": "esquema de configuração do bugfix jsonconfig\natualização dependente para nó >= 20\natualização de testes para 24.x",
-        "nl": "bugfix jsonconfig schema\nupdate afhankelijk van knooppunt 20\nupdate testen naar 24.x",
-        "fr": "bugfix jsonconfig schéma\nmettre à jour dependencie to node >= 20\nmettre à jour les tests à 24.x",
-        "it": "bugfix jsonconfig schema\naggiornare la dipendenza dal nodo 20\naggiornamento test a 24.x",
-        "es": "bugfix jsonconfig schema\nactualización dependecie del nodo 20\npruebas de actualización a 24.x",
-        "pl": "bugfix jsonconfig schema\naktualizacja zależności do węzła > = 20\naktualizacja testów do 24.x",
-        "uk": "javascript licenses api веб-сайт\nоновлення залежності до вершини >= 20 хв\nтестування оновлення до 24.x",
-        "zh-cn": "bugfix jsonconfig 计划\n更新依赖到节点 {} 20 (简体中文)\n更新测试到 24.x"
       }
     },
     "titleLang": {
