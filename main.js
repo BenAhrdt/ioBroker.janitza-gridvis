@@ -369,10 +369,6 @@ class JanitzaGridvis extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
-        // Generate Object Store
-        this.objectStore = new objectStoreClass(this);
-        await this.objectStore.generateStoreObjects();
-
         // Init assignhandler
         this.assignHander = new assignHandlerClass(this);
 
@@ -406,6 +402,10 @@ class JanitzaGridvis extends utils.Adapter {
 
         // start connection to GridVis
         this.connectToGridVis();
+
+        // Generate Object Store
+        this.objectStore = new objectStoreClass(this);
+        await this.objectStore.generateStoreObjects();
 
         // Device Manager
         this.deviceManagement = new GridVisDeviceManagement(this);

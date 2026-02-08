@@ -66,5 +66,7 @@
     "historicHour5": "last 5 hours",
     "historicHour6": "last 6 hours",
     "historicHourX": "last X hours",
-    "timeBaseForHistoricValues-Hours": "timebase for historic values in the last hours"
+    "timeBaseForHistoricValues-Hours": "timebase for historic values in the last hours",
+    "onlineValues": "online values",
+    "historicValues": "historic values"
 }
