@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.6.6 (2026-02-08)
 * (BenAhrdt) implementonline and historic values to device Manager
 
 ### 3.6.5 (2026-02-08)

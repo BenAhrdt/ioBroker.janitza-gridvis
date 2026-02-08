@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.5",
+    "version": "3.6.6",
     "eraseOnUpload": true,
     "news": {
+      "3.6.6": {
+        "en": "implementonline and historic values to device Manager",
+        "de": "implementierenonline und historische Werte für Gerätemanager",
+        "ru": "реализационные и исторические ценности для диспетчера устройств",
+        "pt": "implementar valores online e históricos para o gerenciador de dispositivos",
+        "nl": "implementonline en historische waarden voor apparaatbeheer",
+        "fr": "implementonline et valeurs historiques au gestionnaire de périphériques",
+        "it": "implementare valori online e storici per Device Manager",
+        "es": "implementonline y valores históricos al Administrador de dispositivos",
+        "pl": "implementonline i wartości historyczne dla menedżera urządzeń",
+        "uk": "реалізація та історичні цінності диспетчера пристроїв",
+        "zh-cn": "设备管理器的在线和历史值"
+      },
       "3.6.5": {
         "en": "first implememtation of device Manager",
         "de": "erste Implemtation des Gerätemanagers",
@@ -81,19 +94,6 @@
         "pl": "aktualizacja Uwierzytelnianie NPM",
         "uk": "оновлення аутентифікації NPM",
         "zh-cn": "更新认证国家预防机制"
-      },
-      "3.5.4": {
-        "en": "update dependencies",
-        "de": "aktualisierung der abhängigkeiten",
-        "ru": "обновление зависимостей",
-        "pt": "atualizar dependências",
-        "nl": "afhankelijkheden bijwerken",
-        "fr": "mettre à jour les dépendances",
-        "it": "aggiornamento dipendenze",
-        "es": "dependencias de actualización",
-        "pl": "aktualizacji zależności",
-        "uk": "оновлення залежності",
-        "zh-cn": "更新依赖关系"
       }
     },
     "titleLang": {
