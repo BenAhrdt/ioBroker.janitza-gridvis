@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) first implememtation of device Manager
+
 ### 3.6.4 (2026-02-03)
 * (BenAhrdt) add roles for power and energy
 

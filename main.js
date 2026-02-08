@@ -10,6 +10,8 @@ const utils = require('@iobroker/adapter-core');
 const axios = require('axios').default;
 const schedule = require('node-schedule');
 const assignHandlerClass = require('./lib/modules/assignHandler');
+const objectStoreClass = require('./lib/modules/objectStore');
+const GridVisDeviceManagement = require('./lib/modules/deviceManager/deviceManager');
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -367,6 +369,10 @@ class JanitzaGridvis extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
+        // Generate Object Store
+        this.objectStore = new objectStoreClass(this);
+        await this.objectStore.generateStoreObjects();
+
         // Init assignhandler
         this.assignHander = new assignHandlerClass(this);
 
@@ -400,6 +406,9 @@ class JanitzaGridvis extends utils.Adapter {
 
         // start connection to GridVis
         this.connectToGridVis();
+
+        // Device Manager
+        this.deviceManagement = new GridVisDeviceManagement(this);
     }
 
     async geti18nTranslation() {
@@ -1472,6 +1481,10 @@ class JanitzaGridvis extends utils.Adapter {
     }
 
     async onMessage(obj) {
+        if (obj.command?.startsWith('dm:')) {
+            // Handled by Device Manager class itself, so ignored here
+            return;
+        }
         this.messageQueue = this.messageQueue
             .then(() =>
                 Promise.race([

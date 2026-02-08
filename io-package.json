@@ -149,8 +149,20 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "poll",
+    "supportedMessages": {
+      "deviceManager": true
+    },
     "adminUI": {
-      "config": "json"
+      "config": "json",
+      "tab": "json"
+    },
+    "adminTab": {
+      "link": "jsonTab.json",
+      "singleton": false,
+      "name": {
+        "en": "GridVis",
+        "de": "GridVis"
+      }
     },
     "messagebox": true,
     "globalDependencies": [
