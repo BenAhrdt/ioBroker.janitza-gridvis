@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.7",
+    "version": "3.6.8",
     "eraseOnUpload": true,
     "news": {
+      "3.6.8": {
+        "en": "Sort online and historic Values by alphabet / chronolog",
+        "de": "Sortieren online und historisch Werte nach Alphabet / Chronolog",
+        "ru": "Онлайн и исторический Значения по алфавиту / хронологу",
+        "pt": "Ordenar online e histórico Valores por alfabeto / cronolog",
+        "nl": "Sorteer online en historisch Waarden per alfabet / chronolog",
+        "fr": "Trier en ligne et historique Valeurs par alphabet / chronologue",
+        "it": "Ordinare online e storico Valori per alfabeto / cronologo",
+        "es": "Ordenar online e histórico Valores por alfabeto / cronómetro",
+        "pl": "Sortuj online i historyczne Wartości według alfabetu / chronologa",
+        "uk": "Сортувати по онлайн і історичному Значення за алфавітом / хронологією",
+        "zh-cn": "在线和历史性排序 按字母/ chronolog 排列的数值"
+      },
       "3.6.7": {
         "en": "changes in nameing",
         "de": "änderungen im namen",
@@ -81,19 +94,6 @@
         "pl": "Serialize config requests",
         "uk": "Налаштування запитів на налаштування",
         "zh-cn": "序列化配置请求"
-      },
-      "3.6.1": {
-        "en": "Bugfix adding Historic Device",
-        "de": "Bugfix Hinzufügen historischer Geräte",
-        "ru": "Bugfix добавляет историческое устройство",
-        "pt": "Correção de Erros adicionando Dispositivo Histórico",
-        "nl": "Bugfix toevoegen van historisch apparaat",
-        "fr": "Bugfix ajoutant un périphérique historique",
-        "it": "Bugfix aggiungendo dispositivo storico",
-        "es": "Bugfix agregando el dispositivo histórico",
-        "pl": "Bugfix dodając historyczne urządzenie",
-        "uk": "Помилки, що додають Історичний пристрій",
-        "zh-cn": "添加历史设备的错误修正"
       }
     },
     "titleLang": {
