@@ -787,7 +787,9 @@ class JanitzaGridvis extends utils.Adapter {
                             {
                                 type: 'state',
                                 common: {
-                                    name: this.devices[device].onlineValues[value].type[type].typeName,
+                                    name: this.devices[device].onlineValues[value].type[type].typeName
+                                        ? this.devices[device].onlineValues[value].type[type].typeName
+                                        : type,
                                     type: 'number',
                                     role: this.assignHander ? this.assignHander.getRole(value) : 'state',
                                     read: true,
@@ -908,7 +910,9 @@ class JanitzaGridvis extends utils.Adapter {
                                 {
                                     type: 'state',
                                     common: {
-                                        name: this.devices[device].historicValues[value].type[type].typeName,
+                                        name: this.devices[device].historicValues[value].type[type].typeName
+                                            ? this.devices[device].historicValues[value].type[type].typeName
+                                            : type,
                                         type: 'number',
                                         role: this.assignHander ? this.assignHander.getRole(value) : 'state',
                                         read: true,
