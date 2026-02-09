@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.8",
+    "version": "3.6.9",
     "eraseOnUpload": true,
     "news": {
+      "3.6.9": {
+        "en": "Bugfix sort",
+        "de": "Fehlersuche",
+        "ru": "Сорт багфикса",
+        "pt": "Ordenação de erros",
+        "nl": "Bugfix-sortering",
+        "fr": "Tri du bogue",
+        "it": "Tipo di bugfix",
+        "es": "Bugfix",
+        "pl": "Rodzaj bugfix",
+        "uk": "Сортувати попереку",
+        "zh-cn": "错误修正排序"
+      },
       "3.6.8": {
         "en": "Sort online and historic Values by alphabet / chronolog",
         "de": "Sortieren online und historisch Werte nach Alphabet / Chronolog",
@@ -81,19 +94,6 @@
         "pl": "Cache Api daje wynik w config dla 30 lat dla lepszej wydajności",
         "uk": "Cache Api результати в конфігурації для 30-х для кращої продуктивності",
         "zh-cn": "缓存 Api 为更好的性能配置了 30 个"
-      },
-      "3.6.2": {
-        "en": "Serialize config requests",
-        "de": "Konfiktive Anfragen Serialisieren",
-        "ru": "Сериализация запросов конфигураций",
-        "pt": "Serializar pedidos de configuração",
-        "nl": "Config-verzoeken serieren",
-        "fr": "Sérialiser les requêtes de configuration",
-        "it": "Serializzare le richieste di configurazione",
-        "es": "Serialize config requests",
-        "pl": "Serialize config requests",
-        "uk": "Налаштування запитів на налаштування",
-        "zh-cn": "序列化配置请求"
       }
     },
     "titleLang": {
