@@ -116,13 +116,13 @@
     "FlexibleTime5": "Flexible time 5",
     "FlexibleTime6": "Flexible time 6",
 
-    "Hour1": "Hour 1",
-    "Hour2": "Hour 2",
-    "Hour3": "Hour 3",
-    "Hour4": "Hour 4",
-    "Hour5": "Hour 5",
-    "Hour6": "Hour 6",
-    "HourX": "Hour x",
+    "Last_1_Hour": "Last hour",
+    "Last_2_Hours": "Last 2 hours",
+    "Last_3_Hours": "Last 3 hours",
+    "Last_4_Hours": "Last 4 hours",
+    "Last_5_Hours": "Last 5 hours",
+    "Last_6_Hours": "Last 6 hours",
+    "Last_X_Hours": "Last x hours",
 
     "Overall": "Main",
     "Frequenz Overall": "Frequency Main"

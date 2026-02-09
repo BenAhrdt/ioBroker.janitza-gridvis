@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) Sort online and historic Values by alphabet / chronolog
+
 ### 3.6.7 (2026-02-09)
 * (BenAhrdt) changes in nameing
 
