@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.6.10 (2026-02-10)
 * (BenAhrdt) First implementation of Docu-Links
 
 ### 3.6.9 (2026-02-09)
