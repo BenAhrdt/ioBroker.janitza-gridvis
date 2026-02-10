@@ -125,5 +125,10 @@
     "Last_X_Hours": "Last x hours",
 
     "Overall": "Main",
-    "Frequenz Overall": "Frequency Main"
+    "Frequenz Overall": "Frequency Main",
+
+    "DeviceDocumentation": "Device Documentation",
+    "General": "General",
+    "Manual": "Device Manual",
+    "DataSheet": "Datasheet"
 }
