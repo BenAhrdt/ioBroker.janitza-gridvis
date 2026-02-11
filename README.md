@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) Change Links to 604 Documentation
+
 ### 3.6.11 (2026-02-11)
 * (BenAhrdt) Add 604 to Doku and add connection state in deviceManager according to connection State
 
