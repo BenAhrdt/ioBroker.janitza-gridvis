@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.10",
+    "version": "3.6.11",
     "eraseOnUpload": true,
     "news": {
+      "3.6.11": {
+        "en": "Add 604 to Doku and add connection state in deviceManager according to connection State",
+        "de": "604 zu Doku hinzufügen und Verbindungszustand im Gerät hinzufügen Manager nach Verbindungsstaat",
+        "ru": "Добавить 604 в Doku и добавить состояние соединения в устройство Менеджер по состоянию соединения",
+        "pt": "Adicione 604 ao Doku e adicione o estado de conexão no dispositivo Gestor de acordo com o Estado de ligação",
+        "nl": "Voeg 604 toe aan Doku en voeg verbindingsstatus toe aan apparaat Manager volgens verbindingsstaat",
+        "fr": "Ajouter 604 à Doku et ajouter l'état de connexion dans l'appareil Gestionnaire selon l'État de connexion",
+        "it": "Aggiungere 604 a Doku e aggiungere lo stato di connessione nel dispositivo Manager secondo la connessione Stato",
+        "es": "Añadir 604 a Doku y añadir estado de conexión en el dispositivo Manager according to connection State",
+        "pl": "Dodaj 604 do Doku i dodaj stan połączenia w urządzeniu Kierownik według stanu połączenia",
+        "uk": "Додайте 604 до Doku і додайте стан з'єднання в пристрої Менеджер по підключенню Держави",
+        "zh-cn": "在 Doku 中添加 604 并添加连接状态 根据连接状态管理器"
+      },
       "3.6.10": {
         "en": "First implementation of Docu-Links",
         "de": "Erste Implementierung von Docu-Links",
@@ -81,19 +94,6 @@
         "pl": "pierwsza implementacja menedżera urządzeń",
         "uk": "перша інструкція диспетчера пристроїв",
         "zh-cn": "设备管理器的首次执行"
-      },
-      "3.6.4": {
-        "en": "add roles for power and energy",
-        "de": "rollen für strom und energie hinzufügen",
-        "ru": "добавить роли для власти и энергии",
-        "pt": "adicionar funções para poder e energia",
-        "nl": "rol voor energie en energie toevoegen",
-        "fr": "ajouter des rôles pour la puissance et l'énergie",
-        "it": "aggiungere ruoli per energia ed energia",
-        "es": "añadir roles para poder y energía",
-        "pl": "dodać role dla energii i energii",
-        "uk": "додати ролі для енергії та енергії",
-        "zh-cn": "增加电力和能源的作用"
       }
     },
     "titleLang": {
