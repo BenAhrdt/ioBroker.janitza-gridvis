@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.6.13 (2026-02-27)
 * (BenAhrdt) update release script dependencies
 * (BenAhrdt) change connection state for virtual (internal) devices
 

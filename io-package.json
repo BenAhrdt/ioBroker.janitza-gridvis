@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.12",
+    "version": "3.6.13",
     "eraseOnUpload": true,
     "news": {
+      "3.6.13": {
+        "en": "update release script dependencies\nchange connection state for virtual (internal) devices",
+        "de": "update release script abhängigkeiten\nverbindungszustand für virtuelle (interne) geräte ändern",
+        "ru": "зависимости сценариев обновления\nизменение состояния соединения для виртуальных (внутренних) устройств",
+        "pt": "atualizar dependências do script de versão\nmudar o estado de conexão para dispositivos virtuais (internos)",
+        "nl": "update release script afhankelijkheden\nverbindingsstatus wijzigen voor virtuele (interne) apparaten",
+        "fr": "mettre à jour les dépendances du script de publication\nmodifier l'état de connexion pour les appareils virtuels (internes)",
+        "it": "aggiornare le dipendenze dello script di rilascio\nstato di connessione di cambiamento per dispositivi virtuali (interni)",
+        "es": "actualizar las dependencias de script\nestado de conexión de cambio para dispositivos virtuales (internos)",
+        "pl": "zaktualizuj zależności skryptu wydania\nzmienić stan połączenia dla urządzeń wirtualnych (wewnętrznych)",
+        "uk": "оновлення розділу релізу залежностей\nзмінити стан з'єднання віртуальних (внутрішній) пристроїв",
+        "zh-cn": "更新发布脚本依赖性\n更改虚拟(内部)设备的连接状态"
+      },
       "3.6.12": {
         "en": "Change Links to 604 Documentation",
         "de": "Links auf 604 Dokumentation ändern",
@@ -81,19 +94,6 @@
         "pl": "zmiany nazwy",
         "uk": "зміни назв",
         "zh-cn": "名称的更改"
-      },
-      "3.6.6": {
-        "en": "implementonline and historic values to device Manager",
-        "de": "implementierenonline und historische Werte für Gerätemanager",
-        "ru": "реализационные и исторические ценности для диспетчера устройств",
-        "pt": "implementar valores online e históricos para o gerenciador de dispositivos",
-        "nl": "implementonline en historische waarden voor apparaatbeheer",
-        "fr": "implementonline et valeurs historiques au gestionnaire de périphériques",
-        "it": "implementare valori online e storici per Device Manager",
-        "es": "implementonline y valores históricos al Administrador de dispositivos",
-        "pl": "implementonline i wartości historyczne dla menedżera urządzeń",
-        "uk": "реалізація та історичні цінності диспетчера пристроїв",
-        "zh-cn": "设备管理器的在线和历史值"
       }
     },
     "titleLang": {
