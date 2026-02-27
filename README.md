@@ -32,6 +32,10 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) update release script dependencies
+* (BenAhrdt) change connection state for virtual (internal) devices
+
 ### 3.6.12 (2026-02-11)
 * (BenAhrdt) Change Links to 604 Documentation
 
