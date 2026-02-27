@@ -33,6 +33,9 @@ Implemented are the following times:
 	### **WORK IN PROGRESS**
 -->
 ### 3.6.13 (2026-02-27)
+* (BenAhrdt) update admin dependencies
+
+### 3.6.13 (2026-02-27)
 * (BenAhrdt) update release script dependencies
 * (BenAhrdt) change connection state for virtual (internal) devices
 
