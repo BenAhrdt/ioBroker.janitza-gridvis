@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.13",
+    "version": "3.6.14",
     "eraseOnUpload": true,
     "news": {
+      "3.6.14": {
+        "en": "bugfix dependencies",
+        "de": "bugfix abhängigkeiten",
+        "ru": "багфикс зависимостей",
+        "pt": "dependências de correção de erros",
+        "nl": "bugfix afhankelijkheden",
+        "fr": "dépendances de bugfix",
+        "it": "bugfix dipendenze",
+        "es": "dependencia de bugfix",
+        "pl": "zależności bugfix",
+        "uk": "залежність помилок",
+        "zh-cn": "bugfix 依赖性"
+      },
       "3.6.13": {
         "en": "update release script dependencies\nchange connection state for virtual (internal) devices",
         "de": "update release script abhängigkeiten\nverbindungszustand für virtuelle (interne) geräte ändern",
@@ -81,19 +94,6 @@
         "pl": "Sortuj online i historyczne Wartości według alfabetu / chronologa",
         "uk": "Сортувати по онлайн і історичному Значення за алфавітом / хронологією",
         "zh-cn": "在线和历史性排序 按字母/ chronolog 排列的数值"
-      },
-      "3.6.7": {
-        "en": "changes in nameing",
-        "de": "änderungen im namen",
-        "ru": "изменения в названии",
-        "pt": "alterações no nome",
-        "nl": "wijzigingen in de naamgeving",
-        "fr": "changements de dénomination",
-        "it": "cambiamenti nel nome",
-        "es": "cambios en el nombre",
-        "pl": "zmiany nazwy",
-        "uk": "зміни назв",
-        "zh-cn": "名称的更改"
       }
     },
     "titleLang": {
