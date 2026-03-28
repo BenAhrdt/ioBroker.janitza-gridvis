@@ -14,7 +14,7 @@ const objectStoreClass = require('./lib/modules/objectStore');
 const GridVisDeviceManagement = require('./lib/modules/deviceManager/deviceManager');
 
 // Load your modules here, e.g.:
-// const fs = require("fs");
+// const fs = require("node:fs");
 
 class JanitzaGridvis extends utils.Adapter {
     /**
