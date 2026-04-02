@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.6.14",
+    "version": "3.7.0",
     "eraseOnUpload": true,
     "news": {
+      "3.7.0": {
+        "en": "display online Values in card",
+        "de": "online anzeigen Werte in Karte",
+        "ru": "отображение онлайн ценностей в карте",
+        "pt": "exibir valores online na carta",
+        "nl": "weergeven online Waarden in kaart",
+        "fr": "afficher les valeurs en ligne dans la carte",
+        "it": "visualizzazione online Valori nella scheda",
+        "es": "mostrar valores en línea en la tarjeta",
+        "pl": "wyświetlanie wartości online w karcie",
+        "uk": "відображення онлайн Значення в картці",
+        "zh-cn": "在卡片中显示在线值"
+      },
       "3.6.14": {
         "en": "bugfix dependencies",
         "de": "bugfix abhängigkeiten",
@@ -81,19 +94,6 @@
         "pl": "Rodzaj bugfix",
         "uk": "Сортувати попереку",
         "zh-cn": "错误修正排序"
-      },
-      "3.6.8": {
-        "en": "Sort online and historic Values by alphabet / chronolog",
-        "de": "Sortieren online und historisch Werte nach Alphabet / Chronolog",
-        "ru": "Онлайн и исторический Значения по алфавиту / хронологу",
-        "pt": "Ordenar online e histórico Valores por alfabeto / cronolog",
-        "nl": "Sorteer online en historisch Waarden per alfabet / chronolog",
-        "fr": "Trier en ligne et historique Valeurs par alphabet / chronologue",
-        "it": "Ordinare online e storico Valori per alfabeto / cronologo",
-        "es": "Ordenar online e histórico Valores por alfabeto / cronómetro",
-        "pl": "Sortuj online i historyczne Wartości według alfabetu / chronologa",
-        "uk": "Сортувати по онлайн і історичному Значення за алфавітом / хронологією",
-        "zh-cn": "在线和历史性排序 按字母/ chronolog 排列的数值"
       }
     },
     "titleLang": {
