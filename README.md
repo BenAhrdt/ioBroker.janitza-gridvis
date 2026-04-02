@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) bugfixing model type === undefined
+
 ### 3.7.0 (2026-04-02)
 * (BenAhrdt) display online Values in card
 
