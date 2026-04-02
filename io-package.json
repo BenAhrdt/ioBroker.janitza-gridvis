@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.7.0",
+    "version": "3.7.1",
     "eraseOnUpload": true,
     "news": {
+      "3.7.1": {
+        "en": "bugfixing model type === undefined",
+        "de": "bugfixing model type == undefiniert",
+        "ru": "тип модели исправления ошибок === неопределенный",
+        "pt": "tipo de modelo de correção de erros === indefinido",
+        "nl": "bugfixing model type == = ongedefinieerd",
+        "fr": "type de modèle de correction de bugs === indéfini",
+        "it": "bugfixing model type == non definita",
+        "es": "tipo de modelo de bugfixing ===",
+        "pl": "typ modelu mocowania błędów = = = niezdefiniowany",
+        "uk": "тип моделі виправлення помилок ==",
+        "zh-cn": "未定义的除错模式类型qq"
+      },
       "3.7.0": {
         "en": "display online Values in card",
         "de": "online anzeigen Werte in Karte",
@@ -81,19 +94,6 @@
         "pl": "Pierwsza realizacja dokumentów-linków",
         "uk": "Перша реалізація Docu-Links",
         "zh-cn": "Docu-Links的首次实施"
-      },
-      "3.6.9": {
-        "en": "Bugfix sort",
-        "de": "Fehlersuche",
-        "ru": "Сорт багфикса",
-        "pt": "Ordenação de erros",
-        "nl": "Bugfix-sortering",
-        "fr": "Tri du bogue",
-        "it": "Tipo di bugfix",
-        "es": "Bugfix",
-        "pl": "Rodzaj bugfix",
-        "uk": "Сортувати попереку",
-        "zh-cn": "错误修正排序"
       }
     },
     "titleLang": {
