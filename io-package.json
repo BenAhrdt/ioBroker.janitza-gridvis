@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.7.1",
+    "version": "3.7.2",
     "eraseOnUpload": true,
     "news": {
+      "3.7.2": {
+        "en": "replacement of defined preLabels",
+        "de": "ersatz definierter PreLabels",
+        "ru": "замена определенных прелабелей",
+        "pt": "substituição de preLabels definidos",
+        "nl": "vervanging van gedefinieerde preLabels",
+        "fr": "remplacement des préLabels définis",
+        "it": "sostituzione dei preLabel definiti",
+        "es": "sustitución de preLabeles definidos",
+        "pl": "zastąpienie zdefiniowanych etykiet wstępnych",
+        "uk": "заміна визначених преЛаборів",
+        "zh-cn": "替换定义的前标签"
+      },
       "3.7.1": {
         "en": "bugfixing model type === undefined",
         "de": "bugfixing model type == undefiniert",
@@ -81,19 +94,6 @@
         "pl": "Dodaj 604 do Doku i dodaj stan połączenia w urządzeniu Kierownik według stanu połączenia",
         "uk": "Додайте 604 до Doku і додайте стан з'єднання в пристрої Менеджер по підключенню Держави",
         "zh-cn": "在 Doku 中添加 604 并添加连接状态 根据连接状态管理器"
-      },
-      "3.6.10": {
-        "en": "First implementation of Docu-Links",
-        "de": "Erste Implementierung von Docu-Links",
-        "ru": "Первая версия Docu-Links",
-        "pt": "Primeira implementação de Docu-Links",
-        "nl": "Eerste implementatie van Docu-Links",
-        "fr": "Première mise en œuvre de Docu-Links",
-        "it": "Prima implementazione di Docu-Links",
-        "es": "Primera implementación de Docu-Links",
-        "pl": "Pierwsza realizacja dokumentów-linków",
-        "uk": "Перша реалізація Docu-Links",
-        "zh-cn": "Docu-Links的首次实施"
       }
     },
     "titleLang": {
