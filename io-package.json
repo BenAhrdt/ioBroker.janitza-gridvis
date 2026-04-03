@@ -17,19 +17,6 @@
         "uk": "використовувати fetch замість осі і встановити мову в мову ioBroker",
         "zh-cn": "使用抓取而不是轴并设置语言到ioBroker语言"
       },
-      "3.7.2": {
-        "en": "replacement of defined preLabels",
-        "de": "ersatz definierter PreLabels",
-        "ru": "замена определенных прелабелей",
-        "pt": "substituição de preLabels definidos",
-        "nl": "vervanging van gedefinieerde preLabels",
-        "fr": "remplacement des préLabels définis",
-        "it": "sostituzione dei preLabel definiti",
-        "es": "sustitución de preLabeles definidos",
-        "pl": "zastąpienie zdefiniowanych etykiet wstępnych",
-        "uk": "заміна визначених преЛаборів",
-        "zh-cn": "替换定义的前标签"
-      },
       "3.7.1": {
         "en": "bugfixing model type === undefined",
         "de": "bugfixing model type == undefiniert",
