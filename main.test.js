@@ -11,16 +11,17 @@
 
 const { expect } = require("chai");
 // import { functionToTest } from "./moduleToTest";
-
+// @ts-ignore
 describe("module to test => function to test", () => {
 	// initializing logic
 	const expected = 5;
-
+// @ts-ignore
 	it(`should return ${expected}`, () => {
 		const result = 5;
 		// assign result a value from functionToTest
 		expect(result).to.equal(expected);
 		// or using the should() syntax
+		// @ts-ignore
 		result.should.equal(expected);
 	});
 	// ... more tests => it

@@ -7,7 +7,6 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
-const axios = require('axios').default;
 const schedule = require('node-schedule');
 const assignHandlerClass = require('./lib/modules/assignHandler');
 const objectStoreClass = require('./lib/modules/objectStore');
@@ -363,6 +362,41 @@ class JanitzaGridvis extends utils.Adapter {
         // Cache for API Calls in config
         this._apiCache = new Map();
         this._apiCacheMaxSize = 200;
+
+        // System Config
+        this.sysConfig = null;
+    }
+
+    async fetchJson(url, { timeout = 5000, allow204 = false } = {}) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeout);
+
+        try {
+            const response = await fetch(url, {
+                signal: controller.signal,
+                headers: { 'Accept-Language': this.sysConfig?.common.language || 'en' },
+            });
+
+            if (response.status === 204) {
+                if (allow204) {
+                    return null;
+                }
+                throw new Error(`204 No Content: ${url}`);
+            }
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${url}`);
+            }
+
+            return await response.json();
+        } catch (error) {
+            if (error.name === 'AbortError') {
+                throw new Error(`Timeout after ${timeout}ms: ${url}`);
+            }
+            throw error;
+        } finally {
+            clearTimeout(timer);
+        }
     }
 
     /**
@@ -419,6 +453,7 @@ class JanitzaGridvis extends utils.Adapter {
                 lang = 'en';
             }
             const translationsPath = `./admin/i18n/${lang}/translations.json`;
+            this.sysConfig = systemConfig;
             return require(translationsPath);
         }
         return {};
@@ -448,7 +483,7 @@ class JanitzaGridvis extends utils.Adapter {
 
         // Reset the connection indicator
         this.internalConnectionState = false;
-        await this.setStateAsync('info.connection', false, true);
+        await this.setState('info.connection', false, true);
 
         // Check the configed connection settings
         // in case there is no connection to GridVis possible
@@ -460,29 +495,25 @@ class JanitzaGridvis extends utils.Adapter {
         );
         if (projectInfo) {
             // set recoonectionCounter (for better debug)
-            await this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
+            await this.setState(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
             // log just if the reconnect counter is bigger than the configed number before warning (or at startup)
             if (this.reconnectCounter > this.config.reconnectCount || this.reconnectCounter === 0) {
                 this.log.info(
                     `${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`,
                 );
-                this.setStateAsync(`info.${this.internalIds.gridVisVersion}`, projectInfo.version, true);
-                this.setStateAsync(
-                    `info.${this.internalIds.numberOfDevicesInProject}`,
-                    projectInfo.numberOfDevices,
-                    true,
-                );
-                this.setStateAsync(`info.${this.internalIds.connectedProject}`, this.config.projectname, true);
+                this.setState(`info.${this.internalIds.gridVisVersion}`, projectInfo.version, true);
+                this.setState(`info.${this.internalIds.numberOfDevicesInProject}`, projectInfo.numberOfDevices, true);
+                this.setState(`info.${this.internalIds.connectedProject}`, this.config.projectname, true);
             } else {
                 this.log.debug(
                     `${this.communicationStrings.connectedToGridVisVersion}: ${projectInfo.version} - ${this.communicationStrings.numberOfDevices}: ${projectInfo.numberOfDevices}`,
                 );
             }
             // Set connection established
-            await this.setStateAsync('info.connection', true, true);
+            await this.setState('info.connection', true, true);
             this.reconnectCounter = 0;
             this.internalConnectionState = true;
-            this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
+            this.setState(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
             this.StartCommunicationToGridVis();
         } else {
             if (this.reconnectCounter === this.config.reconnectCount && this.reconnectCounter !== 0) {
@@ -493,7 +524,7 @@ class JanitzaGridvis extends utils.Adapter {
                 // Abfrage auf 0, da solange keine Verbindung aufgebaut wurde immer die Warnung ausgegeben wird.
                 this.log.warn(this.communicationStrings.noCommunicationSelectString);
             }
-            this.setStateAsync(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
+            this.setState(`info.${this.internalIds.reconnectCount}`, this.reconnectCounter, true);
             this.timeouts[this.timeoutIds.connectionTimeout] = this.setTimeout(
                 this.connectToGridVis.bind(this),
                 this.timeoutValues[this.timeoutIds.connectionTimeout],
@@ -516,10 +547,15 @@ class JanitzaGridvis extends utils.Adapter {
             }
             for (const device in this.devicesWithSerialNumber) {
                 myUrl = `http://${this.config.address}:${this.config.port}/rest/1/projects/${this.config.projectname}/devices/${device}/connectiontest.json`;
-                const result = await axios.get(myUrl);
-                // No check => no device will be deleted and becomes an info folder
-                //if(result.data.serialNumber !== "unknown"){
-
+                let result = null;
+                try {
+                    result = await this.fetchJson(myUrl, {
+                        timeout: this.config.timeout,
+                    });
+                } catch (error) {
+                    this.log.error(`error at fetching url: ${myUrl}. Error: ${error}`);
+                    continue;
+                }
                 // create info-folder
                 await this.extendObject(`${this.internalIds.devices}.${device}.${this.internalIds.info}`, {
                     type: 'channel',
@@ -539,11 +575,11 @@ class JanitzaGridvis extends utils.Adapter {
                         role: 'value',
                         read: true,
                         write: false,
-                        def: result.data.serialNumber,
+                        def: result.serialNumber,
                     },
                     native: {},
                 });
-                this.setStateAsync(id, result.data.serialNumber, true);
+                this.setState(id, result.serialNumber, true);
 
                 // create state firmware
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.firmware}`;
@@ -555,11 +591,11 @@ class JanitzaGridvis extends utils.Adapter {
                         role: 'value',
                         read: true,
                         write: false,
-                        def: result.data.firmware,
+                        def: result.firmware,
                     },
                     native: {},
                 });
-                this.setStateAsync(id, result.data.firmware, true);
+                this.setState(id, result.firmware, true);
 
                 // create state hardware
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.hardware}`;
@@ -571,11 +607,11 @@ class JanitzaGridvis extends utils.Adapter {
                         role: 'value',
                         read: true,
                         write: false,
-                        def: result.data.hardware,
+                        def: result.hardware,
                     },
                     native: {},
                 });
-                this.setStateAsync(id, result.data.hardware, true);
+                this.setState(id, result.hardware, true);
 
                 // create state status
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.status}`;
@@ -587,11 +623,11 @@ class JanitzaGridvis extends utils.Adapter {
                         role: 'value',
                         read: true,
                         write: false,
-                        def: result.data.status,
+                        def: result.status,
                     },
                     native: {},
                 });
-                this.setStateAsync(id, result.data.status, true);
+                this.setState(id, result.status, true);
 
                 // create state statusMsg
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.statusMsg}`;
@@ -603,11 +639,11 @@ class JanitzaGridvis extends utils.Adapter {
                         role: 'value',
                         read: true,
                         write: false,
-                        def: result.data.statusMsg,
+                        def: result.statusMsg,
                     },
                     native: {},
                 });
-                this.setStateAsync(id, result.data.statusMsg, true);
+                this.setState(id, result.statusMsg, true);
 
                 // create state type
                 id = `${this.internalIds.devices}.${device}.${this.internalIds.info}.${this.internalIds.type}`;
@@ -623,7 +659,7 @@ class JanitzaGridvis extends utils.Adapter {
                     },
                     native: {},
                 });
-                this.setStateAsync(id, this.devices[device].type, true);
+                this.setState(id, this.devices[device].type, true);
 
                 //}
                 /**else{
@@ -1186,38 +1222,39 @@ class JanitzaGridvis extends utils.Adapter {
             // send request to gridvis and write a valid data into the internal state
             this.log.silly(`${myUrl} was send to gridVis`);
             try {
-                const result = await axios.get(myUrl, { timeout: this.config.timeout });
-                this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
-                if (result.status === 200) {
-                    for (const device in this.devices) {
-                        if (this.devices[device].onlineValues) {
-                            for (const value in this.devices[device].onlineValues) {
-                                for (const type in this.devices[device].onlineValues[value].type) {
-                                    if (
-                                        result.data.value[`${device}.${value}.${type}`] ||
-                                        result.data.value[`${device}.${value}.${type}`] === 0
-                                    ) {
-                                        // check present or equal 0 (a value must be present => also value == 0)
-                                        if (this.unloaded) {
-                                            return;
-                                        } // Do not execute after starting unload Adapter
-                                        if (!isNaN(result.data.value[`${device}.${value}.${type}`])) {
-                                            // check not equal to NaN
-                                            this.setStateAsync(
-                                                `${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,
-                                                result.data.value[`${device}.${value}.${type}`],
-                                                true,
-                                            );
-                                        } else {
-                                            this.setStateAsync(
-                                                `${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,
-                                                { q: 1, c: 'GridVis sends value NaN' },
-                                                true,
-                                            );
-                                            this.log.info(
-                                                `${device}.${value}.${type} is NaN  --  (${this.devices[device].deviceName})`,
-                                            );
-                                        }
+                const result = await this.fetchJson(myUrl, {
+                    timeout: this.config.timeout,
+                });
+
+                this.log.silly(`result: ${JSON.stringify(result)}`);
+                for (const device in this.devices) {
+                    if (this.devices[device].onlineValues) {
+                        for (const value in this.devices[device].onlineValues) {
+                            for (const type in this.devices[device].onlineValues[value].type) {
+                                if (
+                                    result.value[`${device}.${value}.${type}`] ||
+                                    result.value[`${device}.${value}.${type}`] === 0
+                                ) {
+                                    // check present or equal 0 (a value must be present => also value == 0)
+                                    if (this.unloaded) {
+                                        return;
+                                    } // Do not execute after starting unload Adapter
+                                    if (!isNaN(result.value[`${device}.${value}.${type}`])) {
+                                        // check not equal to NaN
+                                        this.setState(
+                                            `${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,
+                                            result.value[`${device}.${value}.${type}`],
+                                            true,
+                                        );
+                                    } else {
+                                        this.setState(
+                                            `${this.internalIds.devices}.${device}.${this.internalIds.onlineValues}.${value}.${type}`,
+                                            { q: 1, c: 'GridVis sends value NaN' },
+                                            true,
+                                        );
+                                        this.log.info(
+                                            `${device}.${value}.${type} is NaN  --  (${this.devices[device].deviceName})`,
+                                        );
                                     }
                                 }
                             }
@@ -1283,43 +1320,53 @@ class JanitzaGridvis extends utils.Adapter {
                                     myUrl += `${type}/.json?start=${timeBase.startstring}&end=${timeBase.endstring}`;
                                 }
                                 this.log.silly(`${myUrl} was send to gridVis`);
-                                const result = await axios.get(myUrl, { timeout: this.config.timeout });
-                                this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
-                                if (result.status === 200) {
-                                    // OK => write data into internal state
-                                    if (result.data.energy || result.data.energy === 0) {
-                                        // check present or equal 0 (a value must be present => also value == 0)
+                                let result = null;
+                                try {
+                                    result = await this.fetchJson(myUrl, {
+                                        timeout: this.config.timeout,
+                                        allow204: true,
+                                    });
+
+                                    if (result === null) {
+                                        // no content write 0 into internal state
                                         if (this.unloaded) {
                                             return;
                                         } // Do not execute after starting unload Adapter
-                                        if (!isNaN(result.data.energy)) {
-                                            // check not equal to NaN
-                                            this.setStateAsync(
-                                                `${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,
-                                                result.data.energy,
-                                                true,
-                                            );
-                                        } else {
-                                            this.setStateAsync(
-                                                `${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,
-                                                { q: 1, c: 'GridVis sends value NaN' },
-                                                true,
-                                            );
-                                            this.log.info(
-                                                `${device}.${value}.${type} is NaN  --  (${this.devices[device].deviceName})`,
-                                            );
-                                        }
+                                        this.setState(
+                                            `${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,
+                                            0,
+                                            true,
+                                        );
+                                        continue;
                                     }
-                                } else if (result.status === 204) {
-                                    // no content write 0 into internal state
+                                } catch (error) {
+                                    this.log.error(`error at fetching hisoric data for url: ${myUrl}: ${error}`);
+                                    continue;
+                                }
+                                this.log.silly(`result: ${JSON.stringify(result)}`);
+                                // OK => write data into internal state
+                                if (result.energy || result.energy === 0) {
+                                    // check present or equal 0 (a value must be present => also value == 0)
                                     if (this.unloaded) {
                                         return;
                                     } // Do not execute after starting unload Adapter
-                                    this.setStateAsync(
-                                        `${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,
-                                        0,
-                                        true,
-                                    );
+                                    if (!isNaN(result.energy)) {
+                                        // check not equal to NaN
+                                        this.setState(
+                                            `${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,
+                                            result.energy,
+                                            true,
+                                        );
+                                    } else {
+                                        this.setState(
+                                            `${this.internalIds.devices}.${device}.${this.internalIds.historicValues}.${value}.${type}_${timeBase.namestring}`,
+                                            { q: 1, c: 'GridVis sends value NaN' },
+                                            true,
+                                        );
+                                        this.log.info(
+                                            `${device}.${value}.${type} is NaN  --  (${this.devices[device].deviceName})`,
+                                        );
+                                    }
                                 }
                             }
                         }
@@ -1346,7 +1393,7 @@ class JanitzaGridvis extends utils.Adapter {
         }
         this.log.debug('read out historic data finished');
         this.readSate.historic = false;
-        this.setStateAsync(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`, false, true);
+        this.setState(`${this.internalIds.devices}.${this.internalIds.readValuesTrigger}`, false, true);
     }
 
     // Check the connection to GridVis
@@ -1354,16 +1401,20 @@ class JanitzaGridvis extends utils.Adapter {
         try {
             let myUrl = `http://${address}:${port}/rest/1/projects/${projectname}.json?`;
             this.log.debug(`${myUrl} was send to gridVis to check connection and number of devices`);
-            const result = await axios.get(myUrl, { timeout: this.config.timeout });
+            const result = await this.fetchJson(myUrl, {
+                timeout: this.config.timeout,
+            });
             if (result) {
-                this.log.debug(`result.data: ${JSON.stringify(result.data)}`);
-                if (result.data.status && result.data.status === this.communicationStrings.ready) {
+                this.log.debug(`result: ${JSON.stringify(result)}`);
+                if (result.status && result.status === this.communicationStrings.ready) {
                     myUrl = `http://${address}:${port}/rest/common/info/version/full.json?`;
                     this.log.debug(`${myUrl} was send to gridVis to check version`);
-                    const version = await axios.get(myUrl, { timeout: this.config.timeout });
+                    const version = await this.fetchJson(myUrl, {
+                        timeout: this.config.timeout,
+                    });
                     if (version) {
-                        this.log.debug(`result.data: ${JSON.stringify(version.data)}`);
-                        return { numberOfDevices: result.data.numberOfDevices, version: version.data.value };
+                        this.log.debug(`result: ${JSON.stringify(version)}`);
+                        return { numberOfDevices: result.numberOfDevices, version: version.value };
                     }
                     return false;
                 }
@@ -1463,14 +1514,14 @@ class JanitzaGridvis extends utils.Adapter {
                         this.readOnlineValues();
                         this.readHistoricValues();
                     }
-                    this.setStateAsync(id, state.val, true);
+                    this.setState(id, state.val, true);
                 } else if (
                     id.indexOf(startTimestampString) !== -1 || // check timestampString
                     id.indexOf(endTimestampString) !== -1
                 ) {
                     if (this.asignTimestamps(id, state)) {
                         this.readHistoricValues();
-                        this.setStateAsync(id, state.val, true);
+                        this.setState(id, state.val, true);
                     }
                 } else if (
                     id.indexOf(`${this.namespace}.${this.internalIds.historicTimestamps}.${this.internalIds.hourX}`) !==
@@ -1478,7 +1529,7 @@ class JanitzaGridvis extends utils.Adapter {
                 ) {
                     this.timeBases.hourX.startstring = `RELATIVE_-${state.val}HOUR`;
                     this.readHistoricValues();
-                    this.setStateAsync(id, state.val, true);
+                    this.setState(id, state.val, true);
                 }
             }
         }
@@ -1567,10 +1618,12 @@ class JanitzaGridvis extends utils.Adapter {
                     projectTimestamp = this.lastProjectTimestamp;
                     const myUrl = `http://${obj.message.address}:${obj.message.port}/rest/1/projects/.json?`;
                     this.log.silly(`${myUrl} is send to get Projects`);
-                    result = await axios.get(myUrl, { timeout: this.config.timeout });
-                    this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
-                    for (const element in result.data.project) {
-                        const label = result.data.project[element].name;
+                    const result = await this.fetchJson(myUrl, {
+                        timeout: this.config.timeout,
+                    });
+                    this.log.silly(`result: ${JSON.stringify(result)}`);
+                    for (const element in result.project) {
+                        const label = result.project[element].name;
                         projects[myCount] = { label: label, value: label };
                         myCount++;
                     }
@@ -1591,44 +1644,47 @@ class JanitzaGridvis extends utils.Adapter {
                         const devices = [];
                         const myUrl = `http://${obj.message.address}:${obj.message.port}/rest/1/projects/${obj.message.projectname}/devices.json?`;
                         this.log.silly(`${myUrl} is send to get Devices`);
-                        result = await this.getCached(myUrl, 30_000, () =>
-                            axios.get(myUrl, { timeout: this.config.timeout }),
-                        );
-                        this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
+                        result = await this.getCached(myUrl, 30_000, async () => {
+                            const result = await this.fetchJson(myUrl, {
+                                timeout: this.config.timeout,
+                            });
+                            return result;
+                        });
+                        this.log.silly(`result: ${JSON.stringify(result)}`);
                         const devicetype = {};
-                        for (const element in result.data.device) {
-                            devicetype[result.data.device[element].id] = result.data.device[element].type;
+                        for (const element in result.device) {
+                            devicetype[result.device[element].id] = result.device[element].type;
                             try {
-                                if (result.data.device[element].connectionString) {
+                                if (result.device[element].connectionString) {
                                     // German
                                     let seachstring = 'Besitzt übergeordnetes Gerät:';
-                                    let startindex = result.data.device[element].connectionString.indexOf(seachstring);
+                                    let startindex = result.device[element].connectionString.indexOf(seachstring);
                                     if (startindex === -1) {
                                         // Englisch
                                         seachstring = 'ParentDevice:';
-                                        startindex = result.data.device[element].connectionString.indexOf(seachstring);
+                                        startindex = result.device[element].connectionString.indexOf(seachstring);
                                     }
                                     if (startindex !== -1) {
-                                        const parentDeviceId = result.data.device[element].connectionString.substring(
+                                        const parentDeviceId = result.device[element].connectionString.substring(
                                             seachstring.length,
-                                            result.data.device[element].connectionString.length,
+                                            result.device[element].connectionString.length,
                                         );
                                         if (devicetype[parentDeviceId]) {
-                                            result.data.device[element].parentType = devicetype[parentDeviceId];
+                                            result.device[element].parentType = devicetype[parentDeviceId];
                                         }
                                     }
                                 }
                             } catch (error) {
                                 this.log.error(`Error during searching parent device id: ${error}`);
                             }
-                            const label = `${result.data.device[element].name}  - Device ID: ${result.data.device[element].id}`;
+                            const label = `${result.device[element].name}  - Device ID: ${result.device[element].id}`;
                             const myValueObject = {
-                                id: result.data.device[element].id,
-                                deviceName: result.data.device[element].name,
-                                type: result.data.device[element].type,
+                                id: result.device[element].id,
+                                deviceName: result.device[element].name,
+                                type: result.device[element].type,
                             };
-                            if (result.data.device[element].parentType) {
-                                myValueObject.parentType = result.data.device[element].parentType;
+                            if (result.device[element].parentType) {
+                                myValueObject.parentType = result.device[element].parentType;
                             }
                             devices[myCount] = { label: label, value: JSON.stringify(myValueObject) };
                             myCount++;
@@ -1652,23 +1708,24 @@ class JanitzaGridvis extends utils.Adapter {
                         if (obj.message.device) {
                             const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/online/values.json?`;
                             this.log.silly(`${myUrl} is send to get online values`);
-                            result = await this.getCached(myUrl, 30_000, () =>
-                                axios.get(myUrl, { timeout: this.config.timeout }),
-                            );
-                            this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
+                            result = await this.getCached(myUrl, 30_000, async () => {
+                                const result = await this.fetchJson(myUrl, {
+                                    timeout: this.config.timeout,
+                                });
+                                return result;
+                            });
+                            this.log.silly(`result: ${JSON.stringify(result)}`);
                             const myValues = [];
                             myCount = 0;
-                            for (const values in result.data.valuetype) {
-                                let label = result.data.valuetype[values].valueName;
-                                if (
-                                    result.data.valuetype[values].valueName !== result.data.valuetype[values].typeName
-                                ) {
-                                    label += ` ${result.data.valuetype[values].typeName}`;
+                            for (const values in result.valuetype) {
+                                let label = result.valuetype[values].valueName;
+                                if (result.valuetype[values].valueName !== result.valuetype[values].typeName) {
+                                    label += ` ${result.valuetype[values].typeName}`;
                                 }
-                                const keys = Object.keys(result.data.valuetype[values]).sort();
+                                const keys = Object.keys(result.valuetype[values]).sort();
                                 const myValueObject = {};
                                 keys.forEach(key => {
-                                    myValueObject[key] = result.data.valuetype[values][key];
+                                    myValueObject[key] = result.valuetype[values][key];
                                 });
                                 myValues[myCount] = { label: label, value: JSON.stringify(myValueObject) };
                                 myCount++;
@@ -1693,32 +1750,34 @@ class JanitzaGridvis extends utils.Adapter {
                         if (obj.message.device) {
                             const myUrl = `http://${obj.message.connection.address}:${obj.message.connection.port}/rest/1/projects/${obj.message.connection.projectname}/devices/${obj.message.device.id}/hist/values.json?`;
                             this.log.silly(`${myUrl} is send to get historic values`);
-                            result = await this.getCached(myUrl, 30_000, () =>
-                                axios.get(myUrl, { timeout: this.config.timeout }),
-                            );
-                            this.log.silly(`result.data: ${JSON.stringify(result.data)}`);
+                            result = await this.getCached(myUrl, 30_000, async () => {
+                                const result = await this.fetchJson(myUrl, {
+                                    timeout: this.config.timeout,
+                                });
+                                return result;
+                            });
+                            this.log.silly(`result: ${JSON.stringify(result)}`);
                             const myValues = [];
                             myCount = 0;
                             const listedLabels = {}; // Labels who are allready listed (eg. Power L1 900s & Power L1 60s)
-                            for (const values in result.data.value) {
+                            for (const values in result.value) {
                                 // deactivate supported Units and use all delivered values
-                                //if(this.supportedHistoricalUnits[result.data.value[values].valueType.unit]){
-                                let label = result.data.value[values].valueType.valueName;
+                                //if(this.supportedHistoricalUnits[result.value[values].valueType.unit]){
+                                let label = result.value[values].valueType.valueName;
                                 if (
-                                    result.data.value[values].valueType.valueName !==
-                                    result.data.value[values].valueType.typeName
+                                    result.value[values].valueType.valueName !== result.value[values].valueType.typeName
                                 ) {
-                                    label += ` ${result.data.value[values].valueType.typeName}`;
+                                    label += ` ${result.value[values].valueType.typeName}`;
                                 }
                                 if (!listedLabels[label]) {
                                     listedLabels[label] = label;
                                 } else {
                                     continue;
                                 }
-                                const keys = Object.keys(result.data.value[values].valueType).sort();
+                                const keys = Object.keys(result.value[values].valueType).sort();
                                 const myValueObject = {};
                                 keys.forEach(key => {
-                                    myValueObject[key] = result.data.value[values].valueType[key];
+                                    myValueObject[key] = result.value[values].valueType[key];
                                 });
                                 myValues[myCount] = { label: label, value: JSON.stringify(myValueObject) };
                                 myCount++;

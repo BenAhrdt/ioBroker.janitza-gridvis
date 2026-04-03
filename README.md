@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) use fetch instead of axios and set language to ioBroker language
+
 ### 3.7.2 (2026-04-02)
 * (BenAhrdt) replacement of defined preLabels
 
