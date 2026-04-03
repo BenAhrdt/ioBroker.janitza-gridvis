@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.7.2",
+    "version": "3.7.3",
     "eraseOnUpload": true,
     "news": {
+      "3.7.3": {
+        "en": "use fetch instead of axios and set language to ioBroker language",
+        "de": "verwenden fetch anstelle von axios und setzen Sprache auf ioBroker Sprache",
+        "ru": "используйте fetch вместо axios и установите язык на язык ioBroker",
+        "pt": "usar fetch em vez de axios e definir idioma para ioBroker language",
+        "nl": "fetch gebruiken in plaats van axios en taal instellen op ioBroker-taal",
+        "fr": "utiliser fetch au lieu d'axios et définir la langue dans la langue ioBroker",
+        "it": "utilizzare fetch invece di assio e impostare la lingua a ioBroker",
+        "es": "utilizar el embrague en lugar de axios y establecer el lenguaje a ioBroker",
+        "pl": "użyj aportuj zamiast axios i ustaw język na jOBroker",
+        "uk": "використовувати fetch замість осі і встановити мову в мову ioBroker",
+        "zh-cn": "使用抓取而不是轴并设置语言到ioBroker语言"
+      },
       "3.7.2": {
         "en": "replacement of defined preLabels",
         "de": "ersatz definierter PreLabels",
@@ -81,19 +94,6 @@
         "pl": "Zmień odnośniki do dokumentacji 604",
         "uk": "Зміна посилань на 604 Документація",
         "zh-cn": "更改链接到 604 文档"
-      },
-      "3.6.11": {
-        "en": "Add 604 to Doku and add connection state in deviceManager according to connection State",
-        "de": "604 zu Doku hinzufügen und Verbindungszustand im Gerät hinzufügen Manager nach Verbindungsstaat",
-        "ru": "Добавить 604 в Doku и добавить состояние соединения в устройство Менеджер по состоянию соединения",
-        "pt": "Adicione 604 ao Doku e adicione o estado de conexão no dispositivo Gestor de acordo com o Estado de ligação",
-        "nl": "Voeg 604 toe aan Doku en voeg verbindingsstatus toe aan apparaat Manager volgens verbindingsstaat",
-        "fr": "Ajouter 604 à Doku et ajouter l'état de connexion dans l'appareil Gestionnaire selon l'État de connexion",
-        "it": "Aggiungere 604 a Doku e aggiungere lo stato di connessione nel dispositivo Manager secondo la connessione Stato",
-        "es": "Añadir 604 a Doku y añadir estado de conexión en el dispositivo Manager according to connection State",
-        "pl": "Dodaj 604 do Doku i dodaj stan połączenia w urządzeniu Kierownik według stanu połączenia",
-        "uk": "Додайте 604 до Doku і додайте стан з'єднання в пристрої Менеджер по підключенню Держави",
-        "zh-cn": "在 Doku 中添加 604 并添加连接状态 根据连接状态管理器"
       }
     },
     "titleLang": {

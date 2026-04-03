@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.7.3 (2026-04-03)
 * (BenAhrdt) use fetch instead of axios and set language to ioBroker language
 
 ### 3.7.2 (2026-04-02)
