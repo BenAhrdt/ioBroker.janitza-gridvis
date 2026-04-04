@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.7.4",
+    "version": "3.7.5",
     "eraseOnUpload": true,
     "news": {
+      "3.7.5": {
+        "en": "test changed from 22.x to 24.x",
+        "de": "test von 22.x auf 24.x geändert",
+        "ru": "тест изменился с 22.x на 24.x",
+        "pt": "teste alterado de 22.x para 24.x",
+        "nl": "test veranderd van 22.x naar 24.x",
+        "fr": "test modifié de 22.x à 24.x",
+        "it": "prova cambiata da 22.x a 24.x",
+        "es": "la prueba cambió de 22.x a 24.x",
+        "pl": "test zmieniony z 22.x na 24.x",
+        "uk": "тест змінено з 22.x до 24.x",
+        "zh-cn": "试验从22x改为24x"
+      },
       "3.7.3": {
         "en": "use fetch instead of axios and set language to ioBroker language",
         "de": "verwenden fetch anstelle von axios und setzen Sprache auf ioBroker Sprache",
