@@ -130,5 +130,10 @@
     "DeviceDocumentation": "Device Documentation",
     "General": "General",
     "Manual": "Device Manual",
-    "DataSheet": "Datasheet"
+    "DataSheet": "Datasheet",
+
+    "deviceObject": "Device Object",
+    "DeviceObject": "Device Object",
+    "deviceInfo": "Device Info"
+
 }

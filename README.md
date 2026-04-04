@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) add deviceinfos und deviceObject to card
+
 ### 3.7.3 (2026-04-03)
 * (BenAhrdt) use fetch instead of axios and set language to ioBroker language
 
