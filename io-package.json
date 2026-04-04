@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.7.3",
+    "version": "3.7.4",
     "eraseOnUpload": true,
     "news": {
+      "3.7.4": {
+        "en": "add deviceinfos und deviceObject to card",
+        "de": "deviceinfos und deviceObjekt zur Karte hinzufügen",
+        "ru": "добавить deviceinfos und deviceОбъект к карте",
+        "pt": "adicionar deviceinfos und deviceObject ao cartão",
+        "nl": "apparaatinfos und apparaatObject aan kaart toevoegen",
+        "fr": "ajouter deviceinfos und deviceObject à la carte",
+        "it": "aggiungere deviceinfos und deviceObject alla scheda",
+        "es": "añadir deviceinfos und deviceObjeto a la tarjeta",
+        "pl": "dodaj deviceinfos und deviceObject do karty",
+        "uk": "add deviceinfos und deviceObject to card",
+        "zh-cn": "将设备信息添加到卡片中"
+      },
       "3.7.3": {
         "en": "use fetch instead of axios and set language to ioBroker language",
         "de": "verwenden fetch anstelle von axios und setzen Sprache auf ioBroker Sprache",

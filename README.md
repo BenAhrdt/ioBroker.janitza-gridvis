@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.7.4 (2026-04-04)
 * (BenAhrdt) add deviceinfos und deviceObject to card
 
 ### 3.7.3 (2026-04-03)
