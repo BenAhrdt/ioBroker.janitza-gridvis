@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.7.5",
+    "version": "3.7.6",
     "eraseOnUpload": true,
     "news": {
+      "3.7.6": {
+        "en": "sort entries",
+        "de": "sortieren von einträgen",
+        "ru": "сортировать",
+        "pt": "ordenar entradas",
+        "nl": "items sorteren",
+        "fr": "trier les entrées",
+        "it": "ordinamento",
+        "es": "tipo de entradas",
+        "pl": "sortuj wpisy",
+        "uk": "сортувати записи",
+        "zh-cn": "排序条目"
+      },
       "3.7.5": {
         "en": "test changed from 22.x to 24.x",
         "de": "test von 22.x auf 24.x geändert",
@@ -81,19 +94,6 @@
         "pl": "zaktualizuj zależności skryptu wydania\nzmienić stan połączenia dla urządzeń wirtualnych (wewnętrznych)",
         "uk": "оновлення розділу релізу залежностей\nзмінити стан з'єднання віртуальних (внутрішній) пристроїв",
         "zh-cn": "更新发布脚本依赖性\n更改虚拟(内部)设备的连接状态"
-      },
-      "3.6.12": {
-        "en": "Change Links to 604 Documentation",
-        "de": "Links auf 604 Dokumentation ändern",
-        "ru": "Ссылки на 604 документацию",
-        "pt": "Alterar links para a documentação 604",
-        "nl": "Koppelingen wijzigen naar 604 Documentatie",
-        "fr": "Modifier les liens vers la documentation 604",
-        "it": "Modifica collegamenti a 604 Documentazione",
-        "es": "Cambio de Enlaces a 604 Documentación",
-        "pl": "Zmień odnośniki do dokumentacji 604",
-        "uk": "Зміна посилань на 604 Документація",
-        "zh-cn": "更改链接到 604 文档"
       }
     },
     "titleLang": {

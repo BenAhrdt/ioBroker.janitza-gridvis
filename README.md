@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.7.6 (2026-04-05)
 * (BenAhrdt) sort entries
 
 ### 3.7.5 (2026-04-04)
