@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) sort entries
+
 ### 3.7.5 (2026-04-04)
 * (BenAhrdt) test changed from 22.x to 24.x
 
