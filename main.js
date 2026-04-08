@@ -1284,7 +1284,6 @@ class JanitzaGridvis extends utils.Adapter {
                         this.readSate.online = false;
                         return;
                     }
-                    this.log.warn(JSON.stringify(error));
                     this.log.debug(`${error} after sending ${myUrl}`);
                     this.connectToGridVis();
                 }

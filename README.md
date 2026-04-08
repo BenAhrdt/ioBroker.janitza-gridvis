@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) remove wrong debug warn logging
+
 ### 3.7.8 (2026-04-08)
 * (BenAhrdt) improve handling of http STatus 400 & 404
 
