@@ -32,7 +32,7 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.7.8 (2026-04-08)
 * (BenAhrdt) improve handling of http STatus 400 & 404
 
 ### 3.7.7 (2026-04-05)

@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.7.7",
+    "version": "3.7.8",
     "eraseOnUpload": true,
     "news": {
+      "3.7.8": {
+        "en": "improve handling of http STatus 400 & 404",
+        "de": "verbesserung der Handhabung von http STatus 400 & 404",
+        "ru": "улучшение работы с http STatus 400 и 404",
+        "pt": "melhorar o manuseamento de http Status 400 & 404",
+        "nl": "betere behandeling van http STatus 400 & 404",
+        "fr": "améliorer la gestion des http STatus 400 & 404",
+        "it": "migliorare la gestione di http STatus 400 & 404",
+        "es": "mejorar el manejo de http STatus 400 \" 404",
+        "pl": "poprawa obsługi http STATS 400 & 404",
+        "uk": "поліпшення обробки http STatus 400 & 404",
+        "zh-cn": "改进 http STatus 400 & 404 的处理"
+      },
       "3.7.7": {
         "en": "show id of device",
         "de": "anzeige des geräts",
@@ -81,19 +94,6 @@
         "pl": "wyświetlanie wartości online w karcie",
         "uk": "відображення онлайн Значення в картці",
         "zh-cn": "在卡片中显示在线值"
-      },
-      "3.6.14": {
-        "en": "bugfix dependencies",
-        "de": "bugfix abhängigkeiten",
-        "ru": "багфикс зависимостей",
-        "pt": "dependências de correção de erros",
-        "nl": "bugfix afhankelijkheden",
-        "fr": "dépendances de bugfix",
-        "it": "bugfix dipendenze",
-        "es": "dependencia de bugfix",
-        "pl": "zależności bugfix",
-        "uk": "залежність помилок",
-        "zh-cn": "bugfix 依赖性"
       }
     },
     "titleLang": {
