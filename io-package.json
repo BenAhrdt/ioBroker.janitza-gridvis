@@ -1,9 +1,22 @@
 {
   "common": {
     "name": "janitza-gridvis",
-    "version": "3.7.8",
+    "version": "3.7.9",
     "eraseOnUpload": true,
     "news": {
+      "3.7.9": {
+        "en": "remove wrong debug warn logging",
+        "de": "entfernen falsche debug warnen protokollierung",
+        "ru": "удалите неправильный отладчик предупредите о регистрации",
+        "pt": "remover o registo de aviso de depuração errado",
+        "nl": "verkeerde debug-waarschuwing verwijderen",
+        "fr": "supprimer l'avertissement de débogage incorrect",
+        "it": "rimuovere il debug sbagliato avvertire logging",
+        "es": "remove wrong debug warn logging",
+        "pl": "usunięcie nieprawidłowego alarmu debugowania",
+        "uk": "видалити неправильний debug попередження залогів",
+        "zh-cn": "删除错误的调试警告日志"
+      },
       "3.7.8": {
         "en": "improve handling of http STatus 400 & 404",
         "de": "verbesserung der Handhabung von http STatus 400 & 404",
@@ -81,19 +94,6 @@
         "pl": "typ modelu mocowania błędów = = = niezdefiniowany",
         "uk": "тип моделі виправлення помилок ==",
         "zh-cn": "未定义的除错模式类型qq"
-      },
-      "3.7.0": {
-        "en": "display online Values in card",
-        "de": "online anzeigen Werte in Karte",
-        "ru": "отображение онлайн ценностей в карте",
-        "pt": "exibir valores online na carta",
-        "nl": "weergeven online Waarden in kaart",
-        "fr": "afficher les valeurs en ligne dans la carte",
-        "it": "visualizzazione online Valori nella scheda",
-        "es": "mostrar valores en línea en la tarjeta",
-        "pl": "wyświetlanie wartości online w karcie",
-        "uk": "відображення онлайн Значення в картці",
-        "zh-cn": "在卡片中显示在线值"
       }
     },
     "titleLang": {
