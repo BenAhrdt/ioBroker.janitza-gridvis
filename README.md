@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) improve handling of http STatus 400 & 404
+
 ### 3.7.7 (2026-04-05)
 * (BenAhrdt) show id of device
 

@@ -381,17 +381,26 @@ class JanitzaGridvis extends utils.Adapter {
                 if (allow204) {
                     return null;
                 }
-                throw new Error(`204 No Content: ${url}`);
+                const err = new Error(`204 No Content: ${url}`);
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                err.status = response.status;
+                throw err;
             }
 
             if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${url}`);
+                const err = new Error(`HTTP ${response.status}: ${url}`);
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                err.status = response.status;
+                throw err;
             }
 
             return await response.json();
         } catch (error) {
             if (error.name === 'AbortError') {
-                throw new Error(`Timeout after ${timeout}ms: ${url}`);
+                const err = new Error(`Timeout after ${timeout}ms: ${url}`);
+                throw err;
             }
             throw error;
         } finally {
@@ -671,10 +680,9 @@ class JanitzaGridvis extends utils.Adapter {
                 this.log.debug(`${error} after sending ${myUrl}`);
                 this.reconnectErrorString = `${error} after sending ${myUrl}`;
                 if (
-                    error.response &&
-                    error.response.status &&
-                    (error.response.status === 400 || // bad request
-                        error.response.status === 404)
+                    error.status &&
+                    (error.status === 400 || // bad request
+                        error.status === 404)
                 ) {
                     // not found
                     this.log.warn(`${this.communicationStrings.checkDeviceconfig} --- ${this.reconnectErrorString}`);
@@ -1265,10 +1273,9 @@ class JanitzaGridvis extends utils.Adapter {
                 if (this.internalConnectionState) {
                     this.reconnectErrorString = `${error} after sending ${myUrl}`;
                     if (
-                        error.response &&
-                        error.response.status &&
-                        (error.response.status === 400 || // bad request
-                            error.response.status === 404)
+                        error.status &&
+                        (error.status === 400 || // bad request
+                            error.status === 404)
                     ) {
                         // not found
                         this.log.warn(
@@ -1277,6 +1284,7 @@ class JanitzaGridvis extends utils.Adapter {
                         this.readSate.online = false;
                         return;
                     }
+                    this.log.warn(JSON.stringify(error));
                     this.log.debug(`${error} after sending ${myUrl}`);
                     this.connectToGridVis();
                 }
@@ -1377,10 +1385,9 @@ class JanitzaGridvis extends utils.Adapter {
             if (this.internalConnectionState) {
                 this.reconnectErrorString = `${error} after sending ${myUrl}`;
                 if (
-                    error.response &&
-                    error.response.status &&
-                    (error.response.status === 400 || // bad request
-                        error.response.status === 404)
+                    error.status &&
+                    (error.status === 400 || // bad request
+                        error.status === 404)
                 ) {
                     // not found
                     this.log.warn(`${this.communicationStrings.checkHistoricValues} --- ${this.reconnectErrorString}`);
