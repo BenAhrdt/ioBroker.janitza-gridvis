@@ -65,6 +65,8 @@ Implemented are the following times:
 ### Older entries
 [here](OLD_CHANGELOG.md)
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
