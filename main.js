@@ -461,7 +461,7 @@ class JanitzaGridvis extends utils.Adapter {
             if (!lang) {
                 lang = 'en';
             }
-            const translationsPath = `./admin/i18n/${lang}/translations.json`;
+            const translationsPath = `./admin/i18n/${lang}.json`;
             this.sysConfig = systemConfig;
             return require(translationsPath);
         }
