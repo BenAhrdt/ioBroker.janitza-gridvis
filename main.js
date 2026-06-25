@@ -369,7 +369,7 @@ class JanitzaGridvis extends utils.Adapter {
 
     async fetchJson(url, { timeout = 5000, allow204 = false } = {}) {
         const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeout);
+        const timer = this.setTimeout(() => controller.abort(), timeout);
 
         try {
             const response = await fetch(url, {
@@ -404,7 +404,7 @@ class JanitzaGridvis extends utils.Adapter {
             }
             throw error;
         } finally {
-            clearTimeout(timer);
+            this.clearTimeout(timer);
         }
     }
 
@@ -1551,7 +1551,10 @@ class JanitzaGridvis extends utils.Adapter {
                 Promise.race([
                     this.handleMessage(obj),
                     new Promise((_, reject) =>
-                        setTimeout(() => reject(new Error(`Message timeout: ${obj.command}`)), this.config.timeout * 2),
+                        this.setTimeout(
+                            () => reject(new Error(`Message timeout: ${obj.command}`)),
+                            this.config.timeout * 2,
+                        ),
                     ),
                 ]),
             )
