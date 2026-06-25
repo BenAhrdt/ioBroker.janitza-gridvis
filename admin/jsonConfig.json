@@ -1,8 +1,8 @@
 {
-    "type":"tabs",
+    "type": "tabs",
     "i18n": true,
-    "items":{
-        "mainTab":{
+    "items": {
+        "mainTab": {
             "type": "panel",
             "label": "mainSettings",
             "items": {
@@ -17,27 +17,23 @@
                     "lg": 3,
                     "xl": 3
                 },
-                "conectionInformation":{
-                    "newLine":true,
+                "conectionInformation": {
+                    "newLine": true,
                     "type": "staticText",
                     "label": "justWithRunningAdapter",
-                    "hidden":"_alive === true",
+                    "hidden": "_alive === true",
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
                     "lg": 12,
                     "xl": 12
                 },
-                "connectionState":{
-                    "newLine":true,
+                "connectionState": {
+                    "newLine": true,
                     "type": "textSendTo",
                     "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
                     "command": "getConnectionState",
-                    "alsoDependsOn":[
-                        "address",
-                        "port",
-                        "projectname"
-                    ],
+                    "alsoDependsOn": ["address", "port", "projectname"],
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
@@ -56,10 +52,10 @@
                     "xl": 3
                 },
                 "address": {
-                    "newLine":true,
+                    "newLine": true,
                     "type": "text",
                     "label": "address",
-                    "default":"192.168.2.50",
+                    "default": "192.168.2.50",
                     "xs": 12,
                     "sm": 2,
                     "md": 2,
@@ -76,16 +72,13 @@
                     "lg": 1,
                     "xl": 1
                 },
-                "projectname":{
+                "projectname": {
                     "type": "selectSendTo",
                     "label": "projectname",
                     "default": "No project selected",
                     "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\"}",
                     "command": "getProjects",
-                    "alsoDependsOn":[
-                        "address",
-                        "port"
-                    ],
+                    "alsoDependsOn": ["address", "port"],
                     "xs": 12,
                     "sm": 3,
                     "md": 3,
@@ -119,7 +112,7 @@
                 }
             }
         },
-        "onlinevalueTab":{
+        "onlinevalueTab": {
             "type": "panel",
             "label": "onlinevalues",
             "items": {
@@ -134,27 +127,23 @@
                     "lg": 3,
                     "xl": 3
                 },
-                "conectionInformationOnlineTab":{
-                    "newLine":true,
+                "conectionInformationOnlineTab": {
+                    "newLine": true,
                     "type": "staticText",
                     "label": "justWithRunningAdapter",
-                    "hidden":"_alive === true",
+                    "hidden": "_alive === true",
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
                     "lg": 12,
                     "xl": 12
                 },
-                "connectionStateOnlineTab":{
-                    "newLine":true,
+                "connectionStateOnlineTab": {
+                    "newLine": true,
                     "type": "textSendTo",
                     "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
                     "command": "getConnectionState",
-                    "alsoDependsOn":[
-                        "address",
-                        "port",
-                        "projectname"
-                    ],
+                    "alsoDependsOn": ["address", "port", "projectname"],
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
@@ -183,12 +172,12 @@
                     "md": 2,
                     "lg": 2,
                     "xl": 2
-                  },
-                "onlineDeviceTable":{
+                },
+                "onlineDeviceTable": {
                     "newLine": true,
-                    "type":"table",
+                    "type": "table",
                     "allowAddByFilter": true,
-                    "items":[
+                    "items": [
                         {
                             "type": "selectSendTo",
                             "attr": "onlineDevices",
@@ -206,9 +195,7 @@
                             "sort": false,
                             "jsonData": "{\"connection\":{\"address\":\"${globalData.address}\",\"port\":\"${globalData.port}\",\"projectname\":\"${globalData.projectname}\"},\"device\":\"${data.onlineDevices}\"}",
                             "command": "getOnlineValues",
-                            "alsoDependsOn":[
-                                "onlineDevices"
-                            ]
+                            "alsoDependsOn": ["onlineDevices"]
                         }
                     ],
                     "xs": 12,
@@ -219,7 +206,7 @@
                 }
             }
         },
-        "historicvalueTab":{
+        "historicvalueTab": {
             "type": "panel",
             "label": "historicvalues",
             "items": {
@@ -234,27 +221,23 @@
                     "lg": 3,
                     "xl": 3
                 },
-                "conectionInformationHirstoricTab":{
-                    "newLine":true,
+                "conectionInformationHirstoricTab": {
+                    "newLine": true,
                     "type": "staticText",
                     "label": "justWithRunningAdapter",
-                    "hidden":"_alive === true",
+                    "hidden": "_alive === true",
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
                     "lg": 12,
                     "xl": 12
                 },
-                "connectionStateHistoricTab":{
-                    "newLine":true,
+                "connectionStateHistoricTab": {
+                    "newLine": true,
                     "type": "textSendTo",
                     "jsonData": "{\"address\":\"${data.address}\",\"port\":\"${data.port}\",\"projectname\":\"${data.projectname}\"}",
                     "command": "getConnectionState",
-                    "alsoDependsOn":[
-                        "address",
-                        "port",
-                        "projectname"
-                    ],
+                    "alsoDependsOn": ["address", "port", "projectname"],
                     "xs": 12,
                     "sm": 12,
                     "md": 12,
@@ -265,7 +248,7 @@
                     "newLine": true,
                     "type": "header",
                     "text": "timeBaseForHistoricValues",
-                    "tooltip":"timeBaseHeaderTooltip",
+                    "tooltip": "timeBaseHeaderTooltip",
                     "size": 3,
                     "xs": 12,
                     "sm": 3,
@@ -274,7 +257,7 @@
                     "xl": 3
                 },
                 "historicTimeBase.today": {
-                    "newLine":true,
+                    "newLine": true,
                     "type": "checkbox",
                     "label": "historicToday",
                     "default": true,
@@ -378,7 +361,7 @@
                     "newLine": true,
                     "type": "header",
                     "text": "timeBaseForHistoricValues-1Year",
-                    "tooltip":"timeBaseHeaderMinus1YearTooltip",
+                    "tooltip": "timeBaseHeaderMinus1YearTooltip",
                     "size": 3,
                     "xs": 12,
                     "sm": 3,
@@ -387,7 +370,7 @@
                     "xl": 3
                 },
                 "historicTimeBase.todayMinus1Year": {
-                    "newLine":true,
+                    "newLine": true,
                     "type": "checkbox",
                     "label": "historicTodayMinus1Year",
                     "default": true,
@@ -579,7 +562,7 @@
                     "newLine": true,
                     "type": "header",
                     "text": "timeBaseForHistoricValues-Flexible",
-                    "tooltip":"timeBaseHeaderFlexibleTooltip",
+                    "tooltip": "timeBaseHeaderFlexibleTooltip",
                     "size": 3,
                     "xs": 12,
                     "sm": 3,
@@ -588,7 +571,7 @@
                     "xl": 3
                 },
                 "historicTimeBase.flexibleTime1": {
-                    "newLine":true,
+                    "newLine": true,
                     "type": "checkbox",
                     "label": "historicFlexibleTime1",
                     "default": true,
@@ -671,12 +654,12 @@
                     "md": 2,
                     "lg": 2,
                     "xl": 2
-                  },
-                "historicDeviceTable":{
+                },
+                "historicDeviceTable": {
                     "newLine": true,
-                    "type":"table",
+                    "type": "table",
                     "allowAddByFilter": true,
-                    "items":[
+                    "items": [
                         {
                             "type": "selectSendTo",
                             "attr": "historicDevices",
@@ -694,9 +677,7 @@
                             "sort": false,
                             "jsonData": "{\"connection\":{\"address\":\"${globalData.address}\",\"port\":\"${globalData.port}\",\"projectname\":\"${globalData.projectname}\"},\"device\":\"${data.historicDevices}\"}",
                             "command": "getHistoricValues",
-                            "alsoDependsOn":[
-                                "historicDevices"
-                            ]
+                            "alsoDependsOn": ["historicDevices"]
                         }
                     ],
                     "xs": 12,
@@ -707,30 +688,30 @@
                 }
             }
         },
-	    "_deviceManager": {
-			"type": "panel",
-			"label": "devices",
-			"items": {
-				"_dm": {
-					"type": "deviceManager",
-					"sm": 12,
-					"style": {
-						"width": "100%",
-						"height": "100%",
-						"overflow": "hidden"
-					}
-				}
-			},
-			"style": {
-				"width": "100%",
-				"height": "100%",
-				"overflow": "hidden"
-			},
-			"innerStyle": {
-				"width": "100%",
-				"height": "100%",
-				"overflow": "hidden"
-			}
-		}
+        "_deviceManager": {
+            "type": "panel",
+            "label": "devices",
+            "items": {
+                "_dm": {
+                    "type": "deviceManager",
+                    "sm": 12,
+                    "style": {
+                        "width": "100%",
+                        "height": "100%",
+                        "overflow": "hidden"
+                    }
+                }
+            },
+            "style": {
+                "width": "100%",
+                "height": "100%",
+                "overflow": "hidden"
+            },
+            "innerStyle": {
+                "width": "100%",
+                "height": "100%",
+                "overflow": "hidden"
+            }
+        }
     }
- }
+}
