@@ -295,7 +295,7 @@
           "zh-cn": "电网版本"
         },
         "type": "string",
-        "role": "value",
+        "role": "state",
         "read": true,
         "write": false,
         "def": ""
@@ -343,7 +343,7 @@
           "zh-cn": "相关项目"
         },
         "type": "string",
-        "role": "value",
+        "role": "state",
         "read": true,
         "write": false,
         "def": ""
