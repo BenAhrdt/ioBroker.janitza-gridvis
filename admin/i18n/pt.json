@@ -118,10 +118,10 @@
     "refreshCycle": "ciclo de atualização",
     "timeBaseForHistoricValues": "base de tempo para os valores históricos",
     "timeBaseForHistoricValues-1Year": "base de tempo para os valores históricos 1 ano antes (no passado)",
-    "timeBaseForHistoricValues-Flexible": "timebase for additional historic values (based on timestamps in ms)",
+    "timeBaseForHistoricValues-Flexible": "base de tempo para valores históricos adicionais (baseada em carimbos de data/hora em ms)",
     "timeBaseForHistoricValues-Hours": "base de tempo para valores históricos nas últimas horas",
-    "timeBaseHeaderFlexibleTooltip": "flexible additional timebases (adjustable via timestamp - in ms)",
-    "timeBaseHeaderMinus1YearTooltip": "timebases to compare values (the selected timebase 1 Year in the past).",
+    "timeBaseHeaderFlexibleTooltip": "bases de tempo adicionais flexíveis (ajustáveis por carimbo de data/hora - em ms)",
+    "timeBaseHeaderMinus1YearTooltip": "bases de tempo para comparar valores (a base de tempo selecionada há 1 ano).",
     "timeBaseHeaderTooltip": "bases de tempo para os valores históricos.",
     "timeout": "Tempo limite (ms)"
 }
